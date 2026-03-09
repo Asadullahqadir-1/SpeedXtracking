@@ -17,6 +17,7 @@ export function Footer() {
             <li><Link href="/track-package">Track Package</Link></li>
             <li><Link href="/carriers/speedx">SpeedX Tracking</Link></li>
             <li><Link href="/guides">Shipping Guides</Link></li>
+            <li><Link href="/blog">Blog</Link></li>
           </ul>
         </div>
         <div>

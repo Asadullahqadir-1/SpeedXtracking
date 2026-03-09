@@ -7,6 +7,7 @@ import { buildMetadata } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqSchema, websiteSchema } from "@/lib/seo/schema";
 import { globalFaqs } from "@/content/faqs";
+import { blogPosts } from "@/content/blogs";
 
 export const revalidate = 86400;
 
@@ -14,22 +15,30 @@ export const metadata = buildMetadata({
   title: "SpeedX Tracking | Track Packages from 150+ Global Carriers Instantly",
   description:
     "Track SpeedX, DHL, FedEx, UPS, USPS, and 150+ carriers in one search. Get real-time status updates, delivery estimates, Shein order tracking, and expert troubleshooting guides.",
-  path: "/"
+  path: "/",
+  keywords: [
+    "SpeedX tracking",
+    "track SpeedX package",
+    "SpeedX tracking number",
+    "SpeedX tracking status",
+    "SpeedX Shein tracking",
+    "package tracking"
+  ]
 });
 
 export default function HomePage() {
   return (
-    <div className="container-page py-10">
+    <div className="container-page py-6 sm:py-8 lg:py-10">
       <JsonLd data={websiteSchema()} />
       <JsonLd data={faqSchema(globalFaqs)} />
 
       {/* Hero Section with Universal Tracking */}
-      <section className="rounded-2xl bg-gradient-to-br from-brand-50 to-brand-100 p-8 lg:p-12">
+      <section className="rounded-2xl bg-gradient-to-br from-brand-50 to-brand-100 p-5 sm:p-8 lg:p-12">
         <div className="max-w-4xl">
-          <h1 className="text-4xl font-bold text-slate-900 lg:text-5xl">
+          <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
             Track Any Package in Seconds
           </h1>
-          <p className="mt-4 text-lg text-slate-700">
+          <p className="mt-3 text-base text-slate-700 sm:mt-4 sm:text-lg">
             Enter your tracking number to get real-time delivery updates from SpeedX, DHL, FedEx, UPS, USPS, and 150+ global carriers - all in one search.
           </p>
           <div className="mt-3 flex flex-wrap gap-4 text-sm text-slate-600">
@@ -54,10 +63,10 @@ export default function HomePage() {
       </section>
 
       {/* SpeedX-Focused Section */}
-      <section className="mt-8 section-card bg-slate-50">
+      <section className="mt-8 section-card bg-slate-50 p-5 sm:p-6">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <h2 className="text-2xl font-bold text-slate-900">SpeedX Tracking: Track SpeedX Packages Instantly</h2>
+            <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">SpeedX Tracking: Track SpeedX Packages Instantly</h2>
             <p className="mt-3 text-slate-700 leading-relaxed">
               SpeedX is a leading last-mile delivery carrier specializing in e-commerce shipments from Shein, Temu, and other online retailers. Our SpeedX tracking tool provides real-time status updates for all SpeedX tracking numbers (SPX, SPXSG, SPXCN formats). Get instant delivery estimates, current package location, and detailed scan history. Whether your SpeedX package is in transit, out for delivery, or stuck at a facility, you'll see exactly where it is and when it will arrive.
             </p>
@@ -103,8 +112,8 @@ export default function HomePage() {
       </section>
 
       {/* How It Works */}
-      <section className="mt-8 section-card">
-        <h2 className="text-2xl font-bold text-slate-900">How Package Tracking Works</h2>
+      <section className="mt-8 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">How Package Tracking Works</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           <div className="flex gap-4">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-100 text-lg font-bold text-brand-700">1</div>
@@ -137,8 +146,8 @@ export default function HomePage() {
       </section>
 
       {/* All Carriers - Show all 11 */}
-      <section className="mt-8 section-card">
-        <h2 className="text-2xl font-bold text-slate-900">Track All Major Carriers</h2>
+      <section className="mt-8 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Track All Major Carriers</h2>
         <p className="mt-2 text-slate-600">Support for 150+ global shipping companies including:</p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {carriers.map((carrier) => (
@@ -162,8 +171,8 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="mt-8 section-card bg-gradient-to-br from-slate-50 to-slate-100">
-        <h2 className="text-2xl font-bold text-slate-900">Why Track With Us?</h2>
+      <section className="mt-8 section-card bg-gradient-to-br from-slate-50 to-slate-100 p-5 sm:p-6">
+        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Why Track With Us?</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <div className="flex items-start gap-3">
             <div className="mt-1 rounded-lg bg-brand-100 p-2">
@@ -223,15 +232,15 @@ export default function HomePage() {
       </section>
 
       {/* Troubleshooting Quick Links */}
-      <section className="mt-8 section-card">
-        <h2 className="text-2xl font-bold text-slate-900">Common Tracking Problems?</h2>
+      <section className="mt-8 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Common Tracking Problems?</h2>
         <p className="mt-2 text-slate-600">Quick solutions for the most frequent delivery issues:</p>
         <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          <Link href="/guides/tracking-not-updating" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
+          <Link href="/guides/package-not-updating" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
             <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">📦 Tracking Not Updating</h3>
             <p className="mt-1 text-sm text-slate-600">Why tracking stalls and when to take action</p>
           </Link>
-          <Link href="/guides/package-delayed" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
+          <Link href="/shipping-terms" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
             <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">⏰ Package Delayed</h3>
             <p className="mt-1 text-sm text-slate-600">Steps to resolve unexpected shipping delays</p>
           </Link>
@@ -239,24 +248,49 @@ export default function HomePage() {
             <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">❌ Delivered But Missing</h3>
             <p className="mt-1 text-sm text-slate-600">What to do if package shows delivered but isn't there</p>
           </Link>
-          <Link href="/guides/tracking-status-meanings" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
+          <Link href="/guides/how-to-track-packages" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
             <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">📋 Status Meanings</h3>
             <p className="mt-1 text-sm text-slate-600">Decode in transit, out for delivery, and more</p>
           </Link>
-          <Link href="/carriers/speedx/shein-tracking" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
+          <Link href="/carriers/speedx/shein" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
             <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">🛍️ Shein Orders via SpeedX</h3>
             <p className="mt-1 text-sm text-slate-600">Track Shein packages shipped with SpeedX</p>
           </Link>
-          <Link href="/carriers/speedx/contact-number" className="group rounded-lg border-2 border slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
+          <Link href="/carriers/speedx/contact" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
             <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">📞 Contact SpeedX Support</h3>
             <p className="mt-1 text-sm text-slate-600">Phone number, hours, and escalation steps</p>
           </Link>
         </div>
       </section>
 
+      <section className="mt-8 section-card p-5 sm:p-6">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Latest Blog Articles</h2>
+            <p className="mt-1 text-sm text-slate-600 sm:text-base">Fresh shipping insights and SEO-rich troubleshooting content.</p>
+          </div>
+          <Link href="/blog" className="text-sm font-semibold text-brand-700 hover:underline">
+            View all blog posts
+          </Link>
+        </div>
+
+        <div className="mt-5 grid gap-4 md:grid-cols-3">
+          {blogPosts.slice(0, 3).map((post) => (
+            <article key={post.slug} className="rounded-xl border border-slate-200 p-4 hover:border-brand-500">
+              <p className="text-xs font-semibold text-brand-700">{post.category}</p>
+              <h3 className="mt-2 text-base font-semibold text-slate-900">{post.title}</h3>
+              <p className="mt-2 text-sm text-slate-700">{post.description}</p>
+              <Link href={`/blog/${post.slug}`} className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">
+                Read more →
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+
       {/* Expanded FAQs - show 8 */}
-      <section className="mt-8 section-card">
-        <h2 className="text-2xl font-bold text-slate-900">Frequently Asked Questions</h2>
+      <section className="mt-8 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Frequently Asked Questions</h2>
         <div className="mt-6 grid gap-6 lg:grid-cols-2">
           {globalFaqs.slice(0, 8).map((faq) => (
             <article key={faq.question} className="rounded-lg border border-slate-200 p-5 hover:border-brand-300 hover:bg-brand-50/30">
@@ -273,26 +307,26 @@ export default function HomePage() {
       </section>
 
       {/* Recent Activity Widget */}
-      <section className="mt-8 section-card bg-slate-50">
+      <section className="mt-8 section-card bg-slate-50 p-5 sm:p-6">
         <h2 className="text-xl font-semibold text-slate-900">Recent Tracking Activity</h2>
         <p className="mt-1 text-sm text-slate-600">Live tracking searches from the last hour (tracking numbers anonymized)</p>
         <ul className="mt-4 space-y-2 text-sm">
-          <li className="flex items-center justify-between rounded-lg border border-slate-200 bg-white p-3">
+          <li className="flex flex-col items-start gap-2 rounded-lg border border-slate-200 bg-white p-3 sm:flex-row sm:items-center sm:justify-between">
             <span className="font-mono text-slate-700">SPX2GE0567•••••</span>
             <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">Out for Delivery</span>
             <span className="text-slate-500">New York, NY</span>
           </li>
-          <li className="flex items-center justify-between rounded-lg border border-slate-200 bg-white p-3">
+          <li className="flex flex-col items-start gap-2 rounded-lg border border-slate-200 bg-white p-3 sm:flex-row sm:items-center sm:justify-between">
             <span className="font-mono text-slate-700">1Z84W42•••••••</span>
             <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-700">In Transit</span>
             <span className="text-slate-500">Columbus, OH</span>
           </li>
-          <li className="flex items-center justify-between rounded-lg border border-slate-200 bg-white p-3">
+          <li className="flex flex-col items-start gap-2 rounded-lg border border-slate-200 bg-white p-3 sm:flex-row sm:items-center sm:justify-between">
             <span className="font-mono text-slate-700">9400 11•••••••</span>
             <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">Delivered</span>
             <span className="text-slate-500">Phoenix, AZ</span>
           </li>
-          <li className="flex items-center justify-between rounded-lg border border-slate-200 bg-white p-3">
+          <li className="flex flex-col items-start gap-2 rounded-lg border border-slate-200 bg-white p-3 sm:flex-row sm:items-center sm:justify-between">
             <span className="font-mono text-slate-700">SPXSG123•••••</span>
             <span className="rounded-full bg-yellow-100 px-3 py-1 text-xs font-medium text-yellow-700">At Facility</span>
             <span className="text-slate-500">Los Angeles, CA</span>

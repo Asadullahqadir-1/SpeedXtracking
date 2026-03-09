@@ -30,7 +30,14 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
   return buildMetadata({
     title: current.seoTitle,
     description: current.metaDescription,
-    path: `/carriers/${current.slug}`
+    path: `/carriers/${current.slug}`,
+    keywords: [
+      current.primaryKeyword,
+      `track ${current.carrierName} package`,
+      `${current.carrierName} tracking status`,
+      `${current.carrierName} delivery time`,
+      `${current.carrierName} support`
+    ]
   });
 }
 
@@ -93,7 +100,10 @@ export default async function CarrierPage({ params }: { params: Promise<{ carrie
       />
 
       <h1 className="mt-4 text-3xl font-bold text-slate-900">{current.h1}</h1>
-      <p className="mt-2 max-w-3xl text-slate-700">{current.metaDescription}</p>
+      <p className="mt-2 max-w-3xl text-slate-700">
+        {current.metaDescription} Use this {current.primaryKeyword.toLowerCase()} page to check live events, understand scan timelines,
+        and navigate common delivery exceptions quickly.
+      </p>
       <FreshnessNote date={getFreshnessDate("carriersHub")} />
 
       <section className="mt-6 section-card">
@@ -130,6 +140,24 @@ export default async function CarrierPage({ params }: { params: Promise<{ carrie
         <h2 className="text-xl font-semibold">Common Marketplace Routes</h2>
         <p className="mt-2 text-sm text-slate-700">{current.marketplaces.join(", ")} orders often involve multi-carrier handoffs before final delivery.</p>
       </section>
+
+      {current.slug === "speedx" ? (
+        <section className="mt-6 section-card">
+          <h2 className="text-xl font-semibold">Popular SpeedX Tracking Searches</h2>
+          <p className="mt-2 text-sm text-slate-700">
+            These pages target high-intent SpeedX tracking queries and help users troubleshoot delayed scans, delivery exceptions,
+            and support escalation.
+          </p>
+          <div className="mt-3 grid gap-2 text-sm text-brand-700 md:grid-cols-2">
+            <Link href="/carriers/speedx/package-tracking">SpeedX package tracking</Link>
+            <Link href="/carriers/speedx/track-shipment">Track SpeedX shipment</Link>
+            <Link href="/carriers/speedx/tracking-status">SpeedX tracking status meanings</Link>
+            <Link href="/carriers/speedx/delivery-time-estimate">SpeedX delivery time estimate</Link>
+            <Link href="/carriers/speedx/contact-number">SpeedX tracking support contact</Link>
+            <Link href="/blog/speedx-tracking-not-updating">SpeedX tracking not updating fixes</Link>
+          </div>
+        </section>
+      ) : null}
 
       <section className="mt-6 section-card">
         <h2 className="text-xl font-semibold">Support and Contact</h2>

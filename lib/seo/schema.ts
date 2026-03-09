@@ -44,3 +44,41 @@ export function breadcrumbSchema(items: Array<{ name: string; url: string }>) {
     }))
   };
 }
+
+export function articleSchema({
+  title,
+  description,
+  path,
+  datePublished,
+  dateModified,
+  keywords
+}: {
+  title: string;
+  description: string;
+  path: string;
+  datePublished: string;
+  dateModified: string;
+  keywords: string[];
+}) {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const canonicalUrl = `${siteUrl}${path}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: title,
+    description,
+    mainEntityOfPage: canonicalUrl,
+    datePublished,
+    dateModified,
+    author: {
+      "@type": "Organization",
+      name: "SpeedXTracking"
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "SpeedXTracking"
+    },
+    keywords
+  };
+}

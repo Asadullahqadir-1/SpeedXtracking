@@ -8,8 +8,23 @@ import { siteConfig } from "@/lib/seo/metadata";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: "Track Packages Worldwide | SpeedXTracking",
+  title: {
+    default: "SpeedX Tracking | Track Packages from 150+ Carriers",
+    template: "%s"
+  },
   description: siteConfig.description,
+  openGraph: {
+    title: "SpeedX Tracking | Track Packages from 150+ Carriers",
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SpeedX Tracking | Track Packages from 150+ Carriers",
+    description: siteConfig.description
+  },
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION
   }

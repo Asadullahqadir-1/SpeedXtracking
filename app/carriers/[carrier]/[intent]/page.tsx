@@ -47,7 +47,14 @@ export async function generateMetadata({
   return buildMetadata({
     title,
     description,
-    path: `/carriers/${carrier}/${intent}`
+    path: `/carriers/${carrier}/${intent}`,
+    keywords: [
+      `${currentCarrier.carrierName} ${currentIntent.keywordSuffix}`,
+      `${currentCarrier.carrierName} tracking`,
+      `track ${currentCarrier.carrierName} package`,
+      `${currentCarrier.carrierName} status update`,
+      `${currentCarrier.carrierName} delivery support`
+    ]
   });
 }
 
@@ -93,8 +100,8 @@ export default async function CarrierIntentPage({
         {currentCarrier.carrierName} {currentIntent.titleSuffix}
       </h1>
       <p className="mt-2 max-w-3xl text-slate-700">
-        This page targets {currentCarrier.carrierName.toLowerCase()} {currentIntent.keywordSuffix} searches with tracking steps,
-        status explanations, and support guidance.
+        This {currentCarrier.carrierName} {currentIntent.keywordSuffix} page provides actionable tracking steps, status explanations,
+        and support guidance for users searching {currentCarrier.primaryKeyword.toLowerCase()} terms.
       </p>
       <FreshnessNote date={getFreshnessDate("carriersHub")} />
 
@@ -119,8 +126,11 @@ export default async function CarrierIntentPage({
         <h2 className="text-xl font-semibold">Related pages</h2>
         <div className="mt-3 grid gap-2 text-sm text-brand-700 md:grid-cols-2">
           <Link href={`/carriers/${currentCarrier.slug}`}>{currentCarrier.carrierName} tracking overview</Link>
+          <Link href={`/carriers/${currentCarrier.slug}/package-tracking`}>{currentCarrier.carrierName} package tracking page</Link>
           <Link href={`/carriers/${currentCarrier.slug}/status`}>{currentCarrier.carrierName} status meanings</Link>
+          <Link href={`/carriers/${currentCarrier.slug}/tracking-status`}>{currentCarrier.carrierName} tracking status page</Link>
           <Link href={`/carriers/${currentCarrier.slug}/delivery-time`}>{currentCarrier.carrierName} delivery timeline</Link>
+          <Link href={`/carriers/${currentCarrier.slug}/delivery-time-estimate`}>{currentCarrier.carrierName} delivery estimate</Link>
           <Link href={`/carriers/${currentCarrier.slug}/contact`}>{currentCarrier.carrierName} support options</Link>
         </div>
       </section>

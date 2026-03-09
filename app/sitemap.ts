@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { carriers } from "@/lib/seo/carriers";
 import { guides } from "@/content/guides";
+import { blogPosts } from "@/content/blogs";
 import { longTailIntentSlugs } from "@/lib/seo/longtail";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -11,6 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/track-package",
     "/carriers",
     "/guides",
+    "/blog",
     "/faq",
     "/shipping-terms",
     "/about",
@@ -32,8 +34,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ]);
 
   const guidePages = guides.map((guide) => `/guides/${guide.slug}`);
+  const blogPages = blogPosts.map((post) => `/blog/${post.slug}`);
 
-  return [...staticPages, ...carrierPages, ...guidePages].map((path) => ({
+  return [...staticPages, ...carrierPages, ...guidePages, ...blogPages].map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: new Date(),
     changeFrequency: "weekly",
