@@ -12,9 +12,9 @@ import { blogPosts } from "@/content/blogs";
 export const revalidate = 86400;
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking | Track Packages from 150+ Global Carriers Instantly",
+  title: "Speed X Tracking | Track Your Orders And Shipments Quickly",
   description:
-    "Track SpeedX, DHL, FedEx, UPS, USPS, and 150+ carriers in one search. Get real-time status updates, delivery estimates, Shein order tracking, and expert troubleshooting guides.",
+    "Track any package instantly with SpeedX Tracking. Get real-time updates for DHL, FedEx, UPS, USPS and 150+ global carriers in one fast tracking tool.",
   path: "/",
   keywords: [
     "SpeedX tracking",
