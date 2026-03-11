@@ -9,12 +9,15 @@ import { siteConfig } from "@/lib/seo/metadata";
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "SpeedX Tracking | Track Packages from 150+ Carriers",
+    default: "Speed X Tracking | Track Your Orders And Shipments Quickly",
     template: "%s"
   },
   description: siteConfig.description,
+  icons: {
+    icon: "/images/speed-x-tracking.webp"
+  },
   openGraph: {
-    title: "SpeedX Tracking | Track Packages from 150+ Carriers",
+    title: "Speed X Tracking | Track Your Orders And Shipments Quickly",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
@@ -22,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SpeedX Tracking | Track Packages from 150+ Carriers",
+    title: "Speed X Tracking | Track Your Orders And Shipments Quickly",
     description: siteConfig.description
   },
   verification: {
