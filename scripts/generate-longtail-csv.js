@@ -2,17 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const carriers = [
-  { slug: "speedx", name: "SpeedX" },
-  { slug: "dhl", name: "DHL" },
-  { slug: "fedex", name: "FedEx" },
-  { slug: "ups", name: "UPS" },
-  { slug: "usps", name: "USPS" },
-  { slug: "ontrac", name: "OnTrac" },
-  { slug: "lasership", name: "LaserShip" },
-  { slug: "yunexpress", name: "YunExpress" },
-  { slug: "cainiao", name: "Cainiao" },
-  { slug: "sf-express", name: "SF Express" },
-  { slug: "4px", name: "4PX" }
+  { slug: "speedx", name: "SpeedX" }
 ];
 
 const batch2Intents = [

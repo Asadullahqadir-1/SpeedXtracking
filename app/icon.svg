@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="SpeedXTracking icon">
+  <rect width="64" height="64" rx="14" fill="#ffffff"/>
+  <path d="M14 16h13l8 11 8-11h7L39 31l12 17H38L27 34 17 48H10l13-18-9-14Z" fill="#1d4ed8"/>
+  <path d="M33 16h13L29 40H16z" fill="#38bdf8"/>
+</svg>

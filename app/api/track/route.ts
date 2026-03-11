@@ -22,14 +22,18 @@ function normalizeInput(trackingNumber: string, carrier: string) {
     throw new TrackingError("invalid_input", "Tracking number format is invalid.", 400);
   }
 
-  if (!normalizedCarrier || normalizedCarrier === "other" || normalizedCarrier === "auto") {
-    const detectedCarrier = detectCarrier(normalizedTrackingNumber);
+  const detectedCarrier = detectCarrier(normalizedTrackingNumber);
 
+  if (!normalizedCarrier || normalizedCarrier === "other" || normalizedCarrier === "auto") {
     if (!detectedCarrier) {
       throw new TrackingError("invalid_input", "Carrier can not be detected.", 400);
     }
 
     normalizedCarrier = detectedCarrier;
+  }
+
+  if (normalizedCarrier === "speedx" && detectedCarrier !== "speedx") {
+    throw new TrackingError("invalid_input", "Carrier can not be detected.", 400);
   }
 
   if (!/^[a-z0-9-]{2,40}$/.test(normalizedCarrier)) {
@@ -113,7 +117,7 @@ async function handleTrackingRequest({
 
 export async function GET(request: NextRequest) {
   const trackingNumber = request.nextUrl.searchParams.get("trackingNumber")?.trim() ?? "";
-  const carrier = request.nextUrl.searchParams.get("carrier")?.trim() || "auto";
+  const carrier = request.nextUrl.searchParams.get("carrier")?.trim() || "speedx";
 
   return handleTrackingRequest({
     trackingNumber,
@@ -131,7 +135,7 @@ export async function POST(request: NextRequest) {
     | null;
 
   const trackingNumber = body?.trackingNumber?.trim() ?? "";
-  const carrier = body?.carrier?.trim() || "auto";
+  const carrier = body?.carrier?.trim() || "speedx";
 
   return handleTrackingRequest({
     trackingNumber,

@@ -147,7 +147,7 @@ export const blogPosts: BlogPost[] = [
     slug: "tracking-status-meanings-explained",
     title: "SpeedX Tracking Status Meanings Explained: In Transit, Exception, Delivered",
     description:
-      "Decode common SpeedX tracking statuses across SpeedX, USPS, UPS, and FedEx to know exactly what action to take.",
+      "Decode common SpeedX tracking statuses so you know exactly what action to take at each shipment stage.",
     category: "Tracking Basics",
     readTime: "9 min read",
     publishedDate: "2026-02-09",

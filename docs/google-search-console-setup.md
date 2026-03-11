@@ -29,7 +29,7 @@ Request indexing for:
 - `/`
 - `/track-package`
 - `/carriers/speedx`
-- `/carriers/dhl`
+- `/carriers/speedx/status`
 - `/guides/how-to-track-packages`
 - `/faq`
 

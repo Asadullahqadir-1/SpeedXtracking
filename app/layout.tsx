@@ -14,7 +14,9 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: "/images/speed-x-tracking.webp"
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: ["/icon.svg"],
+    apple: [{ url: "/icon.svg", type: "image/svg+xml" }]
   },
   openGraph: {
     title: "Speed X Tracking | Track Your Orders And Shipments Quickly",

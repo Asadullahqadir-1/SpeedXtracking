@@ -1,19 +1,7 @@
 const CARRIER_PATTERNS: Array<{ carrier: string; pattern: RegExp }> = [
-  { carrier: "usps", pattern: /^(94|93|92|94|95)[0-9]{20,22}$/i },
-  { carrier: "usps", pattern: /^[A-Z]{2}[0-9]{9}US$/i },
-  { carrier: "ups", pattern: /^1Z[0-9A-Z]{16}$/i },
-  { carrier: "fedex", pattern: /^[0-9]{12}$/ },
-  { carrier: "fedex", pattern: /^[0-9]{15}$/ },
-  { carrier: "fedex", pattern: /^[0-9]{20}$/ },
-  { carrier: "dhl", pattern: /^[0-9]{10,11}$/ },
-  { carrier: "dhl", pattern: /^JD[0-9]{14,18}$/i },
   { carrier: "speedx", pattern: /^SPX[0-9A-Z]{8,32}$/i },
-  { carrier: "ontrac", pattern: /^D[0-9]{14,20}$/i },
-  { carrier: "lasership", pattern: /^LS[0-9A-Z]{8,24}$/i },
-  { carrier: "yunexpress", pattern: /^YT[0-9A-Z]{8,22}$/i },
-  { carrier: "cainiao", pattern: /^[A-Z]{2}[0-9]{9}CN$/i },
-  { carrier: "sf-express", pattern: /^SF[0-9]{12,16}$/i },
-  { carrier: "4px", pattern: /^4PX[0-9A-Z]{8,24}$/i }
+  { carrier: "speedx", pattern: /^SPXSG[0-9A-Z]{6,28}$/i },
+  { carrier: "speedx", pattern: /^SPXCN[0-9A-Z]{6,28}$/i }
 ];
 
 function isObviouslyDummy(trackingNumber: string): boolean {

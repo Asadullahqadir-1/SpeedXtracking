@@ -3,25 +3,20 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
-import { carriers } from "@/lib/seo/carriers";
 
 type TrackingFormProps = {
   defaultCarrier?: string;
   compact?: boolean;
 };
 
-export function TrackingForm({ defaultCarrier = "auto", compact = false }: TrackingFormProps) {
+export function TrackingForm({ defaultCarrier = "speedx", compact = false }: TrackingFormProps) {
   const router = useRouter();
   const [trackingNumber, setTrackingNumber] = useState("");
-  const [carrier, setCarrier] = useState(defaultCarrier);
-  const carrierOptions = carriers.map((item) => ({
-    value: item.slug,
-    label: item.carrierName
-  }));
+  const carrier = defaultCarrier;
 
   return (
     <form
-      className={`grid gap-3 ${compact ? "md:grid-cols-[2fr,1fr,auto]" : "md:grid-cols-[3fr,1fr,auto]"}`}
+      className={`grid gap-3 ${compact ? "md:grid-cols-[1fr,auto]" : "md:grid-cols-[1fr,auto]"}`}
       onSubmit={(event) => {
         event.preventDefault();
         if (!trackingNumber.trim()) {
@@ -45,20 +40,6 @@ export function TrackingForm({ defaultCarrier = "auto", compact = false }: Track
         onChange={(event) => setTrackingNumber(event.target.value)}
         aria-label="Tracking number"
       />
-      <select
-        className="rounded-lg border border-slate-300 px-4 py-3 text-sm"
-        value={carrier}
-        onChange={(event) => setCarrier(event.target.value)}
-        aria-label="Carrier"
-      >
-        <option value="auto">Auto Detect</option>
-        {carrierOptions.map((option) => (
-          <option key={option.value} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-        <option value="other">Other (Detect)</option>
-      </select>
       <button
         type="submit"
         className="rounded-lg bg-brand-600 px-5 py-3 text-sm font-semibold text-white hover:bg-brand-700"

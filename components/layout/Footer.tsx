@@ -22,7 +22,7 @@ export function Footer() {
               <h2 className="text-xl font-bold">SpeedXTracking</h2>
             </div>
             <p className="text-sm text-slate-300">
-              Real-time package tracking for 150+ carriers worldwide.
+              Real-time SpeedX tracking, delivery updates, and support guidance for e-commerce shipments.
             </p>
           </div>
 
@@ -32,19 +32,19 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/" className="text-slate-300 hover:text-white transition">Homepage</Link></li>
               <li><Link href="/track-package" className="text-slate-300 hover:text-white transition">Track Package</Link></li>
-              <li><Link href="/carriers" className="text-slate-300 hover:text-white transition">All Carriers</Link></li>
+              <li><Link href="/carriers/speedx" className="text-slate-300 hover:text-white transition">SpeedX Hub</Link></li>
               <li><Link href="/guides" className="text-slate-300 hover:text-white transition">Guides</Link></li>
             </ul>
           </div>
 
-          {/* Popular Carriers */}
+          {/* SpeedX Resources */}
           <div>
-            <h3 className="mb-4 font-semibold text-white">Track Carriers</h3>
+            <h3 className="mb-4 font-semibold text-white">SpeedX Resources</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/carriers/speedx" className="text-slate-300 hover:text-white transition">SpeedX</Link></li>
-              <li><Link href="/carriers/dhl" className="text-slate-300 hover:text-white transition">DHL</Link></li>
-              <li><Link href="/carriers/fedex" className="text-slate-300 hover:text-white transition">FedEx</Link></li>
-              <li><Link href="/carriers/ups" className="text-slate-300 hover:text-white transition">UPS</Link></li>
+              <li><Link href="/carriers/speedx/status" className="text-slate-300 hover:text-white transition">Status Meanings</Link></li>
+              <li><Link href="/carriers/speedx/delivery-time" className="text-slate-300 hover:text-white transition">Delivery Time</Link></li>
+              <li><Link href="/carriers/speedx/contact" className="text-slate-300 hover:text-white transition">Contact Support</Link></li>
             </ul>
           </div>
 
@@ -71,7 +71,7 @@ export function Footer() {
             © {currentYear} SpeedXTracking. All rights reserved.
           </p>
           <p className="text-sm text-slate-400">
-            Independent tracking platform | Not affiliated with carriers
+            Independent SpeedX tracking resource | Not affiliated with SpeedX
           </p>
         </div>
       </div>

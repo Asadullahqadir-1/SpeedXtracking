@@ -5,7 +5,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 export const siteConfig = {
   name: "SpeedXTracking",
   description:
-    "Track any package instantly with SpeedX Tracking. Get real-time updates for DHL, FedEx, UPS, USPS and 150+ global carriers in one fast tracking tool.",
+    "Track SpeedX shipments instantly with live status updates, delivery estimates, and troubleshooting help for SpeedX orders.",
   url: siteUrl
 };
 

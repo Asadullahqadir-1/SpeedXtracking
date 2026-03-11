@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const navItems = [
   { href: "/track-package", label: "Track Package" },
-  { href: "/carriers", label: "Carriers" },
+  { href: "/carriers/speedx", label: "SpeedX Hub" },
   { href: "/guides", label: "Guides" },
   { href: "/blog", label: "Blog" },
   { href: "/faq", label: "FAQ" }

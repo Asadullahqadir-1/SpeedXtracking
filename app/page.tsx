@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { FreshnessNote } from "@/components/seo/FreshnessNote";
 import { TrackingForm } from "@/components/tracking/TrackingForm";
-import { carriers } from "@/lib/seo/carriers";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -14,7 +13,7 @@ export const revalidate = 86400;
 export const metadata = buildMetadata({
   title: "Speed X Tracking | Track Your Orders And Shipments Quickly",
   description:
-    "Track any package instantly with SpeedX Tracking. Get real-time updates for DHL, FedEx, UPS, USPS and 150+ global carriers in one fast tracking tool.",
+    "Track SpeedX shipments instantly with live status updates, delivery estimates, and troubleshooting help for SpeedX orders.",
   path: "/",
   keywords: [
     "SpeedX tracking",
@@ -32,14 +31,14 @@ export default function HomePage() {
       <JsonLd data={websiteSchema()} />
       <JsonLd data={faqSchema(globalFaqs)} />
 
-      {/* Hero Section with Universal Tracking */}
+      {/* Hero Section */}
       <section className="rounded-2xl bg-gradient-to-br from-brand-50 to-brand-100 p-5 sm:p-8 lg:p-12">
         <div className="max-w-4xl">
           <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
-            Track Any Package in Seconds
+            Track SpeedX Packages in Seconds
           </h1>
           <p className="mt-3 text-base text-slate-700 sm:mt-4 sm:text-lg">
-            Enter your tracking number to get real-time delivery updates from SpeedX, DHL, FedEx, UPS, USPS, and 150+ global carriers - all in one search.
+            Enter your SpeedX tracking number to get real-time delivery updates, status scans, and estimated delivery information in one place.
           </p>
           <div className="mt-3 flex flex-wrap gap-4 text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
@@ -48,7 +47,7 @@ export default function HomePage() {
             </span>
             <span className="flex items-center gap-1.5">
               <svg className="h-5 w-5 text-brand-600" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
-              150+ carriers
+              SpeedX-focused support
             </span>
             <span className="flex items-center gap-1.5">
               <svg className="h-5 w-5 text-brand-600" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
@@ -82,10 +81,10 @@ export default function HomePage() {
           <Link href="/carriers/speedx/package-tracking" className="btn-secondary">
             Track SpeedX Package
           </Link>
-          <Link href="/carriers/speedx/tracking-status" className="btn-secondary">
+          <Link href="/carriers/speedx/status" className="btn-secondary">
             Check SpeedX Status
           </Link>
-          <Link href="/carriers/speedx/delivery-time-estimate" className="btn-secondary">
+          <Link href="/carriers/speedx/delivery-time" className="btn-secondary">
             SpeedX Delivery Times
           </Link>
         </div>
@@ -94,8 +93,8 @@ export default function HomePage() {
       {/* Stats Section */}
       <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 p-6 text-center">
-          <div className="text-3xl font-bold text-blue-900">150+</div>
-          <div className="mt-1 text-sm font-medium text-blue-700">Global Carriers</div>
+          <div className="text-3xl font-bold text-blue-900">1</div>
+          <div className="mt-1 text-sm font-medium text-blue-700">Dedicated Carrier Focus</div>
         </div>
         <div className="rounded-xl bg-gradient-to-br from-green-50 to-green-100 p-6 text-center">
           <div className="text-3xl font-bold text-green-900">10M+</div>
@@ -120,7 +119,7 @@ export default function HomePage() {
             <div>
               <h3 className="font-semibold text-slate-900">Enter Tracking Number</h3>
               <p className="mt-1 text-sm text-slate-600">
-                Paste your tracking number from order confirmation email or carrier notification. Works with all major formats.
+                Paste your SpeedX tracking number from your order confirmation email or delivery notification.
               </p>
             </div>
           </div>
@@ -145,28 +144,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* All Carriers - Show all 11 */}
       <section className="mt-8 section-card p-5 sm:p-6">
-        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Track All Major Carriers</h2>
-        <p className="mt-2 text-slate-600">Support for 150+ global shipping companies including:</p>
+        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Popular SpeedX Resources</h2>
+        <p className="mt-2 text-slate-600">Go directly to the most useful SpeedX tracking and support pages.</p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {carriers.map((carrier) => (
-            <Link 
-              key={carrier.slug} 
-              href={`/carriers/${carrier.slug}`} 
-              className="group rounded-xl border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:shadow-md"
-            >
-              <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">
-                {carrier.carrierName}
-              </h3>
-              <p className="mt-1 text-xs text-slate-600">
-                {carrier.domesticEta} domestic • {carrier.internationalEta} international
-              </p>
-              <span className="mt-2 inline-block text-xs font-medium text-brand-600">
-                Track {carrier.carrierName} →
-              </span>
-            </Link>
-          ))}
+          <Link href="/carriers/speedx" className="group rounded-xl border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:shadow-md">
+            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">SpeedX Overview</h3>
+            <p className="mt-1 text-xs text-slate-600">Tracking basics, support links, and ETA guidance</p>
+            <span className="mt-2 inline-block text-xs font-medium text-brand-600">Open hub →</span>
+          </Link>
+          <Link href="/carriers/speedx/status" className="group rounded-xl border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:shadow-md">
+            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">Status Meanings</h3>
+            <p className="mt-1 text-xs text-slate-600">Understand in transit, exception, and delivered scans</p>
+            <span className="mt-2 inline-block text-xs font-medium text-brand-600">Check statuses →</span>
+          </Link>
+          <Link href="/carriers/speedx/delivery-time" className="group rounded-xl border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:shadow-md">
+            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">Delivery Times</h3>
+            <p className="mt-1 text-xs text-slate-600">Review domestic and international SpeedX timelines</p>
+            <span className="mt-2 inline-block text-xs font-medium text-brand-600">View ETA guide →</span>
+          </Link>
+          <Link href="/carriers/speedx/contact" className="group rounded-xl border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:shadow-md">
+            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">Support Contact</h3>
+            <p className="mt-1 text-xs text-slate-600">Find the right SpeedX support channel for delays and claims</p>
+            <span className="mt-2 inline-block text-xs font-medium text-brand-600">Get help →</span>
+          </Link>
         </div>
       </section>
 
@@ -180,7 +181,7 @@ export default function HomePage() {
             </div>
             <div>
               <h3 className="font-semibold text-slate-900">Lightning Fast Results</h3>
-              <p className="mt-1 text-sm text-slate-600">Get tracking updates in under 2 seconds from 150+ carriers worldwide without signup delays.</p>
+              <p className="mt-1 text-sm text-slate-600">Get SpeedX tracking updates quickly without login friction or carrier-directory clutter.</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
@@ -207,7 +208,7 @@ export default function HomePage() {
             </div>
             <div>
               <h3 className="font-semibold text-slate-900">Global Coverage</h3>
-              <p className="mt-1 text-sm text-slate-600">Track international shipments across borders with real-time customs and handoff updates.</p>
+              <p className="mt-1 text-sm text-slate-600">Track domestic and international SpeedX shipments with clearer status context and delivery guidance.</p>
             </div>
           </div>
           <div className="flex items-start gap-3">

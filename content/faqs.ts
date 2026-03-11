@@ -27,7 +27,7 @@ export const globalFaqs = [
   {
     question: "How do I track my package?",
     answer:
-      "Enter your tracking number in the search box above, select your carrier (SpeedX, FedEx, UPS, DHL, etc.), and view real-time status updates, delivery estimates, and location history."
+      "Enter your SpeedX tracking number in the search box above to view live status updates, delivery estimates, and recent location history."
   },
   {
     question: "SpeedX says delivered but I didn't receive it - what now?",
@@ -37,7 +37,7 @@ export const globalFaqs = [
   {
     question: "What carriers can I track on this site?",
     answer:
-      "You can track SpeedX, DHL, FedEx, UPS, USPS, OnTrac, LaserShip, YunExpress, Cainiao, SF Express, 4PX, and 150+ other global carriers - all in one search."
+      "This site is focused on SpeedX tracking only. Use it for SpeedX shipment updates, delivery timelines, status explanations, and support guidance."
   },
   {
     question: "Why is my tracking stuck at customs?",
@@ -65,9 +65,9 @@ export const globalFaqs = [
       "We temporarily cache tracking results for 15 minutes to improve speed. No personal information is permanently stored. Check our privacy policy for full details."
   },
   {
-    question: "What's the difference between SpeedX and USPS?",
+    question: "What tracking numbers work on this site?",
     answer:
-      "SpeedX is a private last-mile carrier specializing in e-commerce deliveries (Shein, Temu, etc.) with 3-5 day domestic service. USPS is the government postal service with broader reach but often slower e-commerce delivery."
+      "Use official SpeedX tracking numbers, commonly beginning with SPX. If a number does not match a SpeedX shipment format, the tracker will ask you to verify the carrier or tracking number."
   },
   {
     question: "Can I change my SpeedX delivery address?",
