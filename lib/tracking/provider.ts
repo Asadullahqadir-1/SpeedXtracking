@@ -227,7 +227,7 @@ export async function getTrackingData({
 
   throw new TrackingError(
     "provider_unavailable",
-    "Tracking service is not configured. Add provider API keys to enable live tracking.",
+    "Tracking service is not configured. Add a free TRACKING_17TRACK_API_KEY in Vercel env to enable live tracking.",
     503
   );
 }

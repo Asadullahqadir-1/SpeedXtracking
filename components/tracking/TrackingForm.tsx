@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { carriers } from "@/lib/seo/carriers";
 
 type TrackingFormProps = {
   defaultCarrier?: string;
@@ -13,6 +14,10 @@ export function TrackingForm({ defaultCarrier = "auto", compact = false }: Track
   const router = useRouter();
   const [trackingNumber, setTrackingNumber] = useState("");
   const [carrier, setCarrier] = useState(defaultCarrier);
+  const carrierOptions = carriers.map((item) => ({
+    value: item.slug,
+    label: item.carrierName
+  }));
 
   return (
     <form
@@ -47,11 +52,11 @@ export function TrackingForm({ defaultCarrier = "auto", compact = false }: Track
         aria-label="Carrier"
       >
         <option value="auto">Auto Detect</option>
-        <option value="speedx">SpeedX</option>
-        <option value="dhl">DHL</option>
-        <option value="fedex">FedEx</option>
-        <option value="ups">UPS</option>
-        <option value="usps">USPS</option>
+        {carrierOptions.map((option) => (
+          <option key={option.value} value={option.value}>
+            {option.label}
+          </option>
+        ))}
         <option value="other">Other (Detect)</option>
       </select>
       <button
