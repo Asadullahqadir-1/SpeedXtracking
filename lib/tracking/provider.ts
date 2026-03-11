@@ -123,7 +123,7 @@ async function fetchFromProvider({
   trackingNumber: string;
   carrier: string;
 }): Promise<TrackingResponse> {
-  const provider = (process.env.TRACKING_PROVIDER || "mock").toLowerCase();
+  const provider = (process.env.TRACKING_PROVIDER || "auto").toLowerCase();
   const adapter = trackingAdapters[provider];
 
   if (!adapter) {
@@ -190,22 +190,44 @@ export async function getTrackingData({
   trackingNumber: string;
   carrier: string;
 }): Promise<TrackingResponse> {
-  const provider = (process.env.TRACKING_PROVIDER || "mock").toLowerCase();
+  const requestedProvider = (process.env.TRACKING_PROVIDER || "auto").toLowerCase();
+  const hasAfterShip = Boolean(process.env.TRACKING_AFTERSHIP_API_KEY || process.env.TRACKING_API_KEY);
+  const has17Track = Boolean(process.env.TRACKING_17TRACK_API_KEY || process.env.TRACKING_API_KEY);
+  const hasGeneric = Boolean(process.env.TRACKING_API_BASE_URL && process.env.TRACKING_API_KEY);
+
+  const provider =
+    requestedProvider === "auto"
+      ? hasAfterShip
+        ? "aftership"
+        : has17Track
+          ? "17track"
+          : hasGeneric
+            ? "generic"
+            : "unconfigured"
+      : requestedProvider;
 
   if (provider === "17track" || provider === "aftership") {
     return fetchFromProvider({ trackingNumber, carrier });
   }
 
-  if (provider !== "mock") {
+  if (provider === "mock") {
+    return {
+      carrier,
+      trackingNumber,
+      currentStatus: "Out for Delivery",
+      eta: "Today by 8:00 PM",
+      timeline: buildMockTimeline(carrier),
+      confidence: "medium"
+    };
+  }
+
+  if (provider === "generic") {
     return fetchFromGenericProvider({ trackingNumber, carrier });
   }
 
-  return {
-    carrier,
-    trackingNumber,
-    currentStatus: "Out for Delivery",
-    eta: "Today by 8:00 PM",
-    timeline: buildMockTimeline(carrier),
-    confidence: "medium"
-  };
+  throw new TrackingError(
+    "provider_unavailable",
+    "Tracking service is not configured. Add provider API keys to enable live tracking.",
+    503
+  );
 }

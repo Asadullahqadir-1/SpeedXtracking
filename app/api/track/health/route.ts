@@ -4,11 +4,12 @@ import { trackingAdapters } from "@/lib/tracking/adapters";
 type HealthStatus = "ok" | "warning";
 
 export async function GET() {
-  const provider = (process.env.TRACKING_PROVIDER || "mock").toLowerCase();
+  const provider = (process.env.TRACKING_PROVIDER || "auto").toLowerCase();
 
   const isMock = provider === "mock";
+  const isAuto = provider === "auto";
   const isKnownAdapter = Boolean(trackingAdapters[provider]);
-  const isGeneric = !isMock && !isKnownAdapter;
+  const isGeneric = !isMock && !isAuto && !isKnownAdapter;
 
   const genericConfigured = Boolean(process.env.TRACKING_API_BASE_URL && process.env.TRACKING_API_KEY);
   const afterShipConfigured = Boolean(process.env.TRACKING_AFTERSHIP_API_KEY || process.env.TRACKING_API_KEY);
@@ -19,6 +20,19 @@ export async function GET() {
 
   if (isMock) {
     messages.push("Using mock tracking provider.");
+  }
+
+  if (provider === "auto") {
+    if (afterShipConfigured) {
+      messages.push("Auto mode will use AfterShip.");
+    } else if (track17Configured) {
+      messages.push("Auto mode will use 17TRACK.");
+    } else if (genericConfigured) {
+      messages.push("Auto mode will use generic provider.");
+    } else {
+      status = "warning";
+      messages.push("Auto mode has no provider credentials configured.");
+    }
   }
 
   if (provider === "17track" && !track17Configured) {
@@ -44,7 +58,7 @@ export async function GET() {
     {
       status,
       provider,
-      mode: isMock ? "mock" : isKnownAdapter ? "adapter" : "generic",
+      mode: isMock ? "mock" : isAuto ? "auto" : isKnownAdapter ? "adapter" : "generic",
       checks: {
         genericConfigured,
         track17Configured,

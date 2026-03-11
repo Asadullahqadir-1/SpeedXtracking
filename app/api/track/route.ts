@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getTrackingData } from "@/lib/tracking/provider";
 import { checkRateLimit } from "@/lib/tracking/rate-limit";
 import { TrackingError } from "@/lib/tracking/errors";
+import { detectCarrier } from "@/lib/tracking/carrier-detection";
 
 function extractClientKey(request: NextRequest) {
   const forwardedFor = request.headers.get("x-forwarded-for");
@@ -11,7 +12,7 @@ function extractClientKey(request: NextRequest) {
 
 function normalizeInput(trackingNumber: string, carrier: string) {
   const normalizedTrackingNumber = trackingNumber.trim();
-  const normalizedCarrier = carrier.trim().toLowerCase();
+  let normalizedCarrier = carrier.trim().toLowerCase();
 
   if (!normalizedTrackingNumber || normalizedTrackingNumber.length < 6 || normalizedTrackingNumber.length > 64) {
     throw new TrackingError("invalid_input", "Tracking number must be between 6 and 64 characters.", 400);
@@ -19,6 +20,16 @@ function normalizeInput(trackingNumber: string, carrier: string) {
 
   if (!/^[a-zA-Z0-9-]+$/.test(normalizedTrackingNumber)) {
     throw new TrackingError("invalid_input", "Tracking number format is invalid.", 400);
+  }
+
+  if (!normalizedCarrier || normalizedCarrier === "other" || normalizedCarrier === "auto") {
+    const detectedCarrier = detectCarrier(normalizedTrackingNumber);
+
+    if (!detectedCarrier) {
+      throw new TrackingError("invalid_input", "Carrier can not be detected.", 400);
+    }
+
+    normalizedCarrier = detectedCarrier;
   }
 
   if (!/^[a-z0-9-]{2,40}$/.test(normalizedCarrier)) {
@@ -102,7 +113,7 @@ async function handleTrackingRequest({
 
 export async function GET(request: NextRequest) {
   const trackingNumber = request.nextUrl.searchParams.get("trackingNumber")?.trim() ?? "";
-  const carrier = request.nextUrl.searchParams.get("carrier")?.trim() || "speedx";
+  const carrier = request.nextUrl.searchParams.get("carrier")?.trim() || "auto";
 
   return handleTrackingRequest({
     trackingNumber,
@@ -120,7 +131,7 @@ export async function POST(request: NextRequest) {
     | null;
 
   const trackingNumber = body?.trackingNumber?.trim() ?? "";
-  const carrier = body?.carrier?.trim() || "speedx";
+  const carrier = body?.carrier?.trim() || "auto";
 
   return handleTrackingRequest({
     trackingNumber,

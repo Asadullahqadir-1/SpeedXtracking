@@ -26,7 +26,8 @@ export function TrackingLookup({ trackingNumber, carrier }: TrackingLookupProps)
         );
 
         if (!response.ok) {
-          throw new Error("Unable to fetch tracking details.");
+          const payload = (await response.json().catch(() => null)) as { error?: string } | null;
+          throw new Error(payload?.error || "Unable to fetch tracking details.");
         }
 
         setData((await response.json()) as TrackingResponse);

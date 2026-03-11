@@ -19,7 +19,7 @@ export default async function TrackPackagePage({
 }: {
   searchParams: Promise<{ trackingNumber?: string; carrier?: string }>;
 }) {
-  const { trackingNumber = "", carrier = "speedx" } = await searchParams;
+  const { trackingNumber = "", carrier = "auto" } = await searchParams;
   const adaptiveClusters = buildAdaptiveClusters([getGlobalTroubleshootingCluster()], {
     pageKey: "track-package",
     primaryHrefs: ["/guides/package-not-updating", "/guides/how-to-track-packages"],

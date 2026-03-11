@@ -9,7 +9,7 @@ type TrackingFormProps = {
   compact?: boolean;
 };
 
-export function TrackingForm({ defaultCarrier = "speedx", compact = false }: TrackingFormProps) {
+export function TrackingForm({ defaultCarrier = "auto", compact = false }: TrackingFormProps) {
   const router = useRouter();
   const [trackingNumber, setTrackingNumber] = useState("");
   const [carrier, setCarrier] = useState(defaultCarrier);
@@ -46,12 +46,13 @@ export function TrackingForm({ defaultCarrier = "speedx", compact = false }: Tra
         onChange={(event) => setCarrier(event.target.value)}
         aria-label="Carrier"
       >
+        <option value="auto">Auto Detect</option>
         <option value="speedx">SpeedX</option>
         <option value="dhl">DHL</option>
         <option value="fedex">FedEx</option>
         <option value="ups">UPS</option>
         <option value="usps">USPS</option>
-        <option value="other">Other</option>
+        <option value="other">Other (Detect)</option>
       </select>
       <button
         type="submit"
