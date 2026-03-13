@@ -3,15 +3,22 @@ import { LinkClusters } from "@/components/seo/LinkClusters";
 import { TrackingForm } from "@/components/tracking/TrackingForm";
 import { TrackingLookup } from "@/components/tracking/TrackingLookup";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { faqSchema } from "@/lib/seo/schema";
+import { faqSchema, webPageSchema } from "@/lib/seo/schema";
 import { globalFaqs } from "@/content/faqs";
 import { buildAdaptiveClusters, getGlobalTroubleshootingCluster } from "@/lib/seo/internal-links";
 
 export const metadata = buildMetadata({
-  title: "Track SpeedX Package Now | Live Shipment Status, ETA & Tracking History",
+  title: "Track SpeedX Tracking Number | Live Package Status and ETA",
   description:
-    "Enter your SpeedX tracking number to check shipment location, status timeline, delivery estimate, and troubleshooting tips.",
-  path: "/track-package"
+    "Enter your SpeedX tracking number to check live shipment status, latest location scan, delivery estimate, and delay troubleshooting steps.",
+  path: "/track-package",
+  keywords: [
+    "track SpeedX tracking number",
+    "speed x tracking",
+    "SpeedX package tracking",
+    "SpeedX delivery status",
+    "SpeedX ETA"
+  ]
 });
 
 export default async function TrackPackagePage({
@@ -29,6 +36,16 @@ export default async function TrackPackagePage({
   return (
     <div className="container-page py-10">
       <JsonLd data={faqSchema(globalFaqs)} />
+      <JsonLd
+        data={
+          webPageSchema({
+            path: "/track-package",
+            title: "Track SpeedX Tracking Number",
+            description:
+              "Enter your SpeedX tracking number to check live shipment status, latest location scan, delivery estimate, and delay troubleshooting steps."
+          })
+        }
+      />
       <h1 className="text-3xl font-bold text-slate-900">Track Your SpeedX Package</h1>
       <p className="mt-2 text-slate-700">Check current SpeedX shipment status, scan timeline, and estimated delivery window.</p>
 

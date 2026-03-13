@@ -1,10 +1,12 @@
 import { notFound } from "next/navigation";
 import { FreshnessNote } from "@/components/seo/FreshnessNote";
 import { LinkClusters } from "@/components/seo/LinkClusters";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { guides } from "@/content/guides";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 import { buildAdaptiveClusters, getGlobalTroubleshootingCluster } from "@/lib/seo/internal-links";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
+import { breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
 
 export const revalidate = 86400;
 
@@ -21,7 +23,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return buildMetadata({
     title: `${guide.title} | Package Tracking Guide`,
     description: guide.intro,
-    path: `/guides/${guide.slug}`
+    path: `/guides/${guide.slug}`,
+    keywords: [
+      guide.title,
+      "SpeedX tracking guide",
+      "speed x tracking help",
+      "package tracking troubleshooting"
+    ]
   });
 }
 
@@ -41,6 +49,39 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
   return (
     <div className="container-page py-10">
+      <JsonLd
+        data={
+          webPageSchema({
+            path: `/guides/${guide.slug}`,
+            title: guide.title,
+            description: guide.intro
+          })
+        }
+      />
+      <JsonLd
+        data={
+          breadcrumbSchema([
+            { name: "Home", url: siteConfig.url },
+            { name: "Guides", url: `${siteConfig.url}/guides` },
+            { name: guide.title, url: `${siteConfig.url}/guides/${guide.slug}` }
+          ])
+        }
+      />
+      <JsonLd
+        data={
+          faqSchema([
+            {
+              question: `How do I use this ${guide.title.toLowerCase()} guide?`,
+              answer: "Follow each step in order and recheck tracking after each action window before escalating to support."
+            },
+            {
+              question: "When should I contact support?",
+              answer:
+                "Contact support if tracking has no meaningful movement for 5+ days or if your package is marked delivered but missing."
+            }
+          ])
+        }
+      />
       <h1 className="text-3xl font-bold">{guide.title}</h1>
       <p className="mt-2 max-w-3xl text-slate-700">{guide.intro}</p>
       <FreshnessNote date={getFreshnessDate("guidesHub")} />
