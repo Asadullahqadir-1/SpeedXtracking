@@ -47,5 +47,31 @@ export const guides = [
       "Failed attempts may trigger re-delivery or pickup options.",
       "Last-mile performance heavily affects customer satisfaction."
     ]
+  },
+  {
+    slug: "does-speedx-deliver-late-at-night",
+    title: "Does SpeedX Deliver Late at Night?",
+    intro:
+      "Understand when SpeedX can deliver after dark, what affects evening drop-offs, and how to reduce missed-delivery risk.",
+    sections: [
+      "SpeedX can deliver in the evening depending on route load and local driver schedules.",
+      "Urban areas often receive later deliveries than low-density suburban routes.",
+      "Out-for-delivery does not always mean daytime delivery; some stops happen after 7 PM.",
+      "If your package is delayed late at night, recheck by next morning before escalating.",
+      "Use safe drop instructions and updated contact details to avoid failed attempts."
+    ]
+  },
+  {
+    slug: "spxcn-tracking-number-meaning",
+    title: "SPXCN Tracking Number Meaning",
+    intro:
+      "Learn what SPXCN format usually indicates, how to verify the number, and what timeline behavior to expect.",
+    sections: [
+      "SPXCN generally refers to a SpeedX-linked cross-border tracking format.",
+      "Always copy the full code from carrier or marketplace shipment details.",
+      "Cross-border SPXCN updates may post in batches during customs and linehaul stages.",
+      "A 24-48 hour scan gap can be normal between export and destination processing.",
+      "If no movement appears for 5+ days, contact seller with order ID and full tracking screenshot."
+    ]
   }
 ];

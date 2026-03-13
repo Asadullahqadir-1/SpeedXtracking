@@ -13,12 +13,15 @@ export const revalidate = 86400;
 export const metadata = buildMetadata({
   title: "Track SpeedX Packages in Seconds",
   description:
-    "Track SpeedX packages with real-time status scans, estimated delivery windows, and practical troubleshooting guides for delayed shipments.",
+    "Track SpeedX packages and tracking numbers with real-time status scans, estimated delivery windows, and practical troubleshooting guides for delayed shipments.",
   path: "/",
   keywords: [
     "SpeedX tracking",
+    "speed x tracking",
     "track SpeedX package",
     "SpeedX tracking number",
+    "speedx package tracking",
+    "SPXCN tracking",
     "SpeedX tracking status",
     "SpeedX Shein tracking",
     "package tracking"
@@ -26,6 +29,10 @@ export const metadata = buildMetadata({
 });
 
 export default function HomePage() {
+  const latestBlogPosts = [...blogPosts]
+    .sort((a, b) => new Date(b.updatedDate).getTime() - new Date(a.updatedDate).getTime())
+    .slice(0, 3);
+
   return (
     <div className="container-page py-6 sm:py-8 lg:py-10">
       <JsonLd data={websiteSchema()} />
@@ -274,6 +281,14 @@ export default function HomePage() {
             <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">🛍️ Shein Orders via SpeedX</h3>
             <p className="mt-1 text-sm text-slate-600">Track Shein packages shipped with SpeedX</p>
           </Link>
+          <Link href="/guides/does-speedx-deliver-late-at-night" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
+            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">🌙 Late-Night Delivery?</h3>
+            <p className="mt-1 text-sm text-slate-600">Find out when SpeedX delivers at night and what to expect</p>
+          </Link>
+          <Link href="/guides/spxcn-tracking-number-meaning" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
+            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">🔎 SPXCN Meaning</h3>
+            <p className="mt-1 text-sm text-slate-600">Understand SPXCN tracking format and update behavior</p>
+          </Link>
           <Link href="/carriers/speedx/contact" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
             <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">📞 Contact SpeedX Support</h3>
             <p className="mt-1 text-sm text-slate-600">Phone number, hours, and escalation steps</p>
@@ -293,7 +308,7 @@ export default function HomePage() {
         </div>
 
         <div className="mt-5 grid gap-4 md:grid-cols-3">
-          {blogPosts.slice(0, 3).map((post) => (
+          {latestBlogPosts.map((post) => (
             <article key={post.slug} className="rounded-xl border border-slate-200 p-4 hover:border-brand-500">
               <p className="text-xs font-semibold text-brand-700">{post.category}</p>
               <h3 className="mt-2 text-base font-semibold text-slate-900">{post.title}</h3>

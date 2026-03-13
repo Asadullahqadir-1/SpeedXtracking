@@ -190,5 +190,79 @@ export const blogPosts: BlogPost[] = [
         ]
       }
     ]
+  },
+  {
+    slug: "does-speedx-deliver-late-at-night-guide",
+    title: "Does SpeedX Deliver Late at Night? Real Delivery Window Guide",
+    description:
+      "Learn when SpeedX can deliver after dark, why late-night drops happen, and what to do if an out-for-delivery package does not arrive by evening.",
+    category: "Delivery Times",
+    readTime: "6 min read",
+    publishedDate: "2026-03-14",
+    updatedDate: "2026-03-14",
+    sections: [
+      {
+        heading: "Can SpeedX deliver after 7 PM?",
+        paragraphs: [
+          "Yes. SpeedX may complete deliveries in the evening on high-volume days, especially in dense urban routes where driver stop counts are high.",
+          "An out-for-delivery scan means your package is on a route, but the exact stop time depends on route order, traffic, and operational load."
+        ]
+      },
+      {
+        heading: "Why late-night deliveries happen",
+        paragraphs: [
+          "Evening delivery windows are more common during promotions, holiday peaks, and weather recovery days when routes shift and drivers complete extended stop sequences."
+        ],
+        bullets: [
+          "Peak-day route overflow",
+          "Traffic-related route delays",
+          "Multi-handoff final-mile scheduling",
+          "Local depot dispatch timing"
+        ]
+      },
+      {
+        heading: "What to do if not delivered by night",
+        paragraphs: [
+          "Recheck tracking the next morning before escalating. If status remains unchanged for 24 hours after out-for-delivery, contact seller and carrier support with your tracking number and order ID."
+        ]
+      }
+    ]
+  },
+  {
+    slug: "spxcn-tracking-number-format-explained",
+    title: "SPXCN Tracking Number Explained: Format, Delays, and Fixes",
+    description:
+      "Understand what an SPXCN tracking number usually means, why scans can pause, and how to verify if your shipment is still moving normally.",
+    category: "Tracking Basics",
+    readTime: "7 min read",
+    publishedDate: "2026-03-14",
+    updatedDate: "2026-03-14",
+    sections: [
+      {
+        heading: "What SPXCN usually indicates",
+        paragraphs: [
+          "SPXCN often appears on SpeedX-linked cross-border shipments where parcels pass through international handoff stages before destination-country delivery.",
+          "Because of these handoffs, scan events may update in batches rather than at every movement point."
+        ]
+      },
+      {
+        heading: "Why SPXCN tracking can look stuck",
+        paragraphs: [
+          "Scan pauses are common during export departure, customs review, and linehaul transfer. A 24-48 hour gap can still be normal during these phases."
+        ],
+        bullets: [
+          "Customs queue and clearance",
+          "Cross-border flight or linehaul handoff",
+          "Carrier system batch synchronization",
+          "Weekend posting delays"
+        ]
+      },
+      {
+        heading: "When to escalate",
+        paragraphs: [
+          "If there is no movement for 5+ days and ETA has passed, open a seller ticket first and then request carrier escalation with screenshots and full destination details."
+        ]
+      }
+    ]
   }
 ];

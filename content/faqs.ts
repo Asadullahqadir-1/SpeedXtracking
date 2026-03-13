@@ -73,5 +73,15 @@ export const globalFaqs = [
     question: "Can I change my SpeedX delivery address?",
     answer:
       "Address changes must be requested before the package is out for delivery. Contact SpeedX customer service at 1-855-SPEEDX1 or through their online portal with your tracking number and new address."
+  },
+  {
+    question: "Does SpeedX deliver late at night?",
+    answer:
+      "Yes, late-evening SpeedX deliveries can happen on busy routes, especially in metro areas. If your package is out for delivery and not delivered by evening, recheck by the next morning before opening a support case."
+  },
+  {
+    question: "What does an SPXCN tracking number mean?",
+    answer:
+      "SPXCN is a SpeedX-related tracking format commonly seen on cross-border shipments. Updates may appear in batches during customs and transit handoffs, so 24-48 hour scan gaps can be normal."
   }
 ];
