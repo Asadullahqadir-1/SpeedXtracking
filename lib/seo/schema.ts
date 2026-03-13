@@ -12,6 +12,47 @@ export function websiteSchema() {
   };
 }
 
+export function organizationSchema() {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://speedxtracking.org";
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Speed X Tracking",
+    url: siteUrl,
+    logo: `${siteUrl}/icon.svg`,
+    description:
+      "Independent package tracking and delivery help resource focused on SpeedX shipment visibility, status interpretation, and troubleshooting.",
+    areaServed: "Worldwide"
+  };
+}
+
+export function webPageSchema({
+  path,
+  title,
+  description
+}: {
+  path: string;
+  title: string;
+  description: string;
+}) {
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://speedxtracking.org";
+  const url = `${siteUrl}${path}`;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: title,
+    description,
+    url,
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Speed X Tracking",
+      url: siteUrl
+    }
+  };
+}
+
 export function faqSchema(
   entries: Array<{
     question: string;

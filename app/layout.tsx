@@ -10,9 +10,13 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
     default: "Speed X Tracking | Track Your Orders And Shipments Quickly",
-    template: "%s"
+    template: "%s | Speed X Tracking"
   },
   description: siteConfig.description,
+  applicationName: "Speed X Tracking",
+  alternates: {
+    canonical: "/"
+  },
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     shortcut: ["/icon.svg"],
@@ -29,6 +33,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Speed X Tracking | Track Your Orders And Shipments Quickly",
     description: siteConfig.description
+  },
+  robots: {
+    index: true,
+    follow: true
   },
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION

@@ -4,16 +4,16 @@ import { TrackingForm } from "@/components/tracking/TrackingForm";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { faqSchema, websiteSchema } from "@/lib/seo/schema";
+import { faqSchema, organizationSchema, webPageSchema, websiteSchema } from "@/lib/seo/schema";
 import { globalFaqs } from "@/content/faqs";
 import { blogPosts } from "@/content/blogs";
 
 export const revalidate = 86400;
 
 export const metadata = buildMetadata({
-  title: "Speed X Tracking | Track Your Orders And Shipments Quickly",
+  title: "Track SpeedX Packages in Seconds",
   description:
-    "Track SpeedX shipments instantly with live status updates, delivery estimates, and troubleshooting help for SpeedX orders.",
+    "Track SpeedX packages with real-time status scans, estimated delivery windows, and practical troubleshooting guides for delayed shipments.",
   path: "/",
   keywords: [
     "SpeedX tracking",
@@ -29,11 +29,28 @@ export default function HomePage() {
   return (
     <div className="container-page py-6 sm:py-8 lg:py-10">
       <JsonLd data={websiteSchema()} />
+      <JsonLd data={organizationSchema()} />
+      <JsonLd
+        data={
+          webPageSchema({
+            path: "/",
+            title: "Track SpeedX Packages in Seconds",
+            description:
+              "Track SpeedX packages with real-time status scans, estimated delivery windows, and practical troubleshooting guides for delayed shipments."
+          })
+        }
+      />
       <JsonLd data={faqSchema(globalFaqs)} />
 
       {/* Hero Section */}
-      <section className="rounded-2xl bg-gradient-to-br from-brand-50 to-brand-100 p-5 sm:p-8 lg:p-12">
-        <div className="max-w-4xl">
+      <section className="hero-shell relative overflow-hidden rounded-2xl p-5 sm:p-8 lg:p-12">
+        <div className="hero-orb hero-orb-one" aria-hidden="true" />
+        <div className="hero-orb hero-orb-two" aria-hidden="true" />
+        <div className="hero-grid" aria-hidden="true" />
+        <div className="relative z-10 max-w-4xl animate-fade-in-up">
+          <p className="inline-flex items-center rounded-full border border-brand-200 bg-white/85 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700 shadow-sm">
+            Real-time SpeedX tracking intelligence
+          </p>
           <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
             Track SpeedX Packages in Seconds
           </h1>
@@ -62,7 +79,7 @@ export default function HomePage() {
       </section>
 
       {/* SpeedX-Focused Section */}
-      <section className="mt-8 section-card bg-slate-50 p-5 sm:p-6">
+      <section className="reveal-card mt-8 section-card bg-slate-50 p-5 sm:p-6">
         <div className="flex items-start justify-between gap-4">
           <div>
             <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">SpeedX Tracking: Track SpeedX Packages Instantly</h2>
@@ -91,7 +108,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats Section */}
-      <section className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="reveal-card mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 p-6 text-center">
           <div className="text-3xl font-bold text-blue-900">1</div>
           <div className="mt-1 text-sm font-medium text-blue-700">Dedicated Carrier Focus</div>
@@ -111,7 +128,7 @@ export default function HomePage() {
       </section>
 
       {/* How It Works */}
-      <section className="mt-8 section-card p-5 sm:p-6">
+      <section className="reveal-card mt-8 section-card p-5 sm:p-6">
         <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">How Package Tracking Works</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           <div className="flex gap-4">
@@ -144,7 +161,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mt-8 section-card p-5 sm:p-6">
+      <section className="reveal-card mt-8 section-card p-5 sm:p-6">
         <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Popular SpeedX Resources</h2>
         <p className="mt-2 text-slate-600">Go directly to the most useful SpeedX tracking and support pages.</p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
@@ -172,7 +189,7 @@ export default function HomePage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="mt-8 section-card bg-gradient-to-br from-slate-50 to-slate-100 p-5 sm:p-6">
+      <section className="reveal-card mt-8 section-card bg-gradient-to-br from-slate-50 to-slate-100 p-5 sm:p-6">
         <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Why Track With Us?</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <div className="flex items-start gap-3">
@@ -233,7 +250,7 @@ export default function HomePage() {
       </section>
 
       {/* Troubleshooting Quick Links */}
-      <section className="mt-8 section-card p-5 sm:p-6">
+      <section className="reveal-card mt-8 section-card p-5 sm:p-6">
         <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Common Tracking Problems?</h2>
         <p className="mt-2 text-slate-600">Quick solutions for the most frequent delivery issues:</p>
         <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -264,7 +281,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="mt-8 section-card p-5 sm:p-6">
+      <section className="reveal-card mt-8 section-card p-5 sm:p-6">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Latest Blog Articles</h2>
@@ -290,7 +307,7 @@ export default function HomePage() {
       </section>
 
       {/* Expanded FAQs - show 8 */}
-      <section className="mt-8 section-card p-5 sm:p-6">
+      <section className="reveal-card mt-8 section-card p-5 sm:p-6">
         <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Frequently Asked Questions</h2>
         <div className="mt-6 grid gap-6 lg:grid-cols-2">
           {globalFaqs.slice(0, 8).map((faq) => (
@@ -308,7 +325,7 @@ export default function HomePage() {
       </section>
 
       {/* Recent Activity Widget */}
-      <section className="mt-8 section-card bg-slate-50 p-5 sm:p-6">
+      <section className="reveal-card mt-8 section-card bg-slate-50 p-5 sm:p-6">
         <h2 className="text-xl font-semibold text-slate-900">Recent Tracking Activity</h2>
         <p className="mt-1 text-sm text-slate-600">Live tracking searches from the last hour (tracking numbers anonymized)</p>
         <ul className="mt-4 space-y-2 text-sm">

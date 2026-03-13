@@ -31,7 +31,7 @@ export async function GET() {
       messages.push("Auto mode will use generic provider.");
     } else {
       status = "warning";
-      messages.push("Auto mode has no provider credentials configured. Set a free TRACKING_17TRACK_API_KEY.");
+      messages.push("Auto mode has no provider credentials configured. Set TRACKING_17TRACK_API_KEY or TRACKING_API_KEY.");
     }
   }
 

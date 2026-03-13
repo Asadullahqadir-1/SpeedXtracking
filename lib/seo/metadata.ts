@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://speedxtracking.org";
 
 export const siteConfig = {
-  name: "SpeedXTracking",
+  name: "Speed X Tracking",
   description:
     "Track SpeedX shipments instantly with live status updates, delivery estimates, and troubleshooting help for SpeedX orders.",
   url: siteUrl
@@ -26,6 +26,7 @@ export function buildMetadata({
   return {
     title: metaTitle,
     description,
+    category: "Shipping and Logistics",
     alternates: {
       canonical
     },
@@ -44,7 +45,14 @@ export function buildMetadata({
     },
     robots: {
       index: true,
-      follow: true
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1
+      }
     },
     keywords
   };
