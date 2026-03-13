@@ -20,6 +20,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   if (!guide) return {};
 
+  const intentKeywords: Record<string, string[]> = {
+    "does-speedx-deliver-late-at-night": [
+      "does speedx deliver late at night",
+      "speedx night delivery",
+      "speed x delivery times"
+    ],
+    "spxcn-tracking-number-meaning": [
+      "spxcn",
+      "spxcn tracking",
+      "spxcn tracking number meaning"
+    ]
+  };
+
   return buildMetadata({
     title: `${guide.title} | Package Tracking Guide`,
     description: guide.intro,
@@ -28,7 +41,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       guide.title,
       "SpeedX tracking guide",
       "speed x tracking help",
-      "package tracking troubleshooting"
+      "package tracking troubleshooting",
+      ...(intentKeywords[guide.slug] ?? [])
     ]
   });
 }

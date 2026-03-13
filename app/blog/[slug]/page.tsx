@@ -25,7 +25,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     path: `/blog/${post.slug}`,
     keywords: [
       "SpeedX tracking",
+      "speed x tracking",
       "track SpeedX package",
+      "speedx package tracking",
+      "speedx tracking number",
       "SpeedX tracking status",
       `${post.title} SpeedX tracking`,
       "SpeedX delivery update"
@@ -71,7 +74,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           keywords: [
             "SpeedX tracking",
             "SpeedX tracking update",
+            "speed x tracking",
             "track SpeedX package",
+            "speedx package tracking",
             "SpeedX delivery status",
             "SpeedX tracking number"
           ]

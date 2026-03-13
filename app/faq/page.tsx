@@ -4,10 +4,17 @@ import { faqSchema } from "@/lib/seo/schema";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
-  title: "Package Tracking FAQ | Status, Delivery Time, and Support",
+  title: "SpeedX Tracking FAQ | Status Meanings, Delivery Times, and Support",
   description:
-    "Answers to common package tracking questions including in transit meaning, delivery delays, and missing package steps.",
-  path: "/faq"
+    "Answers to common SpeedX tracking questions including status meanings, delivery delays, SPXCN numbers, and missing package steps.",
+  path: "/faq",
+  keywords: [
+    "SpeedX tracking FAQ",
+    "speed x tracking questions",
+    "SPXCN meaning",
+    "does SpeedX deliver late at night",
+    "SpeedX tracking status meanings"
+  ]
 });
 
 export default function FaqPage() {

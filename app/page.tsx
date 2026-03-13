@@ -11,9 +11,9 @@ import { blogPosts } from "@/content/blogs";
 export const revalidate = 86400;
 
 export const metadata = buildMetadata({
-  title: "Track SpeedX Packages in Seconds",
+  title: "Speed X Tracking Number Lookup | Track SpeedX Packages",
   description:
-    "Track SpeedX packages and tracking numbers with real-time status scans, estimated delivery windows, and practical troubleshooting guides for delayed shipments.",
+    "Track SpeedX tracking numbers with real-time status scans, estimated delivery windows, and practical troubleshooting guides for delayed shipments.",
   path: "/",
   keywords: [
     "SpeedX tracking",
@@ -41,9 +41,9 @@ export default function HomePage() {
         data={
           webPageSchema({
             path: "/",
-            title: "Track SpeedX Packages in Seconds",
+            title: "Speed X Tracking Number Lookup",
             description:
-              "Track SpeedX packages with real-time status scans, estimated delivery windows, and practical troubleshooting guides for delayed shipments."
+              "Track SpeedX tracking numbers with real-time status scans, estimated delivery windows, and practical troubleshooting guides for delayed shipments."
           })
         }
       />
