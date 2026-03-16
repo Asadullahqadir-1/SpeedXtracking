@@ -2,7 +2,6 @@ import type { MetadataRoute } from "next";
 import { carriers } from "@/lib/seo/carriers";
 import { guides } from "@/content/guides";
 import { blogPosts } from "@/content/blogs";
-import { longTailIntentSlugs } from "@/lib/seo/longtail";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://speedxtracking.org";
@@ -26,8 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     `/carriers/${carrier.slug}/status`,
     `/carriers/${carrier.slug}/delivery-time`,
     `/carriers/${carrier.slug}/contact`,
-    `/carriers/${carrier.slug}/shein`,
-    ...longTailIntentSlugs.map((intent) => `/carriers/${carrier.slug}/${intent}`)
+    `/carriers/${carrier.slug}/shein`
   ]);
 
   const guidePages = guides.map((guide) => `/guides/${guide.slug}`);
