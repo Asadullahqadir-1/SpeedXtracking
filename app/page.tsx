@@ -297,6 +297,34 @@ export default function HomePage() {
       </section>
 
       <section className="reveal-card mt-8 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Explore All SpeedX Pages</h2>
+        <p className="mt-2 text-slate-600">Use these direct links to browse our core hubs and complete blog archive.</p>
+
+        <div className="mt-5">
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-700">Core hubs</h3>
+          <div className="mt-3 grid gap-2 text-sm text-brand-700 sm:grid-cols-2 lg:grid-cols-3">
+            <Link href="/carriers" className="hover:underline">All carrier pages</Link>
+            <Link href="/carriers/speedx" className="hover:underline">SpeedX tracking overview</Link>
+            <Link href="/carriers/speedx/contact" className="hover:underline">SpeedX support contact</Link>
+            <Link href="/blog" className="hover:underline">SpeedX tracking blog hub</Link>
+            <Link href="/guides" className="hover:underline">Shipping guides hub</Link>
+            <Link href="/track-package" className="hover:underline">Track package lookup</Link>
+          </div>
+        </div>
+
+        <div className="mt-6">
+          <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-700">All blog posts</h3>
+          <div className="mt-3 grid gap-2 text-sm text-brand-700 sm:grid-cols-2">
+            {blogPosts.map((post) => (
+              <Link key={post.slug} href={`/blog/${post.slug}`} className="hover:underline">
+                {post.title}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="reveal-card mt-8 section-card p-5 sm:p-6">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Latest Blog Articles</h2>
