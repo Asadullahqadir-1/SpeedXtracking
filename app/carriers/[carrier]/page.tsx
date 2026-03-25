@@ -27,9 +27,19 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
     return {};
   }
 
+  const intentTitle =
+    current.slug === "speedx"
+      ? "SpeedX Tracking Guide: Status Meanings, Delivery ETA, And Support"
+      : `${current.carrierName} Tracking Guide: Status, ETA, And Support`;
+
+  const intentDescription =
+    current.slug === "speedx"
+      ? "Use this SpeedX tracking guide to check package status meanings, delivery timelines, and official support escalation options."
+      : current.metaDescription;
+
   return buildMetadata({
-    title: current.seoTitle,
-    description: current.metaDescription,
+    title: intentTitle,
+    description: intentDescription,
     path: `/carriers/${current.slug}`,
     keywords: [
       current.primaryKeyword,

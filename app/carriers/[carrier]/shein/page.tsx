@@ -14,8 +14,8 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
   if (!current) return {};
 
   return buildMetadata({
-    title: `${current.carrierName} Shein Tracking | Track Marketplace Shipments`,
-    description: `Track Shein orders shipped with ${current.carrierName} and learn how cross-border status updates and final-mile handoffs work.`,
+    title: `${current.carrierName} Shein Tracking: Order Status, ETA, And Delay Fixes`,
+    description: `Track Shein orders shipped with ${current.carrierName}, understand cross-border scans, and fix common delay or missing-delivery issues.`,
     path: `/carriers/${carrier}/shein`
   });
 }

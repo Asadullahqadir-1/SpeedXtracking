@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!post) return {};
 
   return buildMetadata({
-    title: `${post.title} | SpeedXTracking Blog`,
+    title: `${post.title} | SpeedX Guide`,
     description: post.description,
     path: `/blog/${post.slug}`,
     keywords: [

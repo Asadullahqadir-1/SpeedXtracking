@@ -5,9 +5,9 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { webPageSchema } from "@/lib/seo/schema";
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking Guides: Delays, Delivery Times, and Status Help",
+  title: "SpeedX Guides: Delays, Missing Packages, And Status Fix Checklists",
   description:
-    "Read practical SpeedX tracking guides on delayed packages, SPXCN tracking numbers, delivered-not-received issues, and late-night delivery questions.",
+    "Use practical SpeedX guides to fix delayed tracking updates, delivered-not-received issues, SPXCN confusion, and delivery-time questions.",
   path: "/guides",
   keywords: [
     "SpeedX tracking guides",

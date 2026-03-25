@@ -14,8 +14,8 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
   if (!current) return {};
 
   return buildMetadata({
-    title: `${current.carrierName} Delivery Time | Domestic and International ETA`,
-    description: `Check estimated ${current.carrierName} delivery times for domestic and international shipments and learn what causes delays.`,
+    title: `${current.carrierName} Delivery Time Guide: Domestic Vs International ETA`,
+    description: `Check typical ${current.carrierName} delivery times by route type and see why customs, weather, and handoffs can delay arrival.`,
     path: `/carriers/${carrier}/delivery-time`
   });
 }

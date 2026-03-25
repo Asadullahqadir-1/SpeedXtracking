@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 
   return buildMetadata({
-    title: `${guide.title} | Package Tracking Guide`,
+    title: `${guide.title}: Step-By-Step SpeedX Checklist`,
     description: guide.intro,
     path: `/guides/${guide.slug}`,
     keywords: [

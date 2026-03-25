@@ -14,8 +14,8 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
   if (!current) return {};
 
   return buildMetadata({
-    title: `${current.carrierName} Contact Support | Tracking Help and Escalation`,
-    description: `Find official ${current.carrierName} support channels and what details to share for faster tracking issue resolution.`,
+    title: `${current.carrierName} Contact Support: Official Help And Escalation Steps`,
+    description: `Find official ${current.carrierName} support channels, contact references, and the exact details to share for faster issue resolution.`,
     path: `/carriers/${carrier}/contact`
   });
 }
@@ -47,6 +47,11 @@ export default async function CarrierContactPage({ params }: { params: Promise<{
             </a>
           </p>
         ) : null}
+        <p className="mt-2 text-sm text-brand-700">
+          <a href="https://speedx.io/" target="_blank" rel="noreferrer">
+            Official {current.carrierName} website
+          </a>
+        </p>
         {current.supportEmail ? <p className="mt-2 text-sm text-slate-700">Support email: {current.supportEmail}</p> : null}
       </section>
     </div>

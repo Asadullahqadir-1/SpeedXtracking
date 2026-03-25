@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { carriers } from "@/lib/seo/carriers";
 import { guides } from "@/content/guides";
 import { blogPosts } from "@/content/blogs";
+import { longTailIntentSlugs } from "@/lib/seo/longtail";
+import { programmaticPages } from "@/content/programmatic-pages";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://speedxtracking.org";
@@ -25,11 +27,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     `/carriers/${carrier.slug}/status`,
     `/carriers/${carrier.slug}/delivery-time`,
     `/carriers/${carrier.slug}/contact`,
-    `/carriers/${carrier.slug}/shein`
+    `/carriers/${carrier.slug}/shein`,
+    ...longTailIntentSlugs.map((intentSlug) => `/carriers/${carrier.slug}/${intentSlug}`)
   ]);
 
   const guidePages = guides.map((guide) => `/guides/${guide.slug}`);
   const blogPages = blogPosts.map((post) => `/blog/${post.slug}`);
+  const programmaticRootPages = programmaticPages.map((page) => `/${page.slug}`);
   const siteReviewedAt = new Date(getFreshnessDate("homepage"));
   const guidesReviewedAt = new Date(getFreshnessDate("guidesHub"));
   const carriersReviewedAt = new Date(getFreshnessDate("carriersHub"));
@@ -72,7 +76,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return siteReviewedAt;
   }
 
-  return [...staticPages, ...policyPages, ...carrierPages, ...guidePages, ...blogPages].map((path) => ({
+  return [...staticPages, ...policyPages, ...carrierPages, ...guidePages, ...blogPages, ...programmaticRootPages].map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: getLastModified(path),
     changeFrequency: getChangeFrequency(path),

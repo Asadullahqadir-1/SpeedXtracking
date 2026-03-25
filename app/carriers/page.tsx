@@ -3,9 +3,9 @@ import { carriers } from "@/lib/seo/carriers";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking Hub | Status, Delivery Time and Support",
+  title: "SpeedX Tracking Hub: Compare Status, Delivery Time, And Support",
   description:
-    "Browse SpeedX tracking resources for shipment status, delivery time estimates, Shein order help, and support guidance.",
+    "Browse all SpeedX tracking resources in one place: package status guides, delivery-time pages, Shein help, and support contacts.",
   path: "/carriers",
   keywords: [
     "SpeedX tracking hub",

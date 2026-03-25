@@ -8,7 +8,7 @@ export function Footer() {
     <footer className="mt-16 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       {/* Top Section */}
       <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
-        <div className="grid gap-8 md:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-5">
           {/* Brand Section */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-4">
@@ -56,6 +56,27 @@ export function Footer() {
               <li><Link href="/terms" className="text-slate-300 hover:text-white transition">Terms of Service</Link></li>
               <li><Link href="/disclaimer" className="text-slate-300 hover:text-white transition">Disclaimer</Link></li>
               <li><Link href="/editorial-policy" className="text-slate-300 hover:text-white transition">Editorial Policy</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="mb-4 font-semibold text-white">Official References</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <a href="https://speedx.io/" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-white transition">
+                  SpeedX Official Website
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://support.speedx.io/hc/en-us"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-300 hover:text-white transition"
+                >
+                  SpeedX Official Support Center
+                </a>
+              </li>
             </ul>
           </div>
         </div>

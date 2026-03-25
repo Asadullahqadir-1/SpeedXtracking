@@ -11,9 +11,9 @@ import { blogPosts } from "@/content/blogs";
 export const revalidate = 86400;
 
 export const metadata = buildMetadata({
-  title: "Speed X Tracking Number Lookup | Track SpeedX Packages",
+  title: "SpeedX Tracking Number Lookup: Live Status, ETA, And Support",
   description:
-    "Track SpeedX tracking numbers with real-time status scans, estimated delivery windows, and practical troubleshooting guides for delayed shipments.",
+    "Track SpeedX packages with live status updates, delivery ETA windows, and step-by-step fixes for delayed or missing shipments.",
   path: "/",
   keywords: [
     "SpeedX tracking",
@@ -293,6 +293,21 @@ export default function HomePage() {
             <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">📞 Contact SpeedX Support</h3>
             <p className="mt-1 text-sm text-slate-600">Phone number, hours, and escalation steps</p>
           </Link>
+        </div>
+      </section>
+
+      <section className="reveal-card mt-8 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">SpeedX Programmatic Help Pages</h2>
+        <p className="mt-2 text-slate-600">
+          Explore targeted pages built for specific SpeedX tracking search intent, including city routes, support topics, and tracking-format questions.
+        </p>
+        <div className="mt-5 grid gap-2 text-sm text-brand-700 sm:grid-cols-2 lg:grid-cols-3">
+          <Link href="/speedx-tracking-not-updating" className="hover:underline">SpeedX tracking not updating</Link>
+          <Link href="/speedx-delivered-but-not-received" className="hover:underline">SpeedX delivered but not received</Link>
+          <Link href="/speedx-contact-number" className="hover:underline">SpeedX contact number</Link>
+          <Link href="/speedx-shein-tracking" className="hover:underline">SpeedX Shein tracking</Link>
+          <Link href="/track-speedx-new-york" className="hover:underline">Track SpeedX New York</Link>
+          <Link href="/track-speedx-spxcn-format" className="hover:underline">Track SpeedX SPXCN format</Link>
         </div>
       </section>
 

@@ -4,9 +4,9 @@ import { faqSchema } from "@/lib/seo/schema";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking FAQ | Status Meanings, Delivery Times, and Support",
+  title: "SpeedX FAQ: Tracking Status, Delivery Delays, SPXCN, And Support",
   description:
-    "Answers to common SpeedX tracking questions including status meanings, delivery delays, SPXCN numbers, and missing package steps.",
+    "Get fast answers to common SpeedX tracking questions, including status meanings, delayed scans, SPXCN numbers, and missing deliveries.",
   path: "/faq",
   keywords: [
     "SpeedX tracking FAQ",

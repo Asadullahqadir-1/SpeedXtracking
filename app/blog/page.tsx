@@ -7,9 +7,9 @@ import { webPageSchema } from "@/lib/seo/schema";
 export const revalidate = 86400;
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking Blog: Delivery Times, Status Meanings, and Fixes",
+  title: "SpeedX Blog: Delivery Guides, Status Meanings, And Troubleshooting",
   description:
-    "Read practical SpeedX tracking guides for delivery time questions, tracking status meanings, delayed package fixes, and Shein shipment help.",
+    "Read practical SpeedX delivery guides, status explainers, and troubleshooting checklists for delays, Shein orders, and missing packages.",
   path: "/blog",
   keywords: [
     "SpeedX tracking blog",
