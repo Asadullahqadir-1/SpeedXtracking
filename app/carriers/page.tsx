@@ -26,9 +26,9 @@ export default function CarriersPage() {
         <h2 className="text-lg font-semibold text-slate-900">Featured SpeedX Tracking Resources</h2>
         <div className="mt-3 grid gap-2 text-sm text-brand-700 sm:grid-cols-2">
           <Link href="/carriers/speedx">SpeedX tracking overview</Link>
-          <Link href="/carriers/speedx/package-tracking">SpeedX package tracking</Link>
-          <Link href="/carriers/speedx/tracking-status">SpeedX tracking status</Link>
-          <Link href="/carriers/speedx/delivery-time-estimate">SpeedX delivery estimate</Link>
+          <Link href="/carriers/speedx/status">SpeedX tracking status</Link>
+          <Link href="/carriers/speedx/delivery-time">SpeedX delivery estimate</Link>
+          <Link href="/carriers/speedx/contact">SpeedX support contact</Link>
         </div>
       </section>
 

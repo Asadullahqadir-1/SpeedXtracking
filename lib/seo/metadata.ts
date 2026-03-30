@@ -13,15 +13,29 @@ export function buildMetadata({
   title,
   description,
   path,
-  keywords
+  keywords,
+  robots
 }: {
   title: string;
   description: string;
   path: string;
   keywords?: string[];
+  robots?: Metadata["robots"];
 }): Metadata {
   const canonical = new URL(path, siteUrl).toString();
   const metaTitle = title.includes(siteConfig.name) ? title : `${title} | ${siteConfig.name}`;
+
+  const defaultRobots: Metadata["robots"] = {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1
+    }
+  };
 
   return {
     title: metaTitle,
@@ -43,17 +57,7 @@ export function buildMetadata({
       title: metaTitle,
       description
     },
-    robots: {
-      index: true,
-      follow: true,
-      googleBot: {
-        index: true,
-        follow: true,
-        "max-image-preview": "large",
-        "max-snippet": -1,
-        "max-video-preview": -1
-      }
-    },
+    robots: robots ?? defaultRobots,
     keywords
   };
 }

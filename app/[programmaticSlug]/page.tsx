@@ -40,7 +40,11 @@ export async function generateMetadata({
       "speed x tracking support",
       "track SpeedX package",
       "SpeedX delivery status"
-    ]
+    ],
+    robots: {
+      index: false,
+      follow: true
+    }
   });
 }
 

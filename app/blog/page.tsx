@@ -44,10 +44,10 @@ export default function BlogPage() {
         <Link href="/carriers/speedx" className="font-semibold text-brand-700 hover:underline">
           SpeedX tracking hub
         </Link>
-        <Link href="/carriers/speedx/tracking-status" className="font-semibold text-brand-700 hover:underline">
+        <Link href="/carriers/speedx/status" className="font-semibold text-brand-700 hover:underline">
           SpeedX tracking status
         </Link>
-        <Link href="/carriers/speedx/delivery-time-estimate" className="font-semibold text-brand-700 hover:underline">
+        <Link href="/carriers/speedx/delivery-time" className="font-semibold text-brand-700 hover:underline">
           SpeedX delivery estimate
         </Link>
       </div>

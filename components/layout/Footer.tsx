@@ -34,6 +34,7 @@ export function Footer() {
               <li><Link href="/track-package" className="text-slate-300 hover:text-white transition">Track Package</Link></li>
               <li><Link href="/carriers/speedx" className="text-slate-300 hover:text-white transition">SpeedX Hub</Link></li>
               <li><Link href="/guides" className="text-slate-300 hover:text-white transition">Guides</Link></li>
+              <li><Link href="/about" className="text-slate-300 hover:text-white transition">About</Link></li>
             </ul>
           </div>
 
@@ -56,6 +57,8 @@ export function Footer() {
               <li><Link href="/terms" className="text-slate-300 hover:text-white transition">Terms of Service</Link></li>
               <li><Link href="/disclaimer" className="text-slate-300 hover:text-white transition">Disclaimer</Link></li>
               <li><Link href="/editorial-policy" className="text-slate-300 hover:text-white transition">Editorial Policy</Link></li>
+              <li><Link href="/methodology" className="text-slate-300 hover:text-white transition">Methodology</Link></li>
+              <li><Link href="/contact" className="text-slate-300 hover:text-white transition">Contact</Link></li>
             </ul>
           </div>
 

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { blogPosts } from "@/content/blogs";
 import { FreshnessNote } from "@/components/seo/FreshnessNote";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { EditorialTrustBlock } from "@/components/seo/EditorialTrustBlock";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/seo/schema";
@@ -126,7 +127,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <Link href="/carriers/speedx" className="btn-secondary">
             SpeedX Tracking Hub
           </Link>
-          <Link href="/carriers/speedx/tracking-status" className="btn-secondary">
+          <Link href="/carriers/speedx/status" className="btn-secondary">
             SpeedX Tracking Status
           </Link>
           <Link href="/blog" className="btn-secondary">
@@ -148,6 +149,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             ))}
           </div>
         </section>
+
+        <EditorialTrustBlock
+          reviewedDate={post.updatedDate}
+          notes="This article is reviewed against official carrier resources and updated when support flows or status definitions change."
+          sources={[
+            { label: "SpeedX official website", href: "https://speedx.io/" },
+            { label: "SpeedX support center", href: "https://support.speedx.io/hc/en-us" }
+          ]}
+        />
       </article>
     </div>
   );

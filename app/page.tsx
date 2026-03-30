@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { FreshnessNote } from "@/components/seo/FreshnessNote";
+import { EditorialTrustBlock } from "@/components/seo/EditorialTrustBlock";
 import { TrackingForm } from "@/components/tracking/TrackingForm";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -102,7 +103,7 @@ export default function HomePage() {
           <Link href="/carriers/speedx" className="btn-primary">
             SpeedX Tracking Hub
           </Link>
-          <Link href="/carriers/speedx/package-tracking" className="btn-secondary">
+          <Link href="/track-package" className="btn-secondary">
             Track SpeedX Package
           </Link>
           <Link href="/carriers/speedx/status" className="btn-secondary">
@@ -117,20 +118,20 @@ export default function HomePage() {
       {/* Stats Section */}
       <section className="reveal-card mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 p-6 text-center">
-          <div className="text-3xl font-bold text-blue-900">1</div>
-          <div className="mt-1 text-sm font-medium text-blue-700">Dedicated Carrier Focus</div>
+          <div className="text-3xl font-bold text-blue-900">Focused</div>
+          <div className="mt-1 text-sm font-medium text-blue-700">SpeedX-first guidance</div>
         </div>
         <div className="rounded-xl bg-gradient-to-br from-green-50 to-green-100 p-6 text-center">
-          <div className="text-3xl font-bold text-green-900">10M+</div>
-          <div className="mt-1 text-sm font-medium text-green-700">Packages Tracked</div>
+          <div className="text-3xl font-bold text-green-900">Practical</div>
+          <div className="mt-1 text-sm font-medium text-green-700">Action-based checklists</div>
         </div>
         <div className="rounded-xl bg-gradient-to-br from-purple-50 to-purple-100 p-6 text-center">
-          <div className="text-3xl font-bold text-purple-900">24/7</div>
-          <div className="mt-1 text-sm font-medium text-purple-700">Real-Time Updates</div>
+          <div className="text-3xl font-bold text-purple-900">Updated</div>
+          <div className="mt-1 text-sm font-medium text-purple-700">Reviewed content cadence</div>
         </div>
         <div className="rounded-xl bg-gradient-to-br from-orange-50 to-orange-100 p-6 text-center">
-          <div className="text-3xl font-bold text-orange-900">95%+</div>
-          <div className="mt-1 text-sm font-medium text-orange-700">Accuracy Rate</div>
+          <div className="text-3xl font-bold text-orange-900">Clear</div>
+          <div className="mt-1 text-sm font-medium text-orange-700">Escalation paths explained</div>
         </div>
       </section>
 
@@ -240,8 +241,8 @@ export default function HomePage() {
               <svg className="h-6 w-6 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
             </div>
             <div>
-              <h3 className="font-semibold text-slate-900">Always Up to Date</h3>
-              <p className="mt-1 text-sm text-slate-600">Our tracking database refreshes daily with the latest carrier API updates and delivery routes.</p>
+              <h3 className="font-semibold text-slate-900">Continuously Reviewed</h3>
+              <p className="mt-1 text-sm text-slate-600">Core pages are reviewed and revised when carrier support pathways or status wording changes.</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
@@ -296,18 +297,27 @@ export default function HomePage() {
         </div>
       </section>
 
+      <EditorialTrustBlock
+        reviewedDate={getFreshnessDate("homepage")}
+        notes="Homepage guidance is reviewed to keep support paths, status explanations, and internal links aligned with user troubleshooting needs."
+        sources={[
+          { label: "SpeedX official website", href: "https://speedx.io/" },
+          { label: "SpeedX support center", href: "https://support.speedx.io/hc/en-us" }
+        ]}
+      />
+
       <section className="reveal-card mt-8 section-card p-5 sm:p-6">
-        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">SpeedX Programmatic Help Pages</h2>
+        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Most Useful Tracking Guides</h2>
         <p className="mt-2 text-slate-600">
-          Explore targeted pages built for specific SpeedX tracking search intent, including city routes, support topics, and tracking-format questions.
+          Start with these editorially reviewed resources for common SpeedX tracking and delivery problems.
         </p>
         <div className="mt-5 grid gap-2 text-sm text-brand-700 sm:grid-cols-2 lg:grid-cols-3">
-          <Link href="/speedx-tracking-not-updating" className="hover:underline">SpeedX tracking not updating</Link>
-          <Link href="/speedx-delivered-but-not-received" className="hover:underline">SpeedX delivered but not received</Link>
-          <Link href="/speedx-contact-number" className="hover:underline">SpeedX contact number</Link>
-          <Link href="/speedx-shein-tracking" className="hover:underline">SpeedX Shein tracking</Link>
-          <Link href="/track-speedx-new-york" className="hover:underline">Track SpeedX New York</Link>
-          <Link href="/track-speedx-spxcn-format" className="hover:underline">Track SpeedX SPXCN format</Link>
+          <Link href="/guides/package-not-updating" className="hover:underline">Tracking not updating guide</Link>
+          <Link href="/guides/delivered-not-received" className="hover:underline">Delivered but not received checklist</Link>
+          <Link href="/guides/how-to-track-packages" className="hover:underline">How to track any package</Link>
+          <Link href="/blog/speedx-tracking-not-updating" className="hover:underline">SpeedX tracking not updating fixes</Link>
+          <Link href="/blog/tracking-status-meanings-explained" className="hover:underline">Tracking status meanings explained</Link>
+          <Link href="/blog/shein-speedx-tracking-guide" className="hover:underline">Shein SpeedX tracking guide</Link>
         </div>
       </section>
 

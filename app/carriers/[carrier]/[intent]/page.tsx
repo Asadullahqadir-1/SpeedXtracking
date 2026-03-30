@@ -54,7 +54,11 @@ export async function generateMetadata({
       `track ${currentCarrier.carrierName} package`,
       `${currentCarrier.carrierName} status update`,
       `${currentCarrier.carrierName} delivery support`
-    ]
+    ],
+    robots: {
+      index: false,
+      follow: true
+    }
   });
 }
 

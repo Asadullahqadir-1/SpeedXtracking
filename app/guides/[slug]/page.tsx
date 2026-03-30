@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { FreshnessNote } from "@/components/seo/FreshnessNote";
+import { EditorialTrustBlock } from "@/components/seo/EditorialTrustBlock";
 import { LinkClusters } from "@/components/seo/LinkClusters";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { guides } from "@/content/guides";
@@ -111,6 +112,15 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       <div className="mt-6">
         <LinkClusters clusters={adaptiveClusters} />
       </div>
+
+      <EditorialTrustBlock
+        reviewedDate={getFreshnessDate("guidesHub")}
+        notes="Guide steps are reviewed for practical troubleshooting usefulness and adjusted when carrier support patterns change."
+        sources={[
+          { label: "SpeedX official website", href: "https://speedx.io/" },
+          { label: "SpeedX support center", href: "https://support.speedx.io/hc/en-us" }
+        ]}
+      />
     </div>
   );
 }

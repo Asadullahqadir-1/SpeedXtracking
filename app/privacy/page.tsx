@@ -10,7 +10,59 @@ export default function PrivacyPage() {
   return (
     <div className="container-page py-10">
       <h1 className="text-3xl font-bold">Privacy Policy</h1>
-      <p className="mt-3 text-sm text-slate-700">This site does not require account registration. Tracking numbers submitted are used only to return shipment lookup results and service analytics.</p>
+
+      <section className="mt-4 section-card p-5 sm:p-6">
+        <p className="text-sm leading-relaxed text-slate-700 sm:text-base">
+          SpeedXTracking is an informational website and does not require account registration. This policy explains what information we process, how we use it, and what choices users have.
+        </p>
+      </section>
+
+      <section className="mt-6 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-semibold text-slate-900">Information we process</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-700 sm:text-base">
+          <li>Tracking numbers entered for shipment lookups.</li>
+          <li>Basic technical logs such as IP address, browser type, and request timestamps.</li>
+          <li>Usage analytics events for page performance and feature quality measurement.</li>
+        </ul>
+      </section>
+
+      <section className="mt-6 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-semibold text-slate-900">How information is used</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-700 sm:text-base">
+          <li>To provide requested tracking lookup results.</li>
+          <li>To secure and operate the service, including abuse prevention and reliability checks.</li>
+          <li>To improve content quality, navigation, and troubleshooting guidance.</li>
+          <li>To measure site usage patterns and detect broken flows.</li>
+        </ul>
+      </section>
+
+      <section className="mt-6 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-semibold text-slate-900">Cookies and analytics</h2>
+        <p className="mt-3 text-sm leading-relaxed text-slate-700 sm:text-base">
+          We may use cookies or similar technologies for analytics, security, and advertising operations. Third-party services may also set cookies according to their own policies.
+        </p>
+      </section>
+
+      <section className="mt-6 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-semibold text-slate-900">Data retention</h2>
+        <p className="mt-3 text-sm leading-relaxed text-slate-700 sm:text-base">
+          Tracking requests and technical logs are retained only as long as needed for operational, security, and analytics purposes, then deleted or aggregated where practical.
+        </p>
+      </section>
+
+      <section className="mt-6 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-semibold text-slate-900">Third-party links and services</h2>
+        <p className="mt-3 text-sm leading-relaxed text-slate-700 sm:text-base">
+          Our pages may link to carrier and marketplace websites. Their privacy practices are independent and governed by their own terms and policies.
+        </p>
+      </section>
+
+      <section className="mt-6 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-semibold text-slate-900">Contact</h2>
+        <p className="mt-3 text-sm leading-relaxed text-slate-700 sm:text-base">
+          For privacy-related questions, contact us at <a href="mailto:hello@speedxtracking.org" className="font-semibold text-brand-700 hover:underline">hello@speedxtracking.org</a>.
+        </p>
+      </section>
     </div>
   );
 }

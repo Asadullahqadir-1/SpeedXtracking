@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/nav/Breadcrumbs";
 import { FreshnessNote } from "@/components/seo/FreshnessNote";
+import { EditorialTrustBlock } from "@/components/seo/EditorialTrustBlock";
 import { LinkClusters } from "@/components/seo/LinkClusters";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { TrackingForm } from "@/components/tracking/TrackingForm";
@@ -159,12 +160,12 @@ export default async function CarrierPage({ params }: { params: Promise<{ carrie
             and support escalation.
           </p>
           <div className="mt-3 grid gap-2 text-sm text-brand-700 md:grid-cols-2">
-            <Link href="/carriers/speedx/package-tracking">SpeedX package tracking</Link>
-            <Link href="/carriers/speedx/track-shipment">Track SpeedX shipment</Link>
-            <Link href="/carriers/speedx/tracking-status">SpeedX tracking status meanings</Link>
-            <Link href="/carriers/speedx/delivery-time-estimate">SpeedX delivery time estimate</Link>
-            <Link href="/carriers/speedx/contact-number">SpeedX tracking support contact</Link>
+            <Link href="/carriers/speedx/status">SpeedX tracking status meanings</Link>
+            <Link href="/carriers/speedx/delivery-time">SpeedX delivery time estimate</Link>
+            <Link href="/carriers/speedx/contact">SpeedX tracking support contact</Link>
+            <Link href="/carriers/speedx/shein">SpeedX Shein tracking help</Link>
             <Link href="/blog/speedx-tracking-not-updating">SpeedX tracking not updating fixes</Link>
+            <Link href="/guides/package-not-updating">Tracking not updating checklist</Link>
           </div>
         </section>
       ) : null}
@@ -202,8 +203,7 @@ export default async function CarrierPage({ params }: { params: Promise<{ carrie
             { href: `/carriers/${current.slug}/delivery-time`, label: `${current.carrierName} delivery time guide` },
             { href: `/carriers/${current.slug}/contact`, label: `${current.carrierName} support options` },
             { href: `/carriers/${current.slug}/shein`, label: `${current.carrierName} Shein tracking help` },
-            { href: `/carriers/${current.slug}/package-tracking`, label: `${current.carrierName} package tracking` },
-            { href: `/carriers/${current.slug}/track-shipment`, label: `Track ${current.carrierName} shipment` },
+            { href: `/track-package`, label: `Track ${current.carrierName} shipment` },
             { href: "/guides/package-not-updating", label: "Tracking not updating guide" },
             { href: "/guides/delivered-not-received", label: "Delivered but not received checklist" }
           ]}
@@ -213,6 +213,15 @@ export default async function CarrierPage({ params }: { params: Promise<{ carrie
       <div className="mt-6">
         <LinkClusters clusters={adaptiveClusters} />
       </div>
+
+      <EditorialTrustBlock
+        reviewedDate={getFreshnessDate("carriersHub")}
+        notes="Carrier pages are reviewed for status terminology clarity, escalation guidance, and official support path accuracy."
+        sources={[
+          { label: "SpeedX official website", href: "https://speedx.io/" },
+          { label: "SpeedX support center", href: "https://support.speedx.io/hc/en-us" }
+        ]}
+      />
 
       <p className="mt-6 text-xs text-slate-500">
         Independent information page. For official shipment records, always verify on the carrier&apos;s official tracking system.
