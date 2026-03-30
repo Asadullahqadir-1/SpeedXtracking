@@ -45,6 +45,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     notFound();
   }
 
+  const relatedPosts = blogPosts
+    .filter((item) => item.slug !== post.slug)
+    .filter((item) => item.category === post.category)
+    .slice(0, 3);
+
+  const fallbackRelatedPosts = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
+  const relatedToShow = relatedPosts.length > 0 ? relatedPosts : fallbackRelatedPosts;
+
   const postFaqs = [
     {
       question: "How do I check SpeedX tracking updates faster?",
@@ -146,6 +154,17 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <h3 className="font-medium text-slate-900">{faq.question}</h3>
                 <p className="mt-1 text-sm text-slate-700">{faq.answer}</p>
               </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="mt-8 section-card p-5 sm:p-6">
+          <h2 className="text-xl font-semibold text-slate-900">Related SpeedX Articles</h2>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {relatedToShow.map((entry) => (
+              <Link key={entry.slug} href={`/blog/${entry.slug}`} className="rounded-lg border border-slate-200 p-3 text-sm text-brand-700 hover:border-brand-500 hover:underline">
+                {entry.title}
+              </Link>
             ))}
           </div>
         </section>

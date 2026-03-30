@@ -264,5 +264,167 @@ export const blogPosts: BlogPost[] = [
         ]
       }
     ]
+  },
+  {
+    slug: "how-speedx-tracking-works",
+    title: "How SpeedX Tracking Works: From Label Created to Delivered",
+    description:
+      "A step-by-step explanation of how SpeedX tracking events are generated from merchant handoff through final-mile delivery.",
+    category: "Tracking Basics",
+    readTime: "8 min read",
+    publishedDate: "2026-03-30",
+    updatedDate: "2026-03-30",
+    sections: [
+      {
+        heading: "Stage 1: Label creation and first scan",
+        paragraphs: [
+          "Most shipments start with a label event, which means shipping data was created but the parcel may not be physically scanned yet.",
+          "The first physical acceptance scan is the point where true transit timing begins. Before that, delays are often seller-side handoff timing rather than carrier movement problems."
+        ],
+        bullets: [
+          "Label Created: shipment data submitted",
+          "Accepted/Picked Up: parcel entered carrier flow",
+          "In Transit: movement through hubs and linehaul legs"
+        ]
+      },
+      {
+        heading: "Stage 2: Hub movement and linehaul gaps",
+        paragraphs: [
+          "SpeedX scans are not always continuous between hubs. A parcel can move normally for 24-48 hours without new public events during long-haul transfer.",
+          "This is why users often see timeline jumps, where several events appear at once after batch synchronization."
+        ]
+      },
+      {
+        heading: "Stage 3: Final-mile and delivery confirmation",
+        paragraphs: [
+          "Once a parcel reaches destination processing, scans usually become more frequent. Out-for-delivery indicates route assignment, not guaranteed morning delivery.",
+          "Delivered confirms route completion. If the parcel is missing, run a 24-hour local check process before claim escalation."
+        ],
+        bullets: [
+          "Check mailbox clusters and alternate drop points",
+          "Ask neighbors or reception desk",
+          "Collect screenshot evidence before opening support case"
+        ]
+      }
+    ]
+  },
+  {
+    slug: "track-speedx-packages-in-pakistan",
+    title: "Track SpeedX Packages in Pakistan: ETA, Customs, and Delivery Tips",
+    description:
+      "Learn how SpeedX tracking behaves on Pakistan-bound shipments, including customs hold patterns, ETA windows, and escalation timing.",
+    category: "Regional Guides",
+    readTime: "9 min read",
+    publishedDate: "2026-03-30",
+    updatedDate: "2026-03-30",
+    sections: [
+      {
+        heading: "Typical Pakistan delivery timeline",
+        paragraphs: [
+          "Pakistan-bound e-commerce shipments usually include export movement, customs clearance, destination handoff, and local delivery attempt phases.",
+          "Tracking can look quiet during customs processing. A short no-update window is common until clearance and local partner handoff finalize."
+        ],
+        bullets: [
+          "Pre-carrier and export stage: 1-3 days",
+          "Cross-border and customs stage: 3-8 days",
+          "Destination handoff and last-mile stage: 2-5 days"
+        ]
+      },
+      {
+        heading: "Why updates may pause on Pakistan routes",
+        paragraphs: [
+          "Cross-border tracking often updates in batches, especially around customs checkpoints and inter-carrier handoffs.",
+          "A 24-72 hour pause can still be normal depending on route load, weekend timing, and documentation checks."
+        ]
+      },
+      {
+        heading: "When to escalate in Pakistan",
+        paragraphs: [
+          "Escalate when there is no meaningful movement for 5+ days after ETA context is considered, or if a delivered status does not match local receipt.",
+          "For marketplace orders, start with seller support, then escalate with complete timeline screenshots and destination details."
+        ],
+        bullets: [
+          "Keep full tracking timeline screenshots",
+          "Include city, postal code, and contact details",
+          "Ask for written case ID and next update deadline"
+        ]
+      }
+    ]
+  },
+  {
+    slug: "speedx-delivery-exception-codes",
+    title: "SpeedX Delivery Exception Codes: Meaning and Best Fixes",
+    description:
+      "Decode common SpeedX delivery exception scenarios and use a practical response plan for address, customs, and operational holds.",
+    category: "Troubleshooting",
+    readTime: "8 min read",
+    publishedDate: "2026-03-30",
+    updatedDate: "2026-03-30",
+    sections: [
+      {
+        heading: "What a delivery exception really means",
+        paragraphs: [
+          "Exception events do not always mean a lost package. They usually indicate a temporary obstacle that requires confirmation or correction.",
+          "The right action depends on the stage of shipment and whether the issue is destination, customs, or operations related."
+        ]
+      },
+      {
+        heading: "Most common exception categories",
+        paragraphs: [
+          "Address and access issues are common near final-mile. Customs or documentation issues usually appear on international legs before destination handoff."
+        ],
+        bullets: [
+          "Address mismatch or incomplete unit info",
+          "Recipient unavailable during delivery attempt",
+          "Customs documentation or review hold",
+          "Operational backlog from weather or peak volume"
+        ]
+      },
+      {
+        heading: "Response plan that improves resolution speed",
+        paragraphs: [
+          "Correct destination details first, then monitor for the next scan in a defined window. If no update appears, escalate with evidence and a clear requested action.",
+          "Well-structured escalation requests usually get faster responses than generic messages."
+        ]
+      }
+    ]
+  },
+  {
+    slug: "speedx-customs-delay-guide",
+    title: "SpeedX Customs Delay Guide: Documents, Timelines, and Escalation",
+    description:
+      "A practical customs-delay playbook for SpeedX shipments with expected timelines, document checks, and escalation triggers.",
+    category: "Customs",
+    readTime: "7 min read",
+    publishedDate: "2026-03-30",
+    updatedDate: "2026-03-30",
+    sections: [
+      {
+        heading: "Why customs delays happen",
+        paragraphs: [
+          "Customs holds usually happen when declared value, invoice data, or shipment classification needs review.",
+          "These checks are normal in cross-border logistics and may delay updates even while the parcel remains in controlled processing."
+        ]
+      },
+      {
+        heading: "What to verify before escalating",
+        paragraphs: [
+          "Confirm your order invoice, recipient name, and destination details are consistent across seller and shipment records.",
+          "Missing or inconsistent data can prolong hold times and trigger repeated checks."
+        ],
+        bullets: [
+          "Invoice value and item description",
+          "Recipient full name and address formatting",
+          "Any requested customs support documents"
+        ]
+      },
+      {
+        heading: "Escalation timing and evidence",
+        paragraphs: [
+          "If no clearance event appears after several business days, escalate with timeline screenshots and a concise issue summary.",
+          "Request a case reference and a next-update commitment so follow-up is trackable."
+        ]
+      }
+    ]
   }
 ];
