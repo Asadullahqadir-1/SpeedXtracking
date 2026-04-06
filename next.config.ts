@@ -63,6 +63,11 @@ const nextConfig: NextConfig = {
         source: "/track-speedx-spxcn-format",
         destination: "/guides/spxcn-tracking-number-meaning",
         permanent: true
+      },
+      {
+        source: "/carriers/usps",
+        destination: "/carriers",
+        permanent: true
       }
     ];
   }
