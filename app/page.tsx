@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FreshnessNote } from "@/components/seo/FreshnessNote";
 import { EditorialTrustBlock } from "@/components/seo/EditorialTrustBlock";
 import { TrackingForm } from "@/components/tracking/TrackingForm";
@@ -83,6 +84,53 @@ export default function HomePage() {
           <div className="mt-6">
             <TrackingForm />
           </div>
+        </div>
+      </section>
+
+      <section className="reveal-card mt-8 section-card p-5 sm:p-6">
+        <div className="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Official SpeedX Highlights</h2>
+            <p className="mt-2 text-slate-600">
+              Visual references sourced from the official SpeedX website to help users quickly recognize brand assets and delivery footprint.
+            </p>
+          </div>
+          <Image
+            src="/images/official/speedx-logo-black.webp"
+            alt="SpeedX official logo"
+            width={180}
+            height={60}
+            className="h-auto w-[140px] sm:w-[180px]"
+            priority={false}
+          />
+        </div>
+
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <figure className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
+            <Image
+              src="/images/official/speedx-coverage-map.webp"
+              alt="SpeedX delivery coverage map"
+              width={900}
+              height={520}
+              className="h-full w-full object-cover"
+            />
+            <figcaption className="px-4 py-3 text-xs text-slate-600">
+              Coverage map reference from the official SpeedX site.
+            </figcaption>
+          </figure>
+
+          <figure className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
+            <Image
+              src="/images/official/speedx-next-day.webp"
+              alt="SpeedX next-day delivery service visual"
+              width={900}
+              height={520}
+              className="h-full w-full object-cover"
+            />
+            <figcaption className="px-4 py-3 text-xs text-slate-600">
+              Next-day delivery visual from official SpeedX content.
+            </figcaption>
+          </figure>
         </div>
       </section>
 

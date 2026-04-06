@@ -80,6 +80,16 @@ export function Footer() {
                   SpeedX Official Support Center
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/speedx-delivery/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-300 hover:text-white transition"
+                >
+                  SpeedX LinkedIn
+                </a>
+              </li>
             </ul>
           </div>
         </div>
