@@ -6,7 +6,8 @@ export const siteConfig = {
   name: "Speed X Tracking",
   description:
     "Track SpeedX shipments instantly with live status updates, delivery estimates, and troubleshooting help for SpeedX orders.",
-  url: siteUrl
+  url: siteUrl,
+  defaultOgImage: "/images/official/speedx-coverage-map.webp"
 };
 
 export function buildMetadata({
@@ -14,16 +15,19 @@ export function buildMetadata({
   description,
   path,
   keywords,
-  robots
+  robots,
+  image
 }: {
   title: string;
   description: string;
   path: string;
   keywords?: string[];
   robots?: Metadata["robots"];
+  image?: string;
 }): Metadata {
   const canonical = new URL(path, siteUrl).toString();
   const metaTitle = title.includes(siteConfig.name) ? title : `${title} | ${siteConfig.name}`;
+  const socialImage = new URL(image || siteConfig.defaultOgImage, siteUrl).toString();
 
   const defaultRobots: Metadata["robots"] = {
     index: true,
@@ -50,12 +54,21 @@ export function buildMetadata({
       type: "website",
       url: canonical,
       siteName: siteConfig.name,
-      locale: "en_US"
+      locale: "en_US",
+      images: [
+        {
+          url: socialImage,
+          width: 1200,
+          height: 630,
+          alt: "Speed X Tracking - live package tracking and delivery updates"
+        }
+      ]
     },
     twitter: {
       card: "summary_large_image",
       title: metaTitle,
-      description
+      description,
+      images: [socialImage]
     },
     robots: robots ?? defaultRobots,
     keywords

@@ -1,20 +1,20 @@
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://speedxtracking.org";
+
 export function websiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "SpeedXTracking",
-    url: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+    url: siteUrl,
     potentialAction: {
       "@type": "SearchAction",
-      target: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/track-package?trackingNumber={trackingNumber}`,
+      target: `${siteUrl}/track-package?trackingNumber={trackingNumber}`,
       "query-input": "required name=trackingNumber"
     }
   };
 }
 
 export function organizationSchema() {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://speedxtracking.org";
-
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -23,7 +23,12 @@ export function organizationSchema() {
     logo: `${siteUrl}/icon.svg`,
     description:
       "Independent package tracking and delivery help resource focused on SpeedX shipment visibility, status interpretation, and troubleshooting.",
-    areaServed: "Worldwide"
+    areaServed: "Worldwide",
+    sameAs: [
+      "https://www.linkedin.com/company/speedx-delivery/",
+      "https://speedx.io/",
+      "https://support.speedx.io/hc/en-us"
+    ]
   };
 }
 
@@ -36,7 +41,6 @@ export function webPageSchema({
   title: string;
   description: string;
 }) {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://speedxtracking.org";
   const url = `${siteUrl}${path}`;
 
   return {
@@ -101,7 +105,6 @@ export function articleSchema({
   dateModified: string;
   keywords: string[];
 }) {
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
   const canonicalUrl = `${siteUrl}${path}`;
 
   return {
@@ -118,8 +121,14 @@ export function articleSchema({
     },
     publisher: {
       "@type": "Organization",
-      name: "SpeedXTracking"
+      name: "SpeedXTracking",
+      url: siteUrl,
+      logo: {
+        "@type": "ImageObject",
+        url: `${siteUrl}/icon.svg`
+      }
     },
+    image: `${siteUrl}/images/official/speedx-coverage-map.webp`,
     keywords
   };
 }

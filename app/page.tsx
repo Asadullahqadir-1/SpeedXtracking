@@ -84,6 +84,20 @@ export default function HomePage() {
           <div className="mt-6">
             <TrackingForm />
           </div>
+          <div className="mt-4 flex flex-wrap gap-2 text-xs sm:text-sm">
+            <Link href="/carriers/speedx/status" className="rounded-full border border-slate-300 bg-white/80 px-3 py-1.5 font-medium text-slate-700 hover:border-brand-500 hover:text-brand-700">
+              SpeedX status meanings
+            </Link>
+            <Link href="/carriers/speedx/delivery-time" className="rounded-full border border-slate-300 bg-white/80 px-3 py-1.5 font-medium text-slate-700 hover:border-brand-500 hover:text-brand-700">
+              Delivery time guide
+            </Link>
+            <Link href="/guides/package-not-updating" className="rounded-full border border-slate-300 bg-white/80 px-3 py-1.5 font-medium text-slate-700 hover:border-brand-500 hover:text-brand-700">
+              Tracking not updating
+            </Link>
+            <Link href="/guides/delivered-not-received" className="rounded-full border border-slate-300 bg-white/80 px-3 py-1.5 font-medium text-slate-700 hover:border-brand-500 hover:text-brand-700">
+              Delivered but missing
+            </Link>
+          </div>
         </div>
       </section>
 

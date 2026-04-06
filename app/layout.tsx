@@ -27,12 +27,21 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    type: "website"
+    type: "website",
+    images: [
+      {
+        url: siteConfig.defaultOgImage,
+        width: 1200,
+        height: 630,
+        alt: "Speed X Tracking homepage preview"
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
     title: "Speed X Tracking | Track Your Orders And Shipments Quickly",
-    description: siteConfig.description
+    description: siteConfig.description,
+    images: [siteConfig.defaultOgImage]
   },
   robots: {
     index: true,
