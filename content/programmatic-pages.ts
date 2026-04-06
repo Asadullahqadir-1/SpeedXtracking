@@ -557,6 +557,26 @@ export const programmaticPages: BasePage[] = [
   ...formatPages
 ];
 
+const redirectedProgrammaticSlugs = new Set([
+  "speedx-tracking-not-updating",
+  "speedx-delivered-but-not-received",
+  "speedx-contact-number",
+  "speedx-shein-tracking",
+  "track-speedx-spxcn-format"
+]);
+
+export function isProgrammaticPageIndexable(page: BasePage) {
+  if (redirectedProgrammaticSlugs.has(page.slug)) {
+    return false;
+  }
+
+  return page.category === "issue" || page.category === "contact" || page.category === "shein";
+}
+
+export function getIndexableProgrammaticPages() {
+  return programmaticPages.filter((page) => isProgrammaticPageIndexable(page));
+}
+
 export function getProgrammaticPageBySlug(slug: string) {
   return programmaticPages.find((page) => page.slug === slug);
 }
@@ -634,7 +654,7 @@ export function getRelatedProgrammaticLinks(currentSlug: string) {
     { href: "/guides/package-not-updating", label: "Tracking not updating guide" }
   ];
 
-  const neighbors = programmaticPages.filter((page) => page.slug !== currentSlug).slice(0, 5);
+  const neighbors = getIndexableProgrammaticPages().filter((page) => page.slug !== currentSlug).slice(0, 5);
 
   const neighborLinks = neighbors.map((page) => ({
     href: `/${page.slug}`,

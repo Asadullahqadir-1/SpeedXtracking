@@ -80,9 +80,9 @@ export default async function CarrierPage({ params }: { params: Promise<{ carrie
     {
       pageKey: `carrier:${current.slug}`,
       primaryHrefs: [
-        `/carriers/${current.slug}/package-tracking`,
-        `/carriers/${current.slug}/tracking-status`,
-        `/carriers/${current.slug}/delivery-time-estimate`,
+        `/carriers/${current.slug}`,
+        `/carriers/${current.slug}/status`,
+        `/carriers/${current.slug}/delivery-time`,
         "/guides/package-not-updating"
       ],
       maxLinksPerCluster: 5

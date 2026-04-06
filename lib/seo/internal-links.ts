@@ -59,11 +59,11 @@ export function getCarrierIntentClusters(carrierSlug: string, carrierName: strin
     {
       title: `${carrierName} tracking intent pages`,
       links: [
-        { href: `/carriers/${carrierSlug}/package-tracking`, label: `${carrierName} package tracking` },
-        { href: `/carriers/${carrierSlug}/track-shipment`, label: `Track ${carrierName} shipment` },
-        { href: `/carriers/${carrierSlug}/tracking-status`, label: `${carrierName} tracking status` },
-        { href: `/carriers/${carrierSlug}/delivery-time-estimate`, label: `${carrierName} delivery time` },
-        { href: `/carriers/${carrierSlug}/contact-number`, label: `${carrierName} contact support` }
+        { href: `/carriers/${carrierSlug}`, label: `${carrierName} package tracking` },
+        { href: `/track-package`, label: `Track ${carrierName} shipment` },
+        { href: `/carriers/${carrierSlug}/status`, label: `${carrierName} tracking status` },
+        { href: `/carriers/${carrierSlug}/delivery-time`, label: `${carrierName} delivery time` },
+        { href: `/carriers/${carrierSlug}/contact`, label: `${carrierName} contact support` }
       ]
     },
     {

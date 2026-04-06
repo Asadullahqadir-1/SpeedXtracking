@@ -4,10 +4,11 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import {
   buildProgrammaticSections,
   getCategoryLabel,
+  getIndexableProgrammaticPages,
   getProgrammaticFaqs,
   getProgrammaticPageBySlug,
   getRelatedProgrammaticLinks,
-  programmaticPages
+  isProgrammaticPageIndexable
 } from "@/content/programmatic-pages";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
@@ -15,7 +16,7 @@ import { breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
 export const revalidate = 86400;
 
 export async function generateStaticParams() {
-  return programmaticPages.map((page) => ({ programmaticSlug: page.slug }));
+  return getIndexableProgrammaticPages().map((page) => ({ programmaticSlug: page.slug }));
 }
 
 export async function generateMetadata({
@@ -42,7 +43,7 @@ export async function generateMetadata({
       "SpeedX delivery status"
     ],
     robots: {
-      index: false,
+      index: isProgrammaticPageIndexable(page),
       follow: true
     }
   });
