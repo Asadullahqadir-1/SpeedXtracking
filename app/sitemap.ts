@@ -4,8 +4,9 @@ import { guides } from "@/content/guides";
 import { blogPosts } from "@/content/blogs";
 import { getIndexableProgrammaticPages } from "@/content/programmatic-pages";
 import { getFreshnessDate } from "@/lib/seo/freshness";
+import { siteUrl } from "@/lib/seo/site-url";
 
-const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://speedxtracking.org";
+const baseUrl = siteUrl;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = ["", "/track-package", "/carriers", "/guides", "/blog", "/faq"];

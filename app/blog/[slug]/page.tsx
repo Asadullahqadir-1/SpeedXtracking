@@ -5,7 +5,7 @@ import { FreshnessNote } from "@/components/seo/FreshnessNote";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { EditorialTrustBlock } from "@/components/seo/EditorialTrustBlock";
 import { getFreshnessDate } from "@/lib/seo/freshness";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/seo/schema";
 
 export const revalidate = 86400;
@@ -93,9 +93,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       />
       <JsonLd
         data={breadcrumbSchema([
-          { name: "Home", url: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/` },
-          { name: "Blog", url: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/blog` },
-          { name: post.title, url: `${process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"}/blog/${post.slug}` }
+          { name: "Home", url: `${siteConfig.url}/` },
+          { name: "Blog", url: `${siteConfig.url}/blog` },
+          { name: post.title, url: `${siteConfig.url}/blog/${post.slug}` }
         ])}
       />
       <JsonLd data={faqSchema(postFaqs)} />

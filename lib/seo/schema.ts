@@ -1,4 +1,4 @@
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://speedxtracking.org";
+import { siteUrl } from "@/lib/seo/site-url";
 
 export function websiteSchema() {
   return {
