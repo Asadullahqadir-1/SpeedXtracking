@@ -323,6 +323,11 @@ export default function HomePage() {
       <section className="reveal-card mt-8 section-card p-5 sm:p-6">
         <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Common Tracking Problems?</h2>
         <p className="mt-2 text-slate-600">Quick solutions for the most frequent delivery issues:</p>
+        <p className="mt-2 text-sm">
+          <Link href="/guides#speedx-issue-library" className="font-semibold text-brand-700 hover:underline">
+            Open the full SpeedX issue library
+          </Link>
+        </p>
         <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           <Link href="/guides/package-not-updating" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
             <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">📦 Tracking Not Updating</h3>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { guides } from "@/content/guides";
+import { getCategoryLabel, getIndexableProgrammaticPages } from "@/content/programmatic-pages";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { webPageSchema } from "@/lib/seo/schema";
@@ -19,6 +20,8 @@ export const metadata = buildMetadata({
 });
 
 export default function GuidesPage() {
+  const speedxIssuePages = getIndexableProgrammaticPages();
+
   return (
     <div className="container-page py-10">
       <JsonLd
@@ -41,6 +44,22 @@ export default function GuidesPage() {
           </Link>
         ))}
       </div>
+
+      <section id="speedx-issue-library" className="mt-10">
+        <h2 className="text-2xl font-bold text-slate-900">SpeedX Issue Library</h2>
+        <p className="mt-2 text-slate-700">
+          Crawlable index of practical troubleshooting pages for delays, support contact paths, and Shein shipment issues.
+        </p>
+        <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {speedxIssuePages.map((page) => (
+            <Link key={page.slug} href={`/${page.slug}`} className="section-card hover:border-brand-500">
+              <p className="text-xs font-semibold uppercase tracking-wide text-brand-700">{getCategoryLabel(page)}</p>
+              <h3 className="mt-2 text-base font-semibold text-slate-900">{page.h1}</h3>
+              <p className="mt-2 text-sm text-slate-700">{page.metaDescription}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
     </div>
   );
 }

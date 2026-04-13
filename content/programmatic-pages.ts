@@ -651,12 +651,39 @@ export function getRelatedProgrammaticLinks(currentSlug: string) {
     { href: "/track-package", label: "Track package lookup" },
     { href: "/carriers/speedx", label: "SpeedX tracking hub" },
     { href: "/carriers/speedx/status", label: "SpeedX status meanings" },
-    { href: "/guides/package-not-updating", label: "Tracking not updating guide" }
+    { href: "/guides", label: "Shipping guides hub" }
   ];
 
-  const neighbors = getIndexableProgrammaticPages().filter((page) => page.slug !== currentSlug).slice(0, 5);
+  const indexablePages = getIndexableProgrammaticPages();
+  const sortedPages = [...indexablePages].sort((a, b) => a.slug.localeCompare(b.slug));
+  const currentIndex = sortedPages.findIndex((page) => page.slug === currentSlug);
 
-  const neighborLinks = neighbors.map((page) => ({
+  const offsets = [1, -1, 2, -2, 3, -3];
+  const neighborPages: BasePage[] = [];
+
+  if (currentIndex >= 0 && sortedPages.length > 1) {
+    for (const offset of offsets) {
+      const neighborIndex = currentIndex + offset;
+      if (neighborIndex < 0 || neighborIndex >= sortedPages.length) {
+        continue;
+      }
+
+      const neighbor = sortedPages[neighborIndex];
+      if (!neighbor || neighbor.slug === currentSlug) {
+        continue;
+      }
+
+      if (!neighborPages.some((page) => page.slug === neighbor.slug)) {
+        neighborPages.push(neighbor);
+      }
+
+      if (neighborPages.length === 5) {
+        break;
+      }
+    }
+  }
+
+  const neighborLinks = neighborPages.map((page) => ({
     href: `/${page.slug}`,
     label: page.primaryKeyword
   }));

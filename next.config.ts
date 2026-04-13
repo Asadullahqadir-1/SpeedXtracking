@@ -68,6 +68,16 @@ const nextConfig: NextConfig = {
         source: "/carriers/usps",
         destination: "/carriers",
         permanent: true
+      },
+      {
+        source: "/blog/does-speedx-deliver-late-at-night",
+        destination: "/blog/does-speedx-deliver-late-at-night-guide",
+        permanent: true
+      },
+      {
+        source: "/blog/spxcn-tracking-number-meaning",
+        destination: "/blog/spxcn-tracking-number-format-explained",
+        permanent: true
       }
     ];
   }
