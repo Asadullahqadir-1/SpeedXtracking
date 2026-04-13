@@ -366,7 +366,7 @@ export default function HomePage() {
 
       <EditorialTrustBlock
         reviewedDate={getFreshnessDate("homepage")}
-        notes="Homepage guidance is reviewed to keep support paths, status explanations, and internal links aligned with user troubleshooting needs."
+        notes="This site is organized around practical shipment problems, source-linked references, and step-by-step escalation guidance rather than generic directory content."
         sources={[
           { label: "SpeedX official website", href: "https://speedx.io/" },
           { label: "SpeedX support center", href: "https://support.speedx.io/hc/en-us" }
@@ -420,7 +420,7 @@ export default function HomePage() {
         <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Latest Blog Articles</h2>
-            <p className="mt-1 text-sm text-slate-600 sm:text-base">Fresh shipping insights and SEO-rich troubleshooting content.</p>
+            <p className="mt-1 text-sm text-slate-600 sm:text-base">Fresh shipping insights, troubleshooting notes, and update-ready guidance.</p>
           </div>
           <Link href="/blog" className="text-sm font-semibold text-brand-700 hover:underline">
             View all blog posts
@@ -459,32 +459,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Recent Activity Widget */}
+      {/* Common Shipment Scenarios */}
       <section className="reveal-card mt-8 section-card bg-slate-50 p-5 sm:p-6">
-        <h2 className="text-xl font-semibold text-slate-900">Recent Tracking Activity</h2>
-        <p className="mt-1 text-sm text-slate-600">Live tracking searches from the last hour (tracking numbers anonymized)</p>
-        <ul className="mt-4 space-y-2 text-sm">
-          <li className="flex flex-col items-start gap-2 rounded-lg border border-slate-200 bg-white p-3 sm:flex-row sm:items-center sm:justify-between">
-            <span className="font-mono text-slate-700">SPX2GE0567•••••</span>
-            <span className="rounded-full bg-green-100 px-3 py-1 text-xs font-medium text-green-700">Out for Delivery</span>
-            <span className="text-slate-500">New York, NY</span>
-          </li>
-          <li className="flex flex-col items-start gap-2 rounded-lg border border-slate-200 bg-white p-3 sm:flex-row sm:items-center sm:justify-between">
-            <span className="font-mono text-slate-700">1Z84W42•••••••</span>
-            <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-700">In Transit</span>
-            <span className="text-slate-500">Columbus, OH</span>
-          </li>
-          <li className="flex flex-col items-start gap-2 rounded-lg border border-slate-200 bg-white p-3 sm:flex-row sm:items-center sm:justify-between">
-            <span className="font-mono text-slate-700">9400 11•••••••</span>
-            <span className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-700">Delivered</span>
-            <span className="text-slate-500">Phoenix, AZ</span>
-          </li>
-          <li className="flex flex-col items-start gap-2 rounded-lg border border-slate-200 bg-white p-3 sm:flex-row sm:items-center sm:justify-between">
-            <span className="font-mono text-slate-700">SPXSG123•••••</span>
-            <span className="rounded-full bg-yellow-100 px-3 py-1 text-xs font-medium text-yellow-700">At Facility</span>
-            <span className="text-slate-500">Los Angeles, CA</span>
-          </li>
-        </ul>
+        <h2 className="text-xl font-semibold text-slate-900">Common Shipment Scenarios</h2>
+        <p className="mt-1 text-sm text-slate-600">Illustrative examples of how a parcel can look at each stage. These are not live tracking events.</p>
+        <div className="mt-4 grid gap-3 text-sm sm:grid-cols-2">
+          <div className="rounded-lg border border-slate-200 bg-white p-4">
+            <p className="font-semibold text-slate-900">Out for delivery, but not yet delivered</p>
+            <p className="mt-1 text-slate-600">Usually means the driver has the parcel, but route order, traffic, or delivery access may still push the drop later in the day.</p>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-4">
+            <p className="font-semibold text-slate-900">In transit with no scan for a day or two</p>
+            <p className="mt-1 text-slate-600">Common on linehaul segments where movement happens between hubs without a public customer scan.</p>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-4">
+            <p className="font-semibold text-slate-900">Delivered, but the package is missing</p>
+            <p className="mt-1 text-slate-600">Check alternate drop points, neighbors, and delivery notes before filing a claim or asking for proof of delivery.</p>
+          </div>
+          <div className="rounded-lg border border-slate-200 bg-white p-4">
+            <p className="font-semibold text-slate-900">Label created, but no movement yet</p>
+            <p className="mt-1 text-slate-600">Often means the seller created the label before the carrier completed pickup or first scan.</p>
+          </div>
+        </div>
       </section>
     </div>
   );

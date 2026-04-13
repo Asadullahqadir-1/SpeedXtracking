@@ -591,55 +591,104 @@ function categoryLabel(category: PageCategory) {
 
 export function buildProgrammaticSections(page: BasePage) {
   const keyword = page.primaryKeyword;
+  const categoryLabelText = categoryLabel(page.category);
+
+  const categoryIntro = (() => {
+    if (page.category === "contact") {
+      return `Support requests work best when the first message contains the problem, the evidence, and the exact outcome you want. ${page.problemStatement}`;
+    }
+
+    if (page.category === "shein") {
+      return `Marketplace shipments usually involve seller handoff, export movement, customs review, and a final-mile delivery step. ${page.problemStatement}`;
+    }
+
+    if (page.category === "city") {
+      return `Local delivery timing depends on route density, building access, weather, and depot dispatch order. ${page.problemStatement}`;
+    }
+
+    if (page.category === "format") {
+      return `Format questions are usually about validation rather than shipment movement. ${page.problemStatement}`;
+    }
+
+    return `Delay questions are easiest to solve when you map the shipment to the current route stage. ${page.problemStatement}`;
+  })();
+
+  const categoryCauseList = (() => {
+    if (page.category === "contact") {
+      return [
+        "Missing tracking ID, order ID, or destination ZIP in the first message",
+        "Sending the request to the wrong team before seller escalation",
+        "Not including screenshots or a concise timeline",
+        "Asking for a refund outcome before the shipment status is verified"
+      ];
+    }
+
+    if (page.category === "shein") {
+      return [
+        "Seller handoff not yet completed",
+        "Export or customs review still in progress",
+        "Batch scan posting during cross-border transfer",
+        "Local carrier has not posted the first destination scan"
+      ];
+    }
+
+    if (page.category === "city") {
+      return [
+        "Route density is higher than usual",
+        "Driver access instructions are incomplete",
+        "Weather or traffic is slowing the route",
+        "Local depot sorting is running behind"
+      ];
+    }
+
+    if (page.category === "format") {
+      return [
+        "Copy-paste errors or hidden spaces in the number",
+        "Using the order ID instead of the carrier tracking ID",
+        "Tracking created before the first carrier scan",
+        "Selecting the wrong carrier during lookup"
+      ];
+    }
+
+    return [
+      "The shipment is between scan points",
+      "A long-haul or customs segment has no public update yet",
+      "Batch posting is delaying visible scans",
+      "The ETA is still within a normal handling window"
+    ];
+  })();
 
   return [
     {
-      heading: `How ${keyword} issues usually start`,
+      heading: `How ${keyword} usually behaves`,
       paragraphs: [
-        `${page.problemStatement} Most users only see the latest label and assume movement stopped, but carrier timelines often include silent stages where no customer-facing event is posted for several hours.`,
-        `When you review ${keyword} data, focus on event order, timestamp gaps, and route phase. A status can look unchanged while the parcel is moving through a linehaul transfer, customs queue, or destination sort lane.`,
-        `The key is context. A two-day gap during cross-border movement can be normal, while a two-day gap after out-for-delivery may require immediate follow-up. Understanding where your parcel sits in the chain is more valuable than reacting to a single static label.`
+        categoryIntro,
+        `The useful question is not only whether the label changed, but whether the event order still makes sense. A timeline can look frozen while the parcel is moving through a silent stage such as pickup, linehaul transfer, customs review, or destination sort.`,
+        `Read ${keyword} data by stage instead of by the most recent status alone. ${categoryLabelText} pages are most useful when they explain what the next scan should look like and how long that step usually takes.`
       ]
     },
     {
-      heading: "Fast diagnosis framework",
+      heading: "Likely causes and what to verify",
       paragraphs: [
-        `A practical way to analyze ${keyword} is to classify the shipment into four phases: pre-transit, linehaul transit, destination processing, and final-mile delivery. Each phase has different normal timing and different risk signals.`,
-        `Pre-transit usually means the merchant has generated a label, but pickup is pending. Linehaul transit often has the longest scan gaps. Destination processing includes sort and dispatch events. Final-mile stages are the most time-sensitive because promised delivery windows are near.`,
-        `This framework helps you avoid incorrect escalation. Users often file claims during normal linehaul silence, then miss critical action windows later when a true delivery exception appears. Diagnose first, escalate second.`
-      ]
+        `Start with the simplest explanation first: wrong tracking format, delayed scan posting, or a normal handoff gap. If the shipment is already near the delivery window, treat the same silence more carefully because the risk profile is higher.`,
+        `Before escalating, verify the shipment stage, the destination ZIP, and whether the seller or carrier currently owns the next action. That distinction matters because the fastest fix is often to contact the party that can actually update the record.`
+      ],
+      bullets: categoryCauseList
     },
     {
-      heading: "Step-by-step action plan",
+      heading: "Action plan for the next support request",
       paragraphs: [
-        `Use this sequence before opening support tickets. Acting too early can trigger generic responses, while waiting too long can miss seller claim windows. The goal is to escalate with clean evidence at the right moment.`,
-        `Your escalation quality improves when you attach screenshots, list timestamps, and explain exactly what changed versus what is missing. This helps support teams route the request faster and avoids reset-level replies.`,
-        `Keep your notes structured: latest event, expected event, ETA impact, and requested next action. A structured ticket is easier for support teams to triage, which usually shortens investigation turnaround.`
+        `Use a short evidence bundle when you contact support: current scan, last scan time, what changed since then, and the exact help you need. That structure is easier to triage and less likely to receive a generic reply.`,
+        `If the issue is still within a normal waiting window, document it and recheck later. If the ETA is missed, move from observation to escalation and include screenshots so the support team can see the same timeline you do.`
       ],
       bullets: page.actionPlan
     },
     {
-      heading: "When to escalate to seller vs carrier",
+      heading: "When to escalate and what to ask for",
       paragraphs: [
-        `For marketplace orders, begin with the seller because they own fulfillment obligations and can trigger internal shipping investigations. If seller support cannot provide progress, escalate to the carrier with your case ID and full timeline.`,
-        `For direct shipments, contact carrier support after your route-specific waiting window. Include tracking ID, destination ZIP, delivery notes, and a one-sentence resolution request. Clear asks such as "confirm next scan ETA" or "initiate facility trace" reduce delays.`,
-        `If support responds with generic advice, reply with your timeline evidence and ask for a specific action path. Requesting a case number and next update deadline creates accountability and improves follow-through.`
-      ]
-    },
-    {
-      heading: "How to reduce future tracking risk",
-      paragraphs: [
-        `Many repeat ${keyword} problems come from avoidable data issues: missing apartment numbers, incorrect phone details, or unclear access instructions. Updating these fields early significantly reduces failed delivery events.`,
-        `For cross-border routes, keep a small time buffer around estimated dates and monitor customs-related scans. For local final-mile routes, confirm safe-drop instructions and ensure door access details are visible to the driver.`,
-        `You can also reduce risk by tracking from day one rather than only near delivery date. Early visibility helps catch invalid tracking IDs, wrong addresses, and pickup delays before they turn into high-friction claims.`
-      ]
-    },
-    {
-      heading: "What success looks like",
-      paragraphs: [
-        `A healthy recovery flow is simple: timeline resumes, destination scans appear in sequence, and ETA stabilizes. If a package is truly blocked, support should provide a case reference and a concrete follow-up window.`,
-        `Use this page as a repeatable playbook for ${keyword}. The same framework works across delayed scans, exception events, contact escalations, city-level routing questions, and tracking-number format confusion.`,
-        `If you apply this process consistently, you will resolve most shipment issues faster while reducing unnecessary support tickets. Better diagnosis leads to better escalation, and better escalation leads to faster delivery outcomes.`
+        `For marketplace orders, start with the seller because they control fulfillment and can open the first investigation. For direct shipments, contact the carrier after the relevant waiting window has passed.`,
+        `Ask for one concrete next step instead of a vague status update. Good examples are "confirm the next scan ETA," "verify the address on file," or "open a facility trace." Specific requests usually get better answers than broad complaints.`,
+        `If the reply does not move the case forward, respond with the latest evidence and ask for a case number plus a follow-up deadline. That makes the thread easier to audit and keeps the issue from being reset.`
       ]
     }
   ];
@@ -692,28 +741,132 @@ export function getRelatedProgrammaticLinks(currentSlug: string) {
 }
 
 export function getProgrammaticFaqs(page: BasePage) {
-  return [
-    {
-      question: `How long should I wait when dealing with ${page.primaryKeyword.toLowerCase()}?`,
-      answer:
-        "In most cases, wait 24-48 hours for normal scan lag. Escalate sooner if delivery is marked completed but package is missing, or if the ETA window is already missed."
-    },
-    {
-      question: "Should I contact seller or carrier first?",
-      answer:
-        "For marketplace orders, contact seller first with tracking evidence. Then escalate to carrier support with seller case ID if no progress appears."
-    },
-    {
-      question: "What details should I include in support requests?",
-      answer:
-        "Include tracking number, order ID, destination ZIP, latest timeline screenshot, and the specific outcome you are requesting."
-    },
-    {
-      question: "Can scan gaps still be normal?",
-      answer:
-        "Yes. Long-haul and cross-border segments often update in batches, which can create temporary timeline silence."
+  const categorySpecificFaqs = (() => {
+    if (page.category === "contact") {
+      return [
+        {
+          question: `What should I include before contacting support about ${page.primaryKeyword.toLowerCase()}?`,
+          answer:
+            "Include the tracking number, order ID, destination ZIP, the latest scan screenshot, and a one-sentence description of the outcome you want."
+        },
+        {
+          question: "Should I contact the seller or carrier first?",
+          answer:
+            "For marketplace shipments, start with the seller because they control the fulfillment record. Escalate to the carrier with the seller case ID if the issue still needs investigation."
+        },
+        {
+          question: "How fast should a support reply arrive?",
+          answer:
+            "Most teams respond faster when the first message is complete. If there is no progress update after the stated response window, reply with the case ID and request a deadline."
+        },
+        {
+          question: "What if support gives a generic answer?",
+          answer:
+            "Reply with the missing facts and ask for one specific next step, such as a trace, address verification, or next-scan estimate."
+        }
+      ];
     }
-  ];
+
+    if (page.category === "shein") {
+      return [
+        {
+          question: `Why do ${page.primaryKeyword.toLowerCase()} updates sometimes appear in batches?`,
+          answer:
+            "Shein and SpeedX shipments can move through export, customs, and local handoff stages before the next public scan appears. Batch updates are common on cross-border routes."
+        },
+        {
+          question: "Should I contact Shein or SpeedX first?",
+          answer:
+            "Start with the seller platform for order-level issues, then contact the carrier if the tracking timeline needs investigation or the parcel is already in the delivery network."
+        },
+        {
+          question: "How long is a normal scan gap?",
+          answer:
+            "A 24-48 hour gap can be normal during linehaul or customs movement, especially when the parcel is crossing borders."
+        },
+        {
+          question: "What evidence helps most with a claim?",
+          answer:
+            "Use screenshots of the full timeline, the order details page, and any proof that the delivery address is correct."
+        }
+      ];
+    }
+
+    if (page.category === "city") {
+      return [
+        {
+          question: `Why does ${page.primaryKeyword.toLowerCase()} vary by neighborhood?`,
+          answer:
+            "Route density, building access, weather, and depot dispatch order all affect how local delivery scans appear."
+        },
+        {
+          question: "What should I check if the package is close to delivery?",
+          answer:
+            "Make sure apartment details, gate codes, phone number, and safe-drop notes are correct before the final-mile attempt."
+        },
+        {
+          question: "When should I escalate a city-specific delay?",
+          answer:
+            "Escalate once the ETA window is missed or the route stalls without a new scan after the normal local waiting period."
+        },
+        {
+          question: "Can weather make the city delivery look stuck?",
+          answer:
+            "Yes. Weather and traffic can delay scans without meaning the shipment is lost."
+        }
+      ];
+    }
+
+    if (page.category === "format") {
+      return [
+        {
+          question: `How do I validate ${page.primaryKeyword.toLowerCase()}?`,
+          answer:
+            "Check the prefix, length, and carrier selection first. Then compare the value with the tracking number shown in the shipment details page."
+        },
+        {
+          question: "Why does the lookup fail even when the number looks right?",
+          answer:
+            "It may be too early for the first carrier scan, or the number may still be assigned to the wrong carrier in the lookup tool."
+        },
+        {
+          question: "Should I use the order ID instead of the tracking number?",
+          answer:
+            "No. Order IDs and carrier tracking numbers are different identifiers, and the lookup usually needs the carrier number."
+        },
+        {
+          question: "What should I do if the format still does not work?",
+          answer:
+            "Ask the seller to confirm the carrier and resend the full tracking ID without spaces or truncated characters."
+        }
+      ];
+    }
+
+    return [
+      {
+        question: `How long should I wait for ${page.primaryKeyword.toLowerCase()} updates?`,
+        answer:
+          "In most cases, wait 24-48 hours for normal scan lag. Escalate sooner if delivery is marked complete but the package is missing, or if the ETA window is already missed."
+      },
+      {
+        question: "Can scan gaps still be normal?",
+        answer:
+          "Yes. Long-haul and cross-border segments often update in batches, which can create temporary timeline silence."
+      },
+      {
+        question: "What should I verify before escalating?",
+        answer:
+          "Check the current scan stage, destination ZIP, recent weather or customs disruptions, and whether the shipment is still within the expected delivery range."
+      },
+      {
+        question: "What details should I include in a support request?",
+        answer:
+          "Include the tracking number, order ID, destination ZIP, a screenshot of the latest event, and the exact next step you want support to take."
+      }
+    ];
+  })();
+
+  return categorySpecificFaqs;
 }
 
 export function getCategoryLabel(page: BasePage) {
