@@ -52,6 +52,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   const fallbackRelatedPosts = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
   const relatedToShow = relatedPosts.length > 0 ? relatedPosts : fallbackRelatedPosts;
+  const estimatedWordCount = post.sections.reduce((count, section) => {
+    const paragraphWords = section.paragraphs.reduce((sum, paragraph) => sum + paragraph.trim().split(/\s+/).length, 0);
+    const bulletWords = (section.bullets ?? []).reduce((sum, bullet) => sum + bullet.trim().split(/\s+/).length, 0);
+    return count + paragraphWords + bulletWords;
+  }, 0);
 
   const postFaqs = [
     {
@@ -80,6 +85,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           path: `/blog/${post.slug}`,
           datePublished: post.publishedDate,
           dateModified: post.updatedDate,
+          articleSection: post.category,
+          wordCount: estimatedWordCount,
           keywords: [
             "SpeedX tracking",
             "SpeedX tracking update",
@@ -108,7 +115,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
         <h1 className="text-3xl font-bold leading-tight text-slate-900 sm:text-4xl">{post.title}</h1>
         <p className="mt-3 text-base text-slate-700 sm:text-lg">{post.description}</p>
-        <FreshnessNote date={getFreshnessDate("guidesHub")} />
+        <FreshnessNote date={post.updatedDate} />
 
         <div className="mt-6 space-y-8">
           {post.sections.map((section) => (

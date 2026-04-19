@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { guides } from "@/content/guides";
 import { getCategoryLabel, getIndexableProgrammaticPages } from "@/content/programmatic-pages";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { webPageSchema } from "@/lib/seo/schema";
+import { breadcrumbSchema, collectionPageSchema, itemListSchema } from "@/lib/seo/schema";
 
 export const metadata = buildMetadata({
   title: "SpeedX Guides: Delays, Missing Packages, And Status Fix Checklists",
@@ -26,12 +26,31 @@ export default function GuidesPage() {
     <div className="container-page py-10">
       <JsonLd
         data={
-          webPageSchema({
+          collectionPageSchema({
             path: "/guides",
             title: "SpeedX Tracking Guides",
             description:
               "Read practical SpeedX tracking guides on delayed packages, SPXCN tracking numbers, delivered-not-received issues, and late-night delivery questions."
           })
+        }
+      />
+      <JsonLd
+        data={
+          breadcrumbSchema([
+            { name: "Home", url: siteConfig.url },
+            { name: "Guides", url: `${siteConfig.url}/guides` }
+          ])
+        }
+      />
+      <JsonLd
+        data={
+          itemListSchema(
+            guides.map((guide) => ({
+              name: guide.title,
+              url: `${siteConfig.url}/guides/${guide.slug}`,
+              description: guide.intro
+            }))
+          )
         }
       />
       <h1 className="text-3xl font-bold">Shipping Guides</h1>

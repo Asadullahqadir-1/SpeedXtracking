@@ -96,7 +96,9 @@ export function articleSchema({
   path,
   datePublished,
   dateModified,
-  keywords
+  keywords,
+  articleSection,
+  wordCount
 }: {
   title: string;
   description: string;
@@ -104,6 +106,8 @@ export function articleSchema({
   datePublished: string;
   dateModified: string;
   keywords: string[];
+  articleSection?: string;
+  wordCount?: number;
 }) {
   const canonicalUrl = `${siteUrl}${path}`;
 
@@ -129,6 +133,49 @@ export function articleSchema({
       }
     },
     image: `${siteUrl}/images/official/speedx-coverage-map.webp`,
-    keywords
+    keywords,
+    articleSection,
+    wordCount
+  };
+}
+
+export function collectionPageSchema({
+  path,
+  title,
+  description
+}: {
+  path: string;
+  title: string;
+  description: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: title,
+    description,
+    url: `${siteUrl}${path}`,
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Speed X Tracking",
+      url: siteUrl
+    }
+  };
+}
+
+export function itemListSchema(items: Array<{ name: string; url: string; description?: string }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    numberOfItems: items.length,
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Article",
+        name: item.name,
+        url: item.url,
+        description: item.description
+      }
+    }))
   };
 }

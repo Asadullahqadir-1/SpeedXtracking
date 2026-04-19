@@ -1,8 +1,9 @@
 import Link from "next/link";
 import { blogPosts } from "@/content/blogs";
+import { siteConfig } from "@/lib/seo/metadata";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { webPageSchema } from "@/lib/seo/schema";
+import { breadcrumbSchema, collectionPageSchema, itemListSchema } from "@/lib/seo/schema";
 
 export const revalidate = 86400;
 
@@ -28,12 +29,31 @@ export default function BlogPage() {
     <div className="container-page py-6 sm:py-8 lg:py-10">
       <JsonLd
         data={
-          webPageSchema({
+          collectionPageSchema({
             path: "/blog",
             title: "SpeedX Tracking Blog",
             description:
               "Read practical SpeedX tracking guides for delivery time questions, status meanings, delayed package fixes, and Shein shipment help."
           })
+        }
+      />
+      <JsonLd
+        data={
+          breadcrumbSchema([
+            { name: "Home", url: siteConfig.url },
+            { name: "Blog", url: `${siteConfig.url}/blog` }
+          ])
+        }
+      />
+      <JsonLd
+        data={
+          itemListSchema(
+            sortedPosts.map((post) => ({
+              name: post.title,
+              url: `${siteConfig.url}/blog/${post.slug}`,
+              description: post.description
+            }))
+          )
         }
       />
       <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl">SpeedX Tracking Blog</h1>

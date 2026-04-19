@@ -1,7 +1,7 @@
 import { globalFaqs } from "@/content/faqs";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { faqSchema } from "@/lib/seo/schema";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
+import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
   title: "SpeedX FAQ: Tracking Status, Delivery Delays, SPXCN, And Support",
@@ -20,6 +20,24 @@ export const metadata = buildMetadata({
 export default function FaqPage() {
   return (
     <div className="container-page py-10">
+      <JsonLd
+        data={
+          webPageSchema({
+            path: "/faq",
+            title: "SpeedX Tracking FAQ",
+            description:
+              "Answers to common SpeedX tracking questions about delivery times, status meanings, SPXCN formats, and missing package workflows."
+          })
+        }
+      />
+      <JsonLd
+        data={
+          breadcrumbSchema([
+            { name: "Home", url: siteConfig.url },
+            { name: "FAQ", url: `${siteConfig.url}/faq` }
+          ])
+        }
+      />
       <JsonLd data={faqSchema(globalFaqs)} />
       <h1 className="text-3xl font-bold">Frequently Asked Questions</h1>
       <div className="mt-6 space-y-5">
