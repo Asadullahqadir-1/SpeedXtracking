@@ -8,9 +8,9 @@ import { globalFaqs } from "@/content/faqs";
 import { buildAdaptiveClusters, getGlobalTroubleshootingCluster } from "@/lib/seo/internal-links";
 
 export const metadata = buildMetadata({
-  title: "Track SpeedX Package Now: Instant Tracking Number Lookup",
+  title: "Track SpeedX Package Now: Live Tracking Number Lookup And Delivery ETA",
   description:
-    "Enter your SpeedX tracking number to see current package status, latest scan location, and estimated delivery date in seconds.",
+    "Enter your SpeedX tracking number to check live package status, latest scan location, and estimated delivery date in seconds.",
   path: "/track-package",
   keywords: [
     "track SpeedX tracking number",

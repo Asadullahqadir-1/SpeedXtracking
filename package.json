@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit",
-    "seo:generate-longtail": "node scripts/generate-longtail-csv.js"
+    "seo:generate-longtail": "node scripts/generate-longtail-csv.js",
+    "seo:gsc-analyze": "node scripts/analyze-gsc-pages.js"
   },
   "dependencies": {
     "next": "16.1.6",

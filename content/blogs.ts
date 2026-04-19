@@ -426,5 +426,278 @@ export const blogPosts: BlogPost[] = [
         ]
       }
     ]
+  },
+  {
+    slug: "speedx-out-for-delivery-but-not-delivered",
+    title: "SpeedX Out for Delivery But Not Delivered: What to Do Next",
+    description:
+      "Use this step-by-step plan when SpeedX tracking says out for delivery but your package does not arrive by end of day.",
+    category: "Troubleshooting",
+    readTime: "8 min read",
+    publishedDate: "2026-04-19",
+    updatedDate: "2026-04-19",
+    sections: [
+      {
+        heading: "Why out-for-delivery can roll to next day",
+        paragraphs: [
+          "Out-for-delivery means your package is assigned to a route, but stop order, traffic, weather, and route overflow can delay final drop-off.",
+          "During high-volume days, drivers may return with undelivered parcels and attempt again the next business day."
+        ]
+      },
+      {
+        heading: "What to check before escalating",
+        paragraphs: [
+          "Confirm delivery instructions, gate access, and contact number in your order profile before opening a support case."
+        ],
+        bullets: [
+          "Check porch, side entrance, parcel locker, and concierge",
+          "Review delivery notes in seller app",
+          "Wait until end-of-day local delivery window",
+          "Capture screenshot of latest status"
+        ]
+      },
+      {
+        heading: "Escalation message template",
+        paragraphs: [
+          "If status is unchanged the next day, contact seller first and request carrier follow-up with route-level confirmation.",
+          "Include tracking number, full address, and a one-line timeline to speed response."
+        ]
+      }
+    ]
+  },
+  {
+    slug: "speedx-label-created-no-movement",
+    title: "SpeedX Label Created, No Movement: Is Your Package Stuck?",
+    description:
+      "Understand what label created means, how long to wait, and when to contact seller or carrier if SpeedX tracking does not move.",
+    category: "Tracking Basics",
+    readTime: "7 min read",
+    publishedDate: "2026-04-19",
+    updatedDate: "2026-04-19",
+    sections: [
+      {
+        heading: "What label created actually means",
+        paragraphs: [
+          "Label created usually means shipment data was submitted, but the parcel may still be with the seller and not yet physically scanned.",
+          "This stage is common on marketplace orders where pickup and first-mile consolidation happen in batches."
+        ]
+      },
+      {
+        heading: "Normal waiting window",
+        paragraphs: [
+          "Most shipments receive their first movement scan within 24 to 72 hours, depending on seller dispatch timing and pickup schedules."
+        ],
+        bullets: [
+          "0-24h: normal seller processing",
+          "24-48h: common pickup delay",
+          "48-72h: check seller dispatch confirmation",
+          "72h+: request escalation"
+        ]
+      },
+      {
+        heading: "How to escalate effectively",
+        paragraphs: [
+          "Ask seller to confirm physical handoff date and pickup reference. If unavailable, request order replacement/refund pathway.",
+          "Use precise timestamps from your tracking page instead of generic delay statements."
+        ]
+      }
+    ]
+  },
+  {
+    slug: "speedx-tracking-number-not-found",
+    title: "SpeedX Tracking Number Not Found: 10 Fast Checks",
+    description:
+      "Fix SpeedX tracking number not found errors with a practical checklist for typos, format issues, dispatch timing, and carrier mismatch.",
+    category: "Troubleshooting",
+    readTime: "9 min read",
+    publishedDate: "2026-04-19",
+    updatedDate: "2026-04-19",
+    sections: [
+      {
+        heading: "Most common causes of number-not-found",
+        paragraphs: [
+          "Tracking lookup failures are usually format errors, recently created labels, or wrong-carrier lookups rather than lost parcels.",
+          "Numbers can also fail temporarily while data synchronizes across seller and carrier systems."
+        ]
+      },
+      {
+        heading: "10 checks before contacting support",
+        paragraphs: [
+          "Run these checks in order to avoid unnecessary tickets and quickly identify whether the issue is formatting or dispatch timing."
+        ],
+        bullets: [
+          "Remove spaces and hidden characters",
+          "Verify full code length from shipment email",
+          "Avoid confusing O/0 and I/1",
+          "Check if seller shared internal order ID by mistake",
+          "Wait 12-24 hours after first label event",
+          "Retry on /track-package with carrier set to speedx",
+          "Check seller app shipment timeline",
+          "Compare with invoice and dispatch notice",
+          "Confirm package is not canceled",
+          "Request seller-side handoff proof"
+        ]
+      },
+      {
+        heading: "When to open a case",
+        paragraphs: [
+          "Open a support case after 72 hours with no valid carrier recognition and include screenshots from both seller and tracking pages.",
+          "Ask for either corrected tracking number or confirmed re-shipment timeline."
+        ]
+      }
+    ]
+  },
+  {
+    slug: "speedx-arrived-at-facility-meaning",
+    title: "SpeedX Arrived at Facility: Meaning, Timeline, and Next Update",
+    description:
+      "Learn what arrived at facility means in SpeedX tracking, how long this stage can last, and when a delay becomes actionable.",
+    category: "Tracking Basics",
+    readTime: "7 min read",
+    publishedDate: "2026-04-19",
+    updatedDate: "2026-04-19",
+    sections: [
+      {
+        heading: "What happens at a facility scan",
+        paragraphs: [
+          "A facility scan means the parcel reached a sorting node where destination routing, barcode verification, and linehaul assignment occur.",
+          "The next update can be immediate or delayed depending on whether the parcel waits for batch dispatch."
+        ]
+      },
+      {
+        heading: "How long can this status stay",
+        paragraphs: [
+          "A 12-48 hour facility window is common. Peak periods and weather disruptions can extend this without indicating package loss."
+        ],
+        bullets: [
+          "12-24h: normal processing",
+          "24-48h: still common in busy hubs",
+          "48-72h: monitor for next movement event",
+          "72h+: investigate with seller/carrier"
+        ]
+      },
+      {
+        heading: "Practical next actions",
+        paragraphs: [
+          "Track the sequence of scans, not just a single event label. If no movement appears after 3 days, start with seller escalation.",
+          "Use date-stamped screenshots to speed carrier review."
+        ]
+      }
+    ]
+  },
+  {
+    slug: "speedx-attempted-delivery-what-next",
+    title: "SpeedX Attempted Delivery: What It Means and How to Get Redelivery",
+    description:
+      "See what SpeedX attempted delivery means, why it happens, and the exact steps to schedule successful redelivery.",
+    category: "Claims",
+    readTime: "8 min read",
+    publishedDate: "2026-04-19",
+    updatedDate: "2026-04-19",
+    sections: [
+      {
+        heading: "Why attempted delivery statuses appear",
+        paragraphs: [
+          "Attempted delivery usually indicates address access issues, unavailable recipient, or route timing constraints near cutoff windows.",
+          "It does not automatically mean your parcel is returned or canceled."
+        ]
+      },
+      {
+        heading: "How to secure redelivery quickly",
+        paragraphs: [
+          "Update any missing unit details and give clear drop instructions before the next route cycle begins."
+        ],
+        bullets: [
+          "Confirm buzzer, gate, unit, and phone details",
+          "Add safe-drop instructions if available",
+          "Contact seller to submit carrier note",
+          "Ask support for redelivery date window"
+        ]
+      },
+      {
+        heading: "When return-to-sender risk increases",
+        paragraphs: [
+          "Multiple failed attempts or unresolved address issues can trigger return-to-sender workflows.",
+          "Escalate immediately after the second failed attempt."
+        ]
+      }
+    ]
+  },
+  {
+    slug: "speedx-returned-to-sender",
+    title: "SpeedX Returned to Sender: Reasons, Timeline, and Recovery Options",
+    description:
+      "Understand why SpeedX shipments are returned to sender and what you can do to recover your order or get a replacement faster.",
+    category: "Claims",
+    readTime: "8 min read",
+    publishedDate: "2026-04-19",
+    updatedDate: "2026-04-19",
+    sections: [
+      {
+        heading: "Common return-to-sender triggers",
+        paragraphs: [
+          "Returns usually happen after failed delivery attempts, invalid address details, refusal, or customs rejection on cross-border shipments.",
+          "Understanding the trigger is critical because each reason has a different recovery route."
+        ]
+      },
+      {
+        heading: "What happens after return scan",
+        paragraphs: [
+          "After the return scan, parcels move to a return hub before merchant receipt. This can take several business days.",
+          "Seller policy determines whether you receive re-shipment, refund, or store credit."
+        ],
+        bullets: [
+          "Request return tracking timeline from seller",
+          "Confirm refund or re-shipment policy in writing",
+          "Share screenshots of all final-mile events",
+          "Set expected resolution date"
+        ]
+      },
+      {
+        heading: "How to prevent future returns",
+        paragraphs: [
+          "Keep address formatting standardized and include delivery notes for complex buildings.",
+          "Use a monitored phone number and verify post code before checkout."
+        ]
+      }
+    ]
+  },
+  {
+    slug: "speedx-departed-facility-no-update",
+    title: "SpeedX Departed Facility, No Update: Is This Normal?",
+    description:
+      "Learn why SpeedX tracking can pause after departed facility, how long to wait, and when to treat the delay as actionable.",
+    category: "Troubleshooting",
+    readTime: "7 min read",
+    publishedDate: "2026-04-19",
+    updatedDate: "2026-04-19",
+    sections: [
+      {
+        heading: "Why post-departure gaps happen",
+        paragraphs: [
+          "After a departure scan, parcels often travel long-haul without intermediate public scans. This is common across hub-to-hub transfer legs.",
+          "Tracking systems may post next events only when the parcel is received at the next processing center."
+        ]
+      },
+      {
+        heading: "Reasonable wait thresholds",
+        paragraphs: [
+          "A 24-48 hour gap is frequently normal. Longer pauses require context from route type, weather, customs, and weekend timing."
+        ],
+        bullets: [
+          "Up to 48h: common linehaul gap",
+          "48-72h: monitor closely",
+          "72h+: prepare escalation details",
+          "5+ days: open formal case"
+        ]
+      },
+      {
+        heading: "Escalation details that get faster replies",
+        paragraphs: [
+          "Share last known location, exact timestamp, destination post code, and expected delivery date in one concise message.",
+          "Structured evidence avoids back-and-forth and shortens support resolution time."
+        ]
+      }
+    ]
   }
 ];

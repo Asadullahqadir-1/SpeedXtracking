@@ -13,9 +13,9 @@ import { blogPosts } from "@/content/blogs";
 export const revalidate = 86400;
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking Number Lookup: Live Status, ETA, And Support",
+  title: "SpeedX Tracking Number Lookup: Check Live Status And Delivery ETA Today",
   description:
-    "Track SpeedX packages with live status updates, delivery ETA windows, and step-by-step fixes for delayed or missing shipments.",
+    "Track your SpeedX package now. Get live tracking status, latest scan location, delivery ETA, and proven fixes for delayed or missing shipments.",
   path: "/",
   keywords: [
     "SpeedX tracking",
@@ -385,6 +385,19 @@ export default function HomePage() {
           <Link href="/blog/speedx-tracking-not-updating" className="hover:underline">SpeedX tracking not updating fixes</Link>
           <Link href="/blog/tracking-status-meanings-explained" className="hover:underline">Tracking status meanings explained</Link>
           <Link href="/blog/shein-speedx-tracking-guide" className="hover:underline">Shein SpeedX tracking guide</Link>
+        </div>
+      </section>
+
+      <section className="reveal-card mt-8 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Top Search Intent Pages</h2>
+        <p className="mt-2 text-slate-600">Start with these high-intent pages designed for common SpeedX tracking questions.</p>
+        <div className="mt-5 grid gap-2 text-sm text-brand-700 sm:grid-cols-2 lg:grid-cols-3">
+          <Link href="/track-package" className="hover:underline">Track SpeedX package now</Link>
+          <Link href="/carriers/speedx" className="hover:underline">SpeedX tracking guide</Link>
+          <Link href="/carriers/speedx/status" className="hover:underline">Status meanings explained</Link>
+          <Link href="/carriers/speedx/delivery-time" className="hover:underline">Delivery time estimates</Link>
+          <Link href="/blog/speedx-tracking-not-updating" className="hover:underline">Tracking not updating fixes</Link>
+          <Link href="/blog/speedx-delivery-exception-codes" className="hover:underline">Delivery exception fixes</Link>
         </div>
       </section>
 

@@ -6,9 +6,9 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, collectionPageSchema, itemListSchema } from "@/lib/seo/schema";
 
 export const metadata = buildMetadata({
-  title: "SpeedX Guides: Delays, Missing Packages, And Status Fix Checklists",
+  title: "SpeedX Tracking Guides: Fix Delays, Missing Packages, And Status Issues Fast",
   description:
-    "Use practical SpeedX guides to fix delayed tracking updates, delivered-not-received issues, SPXCN confusion, and delivery-time questions.",
+    "Use actionable SpeedX troubleshooting guides to fix delayed tracking updates, delivered-not-received cases, SPXCN confusion, and ETA questions.",
   path: "/guides",
   keywords: [
     "SpeedX tracking guides",
@@ -63,6 +63,17 @@ export default function GuidesPage() {
           </Link>
         ))}
       </div>
+
+      <section className="mt-8 rounded-xl border border-slate-200 bg-slate-50 p-5">
+        <h2 className="text-lg font-semibold text-slate-900">High-Intent Tracking Paths</h2>
+        <p className="mt-2 text-sm text-slate-700">Jump directly to the pages users search for most often when a shipment seems stuck or uncertain.</p>
+        <div className="mt-4 grid gap-2 text-sm text-brand-700 sm:grid-cols-2">
+          <Link href="/track-package" className="hover:underline">Track package now</Link>
+          <Link href="/carriers/speedx/status" className="hover:underline">SpeedX status meanings</Link>
+          <Link href="/carriers/speedx/delivery-time" className="hover:underline">SpeedX delivery ETA guide</Link>
+          <Link href="/blog/speedx-tracking-not-updating" className="hover:underline">Tracking not updating fixes</Link>
+        </div>
+      </section>
 
       <section id="speedx-issue-library" className="mt-10">
         <h2 className="text-2xl font-bold text-slate-900">SpeedX Issue Library</h2>

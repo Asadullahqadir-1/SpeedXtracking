@@ -8,9 +8,9 @@ import { breadcrumbSchema, collectionPageSchema, itemListSchema } from "@/lib/se
 export const revalidate = 86400;
 
 export const metadata = buildMetadata({
-  title: "SpeedX Blog: Delivery Guides, Status Meanings, And Troubleshooting",
+  title: "SpeedX Tracking Blog: Real Fixes For Delays, Status Errors, And Delivery Issues",
   description:
-    "Read practical SpeedX delivery guides, status explainers, and troubleshooting checklists for delays, Shein orders, and missing packages.",
+    "Read step-by-step SpeedX tracking guides that solve delayed scans, status errors, customs holds, and delivered-but-missing issues.",
   path: "/blog",
   keywords: [
     "SpeedX tracking blog",
@@ -71,6 +71,16 @@ export default function BlogPage() {
           SpeedX delivery estimate
         </Link>
       </div>
+
+      <section className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4">
+        <h2 className="text-base font-semibold text-slate-900">Popular Search Intent Topics</h2>
+        <div className="mt-3 grid gap-2 text-sm text-brand-700 sm:grid-cols-2">
+          <Link href="/blog/speedx-tracking-not-updating" className="hover:underline">SpeedX tracking not updating</Link>
+          <Link href="/blog/tracking-status-meanings-explained" className="hover:underline">SpeedX tracking status meanings</Link>
+          <Link href="/blog/speedx-delivery-time-by-region" className="hover:underline">SpeedX delivery time by region</Link>
+          <Link href="/blog/delivered-but-not-received-speedx" className="hover:underline">Delivered but not received</Link>
+        </div>
+      </section>
 
       <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {sortedPosts.map((post) => (
