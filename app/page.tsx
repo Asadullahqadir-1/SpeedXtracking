@@ -154,10 +154,10 @@ export default function HomePage() {
           <div>
             <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">SpeedX Tracking: Track SpeedX Packages Instantly</h2>
             <p className="mt-3 text-slate-700 leading-relaxed">
-              SpeedX is a leading last-mile delivery carrier specializing in e-commerce shipments from Shein, Temu, and other online retailers. Our SpeedX tracking tool provides real-time status updates for all SpeedX tracking numbers (SPX, SPXSG, SPXCN formats). Get instant delivery estimates, current package location, and detailed scan history. Whether your SpeedX package is in transit, out for delivery, or stuck at a facility, you'll see exactly where it is and when it will arrive.
+              SpeedX is a leading last-mile delivery carrier specializing in e-commerce shipments from Shein, Temu, and other online retailers. Our SpeedX tracking tool provides real-time status updates for all SpeedX tracking numbers (SPX, SPXSG, SPXCN formats). Get instant delivery estimates, current package location, and detailed scan history. Whether your SpeedX package is in transit, out for delivery, or stuck at a facility, you&apos;ll see exactly where it is and when it will arrive.
             </p>
             <p className="mt-3 text-slate-700 leading-relaxed">
-              Track SpeedX Shein orders with confidence: most domestic deliveries arrive within 3-5 business days, while international SpeedX shipments take 7-15 days depending on customs clearance. If your SpeedX tracking isn't updating, check our troubleshooting guides below for common solutions including weekend delays, customs holds, and address issues.
+              Track SpeedX Shein orders with confidence: most domestic deliveries arrive within 3-5 business days, while international SpeedX shipments take 7-15 days depending on customs clearance. If your SpeedX tracking isn&apos;t updating, check our troubleshooting guides below for common solutions including weekend delays, customs holds, and address issues.
             </p>
           </div>
         </div>
@@ -339,7 +339,7 @@ export default function HomePage() {
           </Link>
           <Link href="/guides/delivered-not-received" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
             <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">❌ Delivered But Missing</h3>
-            <p className="mt-1 text-sm text-slate-600">What to do if package shows delivered but isn't there</p>
+            <p className="mt-1 text-sm text-slate-600">What to do if package shows delivered but isn&apos;t there</p>
           </Link>
           <Link href="/guides/how-to-track-packages" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
             <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">📋 Status Meanings</h3>

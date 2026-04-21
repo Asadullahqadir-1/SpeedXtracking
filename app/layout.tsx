@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import Script from "next/script";
 import "@/app/globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AnalyticsProvider } from "@/components/analytics/AnalyticsProvider";
 import { siteConfig } from "@/lib/seo/metadata";
+
+const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -14,9 +17,6 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   applicationName: "Speed X Tracking",
-  alternates: {
-    canonical: "/"
-  },
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     shortcut: ["/icon.svg"],
@@ -55,10 +55,16 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head>
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5798356780873571" crossOrigin="anonymous"></script>
-      </head>
+      <head />
       <body>
+        {ADSENSE_CLIENT ? (
+          <Script
+            id="adsense-js"
+            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+            strategy="lazyOnload"
+            crossOrigin="anonymous"
+          />
+        ) : null}
         <Suspense fallback={null}>
           <AnalyticsProvider />
         </Suspense>

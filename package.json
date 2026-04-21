@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "seo:generate-longtail": "node scripts/generate-longtail-csv.js",
     "seo:gsc-analyze": "node scripts/analyze-gsc-pages.js"

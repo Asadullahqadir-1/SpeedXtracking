@@ -45,7 +45,7 @@ export default function TermsPage() {
       <section className="mt-6 section-card p-5 sm:p-6">
         <h2 className="text-xl font-semibold text-slate-900">Limitation of liability</h2>
         <p className="mt-3 text-sm leading-relaxed text-slate-700 sm:text-base">
-          SpeedXTracking is provided on an "as is" basis for general information. We are not liable for delivery losses, claim outcomes, or business decisions made solely from site content.
+          SpeedXTracking is provided on an &quot;as is&quot; basis for general information. We are not liable for delivery losses, claim outcomes, or business decisions made solely from site content.
         </p>
       </section>
 

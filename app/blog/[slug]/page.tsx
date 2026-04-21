@@ -4,7 +4,6 @@ import { blogPosts } from "@/content/blogs";
 import { FreshnessNote } from "@/components/seo/FreshnessNote";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { EditorialTrustBlock } from "@/components/seo/EditorialTrustBlock";
-import { getFreshnessDate } from "@/lib/seo/freshness";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/seo/schema";
 
