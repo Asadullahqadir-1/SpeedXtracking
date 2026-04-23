@@ -5,7 +5,6 @@ import { blogPosts } from "@/content/blogs";
 import { getIndexableProgrammaticPages } from "@/content/programmatic-pages";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 import { siteUrl } from "@/lib/seo/site-url";
-import { longTailIntentSlugs } from "@/lib/seo/longtail";
 
 const baseUrl = siteUrl;
 
@@ -30,10 +29,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     `/carriers/${carrier.slug}/contact`,
     `/carriers/${carrier.slug}/shein`
   ]);
-
-  const carrierIntentPages = carriers.flatMap((carrier) =>
-    longTailIntentSlugs.map((intent) => `/carriers/${carrier.slug}/${intent}`)
-  );
 
   const guidePages = guides.map((guide) => `/guides/${guide.slug}`);
   const blogPages = blogPosts.map((post) => `/blog/${post.slug}`);
@@ -81,7 +76,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return siteReviewedAt;
   }
 
-  return [...staticPages, ...policyPages, ...carrierPages, ...carrierIntentPages, ...guidePages, ...blogPages, ...programmaticPages].map((path) => ({
+  return [...staticPages, ...policyPages, ...carrierPages, ...guidePages, ...blogPages, ...programmaticPages].map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: getLastModified(path),
     changeFrequency: getChangeFrequency(path),

@@ -570,7 +570,7 @@ export function isProgrammaticPageIndexable(page: BasePage) {
     return false;
   }
 
-  return page.category === "issue" || page.category === "contact" || page.category === "shein";
+  return page.category === "issue";
 }
 
 export function getIndexableProgrammaticPages() {

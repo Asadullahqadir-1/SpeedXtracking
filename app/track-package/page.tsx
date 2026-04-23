@@ -50,7 +50,7 @@ export default async function TrackPackagePage({
       <p className="mt-2 text-slate-700">Check current SpeedX shipment status, scan timeline, and estimated delivery window.</p>
 
       <section className="mt-6 section-card">
-        <TrackingForm defaultCarrier={carrier} />
+        <TrackingForm defaultCarrier={carrier} initialTrackingNumber={trackingNumber} />
         {trackingNumber ? <TrackingLookup trackingNumber={trackingNumber} carrier={carrier} /> : null}
       </section>
 

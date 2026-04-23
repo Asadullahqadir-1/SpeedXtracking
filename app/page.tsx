@@ -115,6 +115,8 @@ export default function HomePage() {
             width={180}
             height={60}
             className="h-auto w-[140px] sm:w-[180px]"
+            sizes="(max-width: 640px) 140px, 180px"
+            quality={75}
             priority={false}
           />
         </div>
@@ -127,6 +129,8 @@ export default function HomePage() {
               width={900}
               height={520}
               className="h-full w-full object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={75}
             />
             <figcaption className="px-4 py-3 text-xs text-slate-600">
               Coverage map reference from the official SpeedX site.
@@ -140,6 +144,8 @@ export default function HomePage() {
               width={900}
               height={520}
               className="h-full w-full object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={75}
             />
             <figcaption className="px-4 py-3 text-xs text-slate-600">
               Next-day delivery visual from official SpeedX content.

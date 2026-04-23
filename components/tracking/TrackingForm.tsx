@@ -1,44 +1,29 @@
-"use client";
-
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-import { trackEvent } from "@/lib/analytics";
-
 type TrackingFormProps = {
   defaultCarrier?: string;
   compact?: boolean;
+  initialTrackingNumber?: string;
 };
 
-export function TrackingForm({ defaultCarrier = "speedx", compact = false }: TrackingFormProps) {
-  const router = useRouter();
-  const [trackingNumber, setTrackingNumber] = useState("");
-  const carrier = defaultCarrier;
-
+export function TrackingForm({
+  defaultCarrier = "speedx",
+  compact = false,
+  initialTrackingNumber = ""
+}: TrackingFormProps) {
   return (
     <form
+      method="get"
+      action="/track-package"
       className={`grid gap-3 ${compact ? "md:grid-cols-[1fr,auto]" : "md:grid-cols-[1fr,auto]"}`}
-      onSubmit={(event) => {
-        event.preventDefault();
-        if (!trackingNumber.trim()) {
-          return;
-        }
-
-        trackEvent("track_submit", {
-          carrier,
-          tracking_length: trackingNumber.trim().length
-        });
-
-        router.push(
-          `/track-package?trackingNumber=${encodeURIComponent(trackingNumber.trim())}&carrier=${encodeURIComponent(carrier)}`
-        );
-      }}
     >
+      <input type="hidden" name="carrier" value={defaultCarrier} />
       <input
+        name="trackingNumber"
         className="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none ring-brand-500 focus:ring-2"
         placeholder="Enter tracking number"
-        value={trackingNumber}
-        onChange={(event) => setTrackingNumber(event.target.value)}
+        defaultValue={initialTrackingNumber}
         aria-label="Tracking number"
+        autoComplete="off"
+        required
       />
       <button
         type="submit"
