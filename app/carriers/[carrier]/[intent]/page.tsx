@@ -56,7 +56,7 @@ export async function generateMetadata({
       `${currentCarrier.carrierName} delivery support`
     ],
     robots: {
-      index: false,
+      index: true,
       follow: true
     }
   });
