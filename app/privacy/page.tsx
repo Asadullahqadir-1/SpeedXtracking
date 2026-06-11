@@ -37,9 +37,19 @@ export default function PrivacyPage() {
       </section>
 
       <section className="mt-6 section-card p-5 sm:p-6">
-        <h2 className="text-xl font-semibold text-slate-900">Cookies and analytics</h2>
+        <h2 className="text-xl font-semibold text-slate-900">Cookies, advertising, and third parties</h2>
         <p className="mt-3 text-sm leading-relaxed text-slate-700 sm:text-base">
-          We may use cookies or similar technologies for analytics, security, and advertising operations. Third-party services may also set cookies according to their own policies.
+          We use cookies and similar technologies for analytics, security, and advertising operations. Third-party services, including Google AdSense, may place and read cookies, web beacons, or similar technologies on your browser in accordance with their own privacy policies.
+        </p>
+        <p className="mt-3 text-sm leading-relaxed text-slate-700 sm:text-base">
+          We may display ads from Google AdSense and other advertising partners. These providers may use non-personally identifiable information about your visits to deliver, target, and measure ads.
+        </p>
+      </section>
+
+      <section className="mt-6 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-semibold text-slate-900">Ads.txt and authorized sellers</h2>
+        <p className="mt-3 text-sm leading-relaxed text-slate-700 sm:text-base">
+          Our public ads.txt file authorizes Google AdSense to sell inventory on this domain. This file helps prevent unauthorized sellers from claiming our ad space.
         </p>
       </section>
 

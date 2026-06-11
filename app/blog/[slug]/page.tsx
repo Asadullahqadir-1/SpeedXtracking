@@ -175,6 +175,13 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
         </section>
 
+        <section className="mt-8 section-card p-5 sm:p-6">
+          <h2 className="text-xl font-semibold text-slate-900">Next steps</h2>
+          <p className="mt-3 text-sm text-slate-700">
+            Use the practical checks above to determine when a SpeedX issue is normal versus when it is time to contact support. Keeping a clear timeline and the latest scan screenshots will help speed up the resolution.
+          </p>
+        </section>
+
         <EditorialTrustBlock
           reviewedDate={post.updatedDate}
           notes="This article is reviewed against official carrier resources and updated when support flows or status definitions change."

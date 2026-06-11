@@ -31,7 +31,12 @@ export default async function CarrierDeliveryTimePage({ params }: { params: Prom
   return (
     <div className="container-page py-10">
       <h1 className="text-3xl font-bold">{current.carrierName} Delivery Time Estimates</h1>
-      <p className="mt-2 text-slate-700">Realistic delivery windows vary by route distance, customs, and final-mile handoff.</p>
+      <p className="mt-2 text-slate-700">
+        Realistic delivery windows vary by route distance, customs, and final-mile handoff. Use the estimates below as a general guide, then allow extra time for customs, weather, and carrier processing.
+      </p>
+      <p className="mt-3 text-sm text-slate-700">
+        If a package is still within the estimated window, wait before contacting support. If it passes the window without progress, gather the latest scan screenshot and shipment details first.
+      </p>
       <div className="mt-6 grid gap-4 md:grid-cols-2">
         <article className="section-card">
           <h2 className="text-xl font-semibold">Domestic Delivery</h2>
@@ -42,6 +47,13 @@ export default async function CarrierDeliveryTimePage({ params }: { params: Prom
           <p className="mt-2 text-slate-700">Typical window: {current.internationalEta}</p>
         </article>
       </div>
+
+      <section className="mt-6 section-card">
+        <h2 className="text-xl font-semibold">Why delivery times vary</h2>
+        <p className="mt-3 text-sm text-slate-700">
+          Transit speed depends on whether the shipment is domestic or cross-border, the number of handoff points, and how quickly the local depot processes incoming packages.
+        </p>
+      </section>
     </div>
   );
 }

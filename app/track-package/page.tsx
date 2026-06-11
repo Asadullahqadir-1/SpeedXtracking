@@ -47,7 +47,12 @@ export default async function TrackPackagePage({
         }
       />
       <h1 className="text-3xl font-bold text-slate-900">Track Your SpeedX Package</h1>
-      <p className="mt-2 text-slate-700">Check current SpeedX shipment status, scan timeline, and estimated delivery window.</p>
+      <p className="mt-2 text-slate-700">
+        Check current SpeedX shipment status, scan timeline, and estimated delivery window. Use the lookup to confirm whether your package is still in a normal transit phase or if it has entered an exception that requires action.
+      </p>
+      <p className="mt-4 text-sm text-slate-700">
+        If your tracking number does not return a result, verify the carrier assignment and wait up to 24 hours after shipment creation for the first carrier scan to appear.
+      </p>
 
       <section className="mt-6 section-card">
         <TrackingForm defaultCarrier={carrier} initialTrackingNumber={trackingNumber} />
@@ -63,6 +68,16 @@ export default async function TrackPackagePage({
           <li>Contact seller first for marketplace purchases.</li>
           <li>Escalate to SpeedX support with tracking number and delivery ZIP.</li>
         </ol>
+      </section>
+
+      <section className="mt-8 section-card">
+        <h2 className="text-xl font-semibold">How to use this page</h2>
+        <p className="mt-3 text-sm text-slate-700">
+          Enter your full SpeedX tracking number and review the latest event carefully. Focus on the shipment stage rather than the label alone; that helps you know when a delay is still normal and when to escalate.
+        </p>
+        <p className="mt-3 text-sm text-slate-700">
+          Keep screenshots of the latest status and delivery promise before contacting the seller or carrier. That makes support requests faster and easier to resolve.
+        </p>
       </section>
 
       <div className="mt-8">

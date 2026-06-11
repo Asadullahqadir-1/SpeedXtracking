@@ -109,6 +109,16 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         </ol>
       </section>
 
+      <section className="mt-8 section-card">
+        <h2 className="text-xl font-semibold">Why these steps are important</h2>
+        <p className="mt-3 text-sm text-slate-700">
+          Each step is designed to help you determine whether the issue is still within a normal shipping window or if it needs escalation. That prevents unnecessary support contacts and improves the quality of your follow-up request.
+        </p>
+        <p className="mt-3 text-sm text-slate-700">
+          Follow the checklist alongside the tracking timeline so you can clearly explain the current status and expected delivery stage to support agents.
+        </p>
+      </section>
+
       <div className="mt-6">
         <LinkClusters clusters={adaptiveClusters} />
       </div>

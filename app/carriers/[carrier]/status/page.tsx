@@ -72,7 +72,12 @@ export default async function CarrierStatusPage({ params }: { params: Promise<{ 
         }
       />
       <h1 className="text-3xl font-bold">{current.carrierName} Tracking Status Meanings</h1>
-      <p className="mt-2 text-slate-700">Understand what each shipment update means and what action to take next.</p>
+      <p className="mt-2 text-slate-700">
+        Understand what each shipment update means and what action to take next. This page helps you read current tracking events more accurately and avoid premature escalation.
+      </p>
+      <p className="mt-4 text-sm text-slate-700">
+        If you see a pause between scans, compare the current event to the expected route stage and wait the normal processing window before opening a support request.
+      </p>
       <ul className="mt-6 list-disc space-y-2 pl-5 text-sm text-slate-700">
         <li>Label Created: shipment details submitted, parcel may not be picked up yet.</li>
         <li>In Transit: moving between processing and destination facilities.</li>
@@ -81,6 +86,13 @@ export default async function CarrierStatusPage({ params }: { params: Promise<{ 
         <li>Delivered: package marked as completed delivery.</li>
         <li>Exception: issue related to address, weather, customs, or operations.</li>
       </ul>
+
+      <section className="mt-8">
+        <h2 className="text-xl font-semibold">What to do if status stalls</h2>
+        <p className="mt-3 text-sm text-slate-700">
+          If the status stops updating for more than 48 hours on a domestic route or 72 hours on an international route, document the latest scan, confirm the delivery address, and contact support with a concise timeline.
+        </p>
+      </section>
     </div>
   );
 }
