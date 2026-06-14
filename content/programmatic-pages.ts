@@ -557,20 +557,20 @@ export const programmaticPages: BasePage[] = [
   ...formatPages
 ];
 
-const redirectedProgrammaticSlugs = new Set([
-  "speedx-tracking-not-updating",
-  "speedx-delivered-but-not-received",
-  "speedx-contact-number",
-  "speedx-shein-tracking",
-  "track-speedx-spxcn-format"
+const redirectedProgrammaticSlugMap = new Map<string, string>([
+  ["speedx-tracking-not-updating", "/blog/speedx-tracking-not-updating"],
+  ["speedx-delivered-but-not-received", "/guides/delivered-not-received"],
+  ["speedx-contact-number", "/carriers/speedx/contact"],
+  ["speedx-shein-tracking", "/carriers/speedx/shein"],
+  ["track-speedx-spxcn-format", "/guides/spxcn-tracking-number-meaning"]
 ]);
 
-export function isProgrammaticPageIndexable(page: BasePage) {
-  if (redirectedProgrammaticSlugs.has(page.slug)) {
-    return false;
-  }
+export function getRedirectDestinationForProgrammaticSlug(slug: string) {
+  return redirectedProgrammaticSlugMap.get(slug);
+}
 
-  return page.category === "issue";
+export function isProgrammaticPageIndexable(page: BasePage) {
+  return !redirectedProgrammaticSlugMap.has(page.slug);
 }
 
 export function getIndexableProgrammaticPages() {

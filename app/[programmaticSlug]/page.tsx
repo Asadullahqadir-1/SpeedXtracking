@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
   buildProgrammaticSections,
@@ -7,6 +7,7 @@ import {
   getIndexableProgrammaticPages,
   getProgrammaticFaqs,
   getProgrammaticPageBySlug,
+  getRedirectDestinationForProgrammaticSlug,
   getRelatedProgrammaticLinks,
   isProgrammaticPageIndexable
 } from "@/content/programmatic-pages";
@@ -29,6 +30,11 @@ export async function generateMetadata({
 
   if (!page) {
     return {};
+  }
+
+  const redirectTarget = getRedirectDestinationForProgrammaticSlug(page.slug);
+  if (redirectTarget) {
+    redirect(redirectTarget);
   }
 
   return buildMetadata({
@@ -59,6 +65,11 @@ export default async function ProgrammaticPage({
 
   if (!page) {
     notFound();
+  }
+
+  const redirectTarget = getRedirectDestinationForProgrammaticSlug(page.slug);
+  if (redirectTarget) {
+    redirect(redirectTarget);
   }
 
   const sections = buildProgrammaticSections(page);
