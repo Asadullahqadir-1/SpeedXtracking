@@ -21,10 +21,12 @@ export const metadata = buildMetadata({
     "SpeedX tracking",
     "track SpeedX package",
     "SpeedX tracking number",
-    "speedx package tracking",
+    "SpeedX package tracking",
     "SPXCN tracking",
     "SpeedX tracking status",
-    "SpeedX Shein tracking"
+    "SpeedX Shein tracking",
+    "SpeedX delivery time",
+    "SpeedX tracking help"
   ]
 });
 
@@ -179,6 +181,46 @@ export default function HomePage() {
             SpeedX Delivery Times
           </Link>
         </div>
+      </section>
+
+      <section className="reveal-card mt-8 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">How To Use SpeedX Tracking Results</h2>
+        <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <article className="rounded-xl border border-slate-200 bg-white p-4">
+            <h3 className="font-semibold text-slate-900">Read the full timeline, not just the last status</h3>
+            <p className="mt-2 text-sm text-slate-700">
+              Delivery updates make more sense when you compare the latest scan with the previous one. If the parcel is still moving through a normal stage, a short pause is often expected.
+            </p>
+          </article>
+          <article className="rounded-xl border border-slate-200 bg-white p-4">
+            <h3 className="font-semibold text-slate-900">Know when to wait and when to escalate</h3>
+            <p className="mt-2 text-sm text-slate-700">
+              If the shipment is still within the stated delivery window, wait for the next scan. If the ETA has passed or the status shows an exception, gather screenshots and contact support with the order details.
+            </p>
+          </article>
+          <article className="rounded-xl border border-slate-200 bg-white p-4">
+            <h3 className="font-semibold text-slate-900">Watch for cross-border handoff pauses</h3>
+            <p className="mt-2 text-sm text-slate-700">
+              Shein and other marketplace orders can pause during export, customs, or final-mile transfer. Those stages often create the longest scan gaps without meaning the package is lost.
+            </p>
+          </article>
+          <article className="rounded-xl border border-slate-200 bg-white p-4">
+            <h3 className="font-semibold text-slate-900">Save proof before opening a claim</h3>
+            <p className="mt-2 text-sm text-slate-700">
+              Screenshots of the current tracking page, the latest ETA, and any delivery notices make it easier to resolve missing, delayed, or disputed deliveries.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section className="reveal-card mt-8 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">What Makes A Tracking Result Useful</h2>
+        <p className="mt-3 text-sm leading-relaxed text-slate-700">
+          The most useful result shows the current status, the date of the latest scan, the likely delivery window, and the next action to take. That lets you decide whether a parcel is still moving normally or needs follow-up.
+        </p>
+        <p className="mt-3 text-sm leading-relaxed text-slate-700">
+          We structure the site around these details so you can move from search result to action quickly: check the timeline, read the status meaning, and then jump to the guide that matches the issue you are facing.
+        </p>
       </section>
 
       {/* Stats Section */}

@@ -14,11 +14,12 @@ export const metadata = buildMetadata({
   path: "/blog",
   keywords: [
     "SpeedX tracking blog",
-    "speed x tracking",
     "SpeedX tracking tips",
     "SpeedX package tracking help",
     "SpeedX delivery updates",
-    "SpeedX tracking status guide"
+    "SpeedX tracking status guide",
+    "SpeedX delivery time",
+    "SpeedX tracking not updating"
   ]
 });
 

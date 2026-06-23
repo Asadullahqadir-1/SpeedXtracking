@@ -54,6 +54,16 @@ export default async function CarrierDeliveryTimePage({ params }: { params: Prom
           Transit speed depends on whether the shipment is domestic or cross-border, the number of handoff points, and how quickly the local depot processes incoming packages.
         </p>
       </section>
+
+      <section className="mt-6 section-card">
+        <h2 className="text-xl font-semibold">What you can check before escalating</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
+          <li>Confirm the tracking number belongs to the carrier shown in the order details.</li>
+          <li>Check whether the shipment is still inside the expected delivery window.</li>
+          <li>Look for customs or exception notes before assuming the parcel is lost.</li>
+          <li>Save screenshots so support can review the exact timeline you saw.</li>
+        </ul>
+      </section>
     </div>
   );
 }

@@ -23,7 +23,9 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
       `${current.carrierName} tracking status`,
       `${current.carrierName} in transit meaning`,
       `${current.carrierName} out for delivery`,
-      `${current.carrierName} tracking number status`
+      `${current.carrierName} tracking number status`,
+      `${current.carrierName} delivery exception`,
+      `${current.carrierName} tracking help`
     ]
   });
 }
@@ -92,6 +94,36 @@ export default async function CarrierStatusPage({ params }: { params: Promise<{ 
         <p className="mt-3 text-sm text-slate-700">
           If the status stops updating for more than 48 hours on a domestic route or 72 hours on an international route, document the latest scan, confirm the delivery address, and contact support with a concise timeline.
         </p>
+      </section>
+
+      <section className="mt-8 section-card">
+        <h2 className="text-xl font-semibold">When each scan usually appears</h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <article className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+            <h3 className="font-semibold text-slate-900">Label Created</h3>
+            <p className="mt-2 text-sm text-slate-700">
+              The shipping label exists, but the parcel may still be waiting on pickup or first scan.
+            </p>
+          </article>
+          <article className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+            <h3 className="font-semibold text-slate-900">In Transit</h3>
+            <p className="mt-2 text-sm text-slate-700">
+              The package is moving through the network. Short scan gaps are normal while it travels between hubs.
+            </p>
+          </article>
+          <article className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+            <h3 className="font-semibold text-slate-900">Out For Delivery</h3>
+            <p className="mt-2 text-sm text-slate-700">
+              The parcel is on a local route and should arrive the same day unless traffic, route density, or access issues delay it.
+            </p>
+          </article>
+          <article className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+            <h3 className="font-semibold text-slate-900">Exception</h3>
+            <p className="mt-2 text-sm text-slate-700">
+              Something needs review, such as a bad address, customs hold, failed attempt, or operational delay. This is the best time to contact support.
+            </p>
+          </article>
+        </div>
       </section>
     </div>
   );

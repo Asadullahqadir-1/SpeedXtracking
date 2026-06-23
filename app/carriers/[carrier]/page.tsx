@@ -47,7 +47,9 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
       `track ${current.carrierName} package`,
       `${current.carrierName} tracking status`,
       `${current.carrierName} delivery time`,
-      `${current.carrierName} support`
+      `${current.carrierName} support`,
+      `${current.carrierName} tracking help`,
+      `${current.carrierName} delivery guide`
     ]
   });
 }
@@ -152,6 +154,46 @@ export default async function CarrierPage({ params }: { params: Promise<{ carrie
         <p className="mt-2 text-sm text-slate-700">{current.marketplaces.join(", ")} orders often involve multi-carrier handoffs before final delivery.</p>
       </section>
 
+      <section className="mt-6 section-card">
+        <h2 className="text-xl font-semibold">How to read the whole shipment journey</h2>
+        <div className="mt-4 grid gap-4 md:grid-cols-2">
+          <article className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+            <h3 className="font-semibold text-slate-900">Pickup and first scan</h3>
+            <p className="mt-2 text-sm text-slate-700">
+              The first public event often appears after the seller hands the parcel to the carrier. If only a label exists, the shipment may still be waiting for pickup.
+            </p>
+          </article>
+          <article className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+            <h3 className="font-semibold text-slate-900">Transit and facility scans</h3>
+            <p className="mt-2 text-sm text-slate-700">
+              Movement between hubs is usually normal. Fewer scans do not always mean the package is stalled; they often just reflect quiet linehaul travel.
+            </p>
+          </article>
+          <article className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+            <h3 className="font-semibold text-slate-900">Destination handoff</h3>
+            <p className="mt-2 text-sm text-slate-700">
+              As the parcel reaches the local delivery area, status updates usually become more frequent. This is the point where out-for-delivery or exception scans appear.
+            </p>
+          </article>
+          <article className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+            <h3 className="font-semibold text-slate-900">Delivery completion or delay</h3>
+            <p className="mt-2 text-sm text-slate-700">
+              Delivered scans should be checked against the address on file. If the parcel is missing, use the proof and delivery notes before contacting support.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section className="mt-6 section-card">
+        <h2 className="text-xl font-semibold">Common reasons for delays</h2>
+        <ul className="mt-3 list-disc space-y-2 pl-5 text-sm text-slate-700">
+          <li>Weekend or holiday processing slowdowns.</li>
+          <li>Customs inspection or documentation review.</li>
+          <li>Route-density surges in the local final-mile network.</li>
+          <li>Missing apartment, suite, or gate access details.</li>
+        </ul>
+      </section>
+
       {current.slug === "speedx" ? (
         <section className="mt-6 section-card">
           <h2 className="text-xl font-semibold">Popular SpeedX Tracking Searches</h2>
@@ -213,6 +255,16 @@ export default async function CarrierPage({ params }: { params: Promise<{ carrie
       <div className="mt-6">
         <LinkClusters clusters={adaptiveClusters} />
       </div>
+
+      <section className="mt-6 section-card">
+        <h2 className="text-xl font-semibold">How to get the best support response</h2>
+        <p className="mt-3 text-sm text-slate-700">
+          Include your tracking number, order ID, destination ZIP, and the last visible scan when you contact support. A short timeline and a single clear request usually gets a faster answer than a long message.
+        </p>
+        <p className="mt-3 text-sm text-slate-700">
+          If the parcel is a marketplace order, start with the seller because they can confirm fulfillment, open the first case, and coordinate with the carrier if needed.
+        </p>
+      </section>
 
       <EditorialTrustBlock
         reviewedDate={getFreshnessDate("carriersHub")}
