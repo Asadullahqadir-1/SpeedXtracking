@@ -1,87 +1,87 @@
 export const globalFaqs = [
   {
-    question: "How do I track my SpeedX package?",
+    question: "How do I track a SpeedX package?",
     answer:
-      "Enter your SpeedX tracking number (starting with SPX, SPXSG, or SPXCN) in the tracking form above. Results show real-time status, current location, expected delivery date, and next scan update."
+      "Enter your SpeedX tracking number in the tracking form to see the latest shipment status, scan history, estimated delivery date, and current tracking events in one place."
   },
   {
-    question: "How long does SpeedX delivery take?",
+    question: "What is the SpeedX delivery time?",
     answer:
-      "SpeedX domestic deliveries typically take 3-5 business days, while international shipments range from 7-15 days depending on customs clearance and destination country."
+      "SpeedX delivery time depends on the service level, origin, destination, and final-mile routing. Local and regional deliveries can arrive faster, while cross-border shipments may take longer because of customs clearance and handoffs."
   },
   {
     question: "Why is my SpeedX tracking not updating?",
     answer:
-      "SpeedX tracking may pause during weekends, holidays, customs clearance, or between scan points. Check again in 24-48 hours. If stuck for 5+ days, contact SpeedX support at 1-855-SPEEDX1."
+      "Tracking can pause between scan points, during weekends, on holidays, or while a parcel moves through sorting and delivery networks. If the package has no new scans for 24 to 48 hours, check again later and confirm the tracking number is entered correctly."
   },
   {
     question: "Can I track SpeedX Shein orders?",
     answer:
-      "Yes. Shein packages shipped via SpeedX can be tracked using the SpeedX tracking number found in your Shein order confirmation email or app. Expect 7-12 day delivery for standard shipping."
+      "Yes. SpeedX Shein tracking works when the order has been handed to SpeedX and you have the carrier tracking number from the order details, shipping email, or app order page."
   },
   {
-    question: "What does 'SpeedX in transit' mean?",
+    question: "What does SpeedX in transit mean?",
     answer:
-      "In transit means your SpeedX package is actively moving through sorting facilities toward your delivery address. This status typically updates every 12-48 hours as it reaches new scan points."
+      "In transit means the parcel is moving through the delivery network toward the destination address. The package may be at a sorting center, in line for linehaul transport, or waiting for the next delivery scan."
   },
   {
-    question: "How do I track my package?",
+    question: "What SpeedX tracking statuses should I expect?",
     answer:
-      "Enter your SpeedX tracking number in the search box above to view live status updates, delivery estimates, and recent location history."
+      "Common SpeedX tracking statuses include label created, picked up, in transit, arrived at facility, out for delivery, and delivered. Each status reflects a different stage in the last-mile delivery process."
   },
   {
-    question: "SpeedX says delivered but I didn't receive it - what now?",
+    question: "SpeedX says delivered but I did not receive it. What should I do?",
     answer:
-      "Check your mailbox, front porch, side doors, and ask neighbors. Contact the seller first, then file a claim with SpeedX within 48 hours. Take photos of your delivery area as evidence."
+      "Check the mailbox, porch, garage, side doors, and any secure drop-off areas first. If the parcel still cannot be found, contact the seller or merchant, review any proof-of-delivery details, and ask whether a claim or trace can be opened."
   },
   {
-    question: "What carriers can I track on this site?",
+    question: "What does SpeedX out for delivery mean?",
     answer:
-      "This site is focused on SpeedX tracking only. Use it for SpeedX shipment updates, delivery timelines, status explanations, and support guidance."
+      "Out for delivery means the parcel has left the local facility and is on a route for final-mile delivery. In most cases, the package is expected the same day unless weather, volume, or address issues cause a delay."
   },
   {
-    question: "Why is my tracking stuck at customs?",
+    question: "Why is my SpeedX package stuck at customs?",
     answer:
-      "Customs delays occur due to inspection, missing documentation, tariffs, or high volume. International packages can spend 1-7 days in customs. Contact your carrier if stuck beyond 10 days."
+      "Customs holds usually happen because an import needs inspection, documentation review, or additional processing. Cross-border shipping can pause here until the parcel clears the checkpoint and re-enters the delivery network."
   },
   {
-    question: "Can I track international shipments?",
+    question: "Can I track international SpeedX shipments?",
     answer:
-      "Yes. International tracking works when carriers provide scan updates throughout customs and final-mile delivery. Enter the original tracking number - it often works across multiple carriers."
+      "Yes. International shipments can usually be tracked as long as the carrier or handoff partner continues scanning the parcel through customs, linehaul transit, and last-mile delivery."
   },
   {
-    question: "What does 'out for delivery' mean?",
+    question: "Can I use a SpeedX tracking number from an online store order?",
     answer:
-      "Out for delivery means your package is loaded on the delivery vehicle and will arrive today (typically by 8 PM). Ensure someone is available or delivery instructions are set."
+      "Yes. If the seller has shipped the order with SpeedX, the merchant order page, shipping confirmation email, or marketplace app will usually show the SpeedX tracking number you can enter here."
   },
   {
-    question: "How accurate are delivery estimates?",
+    question: "What does SPXCN mean in SpeedX tracking?",
     answer:
-      "Delivery estimates are 85-95% accurate under normal conditions. Delays can occur due to weather, customs, address issues, or carrier capacity. Always add 1-2 buffer days for time-sensitive deliveries."
+      "SPXCN is a tracking format often associated with cross-border SpeedX shipments. It may update in batches while the parcel moves through customs, transfer points, and final-mile delivery stages."
   },
   {
-    question: "Do you store my tracking data?",
+    question: "Why does my SpeedX tracking say label created?",
     answer:
-      "We temporarily cache tracking results for 15 minutes to improve speed. No personal information is permanently stored. Check our privacy policy for full details."
+      "Label created means the shipping label has been generated, but the parcel has not yet been scanned into the active delivery network. The first movement scan usually appears after pickup or drop-off."
   },
   {
-    question: "What tracking numbers work on this site?",
+    question: "Can I track a package before the first SpeedX scan?",
     answer:
-      "Use official SpeedX tracking numbers, commonly beginning with SPX. If a number does not match a SpeedX shipment format, the tracker will ask you to verify the carrier or tracking number."
+      "Sometimes yes. A shipment may be visible as label created or awaiting pickup before the first physical scan. If nothing appears yet, the package may still be waiting to enter the system."
   },
   {
-    question: "Can I change my SpeedX delivery address?",
+    question: "What should I do if my SpeedX delivery is delayed?",
     answer:
-      "Address changes must be requested before the package is out for delivery. Contact SpeedX customer service at 1-855-SPEEDX1 or through their online portal with your tracking number and new address."
+      "Review the latest tracking event, wait for the next scan update, and check for notices about weather, customs, or address issues. If the delay continues, contact the seller or the official support channel tied to the shipment."
   },
   {
-    question: "Does SpeedX deliver late at night?",
+    question: "Does SpeedX deliver on weekends or late in the day?",
     answer:
-      "Yes, late-evening SpeedX deliveries can happen on busy routes, especially in metro areas. If your package is out for delivery and not delivered by evening, recheck by the next morning before opening a support case."
+      "Weekend and evening delivery can happen on some routes, especially in high-volume metro areas. Delivery timing depends on the route plan, local capacity, and the service used for the shipment."
   },
   {
-    question: "What does an SPXCN tracking number mean?",
+    question: "What if my SpeedX tracking number is not recognized?",
     answer:
-      "SPXCN is a SpeedX-related tracking format commonly seen on cross-border shipments. Updates may appear in batches during customs and transit handoffs, so 24-48 hour scan gaps can be normal."
+      "Double-check the tracking number for spacing or typing errors. If it still is not recognized, the shipment may not yet be active in the carrier system or the seller may have provided the wrong carrier code."
   }
 ];

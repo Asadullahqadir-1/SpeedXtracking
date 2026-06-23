@@ -4,16 +4,19 @@ import { breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking FAQ: Status Meanings, Delays, SPXCN, And Support Answers",
+  title: "SpeedX Tracking FAQ: Delivery Time, Status Meanings, SPXCN, And Customs Help",
   description:
-    "Get clear answers to common SpeedX tracking questions about delayed scans, status meanings, SPXCN numbers, and missing deliveries.",
+    "Get clear answers to common SpeedX tracking questions about delivery time, status meanings, SPXCN tracking numbers, customs delays, and missing deliveries.",
   path: "/faq",
   keywords: [
     "SpeedX tracking FAQ",
-    "speed x tracking questions",
-    "SPXCN meaning",
-    "does SpeedX deliver late at night",
-    "SpeedX tracking status meanings"
+    "SpeedX package tracking",
+    "SpeedX delivery time",
+    "SpeedX status meanings",
+    "SPXCN tracking",
+    "SpeedX customs delay",
+    "SpeedX out for delivery",
+    "SpeedX Shein tracking"
   ]
 });
 
