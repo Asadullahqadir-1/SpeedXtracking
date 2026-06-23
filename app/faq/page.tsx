@@ -14,9 +14,7 @@ export const metadata = buildMetadata({
     "SpeedX delivery time",
     "SpeedX status meanings",
     "SPXCN tracking",
-    "SpeedX customs delay",
-    "SpeedX out for delivery",
-    "SpeedX Shein tracking"
+    "SpeedX customs delay"
   ]
 });
 

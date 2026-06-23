@@ -2,7 +2,6 @@ import type { MetadataRoute } from "next";
 import { carriers } from "@/lib/seo/carriers";
 import { guides } from "@/content/guides";
 import { blogPosts } from "@/content/blogs";
-import { longTailIntentSlugs } from "@/lib/seo/longtail";
 import { getIndexableProgrammaticPages } from "@/content/programmatic-pages";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 import { siteUrl } from "@/lib/seo/site-url";
@@ -29,7 +28,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     `/carriers/${carrier.slug}/delivery-time`,
     `/carriers/${carrier.slug}/contact`,
     `/carriers/${carrier.slug}/shein`,
-    ...longTailIntentSlugs.map((intent) => `/carriers/${carrier.slug}/${intent}`)
   ]);
 
   const guidePages = guides.map((guide) => `/guides/${guide.slug}`);
