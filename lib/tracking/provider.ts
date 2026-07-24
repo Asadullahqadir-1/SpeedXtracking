@@ -116,18 +116,94 @@ function normalizeProviderPayload(
   };
 }
 
-async function fetchFromProvider({
+export async function getTrackingData({
   trackingNumber,
   carrier
 }: {
   trackingNumber: string;
   carrier: string;
 }): Promise<TrackingResponse> {
-  const provider = (process.env.TRACKING_PROVIDER || "auto").toLowerCase();
-  const adapter = trackingAdapters[provider];
+  const requestedProvider = (process.env.TRACKING_PROVIDER || "auto").toLowerCase();
+  const hasAfterShip = Boolean(process.env.TRACKING_AFTERSHIP_API_KEY || process.env.TRACKING_API_KEY);
+  const has17Track = Boolean(process.env.TRACKING_17TRACK_API_KEY || process.env.TRACKING_API_KEY);
+  const hasGeneric = Boolean(process.env.TRACKING_API_BASE_URL && process.env.TRACKING_API_KEY);
+
+  // For specific provider request, use that provider
+  if (requestedProvider !== "auto") {
+    if (requestedProvider === "17track" || requestedProvider === "aftership" || requestedProvider === "parcels") {
+      return fetchFromProvider({ trackingNumber, carrier }, requestedProvider);
+    }
+    if (requestedProvider === "mock") {
+      return {
+        carrier,
+        trackingNumber,
+        currentStatus: "Out for Delivery",
+        eta: "Today by 8:00 PM",
+        timeline: buildMockTimeline(carrier),
+        confidence: "medium"
+      };
+    }
+    if (requestedProvider === "generic") {
+      return fetchFromGenericProvider({ trackingNumber, carrier });
+    }
+    throw new TrackingError("provider_unavailable", `Unsupported tracking provider: ${requestedProvider}.`, 503);
+  }
+
+  // Auto mode: build fallover list based on available credentials
+  const providerOrder: string[] = [];
+  
+  if (hasAfterShip) providerOrder.push("aftership");
+  if (has17Track) providerOrder.push("17track");
+  // Parcels is always available (free tier, no API key needed)
+  providerOrder.push("parcels");
+  
+  if (hasGeneric) providerOrder.push("generic");
+
+  // Try each provider in order until one succeeds
+  let lastError: TrackingError | null = null;
+
+  for (const provider of providerOrder) {
+    try {
+      if (provider === "generic") {
+        return await fetchFromGenericProvider({ trackingNumber, carrier });
+      } else {
+        return await fetchFromProvider({ trackingNumber, carrier }, provider);
+      }
+    } catch (error) {
+      // Store error and continue to next provider, unless it's a validation error
+      if (error instanceof TrackingError) {
+        // For tracking_not_found errors, propagate immediately (no point trying other providers)
+        if (error.code === "tracking_not_found") {
+          throw error;
+        }
+        lastError = error;
+      }
+      // Continue to next provider
+      continue;
+    }
+  }
+
+  // If we exhausted all providers, throw the last error or a generic one
+  if (lastError) {
+    throw lastError;
+  }
+
+  throw new TrackingError(
+    "provider_unavailable",
+    "Tracking service is not configured. Add a free TRACKING_17TRACK_API_KEY in Vercel env to enable live tracking.",
+    503
+  );
+}
+
+// Helper function to fetch from a specific named provider
+async function fetchFromProvider(
+  { trackingNumber, carrier }: { trackingNumber: string; carrier: string },
+  providerName: string
+): Promise<TrackingResponse> {
+  const adapter = trackingAdapters[providerName];
 
   if (!adapter) {
-    throw new TrackingError("provider_unavailable", `Unsupported tracking provider: ${provider}.`, 503);
+    throw new TrackingError("provider_unavailable", `Unsupported tracking provider: ${providerName}.`, 503);
   }
 
   const timeoutMs = Number(process.env.TRACKING_API_TIMEOUT_MS || 6000);
@@ -144,6 +220,7 @@ async function fetchFromProvider({
   );
 }
 
+// Helper function to fetch from generic provider
 async function fetchFromGenericProvider({
   trackingNumber,
   carrier
@@ -181,53 +258,4 @@ async function fetchFromGenericProvider({
 
   const payload = (await response.json()) as ProviderPayload;
   return normalizeProviderPayload(payload, trackingNumber, carrier);
-}
-
-export async function getTrackingData({
-  trackingNumber,
-  carrier
-}: {
-  trackingNumber: string;
-  carrier: string;
-}): Promise<TrackingResponse> {
-  const requestedProvider = (process.env.TRACKING_PROVIDER || "auto").toLowerCase();
-  const hasAfterShip = Boolean(process.env.TRACKING_AFTERSHIP_API_KEY || process.env.TRACKING_API_KEY);
-  const has17Track = Boolean(process.env.TRACKING_17TRACK_API_KEY || process.env.TRACKING_API_KEY);
-  const hasGeneric = Boolean(process.env.TRACKING_API_BASE_URL && process.env.TRACKING_API_KEY);
-
-  const provider =
-    requestedProvider === "auto"
-      ? hasAfterShip
-        ? "aftership"
-        : has17Track
-          ? "17track"
-          : hasGeneric
-            ? "generic"
-            : "unconfigured"
-      : requestedProvider;
-
-  if (provider === "17track" || provider === "aftership") {
-    return fetchFromProvider({ trackingNumber, carrier });
-  }
-
-  if (provider === "mock") {
-    return {
-      carrier,
-      trackingNumber,
-      currentStatus: "Out for Delivery",
-      eta: "Today by 8:00 PM",
-      timeline: buildMockTimeline(carrier),
-      confidence: "medium"
-    };
-  }
-
-  if (provider === "generic") {
-    return fetchFromGenericProvider({ trackingNumber, carrier });
-  }
-
-  throw new TrackingError(
-    "provider_unavailable",
-    "Tracking service is not configured. Add a free TRACKING_17TRACK_API_KEY in Vercel env to enable live tracking.",
-    503
-  );
 }
