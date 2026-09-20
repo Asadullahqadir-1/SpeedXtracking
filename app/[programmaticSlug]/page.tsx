@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound, redirect } from "next/navigation";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
@@ -7,6 +8,7 @@ import {
   getIndexableProgrammaticPages,
   getProgrammaticFaqs,
   getProgrammaticPageBySlug,
+  getProgrammaticPageDetails,
   getRedirectDestinationForProgrammaticSlug,
   getRelatedProgrammaticLinks,
   isProgrammaticPageIndexable
@@ -73,6 +75,7 @@ export default async function ProgrammaticPage({
   }
 
   const sections = buildProgrammaticSections(page);
+  const pageDetails = getProgrammaticPageDetails(page);
   const faqs = getProgrammaticFaqs(page);
   const links = getRelatedProgrammaticLinks(page.slug);
 
@@ -101,6 +104,20 @@ export default async function ProgrammaticPage({
       <p className="text-xs font-semibold uppercase tracking-wide text-brand-700">{getCategoryLabel(page)}</p>
       <h1 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">{page.h1}</h1>
       <p className="mt-3 max-w-4xl text-slate-700">{page.metaDescription}</p>
+
+      <figure className="mt-6 overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
+        <Image
+          src={pageDetails.imageSrc}
+          alt={pageDetails.imageAlt}
+          width={1200}
+          height={630}
+          className="h-auto max-h-80 w-full object-cover"
+          sizes="(max-width: 768px) 100vw, 900px"
+        />
+        <figcaption className="px-4 py-3 text-xs text-slate-600">
+          Use the latest scan, route stage, and delivery window together when evaluating this shipment issue.
+        </figcaption>
+      </figure>
 
       <section className="mt-6 section-card">
         <h2 className="text-xl font-semibold text-slate-900">Track SpeedX Shipment</h2>

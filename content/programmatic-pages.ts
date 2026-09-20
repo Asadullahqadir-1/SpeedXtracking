@@ -11,6 +11,14 @@ type BasePage = {
   actionPlan: string[];
 };
 
+export type ProgrammaticPageDetails = {
+  routeContext: string;
+  diagnosticQuestion: string;
+  evidenceChecklist: string[];
+  imageSrc: string;
+  imageAlt: string;
+};
+
 const issuePages: BasePage[] = [
   {
     slug: "speedx-tracking-not-updating",
@@ -592,6 +600,7 @@ function categoryLabel(category: PageCategory) {
 export function buildProgrammaticSections(page: BasePage) {
   const keyword = page.primaryKeyword;
   const categoryLabelText = categoryLabel(page.category);
+  const details = getProgrammaticPageDetails(page);
 
   const categoryIntro = (() => {
     if (page.category === "contact") {
@@ -663,6 +672,7 @@ export function buildProgrammaticSections(page: BasePage) {
       heading: `How ${keyword} usually behaves`,
       paragraphs: [
         categoryIntro,
+        details.routeContext,
         `The useful question is not only whether the label changed, but whether the event order still makes sense. A timeline can look frozen while the parcel is moving through a silent stage such as pickup, linehaul transfer, customs review, or destination sort.`,
         `Read ${keyword} data by stage instead of by the most recent status alone. ${categoryLabelText} pages are most useful when they explain what the next scan should look like and how long that step usually takes.`
       ]
@@ -671,9 +681,10 @@ export function buildProgrammaticSections(page: BasePage) {
       heading: "Likely causes and what to verify",
       paragraphs: [
         `Start with the simplest explanation first: wrong tracking format, delayed scan posting, or a normal handoff gap. If the shipment is already near the delivery window, treat the same silence more carefully because the risk profile is higher.`,
+        details.diagnosticQuestion,
         `Before escalating, verify the shipment stage, the destination ZIP, and whether the seller or carrier currently owns the next action. That distinction matters because the fastest fix is often to contact the party that can actually update the record.`
       ],
-      bullets: categoryCauseList
+      bullets: [...categoryCauseList, ...details.evidenceChecklist]
     },
     {
       heading: "Action plan for the next support request",
@@ -692,6 +703,74 @@ export function buildProgrammaticSections(page: BasePage) {
       ]
     }
   ];
+}
+
+export function getProgrammaticPageDetails(page: BasePage): ProgrammaticPageDetails {
+  if (page.category === "city") {
+    const city = page.slug.replace("track-speedx-", "").replaceAll("-", " ");
+    const displayCity = city.replace(/\b\w/g, (letter) => letter.toUpperCase());
+
+    return {
+      routeContext: `For ${displayCity}, the most useful local clues are the destination facility, apartment or gate access notes, and whether the delivery route has already been assigned. City pages should be used to interpret local handoff timing, not as a promise of a fixed delivery date.`,
+      diagnosticQuestion: `Is the parcel already at a ${displayCity} destination facility, or is it still moving through a regional hub? That distinction determines whether to check access details, wait for a local route scan, or contact the seller about a missed ETA.`,
+      evidenceChecklist: [
+        `Destination facility or last-scan location serving ${displayCity}`,
+        "Delivery address, unit number, gate code, and safe-drop instructions"
+      ],
+      imageSrc: "/images/speed-x-tracking.webp",
+      imageAlt: `SpeedX shipment tracking timeline for a delivery in ${displayCity}`
+    };
+  }
+
+  if (page.category === "format") {
+    return {
+      routeContext: `For ${page.primaryKeyword}, the identifier itself is the first diagnostic signal. Compare the value copied from the seller's shipment page with the carrier field, preserving every prefix, digit, and character before trying another lookup.`,
+      diagnosticQuestion: `Does the value identify the carrier shipment, or is it an order reference that the carrier cannot search? If it is a real tracking ID, the next question is whether the first carrier scan has been activated yet.`,
+      evidenceChecklist: [
+        "The complete identifier copied directly from the shipment details",
+        "A screenshot showing the seller, carrier, and tracking-number fields together"
+      ],
+      imageSrc: "/images/official/speedx-next-day.webp",
+      imageAlt: "SpeedX shipment label and delivery service reference"
+    };
+  }
+
+  if (page.category === "contact") {
+    return {
+      routeContext: `For ${page.primaryKeyword}, the correct escalation path depends on who controls the missing information. The seller can verify the order and address; the carrier can investigate scans, facilities, and delivery events.`,
+      diagnosticQuestion: "Can the seller correct the order record, or does the carrier need to investigate a physical handoff? Answering that before sending a request prevents support teams from sending the case back and forth.",
+      evidenceChecklist: [
+        "Tracking number, order ID, destination ZIP, and latest scan time",
+        "The exact outcome requested and a reasonable follow-up deadline"
+      ],
+      imageSrc: "/images/official/speedx-logo-black.webp",
+      imageAlt: "SpeedX support and shipment identification reference"
+    };
+  }
+
+  if (page.category === "shein") {
+    return {
+      routeContext: `For ${page.primaryKeyword}, separate the marketplace order timeline from the carrier timeline. Seller dispatch, export, customs, domestic handoff, and final-mile delivery can each create a different status owner and waiting window.`,
+      diagnosticQuestion: "Is the latest event still an international or seller-controlled step, or has the parcel reached the domestic delivery network? That answer determines whether to contact the marketplace first or investigate the carrier scan.",
+      evidenceChecklist: [
+        "Marketplace order status and carrier tracking timeline",
+        "Customs, destination-country handoff, or final-mile scan evidence"
+      ],
+      imageSrc: "/images/official/speedx-coverage-map.webp",
+      imageAlt: "SpeedX delivery coverage and cross-border shipment reference"
+    };
+  }
+
+  return {
+    routeContext: `For ${page.primaryKeyword}, the timing depends on the last confirmed scan rather than the label shown at the top of the tracking page. Use the event timestamp, location, and route stage together before deciding that the parcel has stopped moving.`,
+    diagnosticQuestion: "What is the last confirmed physical event, and has the normal waiting window for that route stage actually passed? This separates an ordinary scan gap from a case that needs investigation.",
+    evidenceChecklist: [
+      "Full scan timeline with timestamps and locations",
+      "Promised delivery window and the date it was missed, if applicable"
+    ],
+    imageSrc: "/images/speed-x-tracking.webp",
+    imageAlt: "SpeedX package tracking timeline with shipment progress"
+  };
 }
 
 export function getRelatedProgrammaticLinks(currentSlug: string) {

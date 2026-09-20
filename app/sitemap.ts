@@ -5,6 +5,7 @@ import { blogPosts } from "@/content/blogs";
 import { getIndexableProgrammaticPages } from "@/content/programmatic-pages";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 import { siteUrl } from "@/lib/seo/site-url";
+import { getRedirectDestinationForProgrammaticSlug } from "@/content/programmatic-pages";
 
 const baseUrl = siteUrl;
 
@@ -32,7 +33,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const guidePages = guides.map((guide) => `/guides/${guide.slug}`);
   const blogPages = blogPosts.map((post) => `/blog/${post.slug}`);
-  const programmaticPages = getIndexableProgrammaticPages().map((page) => `/${page.slug}`);
+  const programmaticPages = getIndexableProgrammaticPages()
+    .filter((page) => !getRedirectDestinationForProgrammaticSlug(page.slug))
+    .map((page) => `/${page.slug}`);
   const siteReviewedAt = new Date(getFreshnessDate("homepage"));
   const guidesReviewedAt = new Date(getFreshnessDate("guidesHub"));
   const carriersReviewedAt = new Date(getFreshnessDate("carriersHub"));

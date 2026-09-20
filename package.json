@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
+    "seo:validate": "node scripts/validate-seo-integrity.js",
     "seo:generate-longtail": "node scripts/generate-longtail-csv.js",
     "seo:gsc-analyze": "node scripts/analyze-gsc-pages.js"
   },
