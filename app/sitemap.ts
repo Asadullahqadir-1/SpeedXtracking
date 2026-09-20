@@ -10,7 +10,7 @@ import { getRedirectDestinationForProgrammaticSlug } from "@/content/programmati
 const baseUrl = siteUrl;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ["", "/track-package", "/carriers", "/guides", "/blog", "/faq"];
+  const staticPages = ["", "/track-package", "/carriers", "/guides", "/blog", "/faq", "/resources/shipping-delay-checklist"];
 
   const policyPages = [
     "/shipping-terms",

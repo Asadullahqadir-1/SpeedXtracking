@@ -83,6 +83,16 @@ export default function BlogPage() {
         </div>
       </section>
 
+      <section className="mt-6 section-card p-5 sm:p-6">
+        <h2 className="text-lg font-semibold text-slate-900">Featured practical resource</h2>
+        <p className="mt-2 text-sm text-slate-700">
+          Need a concise process before contacting support? Use our free shipping delay checklist to organize the timeline and next action.
+        </p>
+        <Link href="/resources/shipping-delay-checklist" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">
+          Read the shipping delay checklist
+        </Link>
+      </section>
+
       <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {sortedPosts.map((post) => (
           <article key={post.slug} className="section-card p-5 transition-all hover:border-brand-500">

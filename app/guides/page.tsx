@@ -75,6 +75,16 @@ export default function GuidesPage() {
         </div>
       </section>
 
+      <section className="mt-8 section-card p-5 sm:p-6">
+        <h2 className="text-lg font-semibold text-slate-900">Free resource for shipping delays</h2>
+        <p className="mt-2 text-sm text-slate-700">
+          Share or save this five-step checklist for documenting scan gaps, identifying the route stage, and contacting the right support team.
+        </p>
+        <Link href="/resources/shipping-delay-checklist" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">
+          Open the shipping delay checklist
+        </Link>
+      </section>
+
       <section id="speedx-issue-library" className="mt-10">
         <h2 className="text-2xl font-bold text-slate-900">SpeedX Issue Library</h2>
         <p className="mt-2 text-slate-700">
