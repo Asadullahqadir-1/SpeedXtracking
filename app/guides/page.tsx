@@ -15,6 +15,8 @@ export const metadata = buildMetadata({
     "speed x tracking help",
     "SPXCN tracking meaning",
     "does SpeedX deliver late at night",
+    "SpeedX delivery hours",
+    "what time does SpeedX stop delivering",
     "SpeedX package not updating"
   ]
 });
@@ -71,6 +73,7 @@ export default function GuidesPage() {
           <Link href="/track-package" className="hover:underline">Track package now</Link>
           <Link href="/carriers/speedx/status" className="hover:underline">SpeedX status meanings</Link>
           <Link href="/carriers/speedx/delivery-time" className="hover:underline">SpeedX delivery ETA guide</Link>
+          <Link href="/guides/speedx-delivery-hours" className="hover:underline">SpeedX delivery hours and stop times</Link>
           <Link href="/blog/speedx-tracking-not-updating" className="hover:underline">Tracking not updating fixes</Link>
         </div>
       </section>

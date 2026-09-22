@@ -31,6 +31,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       "spxcn",
       "spxcn tracking",
       "spxcn tracking number meaning"
+    ],
+    "speedx-delivery-hours": [
+      "how late does speedx deliver",
+      "what time does speedx deliver",
+      "what time does speedx stop delivering",
+      "how long does speedx take to deliver when out for delivery",
+      "speedx delivery times",
+      "speedx delivery hours",
+      "when does speedx stop delivering"
     ]
   };
 
@@ -85,15 +94,17 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       <JsonLd
         data={
           faqSchema([
-            {
-              question: `How do I use this ${guide.title.toLowerCase()} guide?`,
-              answer: "Follow each step in order and recheck tracking after each action window before escalating to support."
-            },
-            {
-              question: "When should I contact support?",
-              answer:
-                "Contact support if tracking has no meaningful movement for 5+ days or if your package is marked delivered but missing."
-            }
+            ...(guide.faqs ?? [
+              {
+                question: `How do I use this ${guide.title.toLowerCase()} guide?`,
+                answer: "Follow each step in order and recheck tracking after each action window before escalating to support."
+              },
+              {
+                question: "When should I contact support?",
+                answer:
+                  "Contact support if tracking has no meaningful movement for 5+ days or if your package is marked delivered but missing."
+              }
+            ])
           ])
         }
       />
@@ -118,6 +129,20 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           Follow the checklist alongside the tracking timeline so you can clearly explain the current status and expected delivery stage to support agents.
         </p>
       </section>
+
+      {guide.faqs && guide.faqs.length > 0 ? (
+        <section className="mt-8 section-card">
+          <h2 className="text-xl font-semibold">SpeedX delivery hours questions</h2>
+          <div className="mt-4 space-y-5">
+            {guide.faqs.map((faq) => (
+              <div key={faq.question}>
+                <h3 className="font-semibold text-slate-900">{faq.question}</h3>
+                <p className="mt-1 text-sm text-slate-700">{faq.answer}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+      ) : null}
 
       <div className="mt-6">
         <LinkClusters clusters={adaptiveClusters} />

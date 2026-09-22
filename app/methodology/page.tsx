@@ -51,6 +51,18 @@ export default function MethodologyPage() {
       </section>
 
       <section className="mt-6 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-semibold text-slate-900">How we handle overlapping topics</h2>
+        <div className="mt-3 space-y-3 text-sm leading-relaxed text-slate-700 sm:text-base">
+          <p>
+            One page should own one clear question. For example, the SpeedX delivery-hours guide owns questions such as how late SpeedX delivers and when SpeedX stops delivering, while the status page explains what an out-for-delivery scan means.
+          </p>
+          <p>
+            When two pages answer the same question, we consolidate them, redirect the weaker URL, or remove it from the indexable sitemap. This keeps the site easier to navigate and prevents repetitive pages from competing with the most useful answer.
+          </p>
+        </div>
+      </section>
+
+      <section className="mt-6 section-card p-5 sm:p-6">
         <h2 className="text-xl font-semibold text-slate-900">Review cadence</h2>
         <p className="mt-3 text-sm leading-relaxed text-slate-700 sm:text-base">
           Core pages are reviewed on a recurring cadence and after major operational or support changes. Corrections are applied as quickly as possible when credible evidence is provided.

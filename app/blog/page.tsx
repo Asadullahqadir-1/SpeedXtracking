@@ -24,7 +24,9 @@ export const metadata = buildMetadata({
 });
 
 export default function BlogPage() {
-  const sortedPosts = [...blogPosts].sort((a, b) => new Date(b.updatedDate).getTime() - new Date(a.updatedDate).getTime());
+  const sortedPosts = blogPosts
+    .filter((post) => post.slug !== "does-speedx-deliver-late-at-night-guide")
+    .sort((a, b) => new Date(b.updatedDate).getTime() - new Date(a.updatedDate).getTime());
 
   return (
     <div className="container-page py-6 sm:py-8 lg:py-10">
@@ -79,6 +81,7 @@ export default function BlogPage() {
           <Link href="/blog/speedx-tracking-not-updating" className="hover:underline">SpeedX tracking not updating</Link>
           <Link href="/blog/tracking-status-meanings-explained" className="hover:underline">SpeedX tracking status meanings</Link>
           <Link href="/blog/speedx-delivery-time-by-region" className="hover:underline">SpeedX delivery time by region</Link>
+          <Link href="/guides/speedx-delivery-hours" className="hover:underline">SpeedX delivery hours and stop times</Link>
           <Link href="/blog/delivered-but-not-received-speedx" className="hover:underline">Delivered but not received</Link>
         </div>
       </section>

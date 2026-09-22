@@ -80,6 +80,26 @@ export const globalFaqs = [
       "Weekend and evening delivery can happen on some routes, especially in high-volume metro areas. Delivery timing depends on the route plan, local capacity, and the service used for the shipment."
   },
   {
+    question: "How late does SpeedX deliver?",
+    answer:
+      "SpeedX may deliver into the evening on some routes, but the latest delivery time depends on route load, traffic, weather, season, and local depot operations. There is no single cutoff time for every address."
+  },
+  {
+    question: "What time does SpeedX stop delivering?",
+    answer:
+      "SpeedX does not publish one universal stop-delivering time for every route. Check your latest tracking event and seller estimate because drivers can finish at different times based on local conditions."
+  },
+  {
+    question: "How long does SpeedX take to deliver when out for delivery?",
+    answer:
+      "An out-for-delivery package is usually intended for delivery during that local delivery day, but route overflow, weather, access problems, or an unfinished route can move the attempt to the next day."
+  },
+  {
+    question: "What are SpeedX delivery hours?",
+    answer:
+      "SpeedX delivery hours vary by location and route. Evening delivery can occur during busy periods, so the current tracking timeline and seller-provided estimate are more useful than a fixed national schedule."
+  },
+  {
     question: "What if my SpeedX tracking number is not recognized?",
     answer:
       "Double-check the tracking number for spacing or typing errors. If it still is not recognized, the shipment may not yet be active in the carrier system or the seller may have provided the wrong carrier code."

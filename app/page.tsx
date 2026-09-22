@@ -160,7 +160,7 @@ export default function HomePage() {
           <div>
             <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">SpeedX Tracking: Track SpeedX Packages Instantly</h2>
             <p className="mt-3 text-slate-700 leading-relaxed">
-              SpeedX is a leading last-mile delivery carrier specializing in e-commerce shipments from Shein, Temu, and other online retailers. Our SpeedX tracking tool provides real-time status updates for all SpeedX tracking numbers (SPX, SPXSG, SPXCN formats). Get instant delivery estimates, current package location, and detailed scan history. Whether your SpeedX package is in transit, out for delivery, or stuck at a facility, you&apos;ll see exactly where it is and when it will arrive.
+              SpeedX is a leading last-mile delivery carrier specializing in e-commerce shipments from Shein, Temu, and other online retailers. Our SpeedX tracking tool works as a Speed X tracker for SPX, SPXSG, and SPXCN numbers, with real-time status updates, delivery estimates, current package location, and detailed scan history. Whether your SpeedX package is in transit, out for delivery, or stuck at a facility, you&apos;ll see exactly where it is and when it will arrive.
             </p>
             <p className="mt-3 text-slate-700 leading-relaxed">
               Track SpeedX Shein orders with confidence: most domestic deliveries arrive within 3-5 business days, while international SpeedX shipments take 7-15 days depending on customs clearance. If your SpeedX tracking isn&apos;t updating, check our troubleshooting guides below for common solutions including weekend delays, customs holds, and address issues.
@@ -295,6 +295,11 @@ export default function HomePage() {
             <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">Delivery Times</h3>
             <p className="mt-1 text-xs text-slate-600">Review domestic and international SpeedX timelines</p>
             <span className="mt-2 inline-block text-xs font-medium text-brand-600">View ETA guide →</span>
+          </Link>
+          <Link href="/guides/speedx-delivery-hours" className="group rounded-xl border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:shadow-md">
+            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">Delivery Hours</h3>
+            <p className="mt-1 text-xs text-slate-600">How late SpeedX delivers and what out-for-delivery means</p>
+            <span className="mt-2 inline-block text-xs font-medium text-brand-600">Read delivery guide →</span>
           </Link>
           <Link href="/carriers/speedx/contact" className="group rounded-xl border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:shadow-md">
             <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">Support Contact</h3>

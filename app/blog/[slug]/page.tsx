@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import { blogPosts } from "@/content/blogs";
 import { FreshnessNote } from "@/components/seo/FreshnessNote";
@@ -10,7 +10,9 @@ import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/seo/schema";
 export const revalidate = 86400;
 
 export async function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+  return blogPosts
+    .filter((post) => post.slug !== "does-speedx-deliver-late-at-night-guide")
+    .map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
@@ -18,6 +20,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = blogPosts.find((item) => item.slug === slug);
 
   if (!post) return {};
+
+  if (slug === "does-speedx-deliver-late-at-night-guide") {
+    redirect("/guides/speedx-delivery-hours");
+  }
 
   return buildMetadata({
     title: `${post.title} | SpeedX Guide`,
@@ -44,12 +50,18 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     notFound();
   }
 
+  if (slug === "does-speedx-deliver-late-at-night-guide") {
+    redirect("/guides/speedx-delivery-hours");
+  }
+
   const relatedPosts = blogPosts
-    .filter((item) => item.slug !== post.slug)
+    .filter((item) => item.slug !== post.slug && item.slug !== "does-speedx-deliver-late-at-night-guide")
     .filter((item) => item.category === post.category)
     .slice(0, 3);
 
-  const fallbackRelatedPosts = blogPosts.filter((item) => item.slug !== post.slug).slice(0, 3);
+  const fallbackRelatedPosts = blogPosts
+    .filter((item) => item.slug !== post.slug && item.slug !== "does-speedx-deliver-late-at-night-guide")
+    .slice(0, 3);
   const relatedToShow = relatedPosts.length > 0 ? relatedPosts : fallbackRelatedPosts;
   const estimatedWordCount = post.sections.reduce((count, section) => {
     const paragraphWords = section.paragraphs.reduce((sum, paragraph) => sum + paragraph.trim().split(/\s+/).length, 0);
@@ -57,23 +69,46 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     return count + paragraphWords + bulletWords;
   }, 0);
 
-  const postFaqs = [
-    {
-      question: "How do I check SpeedX tracking updates faster?",
-      answer:
-        "Use your full tracking number on the SpeedX tracking page and recheck every 12 to 24 hours. Updates usually appear when a package reaches a new hub or final-mile scan point."
-    },
-    {
-      question: "Why does SpeedX tracking sometimes stop updating?",
-      answer:
-        "Short pauses are common during linehaul transit, weekends, and customs processing. If there is no update for 5+ days, contact the seller and then SpeedX support with your tracking number."
-    },
-    {
-      question: "Can I track SpeedX Shein orders with the same number?",
-      answer:
-        "Yes. Most Shein shipments handled by SpeedX can be tracked using the same carrier tracking number shown in your order shipment details."
-    }
-  ];
+  const articleFaqs: Record<string, Array<{ question: string; answer: string }>> = {
+    "speedx-delivery-time-by-region": [
+      {
+        question: "What are typical SpeedX delivery times?",
+        answer:
+          "Domestic SpeedX shipments commonly take several business days after carrier handoff, while cross-border shipments can take longer because customs and partner handoffs add processing stages."
+      },
+      {
+        question: "Are SpeedX delivery times guaranteed?",
+        answer:
+          "No. Delivery times are estimates affected by route, customs, weather, destination density, and peak volume. Use the latest scan and seller estimate together."
+      }
+    ],
+    "speedx-out-for-delivery-but-not-delivered": [
+      {
+        question: "How long does SpeedX take to deliver when out for delivery?",
+        answer:
+          "Out for delivery usually means the parcel is intended for delivery that day, but route overflow, traffic, weather, access issues, or an unfinished route can move the attempt to the next day."
+      },
+      {
+        question: "What should I do if SpeedX is out for delivery but not delivered?",
+        answer:
+          "Check the delivery area and access instructions, wait through the local delivery window, then recheck the next morning. Contact the seller with the tracking number and screenshot if no new event appears."
+      }
+    ],
+    "shein-speedx-tracking-guide": [
+      {
+        question: "How do I use SpeedX tracking for a Shein order?",
+        answer:
+          "Copy the carrier tracking number from Shein shipment details or the shipping email, then compare seller, customs, destination handoff, and final-mile events in sequence."
+      },
+      {
+        question: "Who should I contact when a Shein SpeedX shipment is delayed?",
+        answer:
+          "Start with Shein for order, address, or refund issues. Use SpeedX support for carrier scan or delivery-event questions after the seller confirms the shipment details."
+      }
+    ]
+  };
+
+  const postFaqs = articleFaqs[post.slug] ?? [];
 
   return (
     <div className="container-page py-6 sm:py-8 lg:py-10">
@@ -104,7 +139,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           { name: post.title, url: `${siteConfig.url}/blog/${post.slug}` }
         ])}
       />
-      <JsonLd data={faqSchema(postFaqs)} />
+      {postFaqs.length > 0 ? <JsonLd data={faqSchema(postFaqs)} /> : null}
       <article className="mx-auto max-w-4xl">
         <div className="mb-4 flex flex-wrap items-center gap-2 text-xs">
           <span className="rounded-full bg-brand-50 px-2.5 py-1 font-semibold text-brand-700">{post.category}</span>
@@ -144,6 +179,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <Link href="/carriers/speedx/status" className="btn-secondary">
             SpeedX Tracking Status
           </Link>
+          {(post.category === "Delivery Times" || post.slug === "speedx-out-for-delivery-but-not-delivered") ? (
+            <Link href="/guides/speedx-delivery-hours" className="btn-secondary">
+              SpeedX Delivery Hours Guide
+            </Link>
+          ) : null}
           <Link href="/blog" className="btn-secondary">
             Back to Blog
           </Link>
@@ -152,7 +192,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </Link>
         </div>
 
-        <section className="mt-8 section-card p-5 sm:p-6">
+        {postFaqs.length > 0 ? <section className="mt-8 section-card p-5 sm:p-6">
           <h2 className="text-xl font-semibold text-slate-900">SpeedX Tracking FAQs</h2>
           <div className="mt-4 space-y-4">
             {postFaqs.map((faq) => (
@@ -162,7 +202,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               </article>
             ))}
           </div>
-        </section>
+        </section> : null}
 
         <section className="mt-8 section-card p-5 sm:p-6">
           <h2 className="text-xl font-semibold text-slate-900">Related SpeedX Articles</h2>

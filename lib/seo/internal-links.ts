@@ -71,6 +71,9 @@ export function getCarrierIntentClusters(carrierSlug: string, carrierName: strin
       links: [
         { href: `/carriers/${carrierSlug}/status`, label: `${carrierName} status meanings` },
         { href: `/carriers/${carrierSlug}/delivery-time`, label: `${carrierName} ETA guide` },
+        ...(carrierSlug === "speedx"
+          ? [{ href: "/guides/speedx-delivery-hours", label: "SpeedX delivery hours and stop times" }]
+          : []),
         { href: `/carriers/${carrierSlug}/contact`, label: `${carrierName} customer support` },
         { href: `/carriers/${carrierSlug}/shein`, label: `${carrierName} Shein tracking` }
       ]
@@ -85,6 +88,7 @@ export function getGlobalTroubleshootingCluster(): LinkCluster {
       { href: "/guides/package-not-updating", label: "Tracking not updating" },
       { href: "/guides/delivered-not-received", label: "Delivered but not received" },
       { href: "/guides/how-to-track-packages", label: "How to track any package" },
+      { href: "/guides/speedx-delivery-hours", label: "SpeedX delivery hours" },
       { href: "/shipping-terms", label: "Shipping status glossary" }
     ]
   };

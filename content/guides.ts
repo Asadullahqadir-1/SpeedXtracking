@@ -62,6 +62,51 @@ export const guides = [
     ]
   },
   {
+    slug: "speedx-delivery-hours",
+    title: "SpeedX Delivery Hours: How Late Does SpeedX Deliver?",
+    intro:
+      "Find realistic SpeedX delivery times, evening delivery guidance, and what to expect when a package is out for delivery but has not arrived.",
+    sections: [
+      "SpeedX delivery hours vary by route, local depot workload, traffic, season, and the number of stops assigned to a driver; there is no single guaranteed delivery cutoff for every address.",
+      "If you are asking what time SpeedX delivers, check the latest out-for-delivery scan and the estimated window shown by the seller or tracking timeline rather than assuming a fixed hour.",
+      "SpeedX may deliver in the evening, especially during high-volume periods or on dense urban routes, so an out-for-delivery package can still arrive later in the day.",
+      "When SpeedX is out for delivery, delivery often happens the same day, but route overflow, weather, access problems, or an unfinished route can move the attempt to the next day.",
+      "If the status is still unchanged after the local delivery day, save the tracking timeline, confirm your address and access instructions, and contact the seller before requesting carrier escalation."
+    ],
+    faqs: [
+      {
+        question: "How late does SpeedX deliver?",
+        answer:
+          "SpeedX can deliver into the evening on some routes, but the latest delivery time depends on local route planning, volume, traffic, weather, and depot operations. SpeedX does not publish one universal cutoff that applies to every address."
+      },
+      {
+        question: "What time does SpeedX deliver?",
+        answer:
+          "SpeedX delivery time varies by route and destination. Use the latest tracking event and any seller-provided estimate as the best guide for your package because an out-for-delivery scan does not guarantee a morning or afternoon stop."
+      },
+      {
+        question: "What time does SpeedX stop delivering?",
+        answer:
+          "There is no single public stop-delivering time for every SpeedX route. Drivers may finish at different times based on route load, traffic, weather, and local operating conditions."
+      },
+      {
+        question: "When does SpeedX stop delivering?",
+        answer:
+          "SpeedX stop times vary by local route and operating conditions. Check the latest tracking event and allow for evening delivery before treating an unfinished out-for-delivery route as a failed attempt."
+      },
+      {
+        question: "How long does SpeedX take to deliver when out for delivery?",
+        answer:
+          "An out-for-delivery package is usually intended for delivery during that local delivery day, but it can roll to the next day if the route is not completed or an access, weather, or operational issue interrupts the attempt."
+      },
+      {
+        question: "What are normal SpeedX delivery hours?",
+        answer:
+          "Normal SpeedX delivery hours vary by location and route. Evening delivery can happen, particularly during busy periods, so tracking activity and the seller's delivery estimate are more reliable than a fixed national schedule."
+      }
+    ]
+  },
+  {
     slug: "spxcn-tracking-number-meaning",
     title: "SPXCN Tracking Number Meaning",
     intro:

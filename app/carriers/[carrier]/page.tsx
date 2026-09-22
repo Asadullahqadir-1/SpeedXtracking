@@ -204,6 +204,7 @@ export default async function CarrierPage({ params }: { params: Promise<{ carrie
           <div className="mt-3 grid gap-2 text-sm text-brand-700 md:grid-cols-2">
             <Link href="/carriers/speedx/status">SpeedX tracking status meanings</Link>
             <Link href="/carriers/speedx/delivery-time">SpeedX delivery time estimate</Link>
+            <Link href="/guides/speedx-delivery-hours">SpeedX delivery hours and stop time</Link>
             <Link href="/carriers/speedx/contact">SpeedX tracking support contact</Link>
             <Link href="/carriers/speedx/shein">SpeedX Shein tracking help</Link>
             <Link href="/blog/speedx-tracking-not-updating">SpeedX tracking not updating fixes</Link>
