@@ -63,9 +63,9 @@ export const guides = [
   },
   {
     slug: "speedx-delivery-hours",
-    title: "SpeedX Delivery Hours: How Late Does SpeedX Deliver?",
+    title: "How Late Does SpeedX Deliver? Hours & Stop Times",
     intro:
-      "Find realistic SpeedX delivery times, evening delivery guidance, and what to expect when a package is out for delivery but has not arrived.",
+      "Find how late SpeedX delivers, SpeedX delivery times and stop times, and how long delivery takes when a package is out for delivery.",
     sections: [
       "SpeedX delivery hours vary by route, local depot workload, traffic, season, and the number of stops assigned to a driver; there is no single guaranteed delivery cutoff for every address.",
       "If you are asking what time SpeedX delivers, check the latest out-for-delivery scan and the estimated window shown by the seller or tracking timeline rather than assuming a fixed hour.",
@@ -108,12 +108,12 @@ export const guides = [
   },
   {
     slug: "spxcn-tracking-number-meaning",
-    title: "SPXCN Tracking Number Meaning",
+    title: "SPXCN Tracking Number Meaning — SpeedX Format Guide",
     intro:
-      "Learn what SPXCN format usually indicates, how to verify the number, and what timeline behavior to expect.",
+      "What SPXCN means on SpeedX tracking, how to verify the number, and why SPXCN updates can pause during customs.",
     sections: [
-      "SPXCN generally refers to a SpeedX-linked cross-border tracking format.",
-      "Always copy the full code from carrier or marketplace shipment details.",
+      "SPXCN generally refers to a SpeedX-linked cross-border tracking format used on many marketplace orders.",
+      "Always copy the full SPXCN code from carrier or marketplace shipment details without extra spaces.",
       "Cross-border SPXCN updates may post in batches during customs and linehaul stages.",
       "A 24-48 hour scan gap can be normal between export and destination processing.",
       "If no movement appears for 5+ days, contact seller with order ID and full tracking screenshot."

@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getTrackingData } from "@/lib/tracking/provider";
 import { checkRateLimit } from "@/lib/tracking/rate-limit";
 import { TrackingError } from "@/lib/tracking/errors";
-import { detectCarrier } from "@/lib/tracking/carrier-detection";
+import { detectCarrier, isKnownCarrier } from "@/lib/tracking/carrier-detection";
 
 function extractClientKey(request: NextRequest) {
   const forwardedFor = request.headers.get("x-forwarded-for");
@@ -23,17 +23,26 @@ function normalizeInput(trackingNumber: string, carrier: string) {
   }
 
   const detectedCarrier = detectCarrier(normalizedTrackingNumber);
+  const explicitCarrier = Boolean(normalizedCarrier) && normalizedCarrier !== "other" && normalizedCarrier !== "auto";
 
-  if (!normalizedCarrier || normalizedCarrier === "other" || normalizedCarrier === "auto") {
+  if (!explicitCarrier) {
     if (!detectedCarrier) {
-      throw new TrackingError("invalid_input", "Carrier can not be detected.", 400);
+      throw new TrackingError(
+        "invalid_input",
+        "Could not detect the carrier. Select SpeedX or paste a full SPX / SPXCN tracking number.",
+        400
+      );
     }
-
     normalizedCarrier = detectedCarrier;
+  } else if (!isKnownCarrier(normalizedCarrier)) {
+    throw new TrackingError("invalid_input", "Carrier format is invalid.", 400);
   }
+  // Explicit carrier (e.g. SpeedX) is trusted — do not require pattern match.
+  // Pattern helpers remain available for auto-detect and UX hints.
 
-  if (normalizedCarrier === "speedx" && detectedCarrier !== "speedx") {
-    throw new TrackingError("invalid_input", "Carrier can not be detected.", 400);
+  // Prefer detected carrier when user left a generic number but detection is confident
+  if (detectedCarrier && (!explicitCarrier || normalizedCarrier === "auto")) {
+    normalizedCarrier = detectedCarrier;
   }
 
   if (!/^[a-z0-9-]{2,40}$/.test(normalizedCarrier)) {

@@ -17,8 +17,14 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
   if (!current) return {};
 
   return buildMetadata({
-    title: `${current.carrierName} Status Meanings Explained`,
-    description: `Learn what each ${current.carrierName} tracking status means and what to do for delayed, exception, or delivered scans.`,
+    title:
+      current.slug === "speedx"
+        ? "SpeedX Out for Delivery Meaning & Status Guide"
+        : `${current.carrierName} Status Meanings Explained`,
+    description:
+      current.slug === "speedx"
+        ? "What SpeedX out for delivery means, exception codes, in transit pauses, and what to do if your package is not delivered."
+        : `Learn what each ${current.carrierName} tracking status means and what to do for delayed, exception, or delivered scans.`,
     path: `/carriers/${carrier}/status`
   });
 }
@@ -66,9 +72,13 @@ export default async function CarrierStatusPage({ params }: { params: Promise<{ 
           ])
         }
       />
-      <h1 className="text-3xl font-bold">{current.carrierName} Tracking Status Meanings</h1>
+      <h1 className="text-3xl font-bold">
+        {current.slug === "speedx" ? "SpeedX Out for Delivery & Tracking Status Meanings" : `${current.carrierName} Tracking Status Meanings`}
+      </h1>
       <p className="mt-2 text-slate-700">
-        Understand what each shipment update means and what action to take next. This page helps you read current tracking events more accurately and avoid premature escalation.
+        {current.slug === "speedx"
+          ? "Understand SpeedX out for delivery, in transit, exception, and delivered statuses—and what to do when a package is out for delivery but not delivered."
+          : "Understand what each shipment update means and what action to take next. This page helps you read current tracking events more accurately and avoid premature escalation."}
       </p>
       <p className="mt-4 text-sm text-slate-700">
         If you see a pause between scans, compare the current event to the expected route stage and wait the normal processing window before opening a support request.
@@ -118,6 +128,26 @@ export default async function CarrierStatusPage({ params }: { params: Promise<{ 
           </article>
         </div>
       </section>
+
+      {current.slug === "speedx" ? (
+        <section className="mt-8 section-card">
+          <h2 className="text-xl font-semibold">SpeedX out for delivery but not delivered</h2>
+          <p className="mt-3 text-sm text-slate-700">
+            If SpeedX tracking says out for delivery but the package does not arrive, wait until the end of the local delivery day, check alternate drop points, then recheck the next morning. Route overflow and access issues commonly push an attempt to the next day.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-3 text-sm font-semibold text-brand-700">
+            <Link href="/blog/speedx-out-for-delivery-but-not-delivered" className="hover:underline">
+              Full out-for-delivery checklist
+            </Link>
+            <Link href="/guides/speedx-delivery-hours" className="hover:underline">
+              How late does SpeedX deliver?
+            </Link>
+            <Link href="/track-package" className="hover:underline">
+              Track SpeedX package free
+            </Link>
+          </div>
+        </section>
+      ) : null}
 
       {current.slug === "speedx" ? (
         <section className="mt-8 section-card">

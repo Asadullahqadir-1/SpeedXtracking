@@ -230,9 +230,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "spxcn-tracking-number-format-explained",
-    title: "SPXCN Tracking Number Explained: Format, Delays, and Fixes",
+    title: "SPXCN Tracking Number Meaning — Format & Delays",
     description:
-      "Understand what an SPXCN tracking number usually means, why scans can pause, and how to verify if your shipment is still moving normally.",
+      "What SPXCN means on SpeedX tracking, why scans pause, and how to verify your SPXCN shipment is still moving.",
     category: "Tracking Basics",
     readTime: "7 min read",
     publishedDate: "2026-03-14",
@@ -429,9 +429,9 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "speedx-out-for-delivery-but-not-delivered",
-    title: "SpeedX Out for Delivery But Not Delivered: What to Do Next",
+    title: "SpeedX Out for Delivery But Not Delivered — What Next",
     description:
-      "Use this step-by-step plan when SpeedX tracking says out for delivery but your package does not arrive by end of day.",
+      "SpeedX out for delivery but not delivered? Checklist for same-day waits, next-day attempts, and when to contact the seller.",
     category: "Troubleshooting",
     readTime: "8 min read",
     publishedDate: "2026-04-19",

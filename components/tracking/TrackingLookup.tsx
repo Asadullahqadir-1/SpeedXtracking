@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { TrackingResponse } from "@/lib/seo/types";
 import { trackEvent } from "@/lib/analytics";
+import { FreeTrackWidget } from "@/components/tracking/FreeTrackWidget";
 
 type TrackingLookupProps = {
   trackingNumber: string;
@@ -12,12 +13,13 @@ type TrackingLookupProps = {
 export function TrackingLookup({ trackingNumber, carrier }: TrackingLookupProps) {
   const [data, setData] = useState<TrackingResponse | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [apiError, setApiError] = useState<string | null>(null);
 
   useEffect(() => {
     async function loadData() {
       setLoading(true);
-      setError(null);
+      setApiError(null);
+      setData(null);
 
       try {
         const response = await fetch(
@@ -27,12 +29,12 @@ export function TrackingLookup({ trackingNumber, carrier }: TrackingLookupProps)
 
         if (!response.ok) {
           const payload = (await response.json().catch(() => null)) as { error?: string } | null;
-          throw new Error(payload?.error || "Unable to fetch tracking details.");
+          throw new Error(payload?.error || "Unable to fetch structured tracking details.");
         }
 
         setData((await response.json()) as TrackingResponse);
       } catch (err) {
-        setError(err instanceof Error ? err.message : "Unexpected error");
+        setApiError(err instanceof Error ? err.message : "Unexpected error");
       } finally {
         setLoading(false);
       }
@@ -69,42 +71,47 @@ export function TrackingLookup({ trackingNumber, carrier }: TrackingLookupProps)
     return "bg-amber-100 text-amber-700";
   }, [data]);
 
-  if (loading) {
-    return <p className="mt-4 text-sm text-slate-600">Loading tracking results...</p>;
-  }
-
-  if (error) {
-    return <p className="mt-4 text-sm text-red-600">{error}</p>;
-  }
-
-  if (!data) {
-    return null;
-  }
-
   return (
-    <section className="mt-6 space-y-4">
-      <div className="section-card">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2 className="text-xl font-semibold">Latest Tracking Update</h2>
-          <span className={`rounded-full px-3 py-1 text-xs font-semibold ${statusClass}`}>{data.currentStatus}</span>
-        </div>
-        <p className="mt-2 text-sm text-slate-600">Tracking Number: {data.trackingNumber}</p>
-        <p className="mt-1 text-sm text-slate-600">Carrier: {data.carrier}</p>
-        <p className="mt-1 text-sm text-slate-700">Estimated Delivery: {data.eta}</p>
-      </div>
+    <div className="mt-4 space-y-4">
+      {loading ? <p className="text-sm text-slate-600">Checking tracking providers…</p> : null}
 
-      <div className="section-card">
-        <h3 className="text-lg font-semibold">Tracking Timeline</h3>
-        <ul className="mt-4 space-y-3">
-          {data.timeline.map((event) => (
-            <li key={`${event.timestamp}-${event.status}`} className="rounded-lg border border-slate-100 p-3">
-              <p className="text-xs text-slate-500">{event.timestamp} • {event.location}</p>
-              <p className="mt-1 font-medium text-slate-900">{event.status}</p>
-              <p className="text-sm text-slate-700">{event.details}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+      {data ? (
+        <section className="space-y-4">
+          <div className="section-card">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <h2 className="text-xl font-semibold">Latest Tracking Update</h2>
+              <span className={`rounded-full px-3 py-1 text-xs font-semibold ${statusClass}`}>{data.currentStatus}</span>
+            </div>
+            <p className="mt-2 text-sm text-slate-600">Tracking Number: {data.trackingNumber}</p>
+            <p className="mt-1 text-sm text-slate-600">Carrier: {data.carrier}</p>
+            <p className="mt-1 text-sm text-slate-700">Estimated Delivery: {data.eta}</p>
+          </div>
+
+          <div className="section-card">
+            <h3 className="text-lg font-semibold">Tracking Timeline</h3>
+            <ul className="mt-4 space-y-3">
+              {data.timeline.map((event) => (
+                <li key={`${event.timestamp}-${event.status}`} className="rounded-lg border border-slate-100 p-3">
+                  <p className="text-xs text-slate-500">
+                    {event.timestamp} • {event.location}
+                  </p>
+                  <p className="mt-1 font-medium text-slate-900">{event.status}</p>
+                  <p className="text-sm text-slate-700">{event.details}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
+
+      {!loading && apiError ? (
+        <p className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          Structured lookup note: {apiError}. Use the free live tracker below for full carrier scan results.
+        </p>
+      ) : null}
+
+      {/* Always available free tracker — works without API keys */}
+      <FreeTrackWidget trackingNumber={trackingNumber} />
+    </div>
   );
 }

@@ -14,8 +14,14 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
   if (!current) return {};
 
   return buildMetadata({
-    title: `${current.carrierName} Delivery Time Guide`,
-    description: `Typical ${current.carrierName} delivery times by route type, plus why customs, weather, and handoffs can delay arrival.`,
+    title:
+      current.slug === "speedx"
+        ? "How Long Does SpeedX Take to Deliver?"
+        : `${current.carrierName} Delivery Time Guide`,
+    description:
+      current.slug === "speedx"
+        ? "How long SpeedX takes to deliver domestically and internationally, plus what out for delivery timing usually means."
+        : `Typical ${current.carrierName} delivery times by route type, plus why customs, weather, and handoffs can delay arrival.`,
     path: `/carriers/${carrier}/delivery-time`
   });
 }
@@ -30,9 +36,13 @@ export default async function CarrierDeliveryTimePage({ params }: { params: Prom
 
   return (
     <div className="container-page py-10">
-      <h1 className="text-3xl font-bold">{current.carrierName} Delivery Time Estimates</h1>
+      <h1 className="text-3xl font-bold">
+        {current.slug === "speedx" ? "How Long Does SpeedX Take to Deliver?" : `${current.carrierName} Delivery Time Estimates`}
+      </h1>
       <p className="mt-2 text-slate-700">
-        Realistic delivery windows vary by route distance, customs, and final-mile handoff. Use the estimates below as a general guide, then allow extra time for customs, weather, and carrier processing.
+        {current.slug === "speedx"
+          ? "Typical SpeedX delivery times for domestic and international routes, plus what to expect after an out for delivery scan."
+          : "Realistic delivery windows vary by route distance, customs, and final-mile handoff. Use the estimates below as a general guide, then allow extra time for customs, weather, and carrier processing."}
       </p>
       <p className="mt-3 text-sm text-slate-700">
         If a package is still within the estimated window, wait before contacting support. If it passes the window without progress, gather the latest scan screenshot and shipment details first.

@@ -1,35 +1,34 @@
 const CARRIER_PATTERNS: Array<{ carrier: string; pattern: RegExp }> = [
-  // SpeedX Carriers
+  // SpeedX / SPX formats (Shein, Temu, cross-border)
+  { carrier: "speedx", pattern: /^SPXCN[0-9A-Z]{6,32}$/i },
+  { carrier: "speedx", pattern: /^SPXSG[0-9A-Z]{6,32}$/i },
   { carrier: "speedx", pattern: /^SPX[0-9A-Z]{8,32}$/i },
-  { carrier: "speedx", pattern: /^SPXSG[0-9A-Z]{6,28}$/i },
-  { carrier: "speedx", pattern: /^SPXCN[0-9A-Z]{6,28}$/i },
-  
+  { carrier: "speedx", pattern: /^SX[0-9A-Z]{8,28}$/i },
+
   // DHL
-  { carrier: "dhl", pattern: /^\d{10,11}$/i },
-  { carrier: "dhl", pattern: /^[0-9]{13,13}$/i },
-  { carrier: "dhl", pattern: /^1[0-9]{10}$/i },
-  
+  { carrier: "dhl", pattern: /^\d{10,11}$/ },
+  { carrier: "dhl", pattern: /^JD\d{16,22}$/i },
+
   // UPS
   { carrier: "ups", pattern: /^1Z[A-Z0-9]{16}$/i },
-  { carrier: "ups", pattern: /^[0-9]{9}([0-9]{2})?$/i },
-  
+
   // FedEx
-  { carrier: "fedex", pattern: /^[0-9]{12}([0-9]{2})?$/i },
-  { carrier: "fedex", pattern: /^[0-9]{14}$/i },
-  { carrier: "fedex", pattern: /^[0-9]{20}$/i },
-  
+  { carrier: "fedex", pattern: /^\d{12}$/ },
+  { carrier: "fedex", pattern: /^\d{15}$/ },
+  { carrier: "fedex", pattern: /^\d{20,22}$/ },
+
   // DPD
-  { carrier: "dpd", pattern: /^\d{11}(\d{2})?$/i },
-  { carrier: "dpd", pattern: /^[0-9]{12}$/i },
-  
+  { carrier: "dpd", pattern: /^\d{14}$/ },
+
   // GLS
-  { carrier: "gls", pattern: /^\d{13}$/i },
-  { carrier: "gls", pattern: /^[0-9]{13}$/i },
-  
-  // Hermes
-  { carrier: "hermes", pattern: /^[0-9]{10}([0-9]{2})?$/i },
-  { carrier: "hermes", pattern: /^[A-Z0-9]{16}$/i }
+  { carrier: "gls", pattern: /^\d{11,14}$/ },
+
+  // Hermes / Evri
+  { carrier: "hermes", pattern: /^[A-Z0-9]{16}$/i },
+  { carrier: "hermes", pattern: /^\d{16}$/ }
 ];
+
+const KNOWN_CARRIERS = new Set(["speedx", "dhl", "ups", "fedex", "dpd", "gls", "hermes"]);
 
 function isObviouslyDummy(trackingNumber: string): boolean {
   if (/^(.)\1{5,}$/i.test(trackingNumber)) {
@@ -57,4 +56,20 @@ export function detectCarrier(trackingNumber: string): string | null {
   }
 
   return null;
+}
+
+export function isKnownCarrier(carrier: string): boolean {
+  return KNOWN_CARRIERS.has(carrier.trim().toLowerCase());
+}
+
+/** When the user picks SpeedX, accept common marketplace number shapes. */
+export function looksLikeSpeedXNumber(trackingNumber: string): boolean {
+  const normalized = trackingNumber.trim().toUpperCase();
+  if (!normalized || isObviouslyDummy(normalized)) return false;
+  if (/^SPX(CN|SG)?[0-9A-Z]{6,32}$/i.test(normalized)) return true;
+  if (/^SX[0-9A-Z]{8,28}$/i.test(normalized)) return true;
+  // Marketplace numeric / alphanumeric IDs often used with SpeedX last-mile
+  if (/^[0-9]{10,22}$/.test(normalized)) return true;
+  if (/^[A-Z0-9]{12,32}$/i.test(normalized)) return true;
+  return false;
 }

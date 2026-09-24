@@ -19,7 +19,7 @@ export function TrackingForm({
       <input
         name="trackingNumber"
         className="w-full rounded-lg border border-slate-300 px-4 py-3 text-sm outline-none ring-brand-500 focus:ring-2"
-        placeholder="Enter tracking number"
+        placeholder="Enter SPX / SPXCN tracking number"
         defaultValue={initialTrackingNumber}
         aria-label="Tracking number"
         autoComplete="off"

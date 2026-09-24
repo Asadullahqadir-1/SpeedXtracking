@@ -14,9 +14,9 @@ import { blogPosts } from "@/content/blogs";
 export const revalidate = 86400;
 
 export const metadata = buildMetadata({
-  title: "Track SpeedX Package Free — Status & ETA",
+  title: "SpeedX Tracking — Free Status & ETA Lookup",
   description:
-    "Free SpeedX tracking lookup. See status, latest scan, and delivery ETA for SPX/SPXCN numbers. Fixes for delayed, stuck, or missing packages.",
+    "Free SpeedX tracking for SPX and SPXCN numbers. Check out for delivery status, how late SpeedX delivers, and fixes for delayed packages.",
   path: "/"
 });
 
@@ -51,10 +51,10 @@ export default function HomePage() {
             Free SpeedX package tracker
           </p>
           <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
-            Track SpeedX Packages in Seconds
+            SpeedX Tracking — Track Packages Free
           </h1>
           <p className="mt-3 text-base text-slate-700 sm:mt-4 sm:text-lg">
-            Enter your SpeedX tracking number to see current delivery updates, status scans, and estimated delivery information in one place.
+            Free SpeedX tracking for SPX, SPXCN, and Speed X live tracking numbers. Check out for delivery status, ETA, and what to do if your package stalls.
           </p>
           <div className="mt-3 flex flex-wrap gap-4 text-sm text-slate-600">
             <span className="flex items-center gap-1.5">

@@ -5,9 +5,9 @@ export const carriers: CarrierPage[] = [
     slug: "speedx",
     carrierName: "SpeedX",
     primaryKeyword: "SpeedX tracking",
-    seoTitle: "SpeedX Tracking — Status, ETA & Support",
+    seoTitle: "SpeedX Tracking — Free Package Status & ETA",
     metaDescription:
-      "Track SpeedX packages with status meanings, delivery time estimates, Shein order help, and support options for domestic and international shipments.",
+      "Free SpeedX tracking for SPX and SPXCN numbers. Check out for delivery meaning, delivery time, Shein help, and support options.",
     h1: "SpeedX Tracking",
     h2Sections: [
       "Track SpeedX Package",
