@@ -1,7 +1,7 @@
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
-  title: "Editorial Policy | SpeedXTracking",
+  title: "Editorial Policy",
   description: "Read how SpeedXTracking creates, reviews, and updates tracking guides and carrier pages for accuracy.",
   path: "/editorial-policy"
 });

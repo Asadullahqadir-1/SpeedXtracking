@@ -18,17 +18,12 @@ export function organizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Speed X Tracking",
+    name: "SpeedXTracking",
     url: siteUrl,
     logo: `${siteUrl}/icon.svg`,
     description:
-      "Independent package tracking and delivery help resource focused on SpeedX shipment visibility, status interpretation, and troubleshooting.",
-    areaServed: "Worldwide",
-    sameAs: [
-      "https://www.linkedin.com/company/speedx-delivery/",
-      "https://speedx.io/",
-      "https://support.speedx.io/hc/en-us"
-    ]
+      "Independent package tracking and delivery help resource focused on SpeedX shipment visibility, status interpretation, and troubleshooting. Not affiliated with SpeedX.",
+    areaServed: "Worldwide"
   };
 }
 

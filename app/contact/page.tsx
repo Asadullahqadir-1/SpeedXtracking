@@ -1,7 +1,7 @@
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
-  title: "Contact Us | SpeedXTracking Support",
+  title: "Contact Us",
   description: "Contact the SpeedXTracking editorial team for corrections, feedback, and support-related questions.",
   path: "/contact"
 });

@@ -22,7 +22,7 @@ export function Footer() {
               <h2 className="text-xl font-bold">SpeedXTracking</h2>
             </div>
             <p className="text-sm text-slate-300">
-              Real-time SpeedX tracking, delivery updates, and support guidance for e-commerce shipments.
+              SpeedX tracking help, delivery updates, and support guidance for e-commerce shipments. Independent resource — not affiliated with SpeedX.
             </p>
           </div>
 

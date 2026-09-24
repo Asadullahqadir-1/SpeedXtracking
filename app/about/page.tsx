@@ -1,9 +1,9 @@
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
-  title: "About SpeedXTracking | Independent Package Tracking Resource",
+  title: "About SpeedXTracking",
   description:
-    "Learn how SpeedXTracking helps users understand shipment statuses, delivery estimates, and package tracking across major carriers.",
+    "Learn how SpeedXTracking helps users understand shipment statuses, delivery estimates, and package tracking. Independent — not affiliated with SpeedX.",
   path: "/about"
 });
 

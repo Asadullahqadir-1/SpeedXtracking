@@ -5,9 +5,9 @@ export const carriers: CarrierPage[] = [
     slug: "speedx",
     carrierName: "SpeedX",
     primaryKeyword: "SpeedX tracking",
-    seoTitle: "SpeedX Tracking: Track SpeedX Package, Status, Delivery Time & Support",
+    seoTitle: "SpeedX Tracking — Status, ETA & Support",
     metaDescription:
-      "Track SpeedX shipments with live status guidance, delivery time estimates, status meanings, and customer support options for domestic and international orders.",
+      "Track SpeedX packages with status meanings, delivery time estimates, Shein order help, and support options for domestic and international shipments.",
     h1: "SpeedX Tracking",
     h2Sections: [
       "Track SpeedX Package",
@@ -29,9 +29,9 @@ export const carriers: CarrierPage[] = [
     slug: "dhl",
     carrierName: "DHL",
     primaryKeyword: "DHL tracking",
-    seoTitle: "DHL Tracking: Track DHL Express, Parcel, Global Shipping Online",
+    seoTitle: "DHL Tracking — Express & Parcel Status",
     metaDescription:
-      "Track DHL packages globally with real-time status updates, delivery estimates, and customer support. Get help with DHL Express and DHL Parcel tracking.",
+      "Look up DHL Express and DHL Parcel status, delivery estimates, and support options for delayed or missing shipments.",
     h1: "DHL Package Tracking",
     h2Sections: [
       "Track DHL Express Shipments",
@@ -53,9 +53,9 @@ export const carriers: CarrierPage[] = [
     slug: "ups",
     carrierName: "UPS",
     primaryKeyword: "UPS tracking",
-    seoTitle: "UPS Tracking: Track UPS Package, Delivery Status & Updates",
+    seoTitle: "UPS Tracking — Package Status & ETA",
     metaDescription:
-      "Track UPS packages in real-time with live status updates, delivery estimates, and support options. Monitor UPS Express, Ground, and 2Day shipments.",
+      "Check UPS package status, delivery estimates, and support steps for Express, Ground, and 2Day shipments.",
     h1: "UPS Package Tracking",
     h2Sections: [
       "Track UPS Packages",
@@ -77,9 +77,9 @@ export const carriers: CarrierPage[] = [
     slug: "fedex",
     carrierName: "FedEx",
     primaryKeyword: "FedEx tracking",
-    seoTitle: "FedEx Tracking: Track FedEx Express, Ground Shipment Online",
+    seoTitle: "FedEx Tracking — Express & Ground Status",
     metaDescription:
-      "Track FedEx packages with real-time updates, delivery status, and estimated delivery times. Get help with FedEx Express, Ground, and International shipping.",
+      "Check FedEx Express and Ground shipment status, delivery estimates, and troubleshooting steps for delayed packages.",
     h1: "FedEx Shipment Tracking",
     h2Sections: [
       "Track FedEx Packages",
@@ -101,9 +101,9 @@ export const carriers: CarrierPage[] = [
     slug: "dpd",
     carrierName: "DPD",
     primaryKeyword: "DPD tracking",
-    seoTitle: "DPD Tracking: Track DPD Parcel, Status & Delivery Updates",
+    seoTitle: "DPD Tracking — Parcel Status & ETA",
     metaDescription:
-      "Track DPD shipments in real-time with live status updates, delivery tracking, and support options. Monitor DPD courier parcels globally.",
+      "Check DPD parcel status, delivery estimates, and support options for delayed or missing courier shipments.",
     h1: "DPD Package Tracking",
     h2Sections: [
       "Track DPD Parcels",
@@ -125,9 +125,9 @@ export const carriers: CarrierPage[] = [
     slug: "gls",
     carrierName: "GLS",
     primaryKeyword: "GLS tracking",
-    seoTitle: "GLS Tracking: Track GLS Parcel, Shipment Status Online",
+    seoTitle: "GLS Tracking — Parcel Status Online",
     metaDescription:
-      "Track GLS packages globally with real-time status updates. Get help with GLS parcel tracking, delivery times, and customer support.",
+      "Check GLS parcel status, delivery times, and support steps when a shipment is delayed or missing.",
     h1: "GLS Package Tracking",
     h2Sections: [
       "Track GLS Shipments",
@@ -149,9 +149,9 @@ export const carriers: CarrierPage[] = [
     slug: "hermes",
     carrierName: "Hermes",
     primaryKeyword: "Hermes tracking",
-    seoTitle: "Hermes Tracking: Track Hermes Parcel, Delivery Status & Updates",
+    seoTitle: "Hermes Tracking — Parcel Status & ETA",
     metaDescription:
-      "Track Hermes parcels with real-time status updates and delivery estimates. Get help with Hermes tracking, customer service, and delivery issues.",
+      "Check Hermes parcel status, delivery estimates, and support options for delayed or missing deliveries.",
     h1: "Hermes Package Tracking",
     h2Sections: [
       "Track Hermes Parcels",

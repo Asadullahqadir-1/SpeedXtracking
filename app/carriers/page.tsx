@@ -3,17 +3,10 @@ import { carriers } from "@/lib/seo/carriers";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking Hub: Compare Status, Delivery Time, And Support",
+  title: "SpeedX Tracking Hub — Status & ETA",
   description:
-    "Browse all SpeedX tracking resources in one place: package status guides, delivery-time pages, Shein help, and support contacts.",
-  path: "/carriers",
-  keywords: [
-    "SpeedX tracking hub",
-    "SpeedX tracking",
-    "track SpeedX package",
-    "SpeedX tracking status",
-    "SpeedX delivery time"
-  ]
+    "Browse SpeedX tracking resources: package status guides, delivery-time pages, Shein help, and support contacts.",
+  path: "/carriers"
 });
 
 export default function CarriersPage() {

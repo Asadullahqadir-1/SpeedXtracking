@@ -4,18 +4,10 @@ import { breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking FAQ: Delivery Time, Status Meanings, SPXCN, And Customs Help",
+  title: "SpeedX Tracking FAQ — Status, ETA & SPXCN",
   description:
-    "Get clear answers to common SpeedX tracking questions about delivery time, status meanings, SPXCN tracking numbers, customs delays, and missing deliveries.",
-  path: "/faq",
-  keywords: [
-    "SpeedX tracking FAQ",
-    "SpeedX package tracking",
-    "SpeedX delivery time",
-    "SpeedX status meanings",
-    "SPXCN tracking",
-    "SpeedX customs delay"
-  ]
+    "Answers for SpeedX delivery time, status meanings, SPXCN numbers, customs delays, and missing packages.",
+  path: "/faq"
 });
 
 export default function FaqPage() {

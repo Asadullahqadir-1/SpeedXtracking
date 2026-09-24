@@ -1,4 +1,4 @@
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { FreshnessNote } from "@/components/seo/FreshnessNote";
 import { EditorialTrustBlock } from "@/components/seo/EditorialTrustBlock";
 import { LinkClusters } from "@/components/seo/LinkClusters";
@@ -11,54 +11,41 @@ import { breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
 
 export const revalidate = 86400;
 
+const GUIDE_REDIRECTS: Record<string, string> = {
+  "does-speedx-deliver-late-at-night": "/guides/speedx-delivery-hours"
+};
+
 export async function generateStaticParams() {
-  return guides.map((guide) => ({ slug: guide.slug }));
+  return guides
+    .filter((guide) => !GUIDE_REDIRECTS[guide.slug])
+    .map((guide) => ({ slug: guide.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+
+  if (GUIDE_REDIRECTS[slug]) {
+    return {};
+  }
+
   const guide = guides.find((item) => item.slug === slug);
 
   if (!guide) return {};
 
-  const intentKeywords: Record<string, string[]> = {
-    "does-speedx-deliver-late-at-night": [
-      "does speedx deliver late at night",
-      "speedx night delivery",
-      "speed x delivery times"
-    ],
-    "spxcn-tracking-number-meaning": [
-      "spxcn",
-      "spxcn tracking",
-      "spxcn tracking number meaning"
-    ],
-    "speedx-delivery-hours": [
-      "how late does speedx deliver",
-      "what time does speedx deliver",
-      "what time does speedx stop delivering",
-      "how long does speedx take to deliver when out for delivery",
-      "speedx delivery times",
-      "speedx delivery hours",
-      "when does speedx stop delivering"
-    ]
-  };
-
   return buildMetadata({
-    title: `${guide.title}: Step-By-Step SpeedX Checklist`,
+    title: guide.title,
     description: guide.intro,
-    path: `/guides/${guide.slug}`,
-    keywords: [
-      guide.title,
-      "SpeedX tracking guide",
-      "speed x tracking help",
-      "package tracking troubleshooting",
-      ...(intentKeywords[guide.slug] ?? [])
-    ]
+    path: `/guides/${guide.slug}`
   });
 }
 
 export default async function GuidePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+
+  if (GUIDE_REDIRECTS[slug]) {
+    redirect(GUIDE_REDIRECTS[slug]);
+  }
+
   const guide = guides.find((item) => item.slug === slug);
 
   if (!guide) {

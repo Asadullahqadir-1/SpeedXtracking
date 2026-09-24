@@ -1,4 +1,5 @@
 import { buildMetadata } from "@/lib/seo/metadata";
+import { AdSenseUnit } from "@/components/ads/AdSenseUnit";
 import { LinkClusters } from "@/components/seo/LinkClusters";
 import { TrackingForm } from "@/components/tracking/TrackingForm";
 import { TrackingLookup } from "@/components/tracking/TrackingLookup";
@@ -8,17 +9,10 @@ import { globalFaqs } from "@/content/faqs";
 import { buildAdaptiveClusters, getGlobalTroubleshootingCluster } from "@/lib/seo/internal-links";
 
 export const metadata = buildMetadata({
-  title: "Track SpeedX Package Now: Live Tracking Number Lookup And Delivery ETA",
+  title: "Track SpeedX Package Free — Status & ETA",
   description:
-    "Enter your SpeedX tracking number to check live package status, latest scan location, and estimated delivery date in seconds.",
-  path: "/track-package",
-  keywords: [
-    "track SpeedX tracking number",
-    "speed x tracking",
-    "SpeedX package tracking",
-    "SpeedX delivery status",
-    "SpeedX ETA"
-  ]
+    "Enter your SpeedX tracking number to see current status, latest scan, and delivery window. Free lookup for SPX, SPXCN, and Shein shipments.",
+  path: "/track-package"
 });
 
 export default async function TrackPackagePage({
@@ -40,9 +34,9 @@ export default async function TrackPackagePage({
         data={
           webPageSchema({
             path: "/track-package",
-            title: "Track SpeedX Tracking Number",
+            title: "Track SpeedX Package",
             description:
-              "Enter your SpeedX tracking number to check live shipment status, latest location scan, delivery estimate, and delay troubleshooting steps."
+              "Enter your SpeedX tracking number to check shipment status, latest location scan, delivery estimate, and delay troubleshooting steps."
           })
         }
       />
@@ -51,7 +45,7 @@ export default async function TrackPackagePage({
         Check current SpeedX shipment status, scan timeline, and estimated delivery window. Use the lookup to confirm whether your package is still in a normal transit phase or if it has entered an exception that requires action.
       </p>
       <p className="mt-4 text-sm text-slate-700">
-        If your tracking number does not return a result, verify the carrier assignment and wait up to 24 hours after shipment creation for the first carrier scan to appear.
+        If your tracking number does not return a result, verify the carrier assignment and wait 24 to 48 hours after shipment creation for the first carrier scan to appear.
       </p>
 
       <section className="mt-6 section-card">
@@ -59,11 +53,13 @@ export default async function TrackPackagePage({
         {trackingNumber ? <TrackingLookup trackingNumber={trackingNumber} carrier={carrier} /> : null}
       </section>
 
+      <AdSenseUnit />
+
       <section className="mt-8 section-card">
         <h2 className="text-xl font-semibold">If Your Package Is Delayed</h2>
         <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-slate-700">
           <li>Verify that your tracking number is an official SpeedX format.</li>
-          <li>Wait 12 to 24 hours if shipment recently entered transit.</li>
+          <li>Wait 24 to 48 hours if the shipment recently entered transit or was just labeled.</li>
           <li>Check for customs, weather, or address exceptions.</li>
           <li>Contact seller first for marketplace purchases.</li>
           <li>Escalate to SpeedX support with tracking number and delivery ZIP.</li>

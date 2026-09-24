@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { AdSenseUnit } from "@/components/ads/AdSenseUnit";
 import { FreshnessNote } from "@/components/seo/FreshnessNote";
 import { EditorialTrustBlock } from "@/components/seo/EditorialTrustBlock";
 import { TrackingForm } from "@/components/tracking/TrackingForm";
@@ -13,21 +14,10 @@ import { blogPosts } from "@/content/blogs";
 export const revalidate = 86400;
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking Number Lookup: Check Live Status And Delivery ETA Today",
+  title: "Track SpeedX Package Free — Status & ETA",
   description:
-    "Track your SpeedX package now. Get live tracking status, latest scan location, delivery ETA, and proven fixes for delayed or missing shipments.",
-  path: "/",
-  keywords: [
-    "SpeedX tracking",
-    "track SpeedX package",
-    "SpeedX tracking number",
-    "SpeedX package tracking",
-    "SPXCN tracking",
-    "SpeedX tracking status",
-    "SpeedX Shein tracking",
-    "SpeedX delivery time",
-    "SpeedX tracking help"
-  ]
+    "Free SpeedX tracking lookup. See status, latest scan, and delivery ETA for SPX/SPXCN numbers. Fixes for delayed, stuck, or missing packages.",
+  path: "/"
 });
 
 export default function HomePage() {
@@ -43,9 +33,9 @@ export default function HomePage() {
         data={
           webPageSchema({
             path: "/",
-            title: "Speed X Tracking Number Lookup",
+            title: "SpeedX Tracking Number Lookup",
             description:
-              "Track SpeedX tracking numbers with real-time status scans, estimated delivery windows, and practical troubleshooting guides for delayed shipments."
+              "Track SpeedX tracking numbers with current status scans, estimated delivery windows, and practical troubleshooting guides for delayed shipments."
           })
         }
       />
@@ -58,18 +48,18 @@ export default function HomePage() {
         <div className="hero-grid" aria-hidden="true" />
         <div className="relative z-10 max-w-4xl animate-fade-in-up">
           <p className="inline-flex items-center rounded-full border border-brand-200 bg-white/85 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700 shadow-sm">
-            Real-time SpeedX tracking intelligence
+            Free SpeedX package tracker
           </p>
           <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
             Track SpeedX Packages in Seconds
           </h1>
           <p className="mt-3 text-base text-slate-700 sm:mt-4 sm:text-lg">
-            Enter your SpeedX tracking number to get real-time delivery updates, status scans, and estimated delivery information in one place.
+            Enter your SpeedX tracking number to see current delivery updates, status scans, and estimated delivery information in one place.
           </p>
           <div className="mt-3 flex flex-wrap gap-4 text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
               <svg className="h-5 w-5 text-brand-600" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
-              Real-time updates
+              Current status updates
             </span>
             <span className="flex items-center gap-1.5">
               <svg className="h-5 w-5 text-brand-600" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
@@ -104,28 +94,18 @@ export default function HomePage() {
       <section className="reveal-card mt-8 section-card p-5 sm:p-6">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Official SpeedX Highlights</h2>
+            <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">About SpeedX Delivery Coverage</h2>
             <p className="mt-2 text-slate-600">
-              Visual references sourced from the official SpeedX website to help users quickly recognize brand assets and delivery footprint.
+              SpeedX is a last-mile carrier used by many online retailers. We are an independent tracking help site and are not affiliated with SpeedX.
             </p>
           </div>
-          <Image
-            src="/images/official/speedx-logo-black.webp"
-            alt="SpeedX official logo"
-            width={180}
-            height={60}
-            className="h-auto w-[140px] sm:w-[180px]"
-            sizes="(max-width: 640px) 140px, 180px"
-            quality={75}
-            priority={false}
-          />
         </div>
 
         <div className="mt-6 grid gap-4 md:grid-cols-2">
           <figure className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
             <Image
               src="/images/official/speedx-coverage-map.webp"
-              alt="SpeedX delivery coverage map"
+              alt="Illustrative SpeedX-style delivery coverage map"
               width={900}
               height={520}
               className="h-full w-full object-cover"
@@ -133,14 +113,14 @@ export default function HomePage() {
               quality={75}
             />
             <figcaption className="px-4 py-3 text-xs text-slate-600">
-              Coverage map reference from the official SpeedX site.
+              Coverage context for typical SpeedX delivery footprints. For official maps, visit speedx.io.
             </figcaption>
           </figure>
 
           <figure className="overflow-hidden rounded-xl border border-slate-200 bg-slate-50">
             <Image
               src="/images/official/speedx-next-day.webp"
-              alt="SpeedX next-day delivery service visual"
+              alt="Illustrative next-day delivery service visual"
               width={900}
               height={520}
               className="h-full w-full object-cover"
@@ -148,7 +128,7 @@ export default function HomePage() {
               quality={75}
             />
             <figcaption className="px-4 py-3 text-xs text-slate-600">
-              Next-day delivery visual from official SpeedX content.
+              Delivery timing varies by route and service level; always check your tracking timeline.
             </figcaption>
           </figure>
         </div>
@@ -160,10 +140,10 @@ export default function HomePage() {
           <div>
             <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">SpeedX Tracking: Track SpeedX Packages Instantly</h2>
             <p className="mt-3 text-slate-700 leading-relaxed">
-              SpeedX is a leading last-mile delivery carrier specializing in e-commerce shipments from Shein, Temu, and other online retailers. Our SpeedX tracking tool works as a Speed X tracker for SPX, SPXSG, and SPXCN numbers, with real-time status updates, delivery estimates, current package location, and detailed scan history. Whether your SpeedX package is in transit, out for delivery, or stuck at a facility, you&apos;ll see exactly where it is and when it will arrive.
+              SpeedX is a last-mile delivery carrier specializing in e-commerce shipments from Shein, Temu, and other online retailers. Our SpeedX tracking tool works as a Speed X tracker for SPX, SPXSG, and SPXCN numbers, with current status updates, delivery estimates, package location context, and scan history when carrier data is available. Whether your SpeedX package is in transit, out for delivery, or stuck at a facility, you can use the timeline to decide the next step.
             </p>
             <p className="mt-3 text-slate-700 leading-relaxed">
-              Track SpeedX Shein orders with confidence: most domestic deliveries arrive within 3-5 business days, while international SpeedX shipments take 7-15 days depending on customs clearance. If your SpeedX tracking isn&apos;t updating, check our troubleshooting guides below for common solutions including weekend delays, customs holds, and address issues.
+              Track SpeedX Shein orders with clearer expectations: many domestic deliveries arrive within roughly 3-5 business days, while international SpeedX shipments often take about 7-15 days depending on customs clearance. Actual times vary by route and seller. If your SpeedX tracking isn&apos;t updating, check our troubleshooting guides below for common solutions including weekend delays, customs holds, and address issues.
             </p>
           </div>
         </div>
@@ -182,6 +162,8 @@ export default function HomePage() {
           </Link>
         </div>
       </section>
+
+      <AdSenseUnit className="mt-8" />
 
       <section className="reveal-card mt-8 section-card p-5 sm:p-6">
         <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">How To Use SpeedX Tracking Results</h2>
@@ -259,9 +241,9 @@ export default function HomePage() {
           <div className="flex gap-4">
             <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-100 text-lg font-bold text-brand-700">2</div>
             <div>
-              <h3 className="font-semibold text-slate-900">Get Real-Time Status</h3>
+              <h3 className="font-semibold text-slate-900">Get Current Status</h3>
               <p className="mt-1 text-sm text-slate-600">
-                See current location, delivery estimate, scan history, and next expected update within seconds.
+                See the latest available location, delivery estimate, scan history, and next expected update when carrier data is available.
               </p>
             </div>
           </div>
@@ -328,7 +310,7 @@ export default function HomePage() {
             </div>
             <div>
               <h3 className="font-semibold text-slate-900">Privacy Protected</h3>
-              <p className="mt-1 text-sm text-slate-600">No account required. Your tracking searches are temporary and never stored permanently.</p>
+              <p className="mt-1 text-sm text-slate-600">No account required. Tracking lookups are processed temporarily for the request; see our privacy policy for retention details.</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
@@ -384,7 +366,7 @@ export default function HomePage() {
             <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">📦 Tracking Not Updating</h3>
             <p className="mt-1 text-sm text-slate-600">Why tracking stalls and when to take action</p>
           </Link>
-          <Link href="/shipping-terms" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
+          <Link href="/resources/shipping-delay-checklist" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
             <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">⏰ Package Delayed</h3>
             <p className="mt-1 text-sm text-slate-600">Steps to resolve unexpected shipping delays</p>
           </Link>
@@ -400,7 +382,7 @@ export default function HomePage() {
             <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">🛍️ Shein Orders via SpeedX</h3>
             <p className="mt-1 text-sm text-slate-600">Track Shein packages shipped with SpeedX</p>
           </Link>
-          <Link href="/guides/does-speedx-deliver-late-at-night" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
+          <Link href="/guides/speedx-delivery-hours" className="group rounded-lg border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:bg-brand-50">
             <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">🌙 Late-Night Delivery?</h3>
             <p className="mt-1 text-sm text-slate-600">Find out when SpeedX delivers at night and what to expect</p>
           </Link>
@@ -436,47 +418,12 @@ export default function HomePage() {
           <Link href="/blog/speedx-tracking-not-updating" className="hover:underline">SpeedX tracking not updating fixes</Link>
           <Link href="/blog/tracking-status-meanings-explained" className="hover:underline">Tracking status meanings explained</Link>
           <Link href="/blog/shein-speedx-tracking-guide" className="hover:underline">Shein SpeedX tracking guide</Link>
-        </div>
-      </section>
-
-      <section className="reveal-card mt-8 section-card p-5 sm:p-6">
-        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Top Search Intent Pages</h2>
-        <p className="mt-2 text-slate-600">Start with these high-intent pages designed for common SpeedX tracking questions.</p>
-        <div className="mt-5 grid gap-2 text-sm text-brand-700 sm:grid-cols-2 lg:grid-cols-3">
           <Link href="/track-package" className="hover:underline">Track SpeedX package now</Link>
-          <Link href="/carriers/speedx" className="hover:underline">SpeedX tracking guide</Link>
+          <Link href="/carriers/speedx" className="hover:underline">SpeedX tracking hub</Link>
           <Link href="/carriers/speedx/status" className="hover:underline">Status meanings explained</Link>
           <Link href="/carriers/speedx/delivery-time" className="hover:underline">Delivery time estimates</Link>
-          <Link href="/blog/speedx-tracking-not-updating" className="hover:underline">Tracking not updating fixes</Link>
           <Link href="/blog/speedx-delivery-exception-codes" className="hover:underline">Delivery exception fixes</Link>
-        </div>
-      </section>
-
-      <section className="reveal-card mt-8 section-card p-5 sm:p-6">
-        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Explore All SpeedX Pages</h2>
-        <p className="mt-2 text-slate-600">Use these direct links to browse our core hubs and complete blog archive.</p>
-
-        <div className="mt-5">
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-700">Core hubs</h3>
-          <div className="mt-3 grid gap-2 text-sm text-brand-700 sm:grid-cols-2 lg:grid-cols-3">
-            <Link href="/carriers" className="hover:underline">All carrier pages</Link>
-            <Link href="/carriers/speedx" className="hover:underline">SpeedX tracking overview</Link>
-            <Link href="/carriers/speedx/contact" className="hover:underline">SpeedX support contact</Link>
-            <Link href="/blog" className="hover:underline">SpeedX tracking blog hub</Link>
-            <Link href="/guides" className="hover:underline">Shipping guides hub</Link>
-            <Link href="/track-package" className="hover:underline">Track package lookup</Link>
-          </div>
-        </div>
-
-        <div className="mt-6">
-          <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-700">All blog posts</h3>
-          <div className="mt-3 grid gap-2 text-sm text-brand-700 sm:grid-cols-2">
-            {blogPosts.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`} className="hover:underline">
-                {post.title}
-              </Link>
-            ))}
-          </div>
+          <Link href="/blog" className="hover:underline">Full SpeedX tracking blog</Link>
         </div>
       </section>
 

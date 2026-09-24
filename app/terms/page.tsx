@@ -1,7 +1,7 @@
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
-  title: "Terms and Conditions | SpeedXTracking",
+  title: "Terms and Conditions",
   description: "Terms for using SpeedXTracking package tracking pages and shipping information guides.",
   path: "/terms"
 });

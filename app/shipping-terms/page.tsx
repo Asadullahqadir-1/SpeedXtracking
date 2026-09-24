@@ -1,11 +1,10 @@
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking Glossary | Shipping and Delivery Definitions",
+  title: "SpeedX Tracking Glossary — Status Meanings",
   description:
-    "Use this SpeedX tracking glossary to understand in transit, out for delivery, exception, customs clearance, and proof-of-delivery terms.",
-  path: "/shipping-terms",
-  keywords: ["SpeedX tracking glossary", "SpeedX status meanings", "shipping terms glossary", "out for delivery meaning"]
+    "SpeedX tracking glossary for in transit, out for delivery, exception, customs clearance, and proof-of-delivery terms.",
+  path: "/shipping-terms"
 });
 
 const terms = [

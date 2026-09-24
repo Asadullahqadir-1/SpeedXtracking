@@ -41,20 +41,10 @@ export async function generateMetadata({
     return {};
   }
 
-  const title = `${currentCarrier.carrierName} ${currentIntent.titleSuffix}: Track ${currentCarrier.carrierName} Shipment Updates`;
-  const description = `${currentCarrier.carrierName} ${currentIntent.keywordSuffix} help page. ${currentIntent.descriptionSuffix}`;
-
   return buildMetadata({
-    title,
-    description,
+    title: `${currentCarrier.carrierName} ${currentIntent.titleSuffix}`,
+    description: `${currentCarrier.carrierName} ${currentIntent.keywordSuffix} help. ${currentIntent.descriptionSuffix}`,
     path: `/carriers/${carrier}/${intent}`,
-    keywords: [
-      `${currentCarrier.carrierName} ${currentIntent.keywordSuffix}`,
-      `${currentCarrier.carrierName} tracking`,
-      `track ${currentCarrier.carrierName} package`,
-      `${currentCarrier.carrierName} status update`,
-      `${currentCarrier.carrierName} delivery support`
-    ],
     robots: {
       index: false,
       follow: true

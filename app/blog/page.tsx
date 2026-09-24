@@ -8,19 +8,10 @@ import { breadcrumbSchema, collectionPageSchema, itemListSchema } from "@/lib/se
 export const revalidate = 86400;
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking Blog: Real Fixes For Delays, Status Errors, And Delivery Issues",
+  title: "SpeedX Tracking Blog — Delays & Fixes",
   description:
-    "Read step-by-step SpeedX tracking guides that solve delayed scans, status errors, customs holds, and delivered-but-missing issues.",
-  path: "/blog",
-  keywords: [
-    "SpeedX tracking blog",
-    "SpeedX tracking tips",
-    "SpeedX package tracking help",
-    "SpeedX delivery updates",
-    "SpeedX tracking status guide",
-    "SpeedX delivery time",
-    "SpeedX tracking not updating"
-  ]
+    "Step-by-step SpeedX guides for delayed scans, status errors, customs holds, and delivered-but-missing packages.",
+  path: "/blog"
 });
 
 export default function BlogPage() {

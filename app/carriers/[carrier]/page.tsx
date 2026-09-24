@@ -41,16 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
   return buildMetadata({
     title: intentTitle,
     description: intentDescription,
-    path: `/carriers/${current.slug}`,
-    keywords: [
-      current.primaryKeyword,
-      `track ${current.carrierName} package`,
-      `${current.carrierName} tracking status`,
-      `${current.carrierName} delivery time`,
-      `${current.carrierName} support`,
-      `${current.carrierName} tracking help`,
-      `${current.carrierName} delivery guide`
-    ]
+    path: `/carriers/${current.slug}`
   });
 }
 

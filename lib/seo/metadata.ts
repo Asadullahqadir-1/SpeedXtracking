@@ -2,18 +2,31 @@ import type { Metadata } from "next";
 import { siteUrl } from "@/lib/seo/site-url";
 
 export const siteConfig = {
-  name: "Speed X Tracking",
+  name: "SpeedXTracking",
   description:
-    "Track SpeedX shipments instantly with live status updates, delivery estimates, and troubleshooting help for SpeedX orders.",
+    "Track SpeedX packages free. Check shipment status, delivery ETA, and fix delayed or missing SpeedX orders—independent, not affiliated with SpeedX.",
   url: siteUrl,
   defaultOgImage: "/images/official/speedx-coverage-map.webp"
 };
+
+const BRAND_MARKERS = ["SpeedXTracking", "Speed X Tracking", "SpeedX Tracking"];
+
+function hasBrandInTitle(title: string) {
+  return BRAND_MARKERS.some((marker) => title.includes(marker));
+}
+
+/** Keep SERP titles under ~60 chars so the brand still fits. */
+function truncateTitle(title: string, max = 55) {
+  if (title.length <= max) return title;
+  const cut = title.slice(0, max - 1);
+  const lastSpace = cut.lastIndexOf(" ");
+  return `${(lastSpace > 35 ? cut.slice(0, lastSpace) : cut).trim()}…`;
+}
 
 export function buildMetadata({
   title,
   description,
   path,
-  keywords,
   robots,
   image
 }: {
@@ -25,7 +38,8 @@ export function buildMetadata({
   image?: string;
 }): Metadata {
   const canonical = new URL(path, siteUrl).toString();
-  const metaTitle = title.includes(siteConfig.name) ? title : `${title} | ${siteConfig.name}`;
+  const baseTitle = hasBrandInTitle(title) ? title : `${truncateTitle(title)} | ${siteConfig.name}`;
+  const metaTitle = baseTitle.length > 60 ? truncateTitle(baseTitle, 60) : baseTitle;
   const socialImage = new URL(image || siteConfig.defaultOgImage, siteUrl).toString();
 
   const defaultRobots: Metadata["robots"] = {
@@ -41,7 +55,8 @@ export function buildMetadata({
   };
 
   return {
-    title: metaTitle,
+    // absolute prevents root layout template from doubling the brand
+    title: { absolute: metaTitle },
     description,
     category: "Shipping and Logistics",
     alternates: {
@@ -59,7 +74,7 @@ export function buildMetadata({
           url: socialImage,
           width: 1200,
           height: 630,
-          alt: "Speed X Tracking - live package tracking and delivery updates"
+          alt: "SpeedXTracking - SpeedX package tracking and delivery help"
         }
       ]
     },
@@ -69,7 +84,6 @@ export function buildMetadata({
       description,
       images: [socialImage]
     },
-    robots: robots ?? defaultRobots,
-    keywords
+    robots: robots ?? defaultRobots
   };
 }

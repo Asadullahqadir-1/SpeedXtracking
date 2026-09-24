@@ -31,12 +31,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     `/carriers/${carrier.slug}/shein`,
   ]);
 
-  const guidePages = guides.map((guide) => `/guides/${guide.slug}`);
+  const guidePages = guides.map((guide) => `/guides/${guide.slug}`).filter((path) => path !== "/guides/does-speedx-deliver-late-at-night");
   const programmaticPages = getIndexableProgrammaticPages()
     .filter((page) => !getRedirectDestinationForProgrammaticSlug(page.slug))
     .map((page) => `/${page.slug}`);
   const blogPages = blogPosts
-    .filter((post) => post.slug !== "does-speedx-deliver-late-at-night-guide")
+    .filter(
+      (post) =>
+        post.slug !== "does-speedx-deliver-late-at-night-guide" &&
+        post.slug !== "track-speedx-packages-in-pakistan"
+    )
     .map((post) => `/blog/${post.slug}`);
   const siteReviewedAt = new Date(getFreshnessDate("homepage"));
   const guidesReviewedAt = new Date(getFreshnessDate("guidesHub"));

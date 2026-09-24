@@ -1,6 +1,7 @@
 import { notFound, redirect } from "next/navigation";
 import Link from "next/link";
 import { blogPosts } from "@/content/blogs";
+import { AdSenseUnit } from "@/components/ads/AdSenseUnit";
 import { FreshnessNote } from "@/components/seo/FreshnessNote";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { EditorialTrustBlock } from "@/components/seo/EditorialTrustBlock";
@@ -26,19 +27,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   }
 
   return buildMetadata({
-    title: `${post.title} | SpeedX Guide`,
+    title: post.title,
     description: post.description,
     path: `/blog/${post.slug}`,
-    keywords: [
-      "SpeedX tracking",
-      "speed x tracking",
-      "track SpeedX package",
-      "speedx package tracking",
-      "speedx tracking number",
-      "SpeedX tracking status",
-      `${post.title} SpeedX tracking`,
-      "SpeedX delivery update"
-    ]
+    robots:
+      slug === "track-speedx-packages-in-pakistan"
+        ? { index: false, follow: true }
+        : undefined
   });
 }
 
@@ -121,15 +116,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           dateModified: post.updatedDate,
           articleSection: post.category,
           wordCount: estimatedWordCount,
-          keywords: [
-            "SpeedX tracking",
-            "SpeedX tracking update",
-            "speed x tracking",
-            "track SpeedX package",
-            "speedx package tracking",
-            "SpeedX delivery status",
-            "SpeedX tracking number"
-          ]
+          keywords: [post.category, "SpeedX tracking", post.title]
         })}
       />
       <JsonLd
@@ -150,6 +137,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <h1 className="text-3xl font-bold leading-tight text-slate-900 sm:text-4xl">{post.title}</h1>
         <p className="mt-3 text-base text-slate-700 sm:text-lg">{post.description}</p>
         <FreshnessNote date={post.updatedDate} />
+        <AdSenseUnit className="mt-6" />
 
         <div className="mt-6 space-y-8">
           {post.sections.map((section) => (

@@ -43,13 +43,6 @@ export async function generateMetadata({
     title: page.title,
     description: page.metaDescription,
     path: `/${page.slug}`,
-    keywords: [
-      page.primaryKeyword,
-      "SpeedX tracking",
-      "speed x tracking support",
-      "track SpeedX package",
-      "SpeedX delivery status"
-    ],
     robots: {
       index: isProgrammaticPageIndexable(page),
       follow: true

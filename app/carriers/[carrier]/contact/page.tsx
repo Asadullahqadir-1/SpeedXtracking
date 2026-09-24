@@ -14,8 +14,8 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
   if (!current) return {};
 
   return buildMetadata({
-    title: `${current.carrierName} Contact Support: Official Help And Escalation Steps`,
-    description: `Find official ${current.carrierName} support channels, contact references, and the exact details to share for faster issue resolution.`,
+    title: `${current.carrierName} Contact Support`,
+    description: `Find official ${current.carrierName} support channels and the details to share for faster issue resolution.`,
     path: `/carriers/${carrier}/contact`
   });
 }

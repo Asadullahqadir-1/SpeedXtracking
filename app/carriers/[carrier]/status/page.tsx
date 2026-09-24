@@ -17,17 +17,9 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
   if (!current) return {};
 
   return buildMetadata({
-    title: `${current.carrierName} Status Meanings: In Transit, Out For Delivery, Exception`,
-    description: `Learn what each ${current.carrierName} tracking status means and what action to take for delayed, exception, or delivered scans.`,
-    path: `/carriers/${carrier}/status`,
-    keywords: [
-      `${current.carrierName} tracking status`,
-      `${current.carrierName} in transit meaning`,
-      `${current.carrierName} out for delivery`,
-      `${current.carrierName} tracking number status`,
-      `${current.carrierName} delivery exception`,
-      `${current.carrierName} tracking help`
-    ]
+    title: `${current.carrierName} Status Meanings Explained`,
+    description: `Learn what each ${current.carrierName} tracking status means and what to do for delayed, exception, or delivered scans.`,
+    path: `/carriers/${carrier}/status`
   });
 }
 

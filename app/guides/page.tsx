@@ -6,23 +6,15 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, collectionPageSchema, itemListSchema } from "@/lib/seo/schema";
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking Guides: Fix Delays, Missing Packages, And Status Issues Fast",
+  title: "SpeedX Tracking Guides — Fix Delays Fast",
   description:
-    "Use actionable SpeedX troubleshooting guides to fix delayed tracking updates, delivered-not-received cases, SPXCN confusion, and ETA questions.",
-  path: "/guides",
-  keywords: [
-    "SpeedX tracking guides",
-    "speed x tracking help",
-    "SPXCN tracking meaning",
-    "does SpeedX deliver late at night",
-    "SpeedX delivery hours",
-    "what time does SpeedX stop delivering",
-    "SpeedX package not updating"
-  ]
+    "Actionable SpeedX guides for delayed updates, missing deliveries, SPXCN formats, and delivery-hour questions.",
+  path: "/guides"
 });
 
 export default function GuidesPage() {
   const speedxIssuePages = getIndexableProgrammaticPages();
+  const visibleGuides = guides.filter((guide) => guide.slug !== "does-speedx-deliver-late-at-night");
 
   return (
     <div className="container-page py-10">
@@ -47,7 +39,7 @@ export default function GuidesPage() {
       <JsonLd
         data={
           itemListSchema(
-            guides.map((guide) => ({
+            visibleGuides.map((guide) => ({
               name: guide.title,
               url: `${siteConfig.url}/guides/${guide.slug}`,
               description: guide.intro
@@ -58,7 +50,7 @@ export default function GuidesPage() {
       <h1 className="text-3xl font-bold">Shipping Guides</h1>
       <p className="mt-2 text-slate-700">Clear, action-focused help for common tracking and delivery problems.</p>
       <div className="mt-6 grid gap-4 md:grid-cols-2">
-        {guides.map((guide) => (
+        {visibleGuides.map((guide) => (
           <Link key={guide.slug} href={`/guides/${guide.slug}`} className="section-card hover:border-brand-500">
             <h2 className="text-lg font-semibold text-slate-900">{guide.title}</h2>
             <p className="mt-2 text-sm text-slate-700">{guide.intro}</p>

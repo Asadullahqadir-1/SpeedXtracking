@@ -46,12 +46,42 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/blog/does-speedx-deliver-late-at-night",
-        destination: "/blog/does-speedx-deliver-late-at-night-guide",
+        destination: "/guides/speedx-delivery-hours",
+        permanent: true
+      },
+      {
+        source: "/blog/does-speedx-deliver-late-at-night-guide",
+        destination: "/guides/speedx-delivery-hours",
         permanent: true
       },
       {
         source: "/blog/spxcn-tracking-number-meaning",
         destination: "/blog/spxcn-tracking-number-format-explained",
+        permanent: true
+      },
+      {
+        source: "/guides/does-speedx-deliver-late-at-night",
+        destination: "/guides/speedx-delivery-hours",
+        permanent: true
+      },
+      {
+        source: "/speedx-label-created-no-update",
+        destination: "/blog/speedx-label-created-no-movement",
+        permanent: true
+      },
+      {
+        source: "/speedx-missed-delivery-attempt",
+        destination: "/blog/speedx-attempted-delivery-what-next",
+        permanent: true
+      },
+      {
+        source: "/speedx-invalid-tracking-number",
+        destination: "/blog/speedx-tracking-number-not-found",
+        permanent: true
+      },
+      {
+        source: "/speedx-package-returned-to-sender",
+        destination: "/blog/speedx-returned-to-sender",
         permanent: true
       }
     ];

@@ -530,7 +530,7 @@ export const blogPosts: BlogPost[] = [
           "Verify full code length from shipment email",
           "Avoid confusing O/0 and I/1",
           "Check if seller shared internal order ID by mistake",
-          "Wait 12-24 hours after first label event",
+          "Wait 24-48 hours after first label event",
           "Retry on /track-package with carrier set to speedx",
           "Check seller app shipment timeline",
           "Compare with invoice and dispatch notice",
@@ -570,8 +570,8 @@ export const blogPosts: BlogPost[] = [
           "A 12-48 hour facility window is common. Peak periods and weather disruptions can extend this without indicating package loss."
         ],
         bullets: [
-          "12-24h: normal processing",
-          "24-48h: still common in busy hubs",
+          "24-48h: normal processing",
+          "48h+: still common in busy hubs",
           "48-72h: monitor for next movement event",
           "72h+: investigate with seller/carrier"
         ]

@@ -30,7 +30,7 @@ const issuePages: BasePage[] = [
     category: "issue",
     problemStatement: "Your SpeedX timeline has stalled and you need to know whether this is normal or a real exception.",
     actionPlan: [
-      "Recheck after 12-24 hours to account for batch scan posting.",
+      "Recheck after 24-48 hours to account for batch scan posting.",
       "Compare latest scan with route stage and promised ETA.",
       "Document screenshots before contacting seller and carrier support.",
       "Escalate if no movement appears for 5+ days."
@@ -586,7 +586,12 @@ const redirectedProgrammaticSlugMap = new Map<string, string>([
   ["speedx-out-for-delivery-but-not-delivered", "/blog/speedx-out-for-delivery-but-not-delivered"],
   ["speedx-delivery-exception", "/blog/speedx-delivery-exception-codes"],
   ["speedx-customs-clearance-delay", "/blog/speedx-customs-delay-guide"],
-  ["speedx-at-facility-too-long", "/blog/speedx-arrived-at-facility-meaning"]
+  ["speedx-at-facility-too-long", "/blog/speedx-arrived-at-facility-meaning"],
+  // Near-duplicate of stronger blog posts — consolidate to fix indexing/cannibalization
+  ["speedx-label-created-no-update", "/blog/speedx-label-created-no-movement"],
+  ["speedx-missed-delivery-attempt", "/blog/speedx-attempted-delivery-what-next"],
+  ["speedx-invalid-tracking-number", "/blog/speedx-tracking-number-not-found"],
+  ["speedx-package-returned-to-sender", "/blog/speedx-returned-to-sender"]
 ]);
 
 export function getRedirectDestinationForProgrammaticSlug(slug: string) {

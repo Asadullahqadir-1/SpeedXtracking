@@ -1,7 +1,7 @@
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
-  title: "Privacy Policy | SpeedXTracking",
+  title: "Privacy Policy",
   description: "Understand what data SpeedXTracking stores and how tracking search inputs are handled.",
   path: "/privacy"
 });

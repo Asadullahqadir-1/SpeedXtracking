@@ -1,7 +1,7 @@
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
-  title: "Disclaimer | SpeedXTracking",
+  title: "Disclaimer",
   description:
     "SpeedXTracking is an independent SpeedX tracking information platform and is not affiliated with SpeedX.",
   path: "/disclaimer"

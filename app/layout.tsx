@@ -12,18 +12,18 @@ const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "pub-5798356780
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Speed X Tracking | Track Your Orders And Shipments Quickly",
-    template: "%s | Speed X Tracking"
+    default: "Track SpeedX Package Free | SpeedXTracking",
+    template: "%s | SpeedXTracking"
   },
   description: siteConfig.description,
-  applicationName: "Speed X Tracking",
+  applicationName: "SpeedXTracking",
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     shortcut: ["/icon.svg"],
     apple: [{ url: "/icon.svg", type: "image/svg+xml" }]
   },
   openGraph: {
-    title: "Speed X Tracking | Track Your Orders And Shipments Quickly",
+    title: "Track SpeedX Package Free | SpeedXTracking",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
@@ -33,13 +33,13 @@ export const metadata: Metadata = {
         url: siteConfig.defaultOgImage,
         width: 1200,
         height: 630,
-        alt: "Speed X Tracking homepage preview"
+        alt: "SpeedXTracking homepage preview"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Speed X Tracking | Track Your Orders And Shipments Quickly",
+    title: "Track SpeedX Package Free | SpeedXTracking",
     description: siteConfig.description,
     images: [siteConfig.defaultOgImage]
   },

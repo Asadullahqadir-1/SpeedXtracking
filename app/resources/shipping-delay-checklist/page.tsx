@@ -7,16 +7,10 @@ import { breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
 export const revalidate = 86400;
 
 export const metadata = buildMetadata({
-  title: "Shipping Delay Checklist: Diagnose Tracking Problems Step By Step",
+  title: "Shipping Delay Checklist — Fix Stuck Packages",
   description:
-    "Use this free shipping delay checklist to identify scan gaps, missing deliveries, customs holds, and the right support escalation path.",
+    "Free checklist to diagnose scan gaps, missing deliveries, customs holds, and the right support escalation path.",
   path: "/resources/shipping-delay-checklist",
-  keywords: [
-    "shipping delay checklist",
-    "package tracking troubleshooting",
-    "delivery delay help",
-    "tracking not updating checklist"
-  ],
   image: "/images/official/speedx-coverage-map.webp"
 });
 
