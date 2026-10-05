@@ -85,11 +85,42 @@ export function getGlobalTroubleshootingCluster(): LinkCluster {
   return {
     title: "Tracking issue guides",
     links: [
+      { href: "/topics/out-for-delivery", label: "SpeedX out for delivery meaning" },
+      { href: "/topics/delivery-hours", label: "How late does SpeedX deliver?" },
+      { href: "/topics/speedx-tracking", label: "SpeedX tracking and SPXCN" },
       { href: "/guides/package-not-updating", label: "Tracking not updating" },
       { href: "/guides/delivered-not-received", label: "Delivered but not received" },
-      { href: "/guides/how-to-track-packages", label: "How to track any package" },
       { href: "/guides/speedx-delivery-hours", label: "SpeedX delivery hours" },
       { href: "/shipping-terms", label: "Shipping status glossary" }
     ]
   };
+}
+
+export function getTopicAuthorityClusters(): LinkCluster[] {
+  return [
+    {
+      title: "Out for delivery cluster",
+      links: [
+        { href: "/topics/out-for-delivery", label: "SpeedX out for delivery hub" },
+        { href: "/blog/speedx-out-for-delivery-but-not-delivered", label: "Out for delivery but not delivered" },
+        { href: "/carriers/speedx/status", label: "SpeedX status meanings" }
+      ]
+    },
+    {
+      title: "Delivery hours cluster",
+      links: [
+        { href: "/topics/delivery-hours", label: "How late does SpeedX deliver?" },
+        { href: "/guides/speedx-delivery-hours", label: "SpeedX delivery hours guide" },
+        { href: "/carriers/speedx/delivery-time", label: "SpeedX delivery time estimates" }
+      ]
+    },
+    {
+      title: "Tracking and SPXCN cluster",
+      links: [
+        { href: "/topics/speedx-tracking", label: "SpeedX tracking hub" },
+        { href: "/guides/spxcn-tracking-number-meaning", label: "SPXCN tracking number meaning" },
+        { href: "/track-package", label: "Free SpeedX tracker" }
+      ]
+    }
+  ];
 }

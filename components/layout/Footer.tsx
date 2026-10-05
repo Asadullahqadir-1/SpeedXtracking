@@ -32,6 +32,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/" className="text-slate-300 hover:text-white transition">Homepage</Link></li>
               <li><Link href="/track-package" className="text-slate-300 hover:text-white transition">Track Package</Link></li>
+              <li><Link href="/topics" className="text-slate-300 hover:text-white transition">Topic Clusters</Link></li>
               <li><Link href="/carriers/speedx" className="text-slate-300 hover:text-white transition">SpeedX Hub</Link></li>
               <li><Link href="/guides" className="text-slate-300 hover:text-white transition">Guides</Link></li>
               <li><Link href="/resources/shipping-delay-checklist" className="text-slate-300 hover:text-white transition">Shipping Delay Checklist</Link></li>
@@ -44,8 +45,10 @@ export function Footer() {
             <h3 className="mb-4 font-semibold text-white">SpeedX Resources</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/carriers/speedx" className="text-slate-300 hover:text-white transition">SpeedX</Link></li>
+              <li><Link href="/topics/out-for-delivery" className="text-slate-300 hover:text-white transition">Out for Delivery</Link></li>
+              <li><Link href="/topics/delivery-hours" className="text-slate-300 hover:text-white transition">Delivery Hours</Link></li>
+              <li><Link href="/topics/speedx-tracking" className="text-slate-300 hover:text-white transition">Tracking & SPXCN</Link></li>
               <li><Link href="/carriers/speedx/status" className="text-slate-300 hover:text-white transition">Status Meanings</Link></li>
-              <li><Link href="/carriers/speedx/delivery-time" className="text-slate-300 hover:text-white transition">Delivery Time</Link></li>
               <li><Link href="/carriers/speedx/contact" className="text-slate-300 hover:text-white transition">Contact Support</Link></li>
             </ul>
           </div>

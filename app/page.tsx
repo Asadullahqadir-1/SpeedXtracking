@@ -408,6 +408,27 @@ export default function HomePage() {
       />
 
       <section className="reveal-card mt-8 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">SpeedX Topic Clusters</h2>
+        <p className="mt-2 text-slate-600">
+          Start with these pillar hubs for the searches that drive the most impressions: out for delivery, delivery hours, and SpeedX / SPXCN tracking.
+        </p>
+        <div className="mt-5 grid gap-4 md:grid-cols-3">
+          <Link href="/topics/out-for-delivery" className="rounded-xl border border-slate-200 p-4 hover:border-brand-500">
+            <h3 className="font-semibold text-slate-900">Out for Delivery</h3>
+            <p className="mt-1 text-sm text-slate-600">Meaning, timing, and what to do if not delivered</p>
+          </Link>
+          <Link href="/topics/delivery-hours" className="rounded-xl border border-slate-200 p-4 hover:border-brand-500">
+            <h3 className="font-semibold text-slate-900">Delivery Hours</h3>
+            <p className="mt-1 text-sm text-slate-600">How late SpeedX delivers and stop times</p>
+          </Link>
+          <Link href="/topics/speedx-tracking" className="rounded-xl border border-slate-200 p-4 hover:border-brand-500">
+            <h3 className="font-semibold text-slate-900">Tracking & SPXCN</h3>
+            <p className="mt-1 text-sm text-slate-600">Free lookup, format help, and stalled scans</p>
+          </Link>
+        </div>
+      </section>
+
+      <section className="reveal-card mt-8 section-card p-5 sm:p-6">
         <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Most Useful Tracking Guides</h2>
         <p className="mt-2 text-slate-600">
           Start with these editorially reviewed resources for common SpeedX tracking and delivery problems.

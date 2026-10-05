@@ -10,7 +10,19 @@ import { getRedirectDestinationForProgrammaticSlug } from "@/content/programmati
 const baseUrl = siteUrl;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = ["", "/track-package", "/carriers", "/guides", "/blog", "/faq", "/resources/shipping-delay-checklist"];
+  const staticPages = [
+    "",
+    "/track-package",
+    "/topics",
+    "/topics/out-for-delivery",
+    "/topics/delivery-hours",
+    "/topics/speedx-tracking",
+    "/carriers",
+    "/guides",
+    "/blog",
+    "/faq",
+    "/resources/shipping-delay-checklist"
+  ];
 
   const policyPages = [
     "/shipping-terms",
@@ -53,6 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   function getPriority(path: string) {
     if (path === "") return 1;
     if (path === "/track-package") return 0.95;
+    if (path.startsWith("/topics")) return 0.92;
     if (path === "/carriers" || path === "/guides" || path === "/blog") return 0.9;
     if (path.startsWith("/carriers/")) return 0.85;
     if (path.startsWith("/guides/") || path.startsWith("/blog/")) return 0.8;

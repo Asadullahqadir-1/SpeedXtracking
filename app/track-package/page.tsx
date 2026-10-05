@@ -99,6 +99,24 @@ export default async function TrackPackagePage({
       <AdSenseUnit />
 
       <section className="mt-8 section-card">
+        <h2 className="text-xl font-semibold">SpeedX topic clusters</h2>
+        <p className="mt-3 text-sm text-slate-700">
+          Jump into the pillar hubs built around your highest-impression searches.
+        </p>
+        <div className="mt-4 flex flex-wrap gap-3 text-sm font-semibold text-brand-700">
+          <Link href="/topics/out-for-delivery" className="hover:underline">
+            Out for delivery hub
+          </Link>
+          <Link href="/topics/delivery-hours" className="hover:underline">
+            How late does SpeedX deliver?
+          </Link>
+          <Link href="/topics/speedx-tracking" className="hover:underline">
+            SpeedX tracking & SPXCN
+          </Link>
+        </div>
+      </section>
+
+      <section className="mt-8 section-card">
         <h2 className="text-xl font-semibold">If Your Package Is Delayed</h2>
         <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-slate-700">
           <li>Verify that your tracking number is a full SpeedX / SPX / SPXCN code.</li>

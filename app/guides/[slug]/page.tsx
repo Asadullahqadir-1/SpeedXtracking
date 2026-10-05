@@ -7,7 +7,7 @@ import { guides } from "@/content/guides";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 import { buildAdaptiveClusters, getGlobalTroubleshootingCluster } from "@/lib/seo/internal-links";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
-import { breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
+import { breadcrumbSchema, faqSchema, webPageSchema, articleSchema } from "@/lib/seo/schema";
 
 export const revalidate = 86400;
 
@@ -77,6 +77,18 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
             { name: guide.title, url: `${siteConfig.url}/guides/${guide.slug}` }
           ])
         }
+      />
+      <JsonLd
+        data={articleSchema({
+          title: guide.title,
+          description: guide.intro,
+          path: `/guides/${guide.slug}`,
+          datePublished: getFreshnessDate("guidesHub"),
+          dateModified: getFreshnessDate("guidesHub"),
+          keywords: [guide.title, "SpeedX tracking", "SpeedX guide"],
+          articleSection: "SpeedX Guides",
+          wordCount: guide.intro.split(/\s+/).length + guide.sections.join(" ").split(/\s+/).length
+        })}
       />
       <JsonLd
         data={
