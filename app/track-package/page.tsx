@@ -4,8 +4,9 @@ import { LinkClusters } from "@/components/seo/LinkClusters";
 import { TrackingForm } from "@/components/tracking/TrackingForm";
 import { TrackingLookup } from "@/components/tracking/TrackingLookup";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { faqSchema, webPageSchema } from "@/lib/seo/schema";
+import { faqSchema, webPageSchema, breadcrumbSchema, trackingAppSchema } from "@/lib/seo/schema";
 import { buildAdaptiveClusters, getGlobalTroubleshootingCluster } from "@/lib/seo/internal-links";
+import { siteConfig } from "@/lib/seo/metadata";
 import Link from "next/link";
 
 const trackFaqs = [
@@ -63,6 +64,15 @@ export default async function TrackPackagePage({
   return (
     <div className="container-page py-10">
       <JsonLd data={faqSchema(trackFaqs)} />
+      <JsonLd data={trackingAppSchema()} />
+      <JsonLd
+        data={
+          breadcrumbSchema([
+            { name: "Home", url: siteConfig.url },
+            { name: "Track Package", url: `${siteConfig.url}/track-package` }
+          ])
+        }
+      />
       <JsonLd
         data={
           webPageSchema({
@@ -75,7 +85,7 @@ export default async function TrackPackagePage({
       />
       <h1 className="text-3xl font-bold text-slate-900">SpeedX Tracking — Free Package Tracker</h1>
       <p className="mt-2 text-slate-700">
-        Enter your SpeedX tracking number to check current status, scan timeline, and estimated delivery. Works with SPX, SPXCN, and Speed X live tracking numbers from Shein and other stores.
+        SpeedXTracking is a free SpeedX package tracker. Enter your SPX, SPXCN, or Speed X tracking number to check current status, scan timeline, and estimated delivery for Shein and other store orders.
       </p>
       <p className="mt-4 text-sm text-slate-700">
         If nothing appears yet, confirm the full tracking code and wait 24 to 48 hours after the label is created for the first carrier scan.

@@ -4,11 +4,22 @@ export function websiteSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
     name: "SpeedXTracking",
+    alternateName: ["Speed X Tracking", "SpeedX Tracking"],
     url: siteUrl,
+    description:
+      "Free SpeedX tracking lookup for SPX and SPXCN package status, delivery ETA, and shipment troubleshooting.",
+    inLanguage: "en-US",
+    publisher: {
+      "@id": `${siteUrl}/#organization`
+    },
     potentialAction: {
       "@type": "SearchAction",
-      target: `${siteUrl}/track-package?trackingNumber={trackingNumber}`,
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${siteUrl}/track-package?trackingNumber={trackingNumber}`
+      },
       "query-input": "required name=trackingNumber"
     }
   };
@@ -18,12 +29,30 @@ export function organizationSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
     name: "SpeedXTracking",
+    legalName: "SpeedXTracking",
     url: siteUrl,
-    logo: `${siteUrl}/icon.svg`,
+    logo: {
+      "@type": "ImageObject",
+      url: `${siteUrl}/icon.svg`,
+      width: 512,
+      height: 512
+    },
+    image: `${siteUrl}/images/official/speedx-coverage-map.webp`,
     description:
-      "Independent package tracking and delivery help resource focused on SpeedX shipment visibility, status interpretation, and troubleshooting. Not affiliated with SpeedX.",
-    areaServed: "Worldwide"
+      "Independent SpeedX package tracking and delivery help resource. Not affiliated with SpeedX.",
+    foundingDate: "2025",
+    areaServed: "Worldwide",
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        contactType: "customer support",
+        email: "hello@speedxtracking.org",
+        availableLanguage: ["English"]
+      }
+    ],
+    sameAs: ["https://speedxtracking.org"]
   };
 }
 
@@ -41,14 +70,17 @@ export function webPageSchema({
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    "@id": `${url}#webpage`,
     name: title,
     description,
     url,
     isPartOf: {
-      "@type": "WebSite",
-      name: "Speed X Tracking",
-      url: siteUrl
-    }
+      "@id": `${siteUrl}/#website`
+    },
+    about: {
+      "@id": `${siteUrl}/#organization`
+    },
+    inLanguage: "en-US"
   };
 }
 
@@ -111,26 +143,31 @@ export function articleSchema({
     "@type": "Article",
     headline: title,
     description,
-    mainEntityOfPage: canonicalUrl,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalUrl
+    },
     datePublished,
     dateModified,
     author: {
       "@type": "Organization",
-      name: "SpeedXTracking"
+      name: "SpeedXTracking",
+      url: siteUrl
     },
     publisher: {
       "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
       name: "SpeedXTracking",
-      url: siteUrl,
       logo: {
         "@type": "ImageObject",
         url: `${siteUrl}/icon.svg`
       }
     },
-    image: `${siteUrl}/images/official/speedx-coverage-map.webp`,
+    image: [`${siteUrl}/images/official/speedx-coverage-map.webp`],
     keywords,
     articleSection,
-    wordCount
+    wordCount,
+    inLanguage: "en-US"
   };
 }
 
@@ -150,9 +187,7 @@ export function collectionPageSchema({
     description,
     url: `${siteUrl}${path}`,
     isPartOf: {
-      "@type": "WebSite",
-      name: "Speed X Tracking",
-      url: siteUrl
+      "@id": `${siteUrl}/#website`
     }
   };
 }
@@ -166,11 +201,33 @@ export function itemListSchema(items: Array<{ name: string; url: string; descrip
       "@type": "ListItem",
       position: index + 1,
       item: {
-        "@type": "Article",
+        "@type": "Thing",
         name: item.name,
         url: item.url,
         description: item.description
       }
     }))
+  };
+}
+
+/** SoftwareApplication schema for the free tracker tool. */
+export function trackingAppSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: "SpeedX Free Package Tracker",
+    url: `${siteUrl}/track-package`,
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "Any",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD"
+    },
+    description:
+      "Free SpeedX tracking tool for SPX and SPXCN numbers. Check package status, out for delivery updates, and delivery ETA.",
+    provider: {
+      "@id": `${siteUrl}/#organization`
+    }
   };
 }

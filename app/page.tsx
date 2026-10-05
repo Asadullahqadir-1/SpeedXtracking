@@ -5,9 +5,9 @@ import { FreshnessNote } from "@/components/seo/FreshnessNote";
 import { EditorialTrustBlock } from "@/components/seo/EditorialTrustBlock";
 import { TrackingForm } from "@/components/tracking/TrackingForm";
 import { getFreshnessDate } from "@/lib/seo/freshness";
-import { buildMetadata } from "@/lib/seo/metadata";
+import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { faqSchema, organizationSchema, webPageSchema, websiteSchema } from "@/lib/seo/schema";
+import { faqSchema, breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
 import { globalFaqs } from "@/content/faqs";
 import { blogPosts } from "@/content/blogs";
 
@@ -27,26 +27,27 @@ export default function HomePage() {
 
   return (
     <div className="container-page py-6 sm:py-8 lg:py-10">
-      <JsonLd data={websiteSchema()} />
-      <JsonLd data={organizationSchema()} />
       <JsonLd
         data={
           webPageSchema({
             path: "/",
-            title: "SpeedX Tracking Number Lookup",
+            title: "SpeedX Tracking — Free Package Status Lookup",
             description:
-              "Track SpeedX tracking numbers with current status scans, estimated delivery windows, and practical troubleshooting guides for delayed shipments."
+              "Free SpeedX tracking for SPX and SPXCN numbers with status scans, delivery ETAs, and troubleshooting for delayed shipments."
           })
         }
       />
-      <JsonLd data={faqSchema(globalFaqs)} />
+      <JsonLd
+        data={breadcrumbSchema([{ name: "Home", url: siteConfig.url }, { name: "SpeedX Tracking", url: siteConfig.url }])}
+      />
+      <JsonLd data={faqSchema(globalFaqs.slice(0, 8))} />
 
       {/* Hero Section */}
       <section className="hero-shell relative overflow-hidden rounded-2xl p-5 sm:p-8 lg:p-12">
         <div className="hero-orb hero-orb-one" aria-hidden="true" />
         <div className="hero-orb hero-orb-two" aria-hidden="true" />
         <div className="hero-grid" aria-hidden="true" />
-        <div className="relative z-10 max-w-4xl animate-fade-in-up">
+        <div className="relative z-10 max-w-4xl">
           <p className="inline-flex items-center rounded-full border border-brand-200 bg-white/85 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700 shadow-sm">
             Free SpeedX package tracker
           </p>
@@ -54,7 +55,7 @@ export default function HomePage() {
             SpeedX Tracking — Track Packages Free
           </h1>
           <p className="mt-3 text-base text-slate-700 sm:mt-4 sm:text-lg">
-            Free SpeedX tracking for SPX, SPXCN, and Speed X live tracking numbers. Check out for delivery status, ETA, and what to do if your package stalls.
+            SpeedXTracking is a free SpeedX tracking tool for SPX, SPXCN, and Speed X live tracking numbers. Check out for delivery status, ETA, and what to do if your package stalls.
           </p>
           <div className="mt-3 flex flex-wrap gap-4 text-sm text-slate-600">
             <span className="flex items-center gap-1.5">

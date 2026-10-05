@@ -32,7 +32,10 @@ export default function FaqPage() {
         }
       />
       <JsonLd data={faqSchema(globalFaqs)} />
-      <h1 className="text-3xl font-bold">Frequently Asked Questions</h1>
+      <h1 className="text-3xl font-bold">SpeedX Tracking FAQ</h1>
+      <p className="mt-3 max-w-3xl text-slate-700">
+        Direct answers to the most searched SpeedX tracking questions: delivery hours, out for delivery meaning, SPXCN format, customs delays, and missing packages.
+      </p>
       <div className="mt-6 space-y-5">
         {globalFaqs.map((faq) => (
           <article key={faq.question} className="section-card">

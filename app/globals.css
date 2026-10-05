@@ -114,3 +114,18 @@ a {
     animation: none;
   }
 }
+
+@media (max-width: 768px) {
+  .hero-orb {
+    display: none;
+  }
+
+  .hero-grid {
+    opacity: 0.35;
+  }
+
+  .reveal-card,
+  .animate-fade-in-up {
+    animation: none;
+  }
+}

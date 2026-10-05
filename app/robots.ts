@@ -10,9 +10,14 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
         disallow: ["/api/"]
-      }
+      },
+      { userAgent: "GPTBot", allow: "/" },
+      { userAgent: "ChatGPT-User", allow: "/" },
+      { userAgent: "Google-Extended", allow: "/" },
+      { userAgent: "ClaudeBot", allow: "/" },
+      { userAgent: "PerplexityBot", allow: "/" }
     ],
-    host: baseUrl,
+    host: baseUrl.replace(/^https?:\/\//, ""),
     sitemap: `${baseUrl}/sitemap.xml`
   };
 }
