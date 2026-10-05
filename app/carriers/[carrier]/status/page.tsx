@@ -3,6 +3,7 @@ import Link from "next/link";
 import { carriers } from "@/lib/seo/carriers";
 import { getCarrierBySlug } from "@/lib/seo/data";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
+import { TopicAuthorityLinks } from "@/components/seo/TopicAuthorityLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
 
@@ -150,15 +151,7 @@ export default async function CarrierStatusPage({ params }: { params: Promise<{ 
       ) : null}
 
       {current.slug === "speedx" ? (
-        <section className="mt-8 section-card">
-          <h2 className="text-xl font-semibold">SpeedX delivery hours and out-for-delivery timing</h2>
-          <p className="mt-3 text-sm text-slate-700">
-            An out-for-delivery scan usually means the package is intended for delivery that day, but the exact delivery time and latest stop vary by route load, traffic, weather, and local operations.
-          </p>
-          <Link href="/guides/speedx-delivery-hours" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">
-            Read the SpeedX delivery hours guide
-          </Link>
-        </section>
+        <TopicAuthorityLinks activeCluster="out-for-delivery" title="Out for delivery cluster links" />
       ) : null}
     </div>
   );

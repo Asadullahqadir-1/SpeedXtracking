@@ -7,6 +7,7 @@ import { guides } from "@/content/guides";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 import { buildAdaptiveClusters, getGlobalTroubleshootingCluster } from "@/lib/seo/internal-links";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
+import { TopicAuthorityLinks } from "@/components/seo/TopicAuthorityLinks";
 import { breadcrumbSchema, faqSchema, webPageSchema, articleSchema } from "@/lib/seo/schema";
 
 export const revalidate = 86400;
@@ -146,6 +147,18 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       <div className="mt-6">
         <LinkClusters clusters={adaptiveClusters} />
       </div>
+
+      <TopicAuthorityLinks
+        activeCluster={
+          guide.slug.includes("delivery-hours") || guide.slug.includes("late-at-night")
+            ? "delivery-hours"
+            : guide.slug.includes("spxcn") || guide.slug.includes("track")
+              ? "speedx-tracking"
+              : guide.slug.includes("delivered")
+                ? "out-for-delivery"
+                : "speedx-tracking"
+        }
+      />
 
       <EditorialTrustBlock
         reviewedDate={getFreshnessDate("guidesHub")}

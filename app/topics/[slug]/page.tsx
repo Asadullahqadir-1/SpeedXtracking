@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { topicClusters, getTopicCluster } from "@/content/topic-clusters";
+import { getClusterQaArticles } from "@/content/cluster-qa";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { articleSchema, breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
 import { TrackingForm } from "@/components/tracking/TrackingForm";
 import { AdSenseUnit } from "@/components/ads/AdSenseUnit";
+import { TopicAuthorityLinks } from "@/components/seo/TopicAuthorityLinks";
 
 export const revalidate = 86400;
 
@@ -33,6 +35,7 @@ export default async function TopicClusterPage({ params }: { params: Promise<{ s
     notFound();
   }
 
+  const qaArticles = getClusterQaArticles(cluster.slug);
   const reviewed = "2026-10-05";
   const wordCount = cluster.sections.reduce(
     (count, section) =>
@@ -111,6 +114,25 @@ export default async function TopicClusterPage({ params }: { params: Promise<{ s
       </div>
 
       <section className="mt-8 section-card">
+        <h2 className="text-xl font-semibold text-slate-900">Supporting Q&A articles</h2>
+        <p className="mt-2 text-sm text-slate-600">
+          Short answer pages that deepen this pillar and interlink with descriptive anchors.
+        </p>
+        <div className="mt-5 grid gap-4 md:grid-cols-3">
+          {qaArticles.map((article) => (
+            <Link
+              key={article.slug}
+              href={`/topics/${article.clusterSlug}/${article.slug}`}
+              className="rounded-lg border border-slate-200 p-4 hover:border-brand-500"
+            >
+              <h3 className="font-semibold text-slate-900">{article.title}</h3>
+              <p className="mt-2 text-sm text-slate-600">{article.summary}</p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-8 section-card">
         <h2 className="text-xl font-semibold text-slate-900">Cluster resources</h2>
         <p className="mt-2 text-sm text-slate-600">
           Supporting pages in this topical cluster. Use descriptive links to move from the pillar to the exact problem page.
@@ -149,6 +171,11 @@ export default async function TopicClusterPage({ params }: { params: Promise<{ s
           ))}
         </div>
       </section>
+
+      <TopicAuthorityLinks
+        activeCluster={cluster.slug as "out-for-delivery" | "delivery-hours" | "speedx-tracking"}
+        title="Descriptive anchors across all SpeedX clusters"
+      />
     </div>
   );
 }

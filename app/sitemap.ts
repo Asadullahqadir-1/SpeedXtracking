@@ -3,6 +3,7 @@ import { carriers } from "@/lib/seo/carriers";
 import { guides } from "@/content/guides";
 import { blogPosts } from "@/content/blogs";
 import { getIndexableProgrammaticPages } from "@/content/programmatic-pages";
+import { clusterQaArticles } from "@/content/cluster-qa";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 import { siteUrl } from "@/lib/seo/site-url";
 import { getRedirectDestinationForProgrammaticSlug } from "@/content/programmatic-pages";
@@ -23,6 +24,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/faq",
     "/resources/shipping-delay-checklist"
   ];
+
+  const qaPages = clusterQaArticles.map((article) => `/topics/${article.clusterSlug}/${article.slug}`);
 
   const policyPages = [
     "/shipping-terms",
@@ -98,7 +101,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return siteReviewedAt;
   }
 
-  return [...staticPages, ...policyPages, ...carrierPages, ...guidePages, ...blogPages, ...programmaticPages].map((path) => ({
+  return [...staticPages, ...qaPages, ...policyPages, ...carrierPages, ...guidePages, ...blogPages, ...programmaticPages].map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: getLastModified(path),
     changeFrequency: getChangeFrequency(path),

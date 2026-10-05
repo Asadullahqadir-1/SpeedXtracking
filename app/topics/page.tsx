@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { topicClusters } from "@/content/topic-clusters";
+import { clusterQaArticles } from "@/content/cluster-qa";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, collectionPageSchema, itemListSchema, webPageSchema } from "@/lib/seo/schema";
@@ -48,7 +49,10 @@ export default function TopicsIndexPage() {
 
       <h1 className="text-3xl font-bold text-slate-900">SpeedX Topic Clusters</h1>
       <p className="mt-3 max-w-3xl text-slate-700">
-        These three pillar hubs organize SpeedXTracking around the searches people actually use: out for delivery problems, delivery hours, and SpeedX / SPXCN tracking. Each hub links to supporting guides and blog posts so Google can see topical depth, not isolated pages.
+        These three pillar hubs organize SpeedXTracking around the searches people actually use: out for delivery problems, delivery hours, and SpeedX / SPXCN tracking. Each hub includes supporting Q&A articles and descriptive internal links so Google can see topical depth, not isolated pages.
+      </p>
+      <p className="mt-2 text-sm text-slate-600">
+        {topicClusters.length} pillars · {clusterQaArticles.length} supporting Q&A articles · interlinked with descriptive anchors
       </p>
 
       <div className="mt-8 grid gap-5 md:grid-cols-3">

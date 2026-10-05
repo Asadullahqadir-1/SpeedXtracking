@@ -4,9 +4,23 @@ import { blogPosts } from "@/content/blogs";
 import { AdSenseUnit } from "@/components/ads/AdSenseUnit";
 import { FreshnessNote } from "@/components/seo/FreshnessNote";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { TopicAuthorityLinks } from "@/components/seo/TopicAuthorityLinks";
 import { EditorialTrustBlock } from "@/components/seo/EditorialTrustBlock";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/seo/schema";
+
+function resolveBlogCluster(slug: string): "out-for-delivery" | "delivery-hours" | "speedx-tracking" | undefined {
+  if (slug.includes("out-for-delivery") || slug.includes("exception") || slug.includes("attempted-delivery")) {
+    return "out-for-delivery";
+  }
+  if (slug.includes("delivery-time") || slug.includes("late-at-night") || slug.includes("hours")) {
+    return "delivery-hours";
+  }
+  if (slug.includes("spxcn") || slug.includes("tracking") || slug.includes("shein") || slug.includes("label")) {
+    return "speedx-tracking";
+  }
+  return "speedx-tracking";
+}
 
 export const revalidate = 86400;
 
@@ -58,6 +72,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     .filter((item) => item.slug !== post.slug && item.slug !== "does-speedx-deliver-late-at-night-guide")
     .slice(0, 3);
   const relatedToShow = relatedPosts.length > 0 ? relatedPosts : fallbackRelatedPosts;
+  const activeCluster = resolveBlogCluster(post.slug);
   const estimatedWordCount = post.sections.reduce((count, section) => {
     const paragraphWords = section.paragraphs.reduce((sum, paragraph) => sum + paragraph.trim().split(/\s+/).length, 0);
     const bulletWords = (section.bullets ?? []).reduce((sum, bullet) => sum + bullet.trim().split(/\s+/).length, 0);
@@ -161,6 +176,11 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
 
         <div className="mt-8 flex flex-wrap gap-3">
+          {activeCluster ? (
+            <Link href={`/topics/${activeCluster}`} className="btn-secondary">
+              Open topic cluster
+            </Link>
+          ) : null}
           <Link href="/carriers/speedx" className="btn-secondary">
             SpeedX Tracking Hub
           </Link>
@@ -209,6 +229,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             Use the practical checks above to determine when a SpeedX issue is normal versus when it is time to contact support. Keeping a clear timeline and the latest scan screenshots will help speed up the resolution.
           </p>
         </section>
+
+        <TopicAuthorityLinks activeCluster={activeCluster} title="Descriptive SpeedX cluster links" />
 
         <EditorialTrustBlock
           reviewedDate={post.updatedDate}

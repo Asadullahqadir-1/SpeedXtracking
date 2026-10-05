@@ -1,4 +1,6 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
+import { TopicAuthorityLinks } from "@/components/seo/TopicAuthorityLinks";
 import { carriers } from "@/lib/seo/carriers";
 import { getCarrierBySlug } from "@/lib/seo/data";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -74,6 +76,17 @@ export default async function CarrierDeliveryTimePage({ params }: { params: Prom
           <li>Save screenshots so support can review the exact timeline you saw.</li>
         </ul>
       </section>
+
+      {current.slug === "speedx" ? (
+        <div className="mt-8 space-y-4">
+          <p className="text-sm text-brand-700">
+            <Link href="/topics/delivery-hours" className="font-semibold hover:underline">
+              Open the How late does SpeedX deliver? topic cluster →
+            </Link>
+          </p>
+          <TopicAuthorityLinks activeCluster="delivery-hours" />
+        </div>
+      ) : null}
     </div>
   );
 }
