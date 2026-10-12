@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
@@ -34,8 +35,25 @@ export default function MethodologyPage() {
           <li>Official carrier pages and support documentation.</li>
           <li>Publicly available status terminology and route-stage definitions.</li>
           <li>Common user issue patterns from support and marketplace workflows.</li>
+          <li>Organic competitor research (official carrier, aggregators, and SpeedX lookalike domains) to find content gaps—not to copy thin sites.</li>
           <li>Internal quality reviews for clarity, duplication, and actionability.</li>
         </ul>
+      </section>
+
+      <section className="mt-6 section-card p-5 sm:p-6">
+        <h2 className="text-xl font-semibold text-slate-900">How competitor research shapes the site</h2>
+        <div className="mt-3 space-y-3 text-sm leading-relaxed text-slate-700 sm:text-base">
+          <p>
+            SkillStack competitor data shows three groups: the official SpeedX site, large multi-carrier aggregators (17TRACK, ParcelsApp, AfterShip), and thin SpeedX-branded clone domains. We do not try to replace the official carrier site.
+          </p>
+          <p>
+            Against aggregators, we win with SpeedX-specific depth. Against thin clones, we win with interlinked guides (delivery times, Sunday service, Shein, SPXCN, out for delivery) plus a free tracker. See{" "}
+            <Link href="/why-speedxtracking" className="font-medium text-brand-700 hover:underline">
+              why SpeedXTracking
+            </Link>
+            .
+          </p>
+        </div>
       </section>
 
       <section className="mt-6 section-card p-5 sm:p-6">

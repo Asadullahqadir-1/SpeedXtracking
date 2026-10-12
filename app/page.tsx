@@ -300,14 +300,20 @@ export default function HomePage() {
       {/* Why Choose Us */}
       <section className="reveal-card mt-8 section-card bg-gradient-to-br from-slate-50 to-slate-100 p-5 sm:p-6">
         <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">Why Track With Us?</h2>
+        <p className="mt-2 max-w-3xl text-slate-600">
+          Built for SpeedX shoppers—not a bloated multi-carrier directory, and not a thin lookalike domain with only a search box.{" "}
+          <Link href="/why-speedxtracking" className="font-semibold text-brand-700 hover:underline">
+            See how we differ from competitors →
+          </Link>
+        </p>
         <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <div className="flex items-start gap-3">
             <div className="mt-1 rounded-lg bg-brand-100 p-2">
               <svg className="h-6 w-6 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
             </div>
             <div>
-              <h3 className="font-semibold text-slate-900">Lightning Fast Results</h3>
-              <p className="mt-1 text-sm text-slate-600">Get SpeedX tracking updates quickly without login friction or carrier-directory clutter.</p>
+              <h3 className="font-semibold text-slate-900">SpeedX-first lookup</h3>
+              <p className="mt-1 text-sm text-slate-600">Fast SPX/SPXCN tracking without login friction or carrier-directory clutter from giant aggregators.</p>
             </div>
           </div>
           <div className="flex items-start gap-3">
@@ -324,8 +330,8 @@ export default function HomePage() {
               <svg className="h-6 w-6 text-brand-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
             </div>
             <div>
-              <h3 className="font-semibold text-slate-900">Expert Troubleshooting</h3>
-              <p className="mt-1 text-sm text-slate-600">Access detailed guides for delivery delays, missing packages, customs issues, and carrier contacts.</p>
+              <h3 className="font-semibold text-slate-900">Guides thin clones skip</h3>
+              <p className="mt-1 text-sm text-slate-600">Sunday delivery, Shein handoffs, out-for-delivery problems, and SPXCN help—interlinked for real next steps.</p>
             </div>
           </div>
           <div className="flex items-start gap-3">

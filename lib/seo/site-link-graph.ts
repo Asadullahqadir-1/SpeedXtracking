@@ -14,7 +14,8 @@ export function getMoneyPageLinks(): LinkItem[] {
     { href: "/blog/shein-speedx-tracking-guide", label: "Shein SpeedX tracking guide" },
     { href: "/blog/speedx-out-for-delivery-but-not-delivered", label: "Out for delivery but not delivered" },
     { href: "/guides/speedx-delivery-hours", label: "How late does SpeedX deliver?" },
-    { href: "/carriers/speedx/contact", label: "SpeedX customer service" }
+    { href: "/carriers/speedx/contact", label: "SpeedX customer service" },
+    { href: "/why-speedxtracking", label: "Why SpeedXTracking (vs aggregators)" }
   ];
 }
 

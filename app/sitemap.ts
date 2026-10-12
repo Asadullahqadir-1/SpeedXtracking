@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/what-is-speedx",
     "/does-speedx-deliver-on-sunday",
     "/rastrear-paquete-speedx",
+    "/why-speedxtracking",
     "/topics",
     "/topics/out-for-delivery",
     "/topics/delivery-hours",

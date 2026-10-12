@@ -38,6 +38,7 @@ export function Footer() {
               <li><Link href="/carriers/speedx" className="text-slate-300 hover:text-white transition">SpeedX Hub</Link></li>
               <li><Link href="/guides" className="text-slate-300 hover:text-white transition">Guides</Link></li>
               <li><Link href="/faq" className="text-slate-300 hover:text-white transition">FAQ</Link></li>
+              <li><Link href="/why-speedxtracking" className="text-slate-300 hover:text-white transition">Why SpeedXTracking</Link></li>
               <li><Link href="/about" className="text-slate-300 hover:text-white transition">About</Link></li>
             </ul>
           </div>
