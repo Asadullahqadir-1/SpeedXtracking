@@ -61,6 +61,29 @@ const nextConfig: NextConfig = {
     ];
   },
   async redirects() {
+    const citySlugs = [
+      "new-york",
+      "los-angeles",
+      "chicago",
+      "houston",
+      "phoenix",
+      "philadelphia",
+      "san-antonio",
+      "san-diego",
+      "dallas",
+      "san-jose",
+      "austin",
+      "jacksonville",
+      "fort-worth",
+      "columbus",
+      "charlotte",
+      "indianapolis",
+      "seattle",
+      "denver",
+      "washington-dc",
+      "boston"
+    ];
+
     return [
       {
         source: "/speedx-tracking-not-updating",
@@ -73,7 +96,17 @@ const nextConfig: NextConfig = {
         permanent: true
       },
       {
+        source: "/speedx-lost-package-claim",
+        destination: "/blog/delivered-but-not-received-speedx",
+        permanent: true
+      },
+      {
         source: "/speedx-contact-number",
+        destination: "/carriers/speedx/contact",
+        permanent: true
+      },
+      {
+        source: "/speedx-customer-service",
         destination: "/carriers/speedx/contact",
         permanent: true
       },
@@ -83,8 +116,18 @@ const nextConfig: NextConfig = {
         permanent: true
       },
       {
-        source: "/track-speedx-new-york",
-        destination: "/carriers/speedx",
+        source: "/shein-speedx-delivery-time",
+        destination: "/blog/shein-speedx-tracking-guide",
+        permanent: true
+      },
+      {
+        source: "/shein-order-stuck-speedx",
+        destination: "/blog/shein-speedx-tracking-guide",
+        permanent: true
+      },
+      {
+        source: "/track-speedx-format-checker",
+        destination: "/track-package",
         permanent: true
       },
       {
@@ -136,7 +179,13 @@ const nextConfig: NextConfig = {
         source: "/speedx-package-returned-to-sender",
         destination: "/blog/speedx-returned-to-sender",
         permanent: true
-      }
+      },
+      // Local city pages → international tracker (stop crawl waste / not-indexed thin URLs)
+      ...citySlugs.map((city) => ({
+        source: `/track-speedx-${city}`,
+        destination: "/track-package",
+        permanent: true
+      }))
     ];
   }
 };

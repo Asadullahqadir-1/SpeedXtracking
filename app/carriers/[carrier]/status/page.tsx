@@ -26,7 +26,8 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
       current.slug === "speedx"
         ? "What SpeedX out for delivery means, exception codes, in transit pauses, and what to do if your package is not delivered."
         : `Learn what each ${current.carrierName} tracking status means and what to do for delayed, exception, or delivered scans.`,
-    path: `/carriers/${carrier}/status`
+    path: `/carriers/${carrier}/status`,
+    robots: current.slug === "speedx" ? undefined : { index: false, follow: true }
   });
 }
 

@@ -53,62 +53,82 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "speedx-delivery-time-by-region",
-    title: "SpeedX Tracking Delivery Time Guide: Domestic vs International",
+    title: "SpeedX Delivery Times by Region — Domestic vs International",
     description:
-      "Understand realistic SpeedX tracking delivery timelines by route type, final-mile region, customs stage, and shopping platform.",
+      "SpeedX delivery times explained for domestic and international routes, customs delays, Sunday service, and realistic ETAs for Shein and marketplace orders.",
     category: "Delivery Times",
-    readTime: "6 min read",
+    readTime: "8 min read",
     publishedDate: "2026-02-26",
-    updatedDate: "2026-03-10",
+    updatedDate: "2026-10-13",
     sections: [
       {
-        heading: "SpeedX tracking delivery windows",
+        heading: "SpeedX delivery times at a glance",
         paragraphs: [
-          "Most domestic SpeedX parcels arrive in 3-5 business days after handoff to the local network. Cross-border orders generally land in 7-15 days depending on customs and partner carriers. These are delivery-time estimates, not guaranteed delivery hours.",
-          "Marketplace promos and peak seasons can add 2-4 days due to higher sort volume."
+          "Most domestic SpeedX parcels arrive in about 2-7 business days after handoff to the local network. Cross-border SpeedX delivery commonly takes about 7-20 days depending on customs and partner carriers. These are delivery-time estimates, not guaranteed delivery hours.",
+          "Marketplace promos and peak seasons can add 2-4 days due to higher sort volume. For a full hub covering hours, weekends, and tracking, see the SpeedX delivery guide at /speedx-delivery."
         ]
       },
       {
-        heading: "What affects SpeedX tracking delivery speed most",
+        heading: "What affects SpeedX delivery speed most",
         paragraphs: [
-          "Transit speed is mainly influenced by customs clearance quality, destination density, and handoff timing between linehaul and final-mile teams."
+          "Transit speed is mainly influenced by customs clearance quality, destination density, and handoff timing between linehaul and final-mile teams. International shoppers should expect longer quiet periods while parcels clear export and import stages."
         ],
         bullets: [
-          "Incorrect ZIP or missing unit number",
+          "Incorrect ZIP/postal code or missing unit number",
           "National holidays and weekend processing",
           "Remote delivery zones",
           "Customs inspection and import documentation"
+        ]
+      },
+      {
+        heading: "Does SpeedX deliver on Sunday?",
+        paragraphs: [
+          "Sunday SpeedX delivery can happen on some busy metro routes, but it is less consistent than weekday or Saturday service. If tracking stays quiet on Sunday, recheck Monday morning before escalating.",
+          "For a dedicated weekend answer, read does SpeedX deliver on Sunday at /does-speedx-deliver-on-sunday."
+        ]
+      },
+      {
+        heading: "How to track SpeedX delivery internationally",
+        paragraphs: [
+          "Paste your full SpeedX, SPX, or SPXCN tracking number into the free tracker to see the latest scan and ETA context. Spanish-speaking shoppers can also use the rastrear paquete SpeedX page."
         ]
       }
     ]
   },
   {
     slug: "shein-speedx-tracking-guide",
-    title: "SpeedX Tracking for Shein Orders: Complete Guide",
+    title: "SpeedX Tracking Shein — Track Package Status Free",
     description:
-      "A complete Shein + SpeedX tracking walkthrough, from finding your number to understanding each status update.",
+      "SpeedX tracking for Shein orders: find your tracking number, read status updates, fix stuck scans, and estimate international delivery times.",
     category: "Shein Orders",
     readTime: "8 min read",
     publishedDate: "2026-02-20",
-    updatedDate: "2026-03-10",
+    updatedDate: "2026-10-13",
     sections: [
       {
         heading: "Find the correct Shein SpeedX tracking number",
         paragraphs: [
-          "In Shein order details, copy the carrier tracking number instead of the internal order number. SpeedX identifiers typically begin with SPX-prefixed formats.",
-          "If Shein shows only a partial value, check your shipment confirmation email for the full string."
+          "In Shein order details, copy the carrier tracking number instead of the internal order number. SpeedX identifiers typically begin with SPX-prefixed formats such as SPXCN.",
+          "If Shein shows only a partial value, check your shipment confirmation email for the full string, then paste it into the free SpeedX tracker."
         ]
       },
       {
         heading: "SpeedX tracking status meanings for Shein orders",
         paragraphs: [
-          "Shein order timelines often include pre-carrier processing, export departure, customs entry, and local out-for-delivery events. Understanding these handoffs prevents false delay assumptions."
+          "Shein order timelines often include pre-carrier processing, export departure, customs entry, and local out-for-delivery events. Understanding these handoffs prevents false delay assumptions on international routes."
         ],
         bullets: [
           "Label Created: order prepared but not yet scanned by courier",
           "In Transit: moving between hubs or countries",
           "At Facility: sorted at local or regional depot",
           "Out for Delivery: final-mile attempt expected today"
+        ]
+      },
+      {
+        heading: "Shein order stuck on SpeedX — what to do",
+        paragraphs: [
+          "A quiet timeline during export or customs is common. Escalate when the seller ETA has passed, an exception appears, or there is no movement for several business days after destination arrival.",
+          "Use the SpeedX Shein hub for carrier-specific steps and the SpeedX delivery page for realistic transit windows."
         ]
       }
     ]
@@ -431,11 +451,11 @@ export const blogPosts: BlogPost[] = [
     slug: "speedx-out-for-delivery-but-not-delivered",
     title: "SpeedX Out for Delivery But Not Delivered — What Next",
     description:
-      "SpeedX out for delivery but not delivered? Checklist for same-day waits, next-day attempts, and when to contact the seller.",
+      "SpeedX out for delivery but not delivered? Same-day waits, next-day attempts, Sunday routes, and when to contact the seller worldwide.",
     category: "Troubleshooting",
     readTime: "8 min read",
     publishedDate: "2026-04-19",
-    updatedDate: "2026-04-19",
+    updatedDate: "2026-10-13",
     sections: [
       {
         heading: "Why out-for-delivery can roll to next day",
@@ -447,7 +467,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "What to check before escalating",
         paragraphs: [
-          "Confirm delivery instructions, gate access, and contact number in your order profile before opening a support case."
+          "Confirm delivery instructions, gate access, and contact number in your order profile before opening a support case. On weekends, allow for slower scan posting before assuming the parcel is lost."
         ],
         bullets: [
           "Check porch, side entrance, parcel locker, and concierge",
@@ -460,7 +480,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Escalation message template",
         paragraphs: [
           "If status is unchanged the next day, contact seller first and request carrier follow-up with route-level confirmation.",
-          "Include tracking number, full address, and a one-line timeline to speed response."
+          "Include tracking number, full address, and a one-line timeline to speed response. Related hubs: out for delivery topic cluster and SpeedX customer service contact page."
         ]
       }
     ]

@@ -71,6 +71,7 @@ export const guides = [
       "If you are asking what time SpeedX delivers, check the latest out-for-delivery scan and the estimated window shown by the seller or tracking timeline rather than assuming a fixed hour.",
       "SpeedX may deliver in the evening, especially during high-volume periods or on dense urban routes, so an out-for-delivery package can still arrive later in the day.",
       "When SpeedX is out for delivery, delivery often happens the same day, but route overflow, weather, access problems, or an unfinished route can move the attempt to the next day.",
+      "Weekend and Sunday SpeedX delivery can happen on some routes, but Saturday is usually more common than Sunday; if scans pause over the weekend, recheck Monday before escalating.",
       "If the status is still unchanged after the local delivery day, save the tracking timeline, confirm your address and access instructions, and contact the seller before requesting carrier escalation."
     ],
     faqs: [
@@ -103,6 +104,11 @@ export const guides = [
         question: "What are normal SpeedX delivery hours?",
         answer:
           "Normal SpeedX delivery hours vary by location and route. Evening delivery can happen, particularly during busy periods, so tracking activity and the seller's delivery estimate are more reliable than a fixed national schedule."
+      },
+      {
+        question: "Does SpeedX deliver on Sunday?",
+        answer:
+          "Sunday SpeedX delivery is possible on some routes but less consistent than weekday or Saturday service. If scans stay quiet on Sunday, recheck Monday before escalating."
       }
     ]
   },

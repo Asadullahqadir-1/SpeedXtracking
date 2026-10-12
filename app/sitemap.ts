@@ -42,13 +42,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/disclaimer"
   ];
 
-  const carrierPages = carriers.flatMap((carrier) => [
-    `/carriers/${carrier.slug}`,
-    `/carriers/${carrier.slug}/status`,
-    `/carriers/${carrier.slug}/delivery-time`,
-    `/carriers/${carrier.slug}/contact`,
-    `/carriers/${carrier.slug}/shein`,
-  ]);
+  // Full intent pages only for SpeedX (international focus). Other carriers keep hub URLs only
+  // so thin DHL/UPS contact pages stop wasting crawl budget and "crawled not indexed" slots.
+  const carrierPages = carriers.flatMap((carrier) => {
+    if (carrier.slug === "speedx") {
+      return [
+        `/carriers/${carrier.slug}`,
+        `/carriers/${carrier.slug}/status`,
+        `/carriers/${carrier.slug}/delivery-time`,
+        `/carriers/${carrier.slug}/contact`,
+        `/carriers/${carrier.slug}/shein`
+      ];
+    }
+    return [`/carriers/${carrier.slug}`];
+  });
 
   const guidePages = guides.map((guide) => `/guides/${guide.slug}`).filter((path) => path !== "/guides/does-speedx-deliver-late-at-night");
   const programmaticPages = getIndexableProgrammaticPages()

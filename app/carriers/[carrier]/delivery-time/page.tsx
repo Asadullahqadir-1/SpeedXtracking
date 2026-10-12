@@ -24,7 +24,8 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
       current.slug === "speedx"
         ? "How long SpeedX takes to deliver domestically and internationally, plus what out for delivery timing usually means."
         : `Typical ${current.carrierName} delivery times by route type, plus why customs, weather, and handoffs can delay arrival.`,
-    path: `/carriers/${carrier}/delivery-time`
+    path: `/carriers/${carrier}/delivery-time`,
+    robots: current.slug === "speedx" ? undefined : { index: false, follow: true }
   });
 }
 
@@ -79,11 +80,20 @@ export default async function CarrierDeliveryTimePage({ params }: { params: Prom
 
       {current.slug === "speedx" ? (
         <div className="mt-8 space-y-4">
-          <p className="text-sm text-brand-700">
-            <Link href="/topics/delivery-hours" className="font-semibold hover:underline">
-              Open the How late does SpeedX deliver? topic cluster →
+          <div className="grid gap-2 text-sm font-semibold text-brand-700 sm:grid-cols-2">
+            <Link href="/speedx-delivery" className="hover:underline">
+              SpeedX delivery times hub →
             </Link>
-          </p>
+            <Link href="/does-speedx-deliver-on-sunday" className="hover:underline">
+              Does SpeedX deliver on Sunday? →
+            </Link>
+            <Link href="/topics/delivery-hours" className="hover:underline">
+              How late does SpeedX deliver? cluster →
+            </Link>
+            <Link href="/blog/speedx-delivery-time-by-region" className="hover:underline">
+              Delivery times by region →
+            </Link>
+          </div>
           <TopicAuthorityLinks activeCluster="delivery-hours" />
         </div>
       ) : null}

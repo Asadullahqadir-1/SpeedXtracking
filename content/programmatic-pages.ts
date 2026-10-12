@@ -568,6 +568,7 @@ export const programmaticPages: BasePage[] = [
 const redirectedProgrammaticSlugMap = new Map<string, string>([
   ["speedx-tracking-not-updating", "/blog/speedx-tracking-not-updating"],
   ["speedx-delivered-but-not-received", "/guides/delivered-not-received"],
+  ["speedx-lost-package-claim", "/blog/delivered-but-not-received-speedx"],
   ["speedx-contact-number", "/carriers/speedx/contact"],
   ["speedx-customer-service", "/carriers/speedx/contact"],
   ["speedx-support-email", "/carriers/speedx/contact"],
@@ -591,7 +592,9 @@ const redirectedProgrammaticSlugMap = new Map<string, string>([
   ["speedx-label-created-no-update", "/blog/speedx-label-created-no-movement"],
   ["speedx-missed-delivery-attempt", "/blog/speedx-attempted-delivery-what-next"],
   ["speedx-invalid-tracking-number", "/blog/speedx-tracking-number-not-found"],
-  ["speedx-package-returned-to-sender", "/blog/speedx-returned-to-sender"]
+  ["speedx-package-returned-to-sender", "/blog/speedx-returned-to-sender"],
+  // Local city pages → international tracker (AdSense / non-local strategy)
+  ...cityKeywords.map((citySlug) => [`track-speedx-${citySlug}`, "/track-package"] as [string, string])
 ]);
 
 export function getRedirectDestinationForProgrammaticSlug(slug: string) {
