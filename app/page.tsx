@@ -4,6 +4,7 @@ import { AdSenseUnit } from "@/components/ads/AdSenseUnit";
 import { FreshnessNote } from "@/components/seo/FreshnessNote";
 import { EditorialTrustBlock } from "@/components/seo/EditorialTrustBlock";
 import { TrackingForm } from "@/components/tracking/TrackingForm";
+import { HeroGlobe } from "@/components/visuals/HeroGlobe";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -47,17 +48,18 @@ export default function HomePage() {
         <div className="hero-orb hero-orb-one" aria-hidden="true" />
         <div className="hero-orb hero-orb-two" aria-hidden="true" />
         <div className="hero-grid" aria-hidden="true" />
-        <div className="relative z-10 max-w-4xl">
-          <p className="inline-flex items-center rounded-full border border-brand-200 bg-white/85 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700 shadow-sm">
+        <HeroGlobe />
+        <div className="relative z-10 max-w-xl lg:max-w-2xl">
+          <p className="hero-intro inline-flex items-center rounded-full border border-brand-200 bg-white/85 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-700 shadow-sm">
             Free SpeedX package tracker
           </p>
-          <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
+          <h1 className="hero-intro hero-intro-delay-1 text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
             SpeedX Tracking Number Lookup
           </h1>
-          <p className="mt-3 text-base text-slate-700 sm:mt-4 sm:text-lg">
+          <p className="hero-intro hero-intro-delay-2 mt-3 text-base text-slate-700 sm:mt-4 sm:text-lg">
             Free international SpeedX package tracking for SPX and SPXCN numbers. Check delivery status, ETA, Shein shipments, and what to do if your package stalls—anywhere SpeedX delivers.
           </p>
-          <div className="mt-3 flex flex-wrap gap-4 text-sm text-slate-600">
+          <div className="hero-intro hero-intro-delay-3 mt-3 flex flex-wrap gap-4 text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
               <svg className="h-5 w-5 text-brand-600" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/></svg>
               Current status updates
@@ -72,10 +74,10 @@ export default function HomePage() {
             </span>
           </div>
           <FreshnessNote date={getFreshnessDate("homepage")} />
-          <div className="mt-6">
+          <div className="hero-intro hero-intro-delay-4 mt-6">
             <TrackingForm />
           </div>
-          <div className="mt-4 flex flex-wrap gap-2 text-xs sm:text-sm">
+          <div className="hero-intro hero-intro-delay-5 mt-4 flex flex-wrap gap-2 text-xs sm:text-sm">
             <Link href="/carriers/speedx/status" className="rounded-full border border-slate-300 bg-white/80 px-3 py-1.5 font-medium text-slate-700 hover:border-brand-500 hover:text-brand-700">
               SpeedX status meanings
             </Link>
