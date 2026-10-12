@@ -1,16 +1,18 @@
-import type { MetadataRoute } from "next";
 import { carriers } from "@/lib/seo/carriers";
 import { guides } from "@/content/guides";
 import { blogPosts } from "@/content/blogs";
-import { getIndexableProgrammaticPages } from "@/content/programmatic-pages";
+import {
+  getIndexableProgrammaticPages,
+  getRedirectDestinationForProgrammaticSlug
+} from "@/content/programmatic-pages";
 import { clusterQaArticles } from "@/content/cluster-qa";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 import { siteUrl } from "@/lib/seo/site-url";
-import { getRedirectDestinationForProgrammaticSlug } from "@/content/programmatic-pages";
 
 const baseUrl = siteUrl;
 
-export default function sitemap(): MetadataRoute.Sitemap {
+/** @returns {import("next").MetadataRoute.Sitemap} */
+export default function sitemap() {
   const staticPages = [
     "",
     "/track-package",
@@ -48,8 +50,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/disclaimer"
   ];
 
-  // Full intent pages only for SpeedX (international focus). Other carriers keep hub URLs only
-  // so thin DHL/UPS contact pages stop wasting crawl budget and "crawled not indexed" slots.
   const carrierPages = carriers.flatMap((carrier) => {
     if (carrier.slug === "speedx") {
       return [
@@ -63,7 +63,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return [`/carriers/${carrier.slug}`];
   });
 
-  const guidePages = guides.map((guide) => `/guides/${guide.slug}`).filter((path) => path !== "/guides/does-speedx-deliver-late-at-night");
+  const guidePages = guides
+    .map((guide) => `/guides/${guide.slug}`)
+    .filter((path) => path !== "/guides/does-speedx-deliver-late-at-night");
   const programmaticPages = getIndexableProgrammaticPages()
     .filter((page) => !getRedirectDestinationForProgrammaticSlug(page.slug))
     .map((page) => `/${page.slug}`);
@@ -78,30 +80,45 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const guidesReviewedAt = new Date(getFreshnessDate("guidesHub"));
   const carriersReviewedAt = new Date(getFreshnessDate("carriersHub"));
 
-  const blogLastModifiedMap = new Map(blogPosts.map((post) => [`/blog/${post.slug}`, new Date(post.updatedDate)]));
+  const blogLastModifiedMap = new Map(
+    blogPosts.map((post) => [`/blog/${post.slug}`, new Date(post.updatedDate)])
+  );
 
-  const guideLastModifiedMap = new Map(guides.map((guide) => [`/guides/${guide.slug}`, guidesReviewedAt]));
+  const guideLastModifiedMap = new Map(
+    guides.map((guide) => [`/guides/${guide.slug}`, guidesReviewedAt])
+  );
 
-  function getPriority(path: string) {
+  function getPriority(path) {
     if (path === "") return 1;
     if (path === "/track-package") return 0.95;
+    if (
+      path === "/speedx-tracking-number" ||
+      path === "/speedx-package-tracking" ||
+      path === "/how-to-track-speedx" ||
+      path === "/speedx-global-tracking" ||
+      path === "/speedx-delivery" ||
+      path === "/what-is-speedx"
+    ) {
+      return 0.94;
+    }
     if (path.startsWith("/topics")) return 0.92;
     if (path === "/carriers" || path === "/guides" || path === "/blog") return 0.9;
     if (path.startsWith("/carriers/")) return 0.85;
     if (path.startsWith("/guides/") || path.startsWith("/blog/")) return 0.8;
-    if (path.startsWith("/carriers/") && path.split("/").length >= 4) return 0.75;
     if (policyPages.includes(path)) return 0.4;
     return 0.7;
   }
 
-  function getChangeFrequency(path: string): "daily" | "weekly" | "monthly" {
+  function getChangeFrequency(path) {
     if (path === "" || path === "/track-package") return "daily";
-    if (path.startsWith("/carriers/") || path.startsWith("/guides/") || path.startsWith("/blog/")) return "weekly";
+    if (path.startsWith("/carriers/") || path.startsWith("/guides/") || path.startsWith("/blog/")) {
+      return "weekly";
+    }
     if (policyPages.includes(path)) return "monthly";
     return "weekly";
   }
 
-  function getLastModified(path: string) {
+  function getLastModified(path) {
     if (path === "" || path === "/track-package") return siteReviewedAt;
     if (path === "/guides") return guidesReviewedAt;
     if (path === "/carriers") return carriersReviewedAt;
@@ -111,14 +128,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
         .sort((a, b) => b - a)[0];
       return latestBlogDate ? new Date(latestBlogDate) : siteReviewedAt;
     }
-    if (blogLastModifiedMap.has(path)) return blogLastModifiedMap.get(path) as Date;
-    if (guideLastModifiedMap.has(path)) return guideLastModifiedMap.get(path) as Date;
+    if (blogLastModifiedMap.has(path)) return blogLastModifiedMap.get(path);
+    if (guideLastModifiedMap.has(path)) return guideLastModifiedMap.get(path);
     if (path.startsWith("/carriers/")) return carriersReviewedAt;
     if (policyPages.includes(path)) return siteReviewedAt;
     return siteReviewedAt;
   }
 
-  return [...staticPages, ...qaPages, ...policyPages, ...carrierPages, ...guidePages, ...blogPages, ...programmaticPages].map((path) => ({
+  return [
+    ...staticPages,
+    ...qaPages,
+    ...policyPages,
+    ...carrierPages,
+    ...guidePages,
+    ...blogPages,
+    ...programmaticPages
+  ].map((path) => ({
     url: `${baseUrl}${path}`,
     lastModified: getLastModified(path),
     changeFrequency: getChangeFrequency(path),

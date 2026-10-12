@@ -1,4 +1,3 @@
-import type { MetadataRoute } from "next";
 import { siteUrl } from "@/lib/seo/site-url";
 
 const baseUrl = siteUrl;
@@ -15,12 +14,13 @@ const aiBots = [
   "Applebot-Extended"
 ];
 
-export default function robots(): MetadataRoute.Robots {
+/** @returns {import("next").MetadataRoute.Robots} */
+export default function robots() {
   return {
     rules: [
       ...aiBots.map((userAgent) => ({
         userAgent,
-        allow: "/" as const
+        allow: "/"
       })),
       {
         userAgent: "*",

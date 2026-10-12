@@ -2,9 +2,9 @@ const fs = require("fs");
 const path = require("path");
 
 const root = process.cwd();
-const sitemap = fs.readFileSync(path.join(root, "app", "sitemap.ts"), "utf8");
+const sitemap = fs.readFileSync(path.join(root, "app", "sitemap.js"), "utf8");
 const programmatic = fs.readFileSync(path.join(root, "content", "programmatic-pages.ts"), "utf8");
-const robots = fs.readFileSync(path.join(root, "app", "robots.ts"), "utf8");
+const robots = fs.readFileSync(path.join(root, "app", "robots.js"), "utf8");
 const guides = fs.readFileSync(path.join(root, "content", "guides.ts"), "utf8");
 const homepage = fs.readFileSync(path.join(root, "app", "page.tsx"), "utf8");
 const internalLinks = fs.readFileSync(path.join(root, "lib", "seo", "internal-links.ts"), "utf8");
@@ -18,7 +18,7 @@ const redirectSlugs = redirectSection
 for (const slug of redirectSlugs) {
   const literalPathPattern = new RegExp(`["']/${slug}["']`);
   if (literalPathPattern.test(sitemap)) {
-    failures.push(`Redirect source appears literally in sitemap.ts: /${slug}`);
+    failures.push(`Redirect source appears literally in sitemap.js: /${slug}`);
   }
 }
 
@@ -35,7 +35,7 @@ if (!sitemap.includes("getIndexableProgrammaticPages")) {
 }
 
 if (!robots.includes('disallow: ["/api/"]')) {
-  failures.push("robots.ts must continue to disallow the tracking API.");
+  failures.push("robots.js must continue to disallow the tracking API.");
 }
 
 const priorityQueryOwners = [
@@ -55,7 +55,9 @@ const priorityQueryOwners = [
   { query: "speed x tracker", route: "/", source: homepage, marker: "Speed X tracker" }
 ];
 
-const sitemapHasGuideCollection = sitemap.includes("const guidePages = guides.map");
+const sitemapHasGuideCollection =
+  sitemap.includes("const guidePages = guides.map") ||
+  /const guidePages\s*=\s*guides\s*\.map/.test(sitemap);
 for (const owner of priorityQueryOwners) {
   if (!owner.source.toLowerCase().includes(owner.marker.toLowerCase())) {
     failures.push(`Priority query is missing its content marker: ${owner.query}`);
