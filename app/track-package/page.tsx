@@ -43,9 +43,9 @@ const trackFaqs = [
 ];
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking — Free Package Tracker",
+  title: "SpeedX Tracking Number — Track Package Free",
   description:
-    "Free SpeedX tracking lookup for SPX and SPXCN numbers. Check out for delivery status, ETA, and what to do if your package is delayed.",
+    "Enter your SpeedX tracking number to track packages free. SPX/SPXCN lookup for international SpeedX delivery status and Shein orders.",
   path: "/track-package"
 });
 
@@ -83,9 +83,9 @@ export default async function TrackPackagePage({
           })
         }
       />
-      <h1 className="text-3xl font-bold text-slate-900">SpeedX Tracking — Free Package Tracker</h1>
+      <h1 className="text-3xl font-bold text-slate-900">SpeedX Tracking Number — Track Package Free</h1>
       <p className="mt-2 text-slate-700">
-        SpeedXTracking is a free SpeedX package tracker. Enter your SPX, SPXCN, or Speed X tracking number to check current status, scan timeline, and estimated delivery for Shein and other store orders.
+        International SpeedX package tracking for SPX and SPXCN numbers. Check delivery status, scan timeline, and ETA for Shein and other store orders worldwide.
       </p>
       <p className="mt-4 text-sm text-slate-700">
         If nothing appears yet, confirm the full tracking code and wait 24 to 48 hours after the label is created for the first carrier scan.

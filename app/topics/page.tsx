@@ -69,6 +69,21 @@ export default function TopicsIndexPage() {
           </Link>
         ))}
       </div>
+
+      <section className="mt-10 section-card">
+        <h2 className="text-xl font-bold text-slate-900">High-intent international pages</h2>
+        <p className="mt-2 text-sm text-slate-600">
+          Extra hubs aimed at the highest-volume SpeedX searches across English and Spanish locales—not city-local pages.
+        </p>
+        <ul className="mt-4 grid gap-2 text-sm font-semibold text-brand-700 sm:grid-cols-2">
+          <li><Link href="/speedx-delivery" className="hover:underline">SpeedX delivery times &amp; hours</Link></li>
+          <li><Link href="/what-is-speedx" className="hover:underline">What is SpeedX?</Link></li>
+          <li><Link href="/does-speedx-deliver-on-sunday" className="hover:underline">Does SpeedX deliver on Sunday?</Link></li>
+          <li><Link href="/rastrear-paquete-speedx" className="hover:underline">Rastrear paquete SpeedX</Link></li>
+          <li><Link href="/track-package" className="hover:underline">SpeedX tracking number lookup</Link></li>
+          <li><Link href="/carriers/speedx/shein" className="hover:underline">SpeedX Shein tracking</Link></li>
+        </ul>
+      </section>
     </div>
   );
 }

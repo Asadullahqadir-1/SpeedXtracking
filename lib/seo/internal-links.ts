@@ -88,6 +88,10 @@ export function getGlobalTroubleshootingCluster(): LinkCluster {
       { href: "/topics/out-for-delivery", label: "SpeedX out for delivery meaning" },
       { href: "/topics/delivery-hours", label: "How late does SpeedX deliver?" },
       { href: "/topics/speedx-tracking", label: "SpeedX tracking and SPXCN" },
+      { href: "/speedx-delivery", label: "SpeedX delivery times" },
+      { href: "/what-is-speedx", label: "What is SpeedX?" },
+      { href: "/does-speedx-deliver-on-sunday", label: "Does SpeedX deliver on Sunday?" },
+      { href: "/rastrear-paquete-speedx", label: "Rastrear paquete SpeedX" },
       { href: "/guides/package-not-updating", label: "Tracking not updating" },
       { href: "/guides/delivered-not-received", label: "Delivered but not received" },
       { href: "/guides/speedx-delivery-hours", label: "SpeedX delivery hours" },
@@ -112,6 +116,7 @@ export function getTopicAuthorityClusters(): LinkCluster[] {
       title: "Delivery hours cluster",
       links: [
         { href: "/topics/delivery-hours", label: "How late does SpeedX deliver?" },
+        { href: "/does-speedx-deliver-on-sunday", label: "Does SpeedX deliver on Sunday?" },
         { href: "/topics/delivery-hours/evening-delivery", label: "Does SpeedX deliver in the evening?" },
         { href: "/topics/delivery-hours/stop-time-myths", label: "What time does SpeedX stop delivering?" },
         { href: "/guides/speedx-delivery-hours", label: "SpeedX delivery hours guide" },
@@ -122,6 +127,9 @@ export function getTopicAuthorityClusters(): LinkCluster[] {
       title: "Tracking and SPXCN cluster",
       links: [
         { href: "/topics/speedx-tracking", label: "SpeedX tracking hub" },
+        { href: "/speedx-delivery", label: "SpeedX delivery guide" },
+        { href: "/what-is-speedx", label: "What is SpeedX?" },
+        { href: "/rastrear-paquete-speedx", label: "Rastrear paquete SpeedX" },
         { href: "/topics/speedx-tracking/spxcn-first-scan", label: "How long until SPXCN shows first scan?" },
         { href: "/topics/speedx-tracking/tracking-not-updating-48-hours", label: "Tracking not updating for 48 hours" },
         { href: "/guides/spxcn-tracking-number-meaning", label: "SPXCN tracking number meaning" },

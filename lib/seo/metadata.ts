@@ -3,8 +3,8 @@ import { siteUrl } from "@/lib/seo/site-url";
 
 export const siteConfig = {
   name: "SpeedXTracking",
-    description:
-    "Free SpeedX tracking for package status, delivery ETA, and troubleshooting help. Independent site — not affiliated with SpeedX.",
+  description:
+    "Free international SpeedX tracking for package status, delivery ETA, and troubleshooting. Independent AdSense resource — not affiliated with SpeedX.",
   url: siteUrl,
   defaultOgImage: "/images/official/speedx-coverage-map.webp"
 };

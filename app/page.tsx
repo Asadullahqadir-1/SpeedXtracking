@@ -14,9 +14,9 @@ import { blogPosts } from "@/content/blogs";
 export const revalidate = 86400;
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking — Free Status & ETA Lookup",
+  title: "SpeedX Tracking Number — Free Package Tracker",
   description:
-    "Free SpeedX tracking for SPX and SPXCN numbers. Check out for delivery status, how late SpeedX delivers, and fixes for delayed packages.",
+    "Free SpeedX tracking number lookup for SPX/SPXCN packages worldwide. Check SpeedX delivery status, Shein tracking, and out for delivery updates.",
   path: "/"
 });
 
@@ -52,10 +52,10 @@ export default function HomePage() {
             Free SpeedX package tracker
           </p>
           <h1 className="text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
-            SpeedX Tracking — Track Packages Free
+            SpeedX Tracking Number Lookup
           </h1>
           <p className="mt-3 text-base text-slate-700 sm:mt-4 sm:text-lg">
-            SpeedXTracking is a free SpeedX tracking tool for SPX, SPXCN, and Speed X live tracking numbers. Check out for delivery status, ETA, and what to do if your package stalls.
+            Free international SpeedX package tracking for SPX and SPXCN numbers. Check delivery status, ETA, Shein shipments, and what to do if your package stalls—anywhere SpeedX delivers.
           </p>
           <div className="mt-3 flex flex-wrap gap-4 text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
@@ -425,6 +425,12 @@ export default function HomePage() {
             <h3 className="font-semibold text-slate-900">Tracking & SPXCN</h3>
             <p className="mt-1 text-sm text-slate-600">Free lookup, format help, and stalled scans</p>
           </Link>
+        </div>
+        <div className="mt-4 grid gap-3 text-sm font-semibold text-brand-700 sm:grid-cols-2 lg:grid-cols-4">
+          <Link href="/speedx-delivery" className="hover:underline">SpeedX delivery times</Link>
+          <Link href="/what-is-speedx" className="hover:underline">What is SpeedX?</Link>
+          <Link href="/does-speedx-deliver-on-sunday" className="hover:underline">Does SpeedX deliver on Sunday?</Link>
+          <Link href="/rastrear-paquete-speedx" className="hover:underline">Rastrear paquete SpeedX</Link>
         </div>
       </section>
 

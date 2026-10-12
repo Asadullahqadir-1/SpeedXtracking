@@ -14,6 +14,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     "",
     "/track-package",
+    "/speedx-delivery",
+    "/what-is-speedx",
+    "/does-speedx-deliver-on-sunday",
+    "/rastrear-paquete-speedx",
     "/topics",
     "/topics/out-for-delivery",
     "/topics/delivery-hours",

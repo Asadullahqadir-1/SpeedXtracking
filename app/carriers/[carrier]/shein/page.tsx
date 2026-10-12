@@ -14,8 +14,8 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
   if (!current) return {};
 
   return buildMetadata({
-    title: `${current.carrierName} Shein Tracking — Status & ETA`,
-    description: `Track Shein orders shipped with ${current.carrierName}, understand cross-border scans, and fix common delay or missing-delivery issues.`,
+    title: `${current.carrierName} Shein Tracking — Track Package Free`,
+    description: `Free ${current.carrierName} Shein tracking. Check Shein order status, SpeedX tracking number updates, and cross-border delivery ETAs worldwide.`,
     path: `/carriers/${carrier}/shein`
   });
 }
@@ -30,9 +30,9 @@ export default async function CarrierSheinPage({ params }: { params: Promise<{ c
 
   return (
     <div className="container-page py-10">
-      <h1 className="text-3xl font-bold">{current.carrierName} Shein Tracking</h1>
+      <h1 className="text-3xl font-bold">{current.carrierName} Shein Tracking — Track Package Free</h1>
       <p className="mt-2 text-slate-700">
-        If your marketplace order is handed to {current.carrierName}, use your tracking number to monitor global transit and local final-mile delivery.
+        Free international {current.carrierName} Shein tracking. Paste your SpeedX tracking number to monitor global transit, customs, and final-mile delivery for marketplace orders.
       </p>
       <section className="mt-6 section-card">
         <h2 className="text-xl font-semibold">How marketplace tracking works</h2>
