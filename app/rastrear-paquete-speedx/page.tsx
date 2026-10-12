@@ -2,6 +2,8 @@ import Link from "next/link";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { articleSchema, breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
+import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
+import { TrustedCitations } from "@/components/seo/TrustedCitations";
 import { TrackingForm } from "@/components/tracking/TrackingForm";
 import { AdSenseUnit } from "@/components/ads/AdSenseUnit";
 
@@ -123,6 +125,9 @@ export default function SpanishTrackPage() {
           ))}
         </div>
       </section>
+
+      <SiteLinkHub currentPath="/rastrear-paquete-speedx" title="Más páginas útiles" />
+      <TrustedCitations variant="core" title="Referencias oficiales de confianza" />
     </div>
   );
 }

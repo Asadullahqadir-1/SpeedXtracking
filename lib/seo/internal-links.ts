@@ -55,6 +55,18 @@ export function buildAdaptiveClusters(clusters: LinkCluster[], options: Adaptive
 }
 
 export function getCarrierIntentClusters(carrierSlug: string, carrierName: string): LinkCluster[] {
+  const speedxMoneyLinks =
+    carrierSlug === "speedx"
+      ? [
+          { href: "/speedx-delivery", label: "SpeedX delivery times hub" },
+          { href: "/what-is-speedx", label: "What is SpeedX?" },
+          { href: "/does-speedx-deliver-on-sunday", label: "Does SpeedX deliver on Sunday?" },
+          { href: "/rastrear-paquete-speedx", label: "Rastrear paquete SpeedX" },
+          { href: "/blog/speedx-delivery-time-by-region", label: "Delivery times by region" },
+          { href: "/blog/shein-speedx-tracking-guide", label: "Shein SpeedX tracking guide" }
+        ]
+      : [];
+
   return [
     {
       title: `${carrierName} tracking intent pages`,
@@ -63,7 +75,8 @@ export function getCarrierIntentClusters(carrierSlug: string, carrierName: strin
         { href: `/track-package`, label: `Track ${carrierName} shipment` },
         { href: `/carriers/${carrierSlug}/status`, label: `${carrierName} tracking status` },
         { href: `/carriers/${carrierSlug}/delivery-time`, label: `${carrierName} delivery time` },
-        { href: `/carriers/${carrierSlug}/contact`, label: `${carrierName} contact support` }
+        { href: `/carriers/${carrierSlug}/contact`, label: `${carrierName} contact support` },
+        ...speedxMoneyLinks
       ]
     },
     {
@@ -72,7 +85,10 @@ export function getCarrierIntentClusters(carrierSlug: string, carrierName: strin
         { href: `/carriers/${carrierSlug}/status`, label: `${carrierName} status meanings` },
         { href: `/carriers/${carrierSlug}/delivery-time`, label: `${carrierName} ETA guide` },
         ...(carrierSlug === "speedx"
-          ? [{ href: "/guides/speedx-delivery-hours", label: "SpeedX delivery hours and stop times" }]
+          ? [
+              { href: "/guides/speedx-delivery-hours", label: "SpeedX delivery hours and stop times" },
+              { href: "/blog/speedx-out-for-delivery-but-not-delivered", label: "Out for delivery but not delivered" }
+            ]
           : []),
         { href: `/carriers/${carrierSlug}/contact`, label: `${carrierName} customer support` },
         { href: `/carriers/${carrierSlug}/shein`, label: `${carrierName} Shein tracking` }

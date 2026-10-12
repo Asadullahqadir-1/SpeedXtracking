@@ -3,6 +3,8 @@ import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { articleSchema, breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
 import { TopicAuthorityLinks } from "@/components/seo/TopicAuthorityLinks";
+import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
+import { TrustedCitations } from "@/components/seo/TrustedCitations";
 import { TrackingForm } from "@/components/tracking/TrackingForm";
 import { AdSenseUnit } from "@/components/ads/AdSenseUnit";
 
@@ -174,6 +176,8 @@ export default function SpeedXDeliveryPage() {
       </section>
 
       <TopicAuthorityLinks activeCluster="delivery-hours" />
+      <SiteLinkHub currentPath="/speedx-delivery" />
+      <TrustedCitations variant="all" />
     </div>
   );
 }

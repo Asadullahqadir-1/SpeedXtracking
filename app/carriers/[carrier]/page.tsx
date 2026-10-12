@@ -5,12 +5,14 @@ import { FreshnessNote } from "@/components/seo/FreshnessNote";
 import { EditorialTrustBlock } from "@/components/seo/EditorialTrustBlock";
 import { LinkClusters } from "@/components/seo/LinkClusters";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
+import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 import { TrackingForm } from "@/components/tracking/TrackingForm";
 import { carriers } from "@/lib/seo/carriers";
 import { getCarrierBySlug } from "@/lib/seo/data";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 import { buildAdaptiveClusters, getCarrierIntentClusters, getGlobalTroubleshootingCluster } from "@/lib/seo/internal-links";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
+import { getCoreCarrierCitations, getTrustedCitationSources } from "@/lib/seo/trusted-citations";
 import { breadcrumbSchema, faqSchema } from "@/lib/seo/schema";
 import { JsonLd } from "@/components/seo/JsonLd";
 
@@ -261,13 +263,12 @@ export default async function CarrierPage({ params }: { params: Promise<{ carrie
         </p>
       </section>
 
+      {current.slug === "speedx" ? <SiteLinkHub currentPath={`/carriers/${current.slug}`} /> : null}
+
       <EditorialTrustBlock
         reviewedDate={getFreshnessDate("carriersHub")}
-        notes="Carrier pages are reviewed for status terminology clarity, escalation guidance, and official support path accuracy."
-        sources={[
-          { label: "SpeedX official website", href: "https://speedx.io/" },
-          { label: "SpeedX support center", href: "https://support.speedx.io/hc/en-us" }
-        ]}
+        notes="Carrier pages are reviewed for status terminology clarity, escalation guidance, and official support path accuracy. Spam directory backlinks are never cited."
+        sources={current.slug === "speedx" ? getTrustedCitationSources() : getCoreCarrierCitations()}
       />
 
       <p className="mt-6 text-xs text-slate-500">

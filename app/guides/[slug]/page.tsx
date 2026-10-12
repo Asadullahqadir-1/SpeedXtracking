@@ -8,6 +8,8 @@ import { getFreshnessDate } from "@/lib/seo/freshness";
 import { buildAdaptiveClusters, getGlobalTroubleshootingCluster } from "@/lib/seo/internal-links";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { TopicAuthorityLinks } from "@/components/seo/TopicAuthorityLinks";
+import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
+import { getTrustedCitationSources } from "@/lib/seo/trusted-citations";
 import { breadcrumbSchema, faqSchema, webPageSchema, articleSchema } from "@/lib/seo/schema";
 
 export const revalidate = 86400;
@@ -160,13 +162,12 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
         }
       />
 
+      <SiteLinkHub currentPath={`/guides/${guide.slug}`} />
+
       <EditorialTrustBlock
         reviewedDate={getFreshnessDate("guidesHub")}
-        notes="Guide steps are reviewed for practical troubleshooting usefulness and adjusted when carrier support patterns change."
-        sources={[
-          { label: "SpeedX official website", href: "https://speedx.io/" },
-          { label: "SpeedX support center", href: "https://support.speedx.io/hc/en-us" }
-        ]}
+        notes="Guide steps are reviewed for practical troubleshooting usefulness and adjusted when carrier support patterns change. Only official and consumer-protection sources are cited."
+        sources={getTrustedCitationSources()}
       />
     </div>
   );

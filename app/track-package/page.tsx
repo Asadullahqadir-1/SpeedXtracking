@@ -7,6 +7,8 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { faqSchema, webPageSchema, breadcrumbSchema, trackingAppSchema } from "@/lib/seo/schema";
 import { buildAdaptiveClusters, getGlobalTroubleshootingCluster } from "@/lib/seo/internal-links";
 import { siteConfig } from "@/lib/seo/metadata";
+import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
+import { TrustedCitations } from "@/components/seo/TrustedCitations";
 import Link from "next/link";
 
 const trackFaqs = [
@@ -170,6 +172,9 @@ export default async function TrackPackagePage({
       <div className="mt-8">
         <LinkClusters clusters={adaptiveClusters} />
       </div>
+
+      <SiteLinkHub currentPath="/track-package" title="Related SpeedXTracking pages" />
+      <TrustedCitations variant="all" />
     </div>
   );
 }

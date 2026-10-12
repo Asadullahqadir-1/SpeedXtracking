@@ -32,10 +32,12 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/" className="text-slate-300 hover:text-white transition">Homepage</Link></li>
               <li><Link href="/track-package" className="text-slate-300 hover:text-white transition">Track Package</Link></li>
+              <li><Link href="/blog/speedx-delivery-time-by-region" className="text-slate-300 hover:text-white transition">Delivery Times Guide</Link></li>
+              <li><Link href="/blog/shein-speedx-tracking-guide" className="text-slate-300 hover:text-white transition">Shein Tracking Guide</Link></li>
               <li><Link href="/topics" className="text-slate-300 hover:text-white transition">Topic Clusters</Link></li>
               <li><Link href="/carriers/speedx" className="text-slate-300 hover:text-white transition">SpeedX Hub</Link></li>
               <li><Link href="/guides" className="text-slate-300 hover:text-white transition">Guides</Link></li>
-              <li><Link href="/resources/shipping-delay-checklist" className="text-slate-300 hover:text-white transition">Shipping Delay Checklist</Link></li>
+              <li><Link href="/faq" className="text-slate-300 hover:text-white transition">FAQ</Link></li>
               <li><Link href="/about" className="text-slate-300 hover:text-white transition">About</Link></li>
             </ul>
           </div>
@@ -71,7 +73,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="mb-4 font-semibold text-white">Official References</h3>
+            <h3 className="mb-4 font-semibold text-white">Trusted References</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a href="https://speedx.io/" target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-white transition">
@@ -96,6 +98,26 @@ export function Footer() {
                   className="text-slate-300 hover:text-white transition"
                 >
                   SpeedX LinkedIn
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://consumer.ftc.gov/articles/online-shopping"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-300 hover:text-white transition"
+                >
+                  FTC Online Shopping Tips
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.cbp.gov/trade/basic-import-export"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-300 hover:text-white transition"
+                >
+                  CBP Import &amp; Export Basics
                 </a>
               </li>
             </ul>

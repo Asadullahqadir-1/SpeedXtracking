@@ -6,7 +6,9 @@ import { FreshnessNote } from "@/components/seo/FreshnessNote";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { TopicAuthorityLinks } from "@/components/seo/TopicAuthorityLinks";
 import { EditorialTrustBlock } from "@/components/seo/EditorialTrustBlock";
+import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
+import { getTrustedCitationSources } from "@/lib/seo/trusted-citations";
 import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/seo/schema";
 
 function resolveBlogCluster(slug: string): "out-for-delivery" | "delivery-hours" | "speedx-tracking" | undefined {
@@ -231,14 +233,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </section>
 
         <TopicAuthorityLinks activeCluster={activeCluster} title="Descriptive SpeedX cluster links" />
+        <SiteLinkHub currentPath={`/blog/${post.slug}`} />
 
         <EditorialTrustBlock
           reviewedDate={post.updatedDate}
-          notes="This article is reviewed against official carrier resources and updated when support flows or status definitions change."
-          sources={[
-            { label: "SpeedX official website", href: "https://speedx.io/" },
-            { label: "SpeedX support center", href: "https://support.speedx.io/hc/en-us" }
-          ]}
+          notes="This article is reviewed against official carrier resources and updated when support flows or status definitions change. Spam backlink farms are never used as citations."
+          sources={getTrustedCitationSources()}
         />
       </article>
     </div>

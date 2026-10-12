@@ -5,8 +5,11 @@ import { FreshnessNote } from "@/components/seo/FreshnessNote";
 import { EditorialTrustBlock } from "@/components/seo/EditorialTrustBlock";
 import { TrackingForm } from "@/components/tracking/TrackingForm";
 import { HeroGlobe } from "@/components/visuals/HeroGlobe";
+import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
+import { TrustedCitations } from "@/components/seo/TrustedCitations";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
+import { getTrustedCitationSources } from "@/lib/seo/trusted-citations";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { faqSchema, breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
 import { globalFaqs } from "@/content/faqs";
@@ -402,12 +405,12 @@ export default function HomePage() {
 
       <EditorialTrustBlock
         reviewedDate={getFreshnessDate("homepage")}
-        notes="This site is organized around practical shipment problems, source-linked references, and step-by-step escalation guidance rather than generic directory content."
-        sources={[
-          { label: "SpeedX official website", href: "https://speedx.io/" },
-          { label: "SpeedX support center", href: "https://support.speedx.io/hc/en-us" }
-        ]}
+        notes="This site is organized around practical shipment problems, source-linked references, and step-by-step escalation guidance rather than generic directory content. We only cite official and consumer-protection sources—never PBN spam links."
+        sources={getTrustedCitationSources()}
       />
+
+      <SiteLinkHub currentPath="/" title="Priority SpeedXTracking pages" />
+      <TrustedCitations variant="all" />
 
       <section className="reveal-card mt-8 section-card p-5 sm:p-6">
         <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">SpeedX Topic Clusters</h2>
