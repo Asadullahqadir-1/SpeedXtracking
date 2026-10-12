@@ -80,8 +80,14 @@ export default function TopicsIndexPage() {
           <li><Link href="/what-is-speedx" className="hover:underline">What is SpeedX?</Link></li>
           <li><Link href="/does-speedx-deliver-on-sunday" className="hover:underline">Does SpeedX deliver on Sunday?</Link></li>
           <li><Link href="/rastrear-paquete-speedx" className="hover:underline">Rastrear paquete SpeedX</Link></li>
-          <li><Link href="/track-package" className="hover:underline">SpeedX tracking number lookup</Link></li>
+          <li><Link href="/speedx-tracking-number" className="hover:underline">SpeedX tracking number</Link></li>
+          <li><Link href="/speedx-package-tracking" className="hover:underline">SpeedX package tracking</Link></li>
+          <li><Link href="/how-to-track-speedx" className="hover:underline">How to track SpeedX</Link></li>
+          <li><Link href="/speedx-global-tracking" className="hover:underline">SpeedX global tracking</Link></li>
+          <li><Link href="/speedx-contact-support" className="hover:underline">SpeedX contact support</Link></li>
+          <li><Link href="/track-package" className="hover:underline">Free tracker tool</Link></li>
           <li><Link href="/carriers/speedx/shein" className="hover:underline">SpeedX Shein tracking</Link></li>
+          <li><Link href="/why-speedxtracking" className="hover:underline">Why SpeedXTracking</Link></li>
         </ul>
       </section>
     </div>

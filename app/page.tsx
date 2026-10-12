@@ -442,6 +442,12 @@ export default function HomePage() {
           <Link href="/what-is-speedx" className="hover:underline">What is SpeedX?</Link>
           <Link href="/does-speedx-deliver-on-sunday" className="hover:underline">Does SpeedX deliver on Sunday?</Link>
           <Link href="/rastrear-paquete-speedx" className="hover:underline">Rastrear paquete SpeedX</Link>
+          <Link href="/speedx-tracking-number" className="hover:underline">SpeedX tracking number</Link>
+          <Link href="/speedx-package-tracking" className="hover:underline">SpeedX package tracking</Link>
+          <Link href="/how-to-track-speedx" className="hover:underline">How to track SpeedX</Link>
+          <Link href="/speedx-global-tracking" className="hover:underline">SpeedX global tracking</Link>
+          <Link href="/speedx-contact-support" className="hover:underline">SpeedX contact support</Link>
+          <Link href="/why-speedxtracking" className="hover:underline">Why SpeedXTracking</Link>
         </div>
       </section>
 

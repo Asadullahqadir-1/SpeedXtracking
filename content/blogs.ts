@@ -287,19 +287,19 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "how-speedx-tracking-works",
-    title: "How SpeedX Tracking Works: From Label Created to Delivered",
+    title: "How SpeedX Tracking Works — Label to Delivered",
     description:
-      "A step-by-step explanation of how SpeedX tracking events are generated from merchant handoff through final-mile delivery.",
+      "How SpeedX tracking works from label created to delivered, including SPXCN gaps, global tracking pauses, and when to escalate.",
     category: "Tracking Basics",
     readTime: "8 min read",
     publishedDate: "2026-03-30",
-    updatedDate: "2026-03-30",
+    updatedDate: "2026-10-13",
     sections: [
       {
         heading: "Stage 1: Label creation and first scan",
         paragraphs: [
           "Most shipments start with a label event, which means shipping data was created but the parcel may not be physically scanned yet.",
-          "The first physical acceptance scan is the point where true transit timing begins. Before that, delays are often seller-side handoff timing rather than carrier movement problems."
+          "The first physical acceptance scan is the point where true transit timing begins. Before that, delays are often seller-side handoff timing rather than carrier movement problems. Use the free SpeedX tracking number lookup once you have the full SPX/SPXCN code."
         ],
         bullets: [
           "Label Created: shipment data submitted",
@@ -311,14 +311,14 @@ export const blogPosts: BlogPost[] = [
         heading: "Stage 2: Hub movement and linehaul gaps",
         paragraphs: [
           "SpeedX scans are not always continuous between hubs. A parcel can move normally for 24-48 hours without new public events during long-haul transfer.",
-          "This is why users often see timeline jumps, where several events appear at once after batch synchronization."
+          "This is why users often see timeline jumps, where several events appear at once after batch synchronization. International SpeedX global tracking often pauses longest around customs."
         ]
       },
       {
         heading: "Stage 3: Final-mile and delivery confirmation",
         paragraphs: [
           "Once a parcel reaches destination processing, scans usually become more frequent. Out-for-delivery indicates route assignment, not guaranteed morning delivery.",
-          "Delivered confirms route completion. If the parcel is missing, run a 24-hour local check process before claim escalation."
+          "Delivered confirms route completion. If the parcel is missing, run a 24-hour local check process before claim escalation. For support steps, see the SpeedX contact support guide."
         ],
         bullets: [
           "Check mailbox clusters and alternate drop points",

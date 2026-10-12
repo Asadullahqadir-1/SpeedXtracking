@@ -48,10 +48,15 @@ export function Footer() {
             <h3 className="mb-4 font-semibold text-white">SpeedX Resources</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/carriers/speedx" className="text-slate-300 hover:text-white transition">SpeedX</Link></li>
+              <li><Link href="/speedx-tracking-number" className="text-slate-300 hover:text-white transition">Tracking Number</Link></li>
+              <li><Link href="/speedx-package-tracking" className="text-slate-300 hover:text-white transition">Package Tracking</Link></li>
+              <li><Link href="/how-to-track-speedx" className="text-slate-300 hover:text-white transition">How to Track SpeedX</Link></li>
+              <li><Link href="/speedx-global-tracking" className="text-slate-300 hover:text-white transition">Global Tracking</Link></li>
               <li><Link href="/speedx-delivery" className="text-slate-300 hover:text-white transition">SpeedX Delivery</Link></li>
               <li><Link href="/what-is-speedx" className="text-slate-300 hover:text-white transition">What is SpeedX?</Link></li>
               <li><Link href="/does-speedx-deliver-on-sunday" className="text-slate-300 hover:text-white transition">Sunday Delivery</Link></li>
               <li><Link href="/rastrear-paquete-speedx" className="text-slate-300 hover:text-white transition">Rastrear SpeedX</Link></li>
+              <li><Link href="/speedx-contact-support" className="text-slate-300 hover:text-white transition">Contact Support</Link></li>
               <li><Link href="/topics/out-for-delivery" className="text-slate-300 hover:text-white transition">Out for Delivery</Link></li>
               <li><Link href="/topics/delivery-hours" className="text-slate-300 hover:text-white transition">Delivery Hours</Link></li>
               <li><Link href="/topics/speedx-tracking" className="text-slate-300 hover:text-white transition">Tracking & SPXCN</Link></li>

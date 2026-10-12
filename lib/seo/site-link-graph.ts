@@ -4,10 +4,15 @@ import type { LinkItem } from "@/lib/seo/internal-links";
 export function getMoneyPageLinks(): LinkItem[] {
   return [
     { href: "/track-package", label: "Free SpeedX tracking number lookup" },
+    { href: "/speedx-tracking-number", label: "SpeedX tracking number guide" },
+    { href: "/speedx-package-tracking", label: "SpeedX package tracking" },
+    { href: "/how-to-track-speedx", label: "How to track SpeedX" },
+    { href: "/speedx-global-tracking", label: "SpeedX global tracking" },
     { href: "/speedx-delivery", label: "SpeedX delivery times & hours" },
     { href: "/what-is-speedx", label: "What is SpeedX?" },
     { href: "/does-speedx-deliver-on-sunday", label: "Does SpeedX deliver on Sunday?" },
     { href: "/rastrear-paquete-speedx", label: "Rastrear paquete SpeedX" },
+    { href: "/speedx-contact-support", label: "SpeedX contact support" },
     { href: "/carriers/speedx", label: "SpeedX tracking hub" },
     { href: "/carriers/speedx/shein", label: "SpeedX Shein tracking" },
     { href: "/blog/speedx-delivery-time-by-region", label: "SpeedX delivery times by region" },

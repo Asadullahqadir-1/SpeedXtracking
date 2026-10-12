@@ -100,11 +100,23 @@ export default function WhySpeedXTrackingPage() {
           <Link href="/track-package" className="hover:underline">
             Open free tracker →
           </Link>
+          <Link href="/speedx-tracking-number" className="hover:underline">
+            SpeedX tracking number →
+          </Link>
+          <Link href="/speedx-package-tracking" className="hover:underline">
+            SpeedX package tracking →
+          </Link>
+          <Link href="/how-to-track-speedx" className="hover:underline">
+            How to track SpeedX →
+          </Link>
+          <Link href="/speedx-global-tracking" className="hover:underline">
+            SpeedX global tracking →
+          </Link>
+          <Link href="/speedx-contact-support" className="hover:underline">
+            Contact support guide →
+          </Link>
           <Link href="/speedx-delivery" className="hover:underline">
             SpeedX delivery times →
-          </Link>
-          <Link href="/blog/shein-speedx-tracking-guide" className="hover:underline">
-            Shein SpeedX guide →
           </Link>
           <Link href="/does-speedx-deliver-on-sunday" className="hover:underline">
             Sunday delivery →
