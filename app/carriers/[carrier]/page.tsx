@@ -43,7 +43,9 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
   return buildMetadata({
     title: intentTitle,
     description: intentDescription,
-    path: `/carriers/${current.slug}`
+    path: `/carriers/${current.slug}`,
+    // Non-SpeedX hubs stay available but noindex — reduces "crawled not indexed" waste.
+    robots: current.slug === "speedx" ? undefined : { index: false, follow: true }
   });
 }
 

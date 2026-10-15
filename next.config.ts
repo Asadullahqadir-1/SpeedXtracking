@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import path from "path";
+import { permanentRedirects } from "./lib/seo/redirects";
 
 const securityHeaders = [
   {
@@ -61,132 +62,11 @@ const nextConfig: NextConfig = {
     ];
   },
   async redirects() {
-    const citySlugs = [
-      "new-york",
-      "los-angeles",
-      "chicago",
-      "houston",
-      "phoenix",
-      "philadelphia",
-      "san-antonio",
-      "san-diego",
-      "dallas",
-      "san-jose",
-      "austin",
-      "jacksonville",
-      "fort-worth",
-      "columbus",
-      "charlotte",
-      "indianapolis",
-      "seattle",
-      "denver",
-      "washington-dc",
-      "boston"
-    ];
-
-    return [
-      {
-        source: "/speedx-tracking-not-updating",
-        destination: "/blog/speedx-tracking-not-updating",
-        permanent: true
-      },
-      {
-        source: "/speedx-delivered-but-not-received",
-        destination: "/guides/delivered-not-received",
-        permanent: true
-      },
-      {
-        source: "/speedx-lost-package-claim",
-        destination: "/blog/delivered-but-not-received-speedx",
-        permanent: true
-      },
-      {
-        source: "/speedx-contact-number",
-        destination: "/carriers/speedx/contact",
-        permanent: true
-      },
-      {
-        source: "/speedx-customer-service",
-        destination: "/carriers/speedx/contact",
-        permanent: true
-      },
-      {
-        source: "/speedx-shein-tracking",
-        destination: "/carriers/speedx/shein",
-        permanent: true
-      },
-      {
-        source: "/shein-speedx-delivery-time",
-        destination: "/blog/shein-speedx-tracking-guide",
-        permanent: true
-      },
-      {
-        source: "/shein-order-stuck-speedx",
-        destination: "/blog/shein-speedx-tracking-guide",
-        permanent: true
-      },
-      {
-        source: "/track-speedx-format-checker",
-        destination: "/track-package",
-        permanent: true
-      },
-      {
-        source: "/track-speedx-spxcn-format",
-        destination: "/guides/spxcn-tracking-number-meaning",
-        permanent: true
-      },
-      {
-        source: "/carriers/usps",
-        destination: "/carriers",
-        permanent: true
-      },
-      {
-        source: "/blog/does-speedx-deliver-late-at-night",
-        destination: "/guides/speedx-delivery-hours",
-        permanent: true
-      },
-      {
-        source: "/blog/does-speedx-deliver-late-at-night-guide",
-        destination: "/guides/speedx-delivery-hours",
-        permanent: true
-      },
-      {
-        source: "/blog/spxcn-tracking-number-meaning",
-        destination: "/blog/spxcn-tracking-number-format-explained",
-        permanent: true
-      },
-      {
-        source: "/guides/does-speedx-deliver-late-at-night",
-        destination: "/guides/speedx-delivery-hours",
-        permanent: true
-      },
-      {
-        source: "/speedx-label-created-no-update",
-        destination: "/blog/speedx-label-created-no-movement",
-        permanent: true
-      },
-      {
-        source: "/speedx-missed-delivery-attempt",
-        destination: "/blog/speedx-attempted-delivery-what-next",
-        permanent: true
-      },
-      {
-        source: "/speedx-invalid-tracking-number",
-        destination: "/blog/speedx-tracking-number-not-found",
-        permanent: true
-      },
-      {
-        source: "/speedx-package-returned-to-sender",
-        destination: "/blog/speedx-returned-to-sender",
-        permanent: true
-      },
-      // Local city pages → international tracker (stop crawl waste / not-indexed thin URLs)
-      ...citySlugs.map((city) => ({
-        source: `/track-speedx-${city}`,
-        destination: "/track-package",
-        permanent: true
-      }))
-    ];
+    return permanentRedirects.map((entry) => ({
+      source: entry.source,
+      destination: entry.destination,
+      permanent: true
+    }));
   }
 };
 

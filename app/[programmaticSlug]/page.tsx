@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { notFound, redirect } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
   buildProgrammaticSections,
@@ -36,9 +36,10 @@ export async function generateMetadata({
 
   const redirectTarget = getRedirectDestinationForProgrammaticSlug(page.slug);
   if (redirectTarget) {
-    redirect(redirectTarget);
+    permanentRedirect(redirectTarget);
   }
 
+  // Non-indexable leftovers (e.g. city category) stay crawlable only with noindex.
   return buildMetadata({
     title: page.title,
     description: page.metaDescription,
@@ -64,7 +65,7 @@ export default async function ProgrammaticPage({
 
   const redirectTarget = getRedirectDestinationForProgrammaticSlug(page.slug);
   if (redirectTarget) {
-    redirect(redirectTarget);
+    permanentRedirect(redirectTarget);
   }
 
   const sections = buildProgrammaticSections(page);

@@ -1,4 +1,4 @@
-import { notFound, redirect } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { FreshnessNote } from "@/components/seo/FreshnessNote";
 import { EditorialTrustBlock } from "@/components/seo/EditorialTrustBlock";
 import { LinkClusters } from "@/components/seo/LinkClusters";
@@ -46,7 +46,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
   const { slug } = await params;
 
   if (GUIDE_REDIRECTS[slug]) {
-    redirect(GUIDE_REDIRECTS[slug]);
+    permanentRedirect(GUIDE_REDIRECTS[slug]);
   }
 
   const guide = guides.find((item) => item.slug === slug);

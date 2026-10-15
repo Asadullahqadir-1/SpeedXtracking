@@ -4,22 +4,32 @@ const path = require("path");
 const root = process.cwd();
 const sitemap = fs.readFileSync(path.join(root, "app", "sitemap.js"), "utf8");
 const programmatic = fs.readFileSync(path.join(root, "content", "programmatic-pages.ts"), "utf8");
+const redirectsFile = fs.readFileSync(path.join(root, "lib", "seo", "redirects.ts"), "utf8");
 const robots = fs.readFileSync(path.join(root, "app", "robots.js"), "utf8");
 const guides = fs.readFileSync(path.join(root, "content", "guides.ts"), "utf8");
 const homepage = fs.readFileSync(path.join(root, "app", "page.tsx"), "utf8");
 const internalLinks = fs.readFileSync(path.join(root, "lib", "seo", "internal-links.ts"), "utf8");
+const nextConfig = fs.readFileSync(path.join(root, "next.config.ts"), "utf8");
 
 const failures = [];
-const redirectSection = programmatic.match(/const redirectedProgrammaticSlugMap[\s\S]*?\n\]\);/);
-const redirectSlugs = redirectSection
-  ? [...redirectSection[0].matchAll(/\["([^"]+)"\s*,/g)].map((match) => match[1])
-  : [];
+
+const redirectSlugs = [...redirectsFile.matchAll(/^\s*"([^"]+)":\s*"/gm)]
+  .map((match) => match[1])
+  .filter((slug) => !slug.includes("/") && slug !== "source" && slug !== "destination");
 
 for (const slug of redirectSlugs) {
   const literalPathPattern = new RegExp(`["']/${slug}["']`);
   if (literalPathPattern.test(sitemap)) {
     failures.push(`Redirect source appears literally in sitemap.js: /${slug}`);
   }
+}
+
+if (!nextConfig.includes("permanentRedirects")) {
+  failures.push("next.config.ts must use the shared permanentRedirects list.");
+}
+
+if (!nextConfig.includes("permanent: true")) {
+  failures.push("next.config.ts redirects must be permanent (301) for GSC redirect validation.");
 }
 
 const imageSources = [...programmatic.matchAll(/imageSrc:\s*"([^"]+)"/g)].map((match) => match[1]);
@@ -78,4 +88,6 @@ if (failures.length > 0) {
   process.exit(1);
 }
 
-console.log(`SEO integrity validation passed (${redirectSlugs.length} redirect sources, ${new Set(imageSources).size} image assets checked).`);
+console.log(
+  `SEO integrity validation passed (${redirectSlugs.length} redirect sources, ${new Set(imageSources).size} image assets checked).`
+);

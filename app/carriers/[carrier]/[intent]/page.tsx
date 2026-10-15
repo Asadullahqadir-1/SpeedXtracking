@@ -14,15 +14,16 @@ import { buildMetadata } from "@/lib/seo/metadata";
 export const revalidate = 86400;
 
 export async function generateStaticParams() {
+  // Only SpeedX long-tail intents — other carriers stay noindex and out of static crawl set.
   const params: Array<{ carrier: string; intent: string }> = [];
+  const speedx = carriers.find((carrier) => carrier.slug === "speedx");
+  if (!speedx) return params;
 
-  for (const carrier of carriers) {
-    for (const intent of longTailIntentSlugs) {
-      params.push({
-        carrier: carrier.slug,
-        intent
-      });
-    }
+  for (const intent of longTailIntentSlugs) {
+    params.push({
+      carrier: speedx.slug,
+      intent
+    });
   }
 
   return params;

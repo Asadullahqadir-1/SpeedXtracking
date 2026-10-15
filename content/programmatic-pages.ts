@@ -1,3 +1,8 @@
+import {
+  getProgrammaticRedirectDestination,
+  isProgrammaticSlugRedirected
+} from "@/lib/seo/redirects";
+
 type PageCategory = "issue" | "contact" | "shein" | "city" | "format";
 
 type BasePage = {
@@ -565,44 +570,12 @@ export const programmaticPages: BasePage[] = [
   ...formatPages
 ];
 
-const redirectedProgrammaticSlugMap = new Map<string, string>([
-  ["speedx-tracking-not-updating", "/blog/speedx-tracking-not-updating"],
-  ["speedx-delivered-but-not-received", "/guides/delivered-not-received"],
-  ["speedx-lost-package-claim", "/blog/delivered-but-not-received-speedx"],
-  ["speedx-contact-number", "/carriers/speedx/contact"],
-  ["speedx-customer-service", "/carriers/speedx/contact"],
-  ["speedx-support-email", "/carriers/speedx/contact"],
-  ["speedx-live-agent-help", "/carriers/speedx/contact"],
-  ["speedx-claim-support", "/carriers/speedx/contact"],
-  ["speedx-shein-tracking", "/carriers/speedx/shein"],
-  ["shein-speedx-delivery-time", "/blog/shein-speedx-tracking-guide"],
-  ["shein-order-stuck-speedx", "/blog/shein-speedx-tracking-guide"],
-  ["shein-speedx-delivered-not-received", "/blog/delivered-but-not-received-speedx"],
-  ["shein-speedx-contact-support", "/carriers/speedx/contact"],
-  ["track-speedx-spxcn-format", "/guides/spxcn-tracking-number-meaning"],
-  ["track-speedx-spxsg-format", "/track-package"],
-  ["track-speedx-numeric-format", "/track-package"],
-  ["track-speedx-order-id-vs-tracking-number", "/track-package"],
-  ["track-speedx-format-checker", "/track-package"],
-  ["speedx-out-for-delivery-but-not-delivered", "/blog/speedx-out-for-delivery-but-not-delivered"],
-  ["speedx-delivery-exception", "/blog/speedx-delivery-exception-codes"],
-  ["speedx-customs-clearance-delay", "/blog/speedx-customs-delay-guide"],
-  ["speedx-at-facility-too-long", "/blog/speedx-arrived-at-facility-meaning"],
-  // Near-duplicate of stronger blog posts — consolidate to fix indexing/cannibalization
-  ["speedx-label-created-no-update", "/blog/speedx-label-created-no-movement"],
-  ["speedx-missed-delivery-attempt", "/blog/speedx-attempted-delivery-what-next"],
-  ["speedx-invalid-tracking-number", "/blog/speedx-tracking-number-not-found"],
-  ["speedx-package-returned-to-sender", "/blog/speedx-returned-to-sender"],
-  // Local city pages → international tracker (AdSense / non-local strategy)
-  ...cityKeywords.map((citySlug) => [`track-speedx-${citySlug}`, "/track-package"] as [string, string])
-]);
-
 export function getRedirectDestinationForProgrammaticSlug(slug: string) {
-  return redirectedProgrammaticSlugMap.get(slug);
+  return getProgrammaticRedirectDestination(slug);
 }
 
 export function isProgrammaticPageIndexable(page: BasePage) {
-  return !redirectedProgrammaticSlugMap.has(page.slug) && page.category !== "city";
+  return !isProgrammaticSlugRedirected(page.slug) && page.category !== "city";
 }
 
 export function getIndexableProgrammaticPages() {

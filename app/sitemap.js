@@ -50,18 +50,14 @@ export default function sitemap() {
     "/disclaimer"
   ];
 
-  const carrierPages = carriers.flatMap((carrier) => {
-    if (carrier.slug === "speedx") {
-      return [
-        `/carriers/${carrier.slug}`,
-        `/carriers/${carrier.slug}/status`,
-        `/carriers/${carrier.slug}/delivery-time`,
-        `/carriers/${carrier.slug}/contact`,
-        `/carriers/${carrier.slug}/shein`
-      ];
-    }
-    return [`/carriers/${carrier.slug}`];
-  });
+  // Only SpeedX carrier URLs in sitemap — other carrier hubs are noindex (crawl budget / GSC).
+  const carrierPages = [
+    "/carriers/speedx",
+    "/carriers/speedx/status",
+    "/carriers/speedx/delivery-time",
+    "/carriers/speedx/contact",
+    "/carriers/speedx/shein"
+  ];
 
   const guidePages = guides
     .map((guide) => `/guides/${guide.slug}`)

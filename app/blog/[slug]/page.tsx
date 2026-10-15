@@ -1,4 +1,4 @@
-import { notFound, redirect } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import Link from "next/link";
 import { blogPosts } from "@/content/blogs";
 import { AdSenseUnit } from "@/components/ads/AdSenseUnit";
@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!post) return {};
 
   if (slug === "does-speedx-deliver-late-at-night-guide") {
-    redirect("/guides/speedx-delivery-hours");
+    permanentRedirect("/guides/speedx-delivery-hours");
   }
 
   return buildMetadata({
@@ -62,7 +62,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   }
 
   if (slug === "does-speedx-deliver-late-at-night-guide") {
-    redirect("/guides/speedx-delivery-hours");
+    permanentRedirect("/guides/speedx-delivery-hours");
   }
 
   const relatedPosts = blogPosts
