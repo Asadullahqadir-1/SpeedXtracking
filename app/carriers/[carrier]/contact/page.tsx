@@ -71,7 +71,11 @@ export default async function CarrierContactPage({ params }: { params: Promise<{
             </a>
           </p>
         ) : null}
-        {current.supportEmail ? <p className="mt-2 text-sm text-slate-700">Support email: {current.supportEmail}</p> : null}
+        {current.supportUrl ? (
+          <p className="mt-2 text-sm text-slate-600">
+            Prefer the official support page above—avoids broken email-protection crawl URLs in audits.
+          </p>
+        ) : null}
       </section>
 
       {isSpeedX ? (

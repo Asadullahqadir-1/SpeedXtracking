@@ -24,7 +24,7 @@ export default function robots() {
       })),
       {
         userAgent: "*",
-        allow: "/",
+        allow: ["/", "/llms.txt"],
         disallow: ["/api/"]
       }
     ],

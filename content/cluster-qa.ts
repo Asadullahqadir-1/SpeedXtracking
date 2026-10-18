@@ -186,8 +186,78 @@ export const clusterQaArticles: ClusterQaArticle[] = [
     ],
     relatedAnchors: [
       { href: "/topics/delivery-hours", label: "SpeedX delivery hours hub" },
-      { href: "/speedx-weekend-delivery", label: "SpeedX weekend delivery guide" },
+      { href: "/does-speedx-deliver-on-sunday", label: "Does SpeedX deliver on Sunday?" },
       { href: "/carriers/speedx/delivery-time", label: "How long SpeedX takes to deliver" }
+    ]
+  },
+  {
+    slug: "sunday-delivery-odds",
+    clusterSlug: "delivery-hours",
+    title: "Does SpeedX Deliver on Sundays? Odds & Tips",
+    h1: "Does SpeedX Deliver on Sundays?",
+    metaDescription:
+      "Does SpeedX deliver on Sundays? Sometimes on metro routes. Learn Saturday vs Sunday odds and when to recheck tracking.",
+    summary:
+      "Sunday SpeedX delivery is possible but less consistent than Saturday. Quiet Sunday scans are common—recheck Monday before escalating.",
+    question: "Does SpeedX deliver on Sundays?",
+    answer:
+      "Sometimes. Busy city routes may run Sunday deliveries, but many areas wait until Monday. If tracking is quiet on Sunday, check again Monday morning.",
+    sections: [
+      {
+        heading: "How to read Sunday tracking",
+        paragraphs: [
+          "An out-for-delivery scan on Sunday still usually means a same-day attempt. No new scans on Sunday can simply mean the depot is not running your route that day.",
+          "Marketplace ETAs that say “Sunday” are estimates—carrier route staffing is the real constraint."
+        ],
+        bullets: [
+          "Saturday: more common weekend delivery day",
+          "Sunday: route-dependent, less consistent",
+          "Escalate after Monday morning if ETA already passed"
+        ]
+      }
+    ],
+    relatedAnchors: [
+      { href: "/does-speedx-deliver-on-sunday", label: "Full Sunday delivery guide" },
+      { href: "/topics/delivery-hours", label: "Delivery hours topic hub" },
+      { href: "/guides/speedx-delivery-hours", label: "How late does SpeedX deliver?" }
+    ]
+  },
+  {
+    slug: "destination-facility-meaning",
+    clusterSlug: "speedx-tracking",
+    title: "SpeedX Arrival at Destination Facility Meaning",
+    h1: "What Does Arrival at Destination Facility Mean on SpeedX?",
+    metaDescription:
+      "SpeedX shows arrival at destination facility or in transit to destination facility? Learn what it means and when final delivery usually follows.",
+    summary:
+      "Destination facility scans mean the parcel reached the local hub near you. Final-mile delivery often follows within one to a few business days.",
+    question: "What does arrival at destination facility mean for SpeedX?",
+    answer:
+      "It means your package reached the local SpeedX (or partner) hub that serves your delivery area. Out for delivery usually comes next, often within 1–3 business days depending on volume.",
+    sections: [
+      {
+        heading: "In transit to destination facility",
+        paragraphs: [
+          "This status means the shipment is moving toward your local hub. Long quiet gaps can still be normal during linehaul.",
+          "Escalate if the seller ETA has already passed and there is no destination arrival for several business days."
+        ]
+      },
+      {
+        heading: "After arrival at destination facility",
+        paragraphs: [
+          "Sorting and route assignment happen next. Watch for out for delivery, then prepare for same-day or next-day drop-off."
+        ],
+        bullets: [
+          "Confirm address and gate access notes",
+          "Watch for out-for-delivery the next local delivery day",
+          "Use the free tracker after each new scan"
+        ]
+      }
+    ],
+    relatedAnchors: [
+      { href: "/blog/speedx-arrived-at-facility-meaning", label: "Arrived at facility guide" },
+      { href: "/topics/speedx-tracking", label: "SpeedX tracking hub" },
+      { href: "/topics/out-for-delivery", label: "Out for delivery meaning" }
     ]
   },
   {

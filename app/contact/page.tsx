@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { buildMetadata } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
@@ -7,8 +8,6 @@ export const metadata = buildMetadata({
 });
 
 export default function ContactPage() {
-  const supportEmail = "hello@speedxtracking.org";
-
   return (
     <div className="container-page py-10">
       <h1 className="text-3xl font-bold">Contact</h1>
@@ -16,17 +15,39 @@ export default function ContactPage() {
       <section className="mt-4 section-card p-5 sm:p-6">
         <p className="text-sm leading-relaxed text-slate-700 sm:text-base">
           Contact the SpeedXTracking editorial team for correction requests, feedback, and content quality issues.
-          For shipment claims, refunds, and delivery investigations, contact your seller or official SpeedX support directly.
+          For shipment claims, refunds, and delivery investigations, contact your seller or{" "}
+          <a
+            href="https://support.speedx.io/hc/en-us"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-brand-700 hover:underline"
+          >
+            official SpeedX support
+          </a>{" "}
+          directly.
         </p>
       </section>
 
       <section className="mt-6 section-card p-5 sm:p-6">
         <h2 className="text-xl font-semibold text-slate-900">Editorial contact</h2>
         <p className="mt-3 text-sm leading-relaxed text-slate-700 sm:text-base">
-          Email: <a className="font-semibold text-brand-700 hover:underline" href={`mailto:${supportEmail}`}>{supportEmail}</a>
+          Use the form path below instead of posting a raw email address on-page (avoids broken Cloudflare email-protection crawl URLs).
         </p>
-        <p className="mt-2 text-sm text-slate-700">
-          Typical response window: 1-2 business days.
+        <p className="mt-3 text-sm text-slate-700">
+          Preferred: open your mail app with a prefilled subject via{" "}
+          <a
+            className="font-semibold text-brand-700 hover:underline"
+            href="mailto:hello%40speedxtracking.org?subject=SpeedXTracking%20editorial%20feedback"
+          >
+            editorial feedback link
+          </a>
+          .
+        </p>
+        <p className="mt-2 text-sm text-slate-700">Typical response window: 1-2 business days.</p>
+        <p className="mt-4 text-sm text-brand-700">
+          <Link href="/speedx-contact-support" className="font-semibold hover:underline">
+            SpeedX package support checklist →
+          </Link>
         </p>
       </section>
 

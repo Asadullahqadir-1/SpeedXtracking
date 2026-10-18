@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { articleSchema, breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
+import { articleSchema, breadcrumbSchema, faqSchema, speakableSchema, webPageSchema } from "@/lib/seo/schema";
 import { TopicAuthorityLinks } from "@/components/seo/TopicAuthorityLinks";
 import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 import { TrustedCitations } from "@/components/seo/TrustedCitations";
@@ -34,9 +34,9 @@ const faqs = [
 ];
 
 export const metadata = buildMetadata({
-  title: "Does SpeedX Deliver on Sunday? Weekend Guide",
+  title: "Does SpeedX Deliver on Sunday? Yes—Sometimes",
   description:
-    "Does SpeedX deliver on Sunday or weekends? See Saturday vs Sunday patterns, tracking lag, and what to do if scans pause.",
+    "Does SpeedX deliver on Sunday? Sometimes on busy routes. Saturdays are more common. See what to do if tracking stays quiet over the weekend.",
   path: "/does-speedx-deliver-on-sunday"
 });
 
@@ -77,10 +77,19 @@ export default function SundayDeliveryPage() {
         })}
       />
       <JsonLd data={faqSchema(faqs)} />
+      <JsonLd
+        data={speakableSchema({
+          path: "/does-speedx-deliver-on-sunday",
+          cssSelectors: [".answer-lead", "h1"]
+        })}
+      />
 
       <h1 className="text-3xl font-bold text-slate-900">Does SpeedX Deliver on Sunday?</h1>
-      <p className="mt-3 max-w-3xl text-slate-700">
-        Short answer: sometimes. SpeedX can deliver on Sunday on selected high-volume routes, but Sunday service is less consistent than weekday or Saturday delivery. Use your tracking status—not a fixed calendar rule—to decide when to wait or escalate.
+      <p className="answer-lead mt-3 max-w-3xl text-lg font-medium text-slate-900">
+        Yes—sometimes. SpeedX may deliver on Sunday on busy metro routes, but Saturday is usually more common.
+      </p>
+      <p className="mt-2 max-w-3xl text-slate-700">
+        Sunday service is less consistent than weekday delivery. Use your tracking status—not a fixed calendar rule—to decide when to wait or escalate. If scans stay quiet on Sunday, recheck Monday morning before contacting support.
       </p>
 
       <section className="mt-6 section-card">

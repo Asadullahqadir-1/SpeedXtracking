@@ -34,9 +34,9 @@ const faqs = [
 ];
 
 export const metadata = buildMetadata({
-  title: "What Is SpeedX? Shipping Carrier Explained",
+  title: "What Is SpeedX? Delivery Carrier Explained",
   description:
-    "What is SpeedX shipping? Learn how the SpeedX delivery carrier works, who delivers packages, and how to track SPX/SPXCN numbers worldwide.",
+    "What is SpeedX? It’s a last-mile delivery carrier for e-commerce (including Shein). See who delivers packages and how to track SPX/SPXCN free.",
   path: "/what-is-speedx"
 });
 
@@ -74,8 +74,11 @@ export default function WhatIsSpeedXPage() {
       <JsonLd data={faqSchema(faqs)} />
 
       <h1 className="text-3xl font-bold text-slate-900">What Is SpeedX?</h1>
-      <p className="mt-3 max-w-3xl text-slate-700">
-        SpeedX is a package delivery carrier focused on last-mile and e-commerce shipping. If your online order shows a SpeedX, SPX, or SPXCN tracking number, SpeedX (or a partner in its network) is moving the parcel toward your address.
+      <p className="answer-lead mt-3 max-w-3xl text-lg font-medium text-slate-900">
+        SpeedX is a last-mile delivery carrier used by online retailers—including many Shein and marketplace orders.
+      </p>
+      <p className="mt-2 max-w-3xl text-slate-700">
+        If your order shows a SpeedX, SPX, or SPXCN tracking number, SpeedX (or a partner in its network) is moving the parcel toward your address. Track it free below.
       </p>
 
       <section className="mt-6 section-card">

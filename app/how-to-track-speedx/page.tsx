@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { articleSchema, breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
+import { articleSchema, breadcrumbSchema, faqSchema, howToSchema, webPageSchema } from "@/lib/seo/schema";
 import { TopicAuthorityLinks } from "@/components/seo/TopicAuthorityLinks";
 import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 import { TrustedCitations } from "@/components/seo/TrustedCitations";
@@ -61,6 +61,31 @@ export default function HowToTrackSpeedXPage() {
         })}
       />
       <JsonLd data={faqSchema(faqs)} />
+      <JsonLd
+        data={howToSchema({
+          name: "How to track a SpeedX package",
+          description: "Step-by-step SpeedX tracking using your SPX or SPXCN number.",
+          path: "/how-to-track-speedx",
+          steps: [
+            {
+              name: "Find your tracking number",
+              text: "Open the shipping email or marketplace order page and copy the SpeedX / SPX / SPXCN carrier tracking number."
+            },
+            {
+              name: "Paste into the free tracker",
+              text: "Paste the full number with no spaces into the SpeedXTracking free tracker and submit."
+            },
+            {
+              name: "Read the latest status",
+              text: "Check label created, in transit, destination facility, out for delivery, or delivered events."
+            },
+            {
+              name: "Escalate only when needed",
+              text: "If tracking is quiet for 48+ hours after the seller ETA, contact the seller with screenshots before carrier support."
+            }
+          ]
+        })}
+      />
 
       <h1 className="text-3xl font-bold text-slate-900">How to Track a SpeedX Package</h1>
       <p className="mt-3 max-w-3xl text-slate-700">

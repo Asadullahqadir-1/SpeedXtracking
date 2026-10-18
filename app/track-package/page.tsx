@@ -45,9 +45,9 @@ const trackFaqs = [
 ];
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking Number — Track Package Free",
+  title: "Track SpeedX Package Free — Paste Number",
   description:
-    "Enter your SpeedX tracking number to track packages free. SPX/SPXCN lookup for international SpeedX delivery status and Shein orders.",
+    "Track your SpeedX package free. Paste SPX/SPXCN tracking number for status, Shein orders, and international delivery updates—no signup.",
   path: "/track-package"
 });
 

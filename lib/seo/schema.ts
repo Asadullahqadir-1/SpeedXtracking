@@ -48,11 +48,57 @@ export function organizationSchema() {
       {
         "@type": "ContactPoint",
         contactType: "customer support",
-        email: "hello@speedxtracking.org",
-        availableLanguage: ["English"]
+        url: `${siteUrl}/contact`,
+        availableLanguage: ["English", "Spanish"]
       }
     ],
     sameAs: ["https://speedxtracking.org"]
+  };
+}
+
+/** Speakable blocks help AI/answer engines quote concise FAQ answers. */
+export function speakableSchema({
+  path,
+  cssSelectors
+}: {
+  path: string;
+  cssSelectors: string[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${siteUrl}${path}#speakable`,
+    url: `${siteUrl}${path}`,
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: cssSelectors
+    }
+  };
+}
+
+export function howToSchema({
+  name,
+  description,
+  path,
+  steps
+}: {
+  name: string;
+  description: string;
+  path: string;
+  steps: Array<{ name: string; text: string }>;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name,
+    description,
+    url: `${siteUrl}${path}`,
+    step: steps.map((step, index) => ({
+      "@type": "HowToStep",
+      position: index + 1,
+      name: step.name,
+      text: step.text
+    }))
   };
 }
 

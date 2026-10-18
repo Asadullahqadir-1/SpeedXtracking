@@ -11,16 +11,16 @@ import { getFreshnessDate } from "@/lib/seo/freshness";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { getTrustedCitationSources } from "@/lib/seo/trusted-citations";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { faqSchema, breadcrumbSchema, webPageSchema } from "@/lib/seo/schema";
+import { faqSchema, breadcrumbSchema, trackingAppSchema, webPageSchema } from "@/lib/seo/schema";
 import { globalFaqs } from "@/content/faqs";
 import { blogPosts } from "@/content/blogs";
 
 export const revalidate = 86400;
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking Number — Free Package Tracker",
+  title: "SpeedX Tracking — Free Number Lookup Now",
   description:
-    "Free SpeedX tracking number lookup for SPX/SPXCN packages worldwide. Check SpeedX delivery status, Shein tracking, and out for delivery updates.",
+    "Track SpeedX free: paste your SPX/SPXCN tracking number for live status, Shein updates, out for delivery help, and delivery ETAs worldwide.",
   path: "/"
 });
 
@@ -45,6 +45,7 @@ export default function HomePage() {
         data={breadcrumbSchema([{ name: "Home", url: siteConfig.url }, { name: "SpeedX Tracking", url: siteConfig.url }])}
       />
       <JsonLd data={faqSchema(globalFaqs.slice(0, 8))} />
+      <JsonLd data={trackingAppSchema()} />
 
       {/* Hero Section */}
       <section className="hero-shell relative overflow-hidden rounded-2xl p-5 sm:p-8 lg:p-12">

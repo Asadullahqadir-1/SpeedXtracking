@@ -1,0 +1,20 @@
+# SpeedXTracking
+
+> Independent free SpeedX package tracking and delivery help. Not affiliated with SpeedX.
+
+## Primary pages
+- https://speedxtracking.org/ — SpeedX tracking number lookup
+- https://speedxtracking.org/track-package — Free tracker tool
+- https://speedxtracking.org/does-speedx-deliver-on-sunday — Sunday / weekend delivery
+- https://speedxtracking.org/what-is-speedx — What is SpeedX?
+- https://speedxtracking.org/speedx-delivery — Delivery times and hours
+- https://speedxtracking.org/speedx-tracking-number — Tracking number guide
+- https://speedxtracking.org/carriers/speedx/shein — Shein + SpeedX tracking
+- https://speedxtracking.org/topics — Topic cluster hubs
+
+## Official sources
+- https://speedx.io/
+- https://support.speedx.io/hc/en-us
+
+## Contact
+- https://speedxtracking.org/contact
