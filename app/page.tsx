@@ -25,9 +25,10 @@ import { blogPosts } from "@/content/blogs";
 export const revalidate = 86400;
 
 export const metadata = buildMetadata({
-  title: "SpeedX Track Package Free — Paste Number",
+  // Exact "SpeedX Tracking" match + free/no-login hook — GSC: 8.1K imp / 0.2% CTR last 7d
+  title: "SpeedX Tracking Free — Paste Number Now",
   description:
-    "SpeedX track package free: paste your SPX/SPXCN tracking number for live status, Shein updates, out for delivery help, and delivery ETAs worldwide.",
+    "Free SpeedX tracking: paste SPX/SPXCN for live status in seconds. No login. Shein updates, out for delivery meaning, and delivery ETA help.",
   path: "/"
 });
 
@@ -90,10 +91,10 @@ export default function HomePage() {
             Free SpeedX package tracker
           </p>
           <h1 className="hero-intro hero-intro-delay-1 text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
-            SpeedX Tracking — Track Package Free
+            SpeedX Tracking — Free Package Lookup
           </h1>
           <p className="answer-lead hero-intro hero-intro-delay-2 mt-3 text-base font-medium text-slate-900 sm:mt-4 sm:text-lg">
-            Free SpeedX tracking and Speed X tracker for SPX/SPXCN numbers—paste your code for live status, out-for-delivery updates, Shein scans, and delivery ETA context. No signup.
+            Free SpeedX tracking for SPX and SPXCN numbers—paste once for live status, Shein scans, out-for-delivery updates, and ETA context. No login required.
           </p>
           <div className="hero-intro hero-intro-delay-3 mt-3 flex flex-wrap gap-4 text-sm text-slate-600">
             <span className="flex items-center gap-1.5">

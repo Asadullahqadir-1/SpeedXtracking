@@ -52,9 +52,9 @@ const faqs = [
 const reviewed = "2026-11-01";
 
 export const metadata = buildMetadata({
-  title: "SpeedX Out for Delivery — Meaning & Timing",
+  title: "SpeedX Out for Delivery — Same Day? What To Do",
   description:
-    "SpeedX out for delivery meaning, same-day odds, and what to do if out for delivery but not delivered. Free SPX/SPXCN tracking below.",
+    "SpeedX out for delivery usually means same-day drop. Still out for delivery all day or not delivered? Checklist + free SPX tracking below.",
   path: "/speedx-out-for-delivery"
 });
 

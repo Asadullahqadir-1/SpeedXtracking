@@ -34,9 +34,10 @@ const faqs = [
 ];
 
 export const metadata = buildMetadata({
-  title: "Does SpeedX Deliver on Sunday? Yes—Sometimes",
+  // Covers "weekends" (92 imp) + "sunday" — answer-first SERP title
+  title: "Does SpeedX Deliver on Weekends? Sat Yes",
   description:
-    "Does SpeedX deliver on Sunday? Sometimes on busy routes. Saturdays are more common. See what to do if tracking stays quiet over the weekend.",
+    "Yes—SpeedX delivers on Saturdays everywhere it serves. Sunday delivery is select metros only (often 8am–8pm). Recheck Monday if scans stay quiet.",
   path: "/does-speedx-deliver-on-sunday"
 });
 
@@ -84,9 +85,9 @@ export default function SundayDeliveryPage() {
         })}
       />
 
-      <h1 className="text-3xl font-bold text-slate-900">Does SpeedX Deliver on Sunday?</h1>
+      <h1 className="text-3xl font-bold text-slate-900">Does SpeedX Deliver on Weekends &amp; Sunday?</h1>
       <p className="answer-lead mt-3 max-w-3xl text-lg font-medium text-slate-900">
-        Yes—sometimes. SpeedX may deliver on Sunday on busy metro routes, but Saturday is usually more common.
+        Yes on Saturdays in all service areas; Sunday only in select metros. If weekend scans stay quiet, recheck Monday morning before escalating.
       </p>
       <p className="mt-2 max-w-3xl text-slate-700">
         Sunday service is less consistent than weekday delivery. Use your tracking status—not a fixed calendar rule—to decide when to wait or escalate. If scans stay quiet on Sunday, recheck Monday morning before contacting support.
