@@ -94,7 +94,7 @@ export default function HomePage() {
             SpeedX Tracking — Free Package Lookup
           </h1>
           <p className="answer-lead hero-intro hero-intro-delay-2 mt-3 text-base font-medium text-slate-900 sm:mt-4 sm:text-lg">
-            Free SpeedX tracking for SPX and SPXCN numbers—paste once for live status, Shein scans, out-for-delivery updates, and ETA context. No login required.
+            Free SpeedX tracking and Speed X tracker for SPX/SPXCN numbers—paste once for live status, Shein scans, out-for-delivery updates, and ETA context. No login required.
           </p>
           <div className="hero-intro hero-intro-delay-3 mt-3 flex flex-wrap gap-4 text-sm text-slate-600">
             <span className="flex items-center gap-1.5">
