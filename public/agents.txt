@@ -1,0 +1,17 @@
+# SpeedXTracking — agent / AI browsing entry points
+# https://speedxtracking.org/agents.txt
+
+User-Agent: *
+Allow: /
+
+# Primary tools
+Sitemap: https://speedxtracking.org/sitemap.xml
+LLMs: https://speedxtracking.org/llms.txt
+
+# High-intent pages for answer engines
+- https://speedxtracking.org/track-package
+- https://speedxtracking.org/speedx-delivery
+- https://speedxtracking.org/speedx-out-for-delivery
+- https://speedxtracking.org/does-speedx-deliver-on-sunday
+- https://speedxtracking.org/what-is-speedx
+- https://speedxtracking.org/topics

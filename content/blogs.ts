@@ -55,21 +55,21 @@ export const blogPosts: BlogPost[] = [
     slug: "speedx-delivery-time-by-region",
     title: "SpeedX Delivery Times by Region — Domestic vs International",
     description:
-      "SpeedX delivery times explained for domestic and international routes, customs delays, Sunday service, and realistic ETAs for Shein and marketplace orders.",
+      "Regional SpeedX delivery time ranges: domestic vs international ETAs, customs lag, and marketplace peak delays—not a Sunday or hours hub.",
     category: "Delivery Times",
     readTime: "8 min read",
     publishedDate: "2026-02-26",
-    updatedDate: "2026-10-13",
+    updatedDate: "2026-11-01",
     sections: [
       {
-        heading: "SpeedX delivery times at a glance",
+        heading: "Regional SpeedX delivery times at a glance",
         paragraphs: [
-          "Most domestic SpeedX parcels arrive in about 2-7 business days after handoff to the local network. Cross-border SpeedX delivery commonly takes about 7-20 days depending on customs and partner carriers. These are delivery-time estimates, not guaranteed delivery hours.",
-          "Marketplace promos and peak seasons can add 2-4 days due to higher sort volume. For a full hub covering hours, weekends, and tracking, see the SpeedX delivery guide at /speedx-delivery."
+          "Most domestic SpeedX parcels arrive in about 2-7 business days after handoff to the local network. Cross-border SpeedX delivery commonly takes about 7-20 days depending on customs and partner carriers. These are regional delivery-time estimates, not guaranteed delivery hours.",
+          "Marketplace promos and peak seasons can add 2-4 days due to higher sort volume. For the main SpeedX delivery hub (hours, tracking, and ETAs), use /speedx-delivery. For Sunday/weekend service only, use /does-speedx-deliver-on-sunday."
         ]
       },
       {
-        heading: "What affects SpeedX delivery speed most",
+        heading: "What affects SpeedX delivery speed most by region",
         paragraphs: [
           "Transit speed is mainly influenced by customs clearance quality, destination density, and handoff timing between linehaul and final-mile teams. International shoppers should expect longer quiet periods while parcels clear export and import stages."
         ],
@@ -81,10 +81,10 @@ export const blogPosts: BlogPost[] = [
         ]
       },
       {
-        heading: "Does SpeedX deliver on Sunday?",
+        heading: "Weekend timing vs this regional guide",
         paragraphs: [
-          "Sunday SpeedX delivery can happen on some busy metro routes, but it is less consistent than weekday or Saturday service. If tracking stays quiet on Sunday, recheck Monday morning before escalating.",
-          "For a dedicated weekend answer, read does SpeedX deliver on Sunday at /does-speedx-deliver-on-sunday."
+          "This article focuses on regional ETAs (domestic vs international). Weekend and Sunday availability is route-specific and covered on the dedicated Sunday delivery page so that query does not compete with this regional guide.",
+          "If you need the Sunday answer specifically, open /does-speedx-deliver-on-sunday. For out-for-delivery same-day timing, open /speedx-out-for-delivery."
         ]
       },
       {

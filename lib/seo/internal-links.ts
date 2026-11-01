@@ -87,6 +87,7 @@ export function getCarrierIntentClusters(carrierSlug: string, carrierName: strin
         ...(carrierSlug === "speedx"
           ? [
               { href: "/guides/speedx-delivery-hours", label: "SpeedX delivery hours and stop times" },
+              { href: "/speedx-out-for-delivery", label: "SpeedX out for delivery meaning" },
               { href: "/blog/speedx-out-for-delivery-but-not-delivered", label: "Out for delivery but not delivered" }
             ]
           : []),
@@ -121,6 +122,7 @@ export function getTopicAuthorityClusters(): LinkCluster[] {
     {
       title: "Out for delivery cluster",
       links: [
+        { href: "/speedx-out-for-delivery", label: "SpeedX out for delivery pillar" },
         { href: "/topics/out-for-delivery", label: "SpeedX out for delivery hub" },
         { href: "/topics/out-for-delivery/same-day-delivery-odds", label: "Does out for delivery mean same-day arrival?" },
         { href: "/topics/out-for-delivery/next-steps-if-missing", label: "Out for delivery but missing next steps" },

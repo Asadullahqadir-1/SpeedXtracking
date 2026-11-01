@@ -11,16 +11,23 @@ import { getFreshnessDate } from "@/lib/seo/freshness";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { getTrustedCitationSources } from "@/lib/seo/trusted-citations";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { faqSchema, breadcrumbSchema, trackingAppSchema, webPageSchema } from "@/lib/seo/schema";
+import {
+  articleSchema,
+  faqSchema,
+  breadcrumbSchema,
+  speakableSchema,
+  trackingAppSchema,
+  webPageSchema
+} from "@/lib/seo/schema";
 import { globalFaqs } from "@/content/faqs";
 import { blogPosts } from "@/content/blogs";
 
 export const revalidate = 86400;
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking — Free Number Lookup Now",
+  title: "SpeedX Track Package Free — Paste Number",
   description:
-    "Track SpeedX free: paste your SPX/SPXCN tracking number for live status, Shein updates, out for delivery help, and delivery ETAs worldwide.",
+    "SpeedX track package free: paste your SPX/SPXCN tracking number for live status, Shein updates, out for delivery help, and delivery ETAs worldwide.",
   path: "/"
 });
 
@@ -44,8 +51,33 @@ export default function HomePage() {
       <JsonLd
         data={breadcrumbSchema([{ name: "Home", url: siteConfig.url }, { name: "SpeedX Tracking", url: siteConfig.url }])}
       />
-      <JsonLd data={faqSchema(globalFaqs.slice(0, 8))} />
+      <JsonLd data={faqSchema(globalFaqs.slice(0, 6))} />
       <JsonLd data={trackingAppSchema()} />
+      <JsonLd
+        data={articleSchema({
+          title: "SpeedX Track Package — Free Number Lookup",
+          description:
+            "Free SpeedX package tracking for SPX and SPXCN numbers with status scans, delivery ETAs, and troubleshooting.",
+          path: "/",
+          datePublished: "2025-06-01",
+          dateModified: "2026-11-01",
+          keywords: [
+            "speedx track package",
+            "speedx tracking",
+            "tracking speed x",
+            "speedx tracking number",
+            "spx tracking"
+          ],
+          articleSection: "SpeedX Tracking",
+          wordCount: 1500
+        })}
+      />
+      <JsonLd
+        data={speakableSchema({
+          path: "/",
+          cssSelectors: [".answer-lead", "h1"]
+        })}
+      />
 
       {/* Hero Section */}
       <section className="hero-shell relative overflow-hidden rounded-2xl p-5 sm:p-8 lg:p-12">
@@ -58,10 +90,10 @@ export default function HomePage() {
             Free SpeedX package tracker
           </p>
           <h1 className="hero-intro hero-intro-delay-1 text-3xl font-bold text-slate-900 sm:text-4xl lg:text-5xl">
-            SpeedX Tracking Number Lookup
+            SpeedX Tracking — Track Package Free
           </h1>
-          <p className="hero-intro hero-intro-delay-2 mt-3 text-base text-slate-700 sm:mt-4 sm:text-lg">
-            Free international SpeedX package tracking for SPX and SPXCN numbers. Check delivery status, ETA, Shein shipments, and what to do if your package stalls—anywhere SpeedX delivers.
+          <p className="answer-lead hero-intro hero-intro-delay-2 mt-3 text-base font-medium text-slate-900 sm:mt-4 sm:text-lg">
+            Free SpeedX tracking and Speed X tracker for SPX/SPXCN numbers—paste your code for live status, out-for-delivery updates, Shein scans, and delivery ETA context. No signup.
           </p>
           <div className="hero-intro hero-intro-delay-3 mt-3 flex flex-wrap gap-4 text-sm text-slate-600">
             <span className="flex items-center gap-1.5">

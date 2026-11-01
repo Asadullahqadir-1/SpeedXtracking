@@ -9,6 +9,7 @@ export function getMoneyPageLinks(): LinkItem[] {
     { href: "/how-to-track-speedx", label: "How to track SpeedX" },
     { href: "/speedx-global-tracking", label: "SpeedX global tracking" },
     { href: "/speedx-delivery", label: "SpeedX delivery times & hours" },
+    { href: "/speedx-out-for-delivery", label: "SpeedX out for delivery meaning" },
     { href: "/what-is-speedx", label: "What is SpeedX?" },
     { href: "/does-speedx-deliver-on-sunday", label: "Does SpeedX deliver on Sunday?" },
     { href: "/rastrear-paquete-speedx", label: "Rastrear paquete SpeedX" },

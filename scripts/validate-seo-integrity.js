@@ -44,13 +44,16 @@ if (!sitemap.includes("getIndexableProgrammaticPages")) {
   failures.push("Sitemap is not built from the indexable programmatic page set.");
 }
 
-if (!robots.includes('disallow: ["/api/"]')) {
+if (!robots.includes('"/api/"')) {
   failures.push("robots.js must continue to disallow the tracking API.");
+}
+if (!/GPTBot[\s\S]*allow:\s*["']\//i.test(robots) && !robots.includes('userAgent: "GPTBot"')) {
+  failures.push("robots.js must explicitly allow GPTBot for AEO crawl accessibility.");
 }
 
 const priorityQueryOwners = [
   { query: "speedx tracking", route: "/", source: homepage, marker: "SpeedX tracking" },
-  { query: "speedx out for delivery", route: "/carriers/speedx/status", source: fs.readFileSync(path.join(root, "app", "carriers", "[carrier]", "status", "page.tsx"), "utf8"), marker: "out for delivery" },
+  { query: "speedx out for delivery", route: "/speedx-out-for-delivery", source: fs.readFileSync(path.join(root, "app", "speedx-out-for-delivery", "page.tsx"), "utf8"), marker: "SpeedX Out for Delivery" },
   { query: "speedx out for delivery but not delivered", route: "/speedx-out-for-delivery-but-not-delivered", source: programmatic, marker: "SpeedX Out For Delivery But Not Delivered" },
   { query: "how late does speedx deliver", route: "/guides/speedx-delivery-hours", source: guides, marker: "How late does SpeedX deliver" },
   { query: "what time does speedx deliver", route: "/guides/speedx-delivery-hours", source: guides, marker: "What time does SpeedX deliver" },

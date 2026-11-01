@@ -198,6 +198,7 @@ export default async function CarrierPage({ params }: { params: Promise<{ carrie
           </p>
           <div className="mt-3 grid gap-2 text-sm text-brand-700 md:grid-cols-2">
             <Link href="/speedx-delivery">SpeedX delivery times hub</Link>
+            <Link href="/speedx-out-for-delivery">SpeedX out for delivery meaning</Link>
             <Link href="/what-is-speedx">What is SpeedX?</Link>
             <Link href="/does-speedx-deliver-on-sunday">Does SpeedX deliver on Sunday?</Link>
             <Link href="/rastrear-paquete-speedx">Rastrear paquete SpeedX</Link>
@@ -221,7 +222,9 @@ export default async function CarrierPage({ params }: { params: Promise<{ carrie
             </a>
           </p>
         ) : null}
-        {current.supportEmail ? <p className="mt-1 text-sm text-slate-700">Email: {current.supportEmail}</p> : null}
+        <p className="mt-1 text-sm text-slate-600">
+          Use the official support page only—plain email addresses are omitted to avoid broken Cloudflare email-protection crawl URLs.
+        </p>
       </section>
 
       <section className="mt-6 section-card">

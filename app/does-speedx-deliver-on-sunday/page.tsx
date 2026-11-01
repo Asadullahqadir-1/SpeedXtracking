@@ -41,7 +41,7 @@ export const metadata = buildMetadata({
 });
 
 export default function SundayDeliveryPage() {
-  const reviewed = "2026-10-12";
+  const reviewed = "2026-11-01";
 
   return (
     <div className="container-page py-10">

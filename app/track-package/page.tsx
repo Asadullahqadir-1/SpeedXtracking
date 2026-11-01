@@ -45,7 +45,7 @@ const trackFaqs = [
 ];
 
 export const metadata = buildMetadata({
-  title: "Track SpeedX Package Free — Paste Number",
+  title: "SpeedX Track Package Free — Live Status",
   description:
     "Track your SpeedX package free. Paste SPX/SPXCN tracking number for status, Shein orders, and international delivery updates—no signup.",
   path: "/track-package"
@@ -135,6 +135,9 @@ export default async function TrackPackagePage({
           When SpeedX tracking shows <strong>out for delivery</strong>, the parcel is on a local driver route. Most packages arrive the same day, but route overflow can leave an out for delivery status overnight. If SpeedX is out for delivery but not delivered by the next morning, save screenshots and contact the seller.
         </p>
         <div className="mt-4 flex flex-wrap gap-3 text-sm font-semibold text-brand-700">
+          <Link href="/speedx-out-for-delivery" className="hover:underline">
+            SpeedX out for delivery meaning
+          </Link>
           <Link href="/blog/speedx-out-for-delivery-but-not-delivered" className="hover:underline">
             Out for delivery but not delivered
           </Link>

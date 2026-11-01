@@ -32,27 +32,51 @@ export function organizationSchema() {
     "@id": `${siteUrl}/#organization`,
     name: "SpeedXTracking",
     legalName: "SpeedXTracking",
+    alternateName: ["Speed X Tracking", "SpeedX Tracking"],
     url: siteUrl,
     logo: {
       "@type": "ImageObject",
+      "@id": `${siteUrl}/#logo`,
       url: `${siteUrl}/icon.svg`,
+      contentUrl: `${siteUrl}/icon.svg`,
       width: 512,
-      height: 512
+      height: 512,
+      caption: "SpeedXTracking"
     },
     image: `${siteUrl}/images/official/speedx-coverage-map.webp`,
     description:
       "Independent SpeedX package tracking and delivery help resource. Not affiliated with SpeedX.",
     foundingDate: "2025",
-    areaServed: "Worldwide",
+    areaServed: ["US", "Worldwide"],
+    knowsAbout: [
+      "SpeedX tracking",
+      "SPX tracking numbers",
+      "SPXCN tracking",
+      "SpeedX delivery times",
+      "SpeedX out for delivery",
+      "Shein SpeedX shipping"
+    ],
+    publishingPrinciples: `${siteUrl}/editorial-policy`,
     contactPoint: [
       {
         "@type": "ContactPoint",
         contactType: "customer support",
         url: `${siteUrl}/contact`,
         availableLanguage: ["English", "Spanish"]
+      },
+      {
+        "@type": "ContactPoint",
+        contactType: "editorial",
+        url: `${siteUrl}/contact`,
+        availableLanguage: ["English"]
       }
     ],
-    sameAs: ["https://speedxtracking.org"]
+    sameAs: [
+      siteUrl,
+      `${siteUrl}/about`,
+      `${siteUrl}/llms.txt`,
+      "https://github.com/Asadullahqadir-1/SpeedXtracking"
+    ]
   };
 }
 

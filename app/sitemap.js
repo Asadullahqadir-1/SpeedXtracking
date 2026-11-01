@@ -17,6 +17,7 @@ export default function sitemap() {
     "",
     "/track-package",
     "/speedx-delivery",
+    "/speedx-out-for-delivery",
     "/what-is-speedx",
     "/does-speedx-deliver-on-sunday",
     "/rastrear-paquete-speedx",
@@ -93,6 +94,7 @@ export default function sitemap() {
       path === "/how-to-track-speedx" ||
       path === "/speedx-global-tracking" ||
       path === "/speedx-delivery" ||
+      path === "/speedx-out-for-delivery" ||
       path === "/what-is-speedx"
     ) {
       return 0.94;

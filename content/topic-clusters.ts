@@ -80,6 +80,11 @@ export const topicClusters: TopicCluster[] = [
     ],
     clusterLinks: [
       {
+        href: "/speedx-out-for-delivery",
+        label: "SpeedX out for delivery pillar",
+        blurb: "Primary meaning, timing, and FAQ for the out-for-delivery status."
+      },
+      {
         href: "/blog/speedx-out-for-delivery-but-not-delivered",
         label: "Out for delivery but not delivered checklist",
         blurb: "Step-by-step recovery when the scan does not match arrival."

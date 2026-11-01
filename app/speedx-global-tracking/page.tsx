@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { articleSchema, breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
+import { articleSchema, breadcrumbSchema, faqSchema, speakableSchema, webPageSchema } from "@/lib/seo/schema";
 import { TopicAuthorityLinks } from "@/components/seo/TopicAuthorityLinks";
 import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 import { TrustedCitations } from "@/components/seo/TrustedCitations";
@@ -25,6 +25,21 @@ const faqs = [
     question: "Why does SpeedX global tracking pause?",
     answer:
       "Export, customs, and linehaul stages often post scans in batches. A 24–48 hour gap can be normal; escalate if the seller ETA has already passed."
+  },
+  {
+    question: "Can I track SpeedX globally with an SPXCN number?",
+    answer:
+      "Yes. Paste the full SPXCN code into the free tracker. Updates may appear in batches during customs and international linehaul."
+  },
+  {
+    question: "SpeedX global tracking vs local tracking — what’s different?",
+    answer:
+      "Global tracking covers export and customs stages before the local out-for-delivery scan. Local tracking focuses on the destination hub and final-mile driver."
+  },
+  {
+    question: "Where should I go for SpeedX delivery times?",
+    answer:
+      "Use the SpeedX delivery hub for ETA ranges, then return here for cross-border scan behavior."
   }
 ];
 
@@ -36,7 +51,7 @@ export const metadata = buildMetadata({
 });
 
 export default function SpeedXGlobalTrackingPage() {
-  const reviewed = "2026-10-13";
+  const reviewed = "2026-11-01";
 
   return (
     <div className="container-page py-10">
@@ -66,10 +81,19 @@ export default function SpeedXGlobalTrackingPage() {
         })}
       />
       <JsonLd data={faqSchema(faqs)} />
+      <JsonLd
+        data={speakableSchema({
+          path: "/speedx-global-tracking",
+          cssSelectors: [".answer-lead", "h1"]
+        })}
+      />
 
       <h1 className="text-3xl font-bold text-slate-900">SpeedX Global Tracking</h1>
-      <p className="mt-3 max-w-3xl text-slate-700">
-        International SpeedX shipments move through export, customs, and local delivery. Use free SpeedX global tracking below, then open the right guide if updates stall.
+      <p className="answer-lead mt-3 max-w-3xl text-lg font-medium text-slate-900">
+        SpeedX global tracking follows international SPX/SPXCN shipments through export, customs, and final-mile delivery—paste your number below for live status.
+      </p>
+      <p className="mt-2 max-w-3xl text-slate-700">
+        Cross-border scans often pause 24–48 hours during customs. Use the guides below if the seller ETA has already passed.
       </p>
 
       <section className="mt-6 section-card">

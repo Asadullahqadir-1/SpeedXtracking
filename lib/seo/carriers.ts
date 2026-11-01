@@ -1,4 +1,4 @@
-import { CarrierPage } from "@/lib/seo/types";
+﻿import { CarrierPage } from "@/lib/seo/types";
 
 export const carriers: CarrierPage[] = [
   {
@@ -20,7 +20,7 @@ export const carriers: CarrierPage[] = [
       "FAQs About SpeedX Tracking"
     ],
     supportUrl: "https://support.speedx.io/hc/en-us",
-    supportEmail: "info@speedx.io",
+    // Email omitted on purpose — Cloudflare email-protection creates /cdn-cgi/l/email-protection 404s when emails are rendered.
     domesticEta: "2-7 business days",
     internationalEta: "7-20 business days",
     marketplaces: ["Shein", "Temu", "Amazon"]

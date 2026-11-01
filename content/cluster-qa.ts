@@ -47,6 +47,7 @@ export const clusterQaArticles: ClusterQaArticle[] = [
       }
     ],
     relatedAnchors: [
+      { href: "/speedx-out-for-delivery", label: "SpeedX out for delivery pillar" },
       { href: "/topics/out-for-delivery", label: "SpeedX out for delivery meaning hub" },
       { href: "/blog/speedx-out-for-delivery-but-not-delivered", label: "Out for delivery but not delivered checklist" },
       { href: "/topics/delivery-hours", label: "How late does SpeedX deliver?" }

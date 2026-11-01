@@ -31,17 +31,7 @@ export default function ContactPage() {
       <section className="mt-6 section-card p-5 sm:p-6">
         <h2 className="text-xl font-semibold text-slate-900">Editorial contact</h2>
         <p className="mt-3 text-sm leading-relaxed text-slate-700 sm:text-base">
-          Use the form path below instead of posting a raw email address on-page (avoids broken Cloudflare email-protection crawl URLs).
-        </p>
-        <p className="mt-3 text-sm text-slate-700">
-          Preferred: open your mail app with a prefilled subject via{" "}
-          <a
-            className="font-semibold text-brand-700 hover:underline"
-            href="mailto:hello%40speedxtracking.org?subject=SpeedXTracking%20editorial%20feedback"
-          >
-            editorial feedback link
-          </a>
-          .
+          For editorial corrections, include the page URL, the inaccurate sentence, and your suggested fix in a message to the team via your seller/support workflow notes, or open a GitHub issue on the public SpeedXtracking repository. We do not publish raw email addresses on-page (Cloudflare email-protection paths return 404 and waste crawl budget).
         </p>
         <p className="mt-2 text-sm text-slate-700">Typical response window: 1-2 business days.</p>
         <p className="mt-4 text-sm text-brand-700">

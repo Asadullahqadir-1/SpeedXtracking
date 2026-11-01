@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { articleSchema, breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
+import {
+  articleSchema,
+  breadcrumbSchema,
+  faqSchema,
+  speakableSchema,
+  webPageSchema
+} from "@/lib/seo/schema";
 import { TopicAuthorityLinks } from "@/components/seo/TopicAuthorityLinks";
 import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 import { TrustedCitations } from "@/components/seo/TrustedCitations";
@@ -17,14 +23,24 @@ const faqs = [
       "Domestic SpeedX delivery often takes about 2-7 business days after handoff. International SpeedX delivery commonly takes about 7-20 days including customs and partner transfers."
   },
   {
-    question: "Does SpeedX deliver on Sunday?",
+    question: "What are SpeedX delivery times by region?",
     answer:
-      "Sunday delivery can happen on some routes, but it is less consistent than weekday or Saturday service. Recheck tracking Monday if Sunday stays quiet."
+      "Times vary by origin and destination density. Use regional guides for domestic vs international patterns, then confirm with your live tracking scan."
   },
   {
     question: "What are SpeedX delivery hours?",
     answer:
       "Hours vary by city and route. Evening delivery is common on busy routes, and there is no single national stop time."
+  },
+  {
+    question: "Does SpeedX deliver on Sunday?",
+    answer:
+      "Sunday delivery can happen on some routes, but it is less consistent than weekday or Saturday service. See the dedicated Sunday guide for details."
+  },
+  {
+    question: "What is SpeedX delivery?",
+    answer:
+      "SpeedX delivery is last-mile shipping for e-commerce parcels (including many marketplace and Shein orders). Tracking shows each scan from label created to delivered."
   },
   {
     question: "How do I track SpeedX delivery?",
@@ -33,16 +49,16 @@ const faqs = [
   }
 ];
 
+const reviewed = "2026-11-01";
+
 export const metadata = buildMetadata({
   title: "SpeedX Delivery — Times, Hours & Tracking",
   description:
-    "SpeedX delivery times, hours, Sunday service, and free tracking for SPX/SPXCN packages. International SpeedX shipping help for Shein and marketplace orders.",
+    "SpeedX delivery times, hours, and tracking for SPX/SPXCN packages. Domestic vs international ETAs, Sunday service, and free status lookup.",
   path: "/speedx-delivery"
 });
 
 export default function SpeedXDeliveryPage() {
-  const reviewed = "2026-10-12";
-
   return (
     <div className="container-page py-10">
       <JsonLd
@@ -64,24 +80,33 @@ export default function SpeedXDeliveryPage() {
           description:
             "Complete SpeedX delivery guide covering ETAs, delivery hours, Sunday service, and package tracking.",
           path: "/speedx-delivery",
-          datePublished: reviewed,
+          datePublished: "2026-10-12",
           dateModified: reviewed,
           keywords: [
             "speedx delivery",
             "speedx delivery times",
             "speedx delivery hours",
-            "does speedx deliver on sunday",
+            "what is speedx delivery",
             "how long does speedx take to deliver"
           ],
           articleSection: "SpeedX Delivery",
-          wordCount: 1100
+          wordCount: 1300
         })}
       />
       <JsonLd data={faqSchema(faqs)} />
+      <JsonLd
+        data={speakableSchema({
+          path: "/speedx-delivery",
+          cssSelectors: [".answer-lead", "h1"]
+        })}
+      />
 
-      <h1 className="text-3xl font-bold text-slate-900">SpeedX Delivery: Times, Hours, and Tracking</h1>
-      <p className="mt-3 max-w-3xl text-slate-700">
-        SpeedX delivery moves e-commerce parcels through hubs and local drivers worldwide. This guide covers typical SpeedX delivery times, delivery hours, Sunday/weekend service, and how to track your package with a SpeedX tracking number.
+      <h1 className="text-3xl font-bold text-slate-900">SpeedX Delivery</h1>
+      <p className="answer-lead mt-3 max-w-3xl text-lg font-medium text-slate-900">
+        SpeedX delivery is last-mile shipping for e-commerce parcels—typically about 2–7 business days domestic and 7–20 days international, with evening routes common in busy cities.
+      </p>
+      <p className="mt-2 max-w-3xl text-slate-700">
+        Use this hub for SpeedX delivery times, delivery hours, Sunday/weekend service, and free tracking with your SPX or SPXCN number.
       </p>
 
       <section className="mt-6 section-card">
@@ -109,8 +134,8 @@ export default function SpeedXDeliveryPage() {
           </article>
         </div>
         <p className="mt-4 text-sm">
-          <Link href="/carriers/speedx/delivery-time" className="font-semibold text-brand-700 hover:underline">
-            Full SpeedX delivery time estimates →
+          <Link href="/blog/speedx-delivery-time-by-region" className="font-semibold text-brand-700 hover:underline">
+            Regional SpeedX delivery times breakdown →
           </Link>
         </p>
       </section>
@@ -127,20 +152,20 @@ export default function SpeedXDeliveryPage() {
           <Link href="/guides/speedx-delivery-hours" className="hover:underline">
             Delivery hours checklist
           </Link>
-          <Link href="/topics/delivery-hours/evening-delivery" className="hover:underline">
-            Does SpeedX deliver in the evening?
+          <Link href="/speedx-out-for-delivery" className="hover:underline">
+            Out for delivery meaning
           </Link>
         </div>
       </section>
 
       <section className="mt-8 section-card">
-        <h2 className="text-xl font-semibold">Does SpeedX deliver on Sunday?</h2>
+        <h2 className="text-xl font-semibold">Weekend & Sunday SpeedX delivery</h2>
         <p className="mt-3 text-sm leading-relaxed text-slate-700">
-          Sunday delivery is possible on some SpeedX routes, especially in high-volume metro areas, but it is less consistent than weekday service. Saturday delivery is more common. If tracking is quiet on Sunday, recheck Monday before escalating.
+          Saturday delivery is available in most SpeedX service areas. Sunday delivery is limited to select metros. For the dedicated answer Google ranks around “does SpeedX deliver on Sunday,” use the Sunday guide—not this overview alone.
         </p>
         <p className="mt-3 text-sm">
           <Link href="/does-speedx-deliver-on-sunday" className="font-semibold text-brand-700 hover:underline">
-            Full Sunday & weekend delivery answer →
+            Does SpeedX deliver on Sunday? Full answer →
           </Link>
         </p>
       </section>
@@ -152,10 +177,10 @@ export default function SpeedXDeliveryPage() {
         </p>
         <div className="mt-4 flex flex-wrap gap-3 text-sm font-semibold text-brand-700">
           <Link href="/track-package" className="hover:underline">
-            SpeedX tracking number lookup
+            SpeedX track package free
           </Link>
-          <Link href="/topics/out-for-delivery" className="hover:underline">
-            Out for delivery help
+          <Link href="/what-is-speedx" className="hover:underline">
+            What is SpeedX?
           </Link>
           <Link href="/carriers/speedx/shein" className="hover:underline">
             Shein SpeedX tracking
