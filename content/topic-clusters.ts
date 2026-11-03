@@ -113,10 +113,10 @@ export const topicClusters: TopicCluster[] = [
   },
   {
     slug: "delivery-hours",
-    title: "How Late Does SpeedX Deliver? Often Evening",
-    h1: "How Late Does SpeedX Deliver? Hours, Stop Times, and ETAs",
+    title: "SpeedX Delivery Hours Hub — Stop Times & ETAs",
+    h1: "SpeedX Delivery Hours: Stop Times, Evening Routes & ETAs",
     metaDescription:
-      "How late does SpeedX deliver? Often evening on busy routes. No fixed stop time—use your out-for-delivery scan and seller ETA.",
+      "SpeedX delivery hours hub: evening routes, stop-time myths, Sunday links, and when out for delivery usually arrives.",
     summary:
       "SpeedX delivery hours vary by route. Evening delivery is common in busy areas, and there is no single national cutoff. Use your tracking scan and seller ETA instead of assuming a fixed stop time.",
     primaryKeyword: "how late does speedx deliver",
