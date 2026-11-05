@@ -3,35 +3,39 @@ import { siteUrl } from "@/lib/seo/site-url";
 const baseUrl = siteUrl;
 
 /**
- * Explicit AI-bot Allow rules first so auditors (SkillStack AEO) and crawlers
- * see GPTBot / Google-Extended / ClaudeBot as permitted — never Disallow them.
- * Also block Cloudflare email-protection junk paths from wasting crawl budget.
+ * AI crawlers must be explicitly Allow:/ with ZERO Disallow lines in their groups.
+ * SkillStack AEO incorrectly flags AI as "blocked" when it mis-associates
+ * User-agent:* Disallow rules with GPTBot/Google-Extended.
  */
 /** @returns {import("next").MetadataRoute.Robots} */
 export default function robots() {
-  const aiAllow = {
-    allow: "/"
-  };
+  const aiBots = [
+    "GPTBot",
+    "ChatGPT-User",
+    "OAI-SearchBot",
+    "Google-Extended",
+    "GoogleOther",
+    "ClaudeBot",
+    "anthropic-ai",
+    "Claude-Web",
+    "PerplexityBot",
+    "Bytespider",
+    "Applebot-Extended",
+    "CCBot",
+    "meta-externalagent"
+  ];
 
   return {
     rules: [
-      { userAgent: "GPTBot", ...aiAllow },
-      { userAgent: "ChatGPT-User", ...aiAllow },
-      { userAgent: "OAI-SearchBot", ...aiAllow },
-      { userAgent: "Google-Extended", ...aiAllow },
-      { userAgent: "GoogleOther", ...aiAllow },
-      { userAgent: "ClaudeBot", ...aiAllow },
-      { userAgent: "anthropic-ai", ...aiAllow },
-      { userAgent: "Claude-Web", ...aiAllow },
-      { userAgent: "PerplexityBot", ...aiAllow },
-      { userAgent: "Bytespider", ...aiAllow },
-      { userAgent: "Applebot-Extended", ...aiAllow },
-      { userAgent: "CCBot", ...aiAllow },
-      { userAgent: "meta-externalagent", ...aiAllow },
+      ...aiBots.map((userAgent) => ({
+        userAgent,
+        allow: "/"
+      })),
       {
         userAgent: "*",
         allow: ["/", "/llms.txt", "/agents.txt"],
-        disallow: ["/api/", "/cdn-cgi/"]
+        // Only block the private API — never AI bots (they have their own Allow groups above).
+        disallow: "/api/"
       }
     ],
     host: "speedxtracking.org",

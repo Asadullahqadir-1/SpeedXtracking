@@ -44,7 +44,6 @@ export const carriers: CarrierPage[] = [
       "FAQs About DHL Tracking"
     ],
     supportUrl: "https://www.dhl.com/en/en/home/support.html",
-    supportEmail: "support@dhl.com",
     domesticEta: "1-3 business days",
     internationalEta: "3-10 business days",
     marketplaces: ["Amazon", "eBay", "Alibaba"]
@@ -68,7 +67,6 @@ export const carriers: CarrierPage[] = [
       "FAQs About UPS Tracking"
     ],
     supportUrl: "https://www.ups.com/upsdocs/en/en/upsdocs/upsdocs.html",
-    supportEmail: "support@ups.com",
     domesticEta: "1-5 business days",
     internationalEta: "3-15 business days",
     marketplaces: ["Amazon", "eBay", "Etsy"]
@@ -92,7 +90,6 @@ export const carriers: CarrierPage[] = [
       "FAQs About FedEx Tracking"
     ],
     supportUrl: "https://www.fedex.com/en-us/customer-service.html",
-    supportEmail: "support@fedex.com",
     domesticEta: "1-5 business days",
     internationalEta: "2-15 business days",
     marketplaces: ["Amazon", "Best Buy", "Newegg"]
@@ -116,7 +113,6 @@ export const carriers: CarrierPage[] = [
       "FAQs About DPD Tracking"
     ],
     supportUrl: "https://www.dpd.com/en/",
-    supportEmail: "support@dpd.com",
     domesticEta: "1-2 business days",
     internationalEta: "3-8 business days",
     marketplaces: ["European ecommerce", "Zalando", "Glovo"]
@@ -140,7 +136,6 @@ export const carriers: CarrierPage[] = [
       "FAQs About GLS Tracking"
     ],
     supportUrl: "https://www.gls-group.eu/",
-    supportEmail: "support@gls-group.eu",
     domesticEta: "1-3 business days",
     internationalEta: "3-8 business days",
     marketplaces: ["European retailers"]
@@ -164,7 +159,6 @@ export const carriers: CarrierPage[] = [
       "FAQs About Hermes Tracking"
     ],
     supportUrl: "https://www.hermesworld.com/gb/en",
-    supportEmail: "support@hermes.com",
     domesticEta: "1-3 business days",
     internationalEta: "3-10 business days",
     marketplaces: ["Amazon UK", "eBay UK", "Currys"]

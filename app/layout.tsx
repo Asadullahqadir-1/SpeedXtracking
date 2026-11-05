@@ -75,6 +75,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <link rel="preconnect" href="https://www.17track.net" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs" />
+        <link rel="alternate" type="text/plain" href="/agents.txt" title="Agents" />
       </head>
       <body>
         <GlobalJsonLd />
