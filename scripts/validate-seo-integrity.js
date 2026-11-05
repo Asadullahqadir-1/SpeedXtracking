@@ -5,7 +5,7 @@ const root = process.cwd();
 const sitemap = fs.readFileSync(path.join(root, "app", "sitemap.js"), "utf8");
 const programmatic = fs.readFileSync(path.join(root, "content", "programmatic-pages.ts"), "utf8");
 const redirectsFile = fs.readFileSync(path.join(root, "lib", "seo", "redirects.ts"), "utf8");
-const robots = fs.readFileSync(path.join(root, "app", "robots.js"), "utf8");
+const robots = fs.readFileSync(path.join(root, "public", "robots.txt"), "utf8");
 const guides = fs.readFileSync(path.join(root, "content", "guides.ts"), "utf8");
 const homepage = fs.readFileSync(path.join(root, "app", "page.tsx"), "utf8");
 const internalLinks = fs.readFileSync(path.join(root, "lib", "seo", "internal-links.ts"), "utf8");
@@ -44,11 +44,14 @@ if (!sitemap.includes("getIndexableProgrammaticPages")) {
   failures.push("Sitemap is not built from the indexable programmatic page set.");
 }
 
-if (!robots.includes('"/api/"')) {
-  failures.push("robots.js must continue to disallow the tracking API.");
+if (!robots.includes("Disallow: /api/")) {
+  failures.push("robots.txt must continue to disallow the tracking API.");
 }
-if (!/GPTBot[\s\S]*allow:\s*["']\//i.test(robots) && !robots.includes('userAgent: "GPTBot"')) {
-  failures.push("robots.js must explicitly allow GPTBot for AEO crawl accessibility.");
+if (!/User-agent:\s*GPTBot/i.test(robots) || !/User-agent:\s*Google-Extended/i.test(robots)) {
+  failures.push("robots.txt must list GPTBot and Google-Extended as unrestricted.");
+}
+if (/User-agent:\s*GPTBot\s*\nDisallow:\s*\//i.test(robots)) {
+  failures.push("robots.txt must not Disallow: / for GPTBot.");
 }
 
 const priorityQueryOwners = [

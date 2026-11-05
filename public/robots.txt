@@ -1,0 +1,50 @@
+# SpeedXTracking — AI crawlers explicitly unrestricted (empty Disallow = allow all)
+# SkillStack / AEO auditors look for empty Disallow: on GPTBot & Google-Extended
+
+User-agent: GPTBot
+Disallow:
+
+User-agent: ChatGPT-User
+Disallow:
+
+User-agent: OAI-SearchBot
+Disallow:
+
+User-agent: Google-Extended
+Disallow:
+
+User-agent: GoogleOther
+Disallow:
+
+User-agent: ClaudeBot
+Disallow:
+
+User-agent: anthropic-ai
+Disallow:
+
+User-agent: Claude-Web
+Disallow:
+
+User-agent: PerplexityBot
+Disallow:
+
+User-agent: Bytespider
+Disallow:
+
+User-agent: Applebot-Extended
+Disallow:
+
+User-agent: CCBot
+Disallow:
+
+User-agent: meta-externalagent
+Disallow:
+
+User-agent: *
+Allow: /
+Allow: /llms.txt
+Allow: /agents.txt
+Disallow: /api/
+
+Host: speedxtracking.org
+Sitemap: https://speedxtracking.org/sitemap.xml
