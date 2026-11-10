@@ -150,10 +150,13 @@ export default function SpeedXDeliveryPage() {
             How late does SpeedX deliver?
           </Link>
           <Link href="/guides/speedx-delivery-hours" className="hover:underline">
-            Delivery hours checklist
+            SpeedX delivery hours checklist
+          </Link>
+          <Link href="/speedx-shipping" className="hover:underline">
+            SpeedX shipping guide
           </Link>
           <Link href="/speedx-out-for-delivery" className="hover:underline">
-            Out for delivery meaning
+            SpeedX out for delivery meaning
           </Link>
         </div>
       </section>
@@ -165,7 +168,7 @@ export default function SpeedXDeliveryPage() {
         </p>
         <p className="mt-3 text-sm">
           <Link href="/does-speedx-deliver-on-sunday" className="font-semibold text-brand-700 hover:underline">
-            Does SpeedX deliver on Sunday? Full answer →
+            Does SpeedX deliver on Sunday?
           </Link>
         </p>
       </section>
@@ -177,10 +180,13 @@ export default function SpeedXDeliveryPage() {
         </p>
         <div className="mt-4 flex flex-wrap gap-3 text-sm font-semibold text-brand-700">
           <Link href="/track-package" className="hover:underline">
-            SpeedX track package free
+            Free SpeedX tracking lookup
           </Link>
           <Link href="/what-is-speedx" className="hover:underline">
             What is SpeedX?
+          </Link>
+          <Link href="/speedx-package-not-delivered" className="hover:underline">
+            SpeedX package not delivered
           </Link>
           <Link href="/carriers/speedx/shein" className="hover:underline">
             Shein SpeedX tracking

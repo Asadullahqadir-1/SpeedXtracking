@@ -85,6 +85,11 @@ export const topicClusters: TopicCluster[] = [
         blurb: "Primary meaning, timing, and FAQ for the out-for-delivery status."
       },
       {
+        href: "/speedx-package-not-delivered",
+        label: "SpeedX package not delivered checklist",
+        blurb: "What to do when the package never arrives after final-mile scans."
+      },
+      {
         href: "/blog/speedx-out-for-delivery-but-not-delivered",
         label: "Out for delivery but not delivered checklist",
         blurb: "Step-by-step recovery when the scan does not match arrival."
@@ -174,6 +179,16 @@ export const topicClusters: TopicCluster[] = [
     ],
     clusterLinks: [
       {
+        href: "/speedx-delivery",
+        label: "SpeedX delivery times pillar",
+        blurb: "Domestic and international ETA ranges in one guide."
+      },
+      {
+        href: "/speedx-shipping",
+        label: "SpeedX shipping guide",
+        blurb: "How SpeedX shipping works from label to doorstep."
+      },
+      {
         href: "/guides/speedx-delivery-hours",
         label: "SpeedX delivery hours checklist",
         blurb: "Detailed guide for evening delivery and stop times."
@@ -182,6 +197,11 @@ export const topicClusters: TopicCluster[] = [
         href: "/carriers/speedx/delivery-time",
         label: "How long does SpeedX take to deliver?",
         blurb: "Domestic vs international ETA ranges."
+      },
+      {
+        href: "/does-speedx-deliver-on-sunday",
+        label: "Does SpeedX deliver on Sunday?",
+        blurb: "Weekend and Sunday delivery availability by area."
       },
       {
         href: "/topics/out-for-delivery",
@@ -261,6 +281,21 @@ export const topicClusters: TopicCluster[] = [
         href: "/track-package",
         label: "Free SpeedX tracking lookup",
         blurb: "Track SPX and SPXCN numbers without signup."
+      },
+      {
+        href: "/what-is-speedx",
+        label: "What is SpeedX?",
+        blurb: "Carrier overview for shoppers new to SpeedX delivery."
+      },
+      {
+        href: "/is-speedx-legit",
+        label: "Is SpeedX legit?",
+        blurb: "How to verify real SpeedX tracking vs scam pages."
+      },
+      {
+        href: "/speedx-locations",
+        label: "SpeedX locations and hubs",
+        blurb: "Facility scans vs delivery address explained."
       },
       {
         href: "/guides/spxcn-tracking-number-meaning",

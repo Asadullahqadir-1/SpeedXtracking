@@ -137,6 +137,12 @@ export default function WhatIsSpeedXPage() {
           <Link href="/speedx-delivery" className="hover:underline">
             SpeedX delivery guide
           </Link>
+          <Link href="/is-speedx-legit" className="hover:underline">
+            Is SpeedX legit?
+          </Link>
+          <Link href="/speedx-locations" className="hover:underline">
+            SpeedX locations and hubs
+          </Link>
           <Link href="/track-package" className="hover:underline">
             Free SpeedX tracking number lookup
           </Link>

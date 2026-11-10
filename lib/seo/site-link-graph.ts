@@ -51,7 +51,8 @@ export function getContextualSiteLinks(excludeHref?: string): {
     excludeHref ? links.filter((link) => link.href !== excludeHref) : links;
 
   return {
-    money: filterOut(getMoneyPageLinks()).slice(0, 8),
-    help: filterOut(getHelpPageLinks()).slice(0, 6)
+    // Keep enough links that new keyword pages are not orphaned from SiteLinkHub
+    money: filterOut(getMoneyPageLinks()).slice(0, 12),
+    help: filterOut(getHelpPageLinks()).slice(0, 8)
   };
 }

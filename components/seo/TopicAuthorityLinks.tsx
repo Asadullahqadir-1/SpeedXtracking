@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getTopicAuthorityClusters } from "@/lib/seo/internal-links";
+import { redirectedTopicQaPaths } from "@/lib/seo/redirects";
 import { topicClusters } from "@/content/topic-clusters";
 import { getClusterQaArticles } from "@/content/cluster-qa";
 
@@ -15,7 +16,11 @@ export function TopicAuthorityLinks({
   title = "SpeedX topic cluster links"
 }: TopicAuthorityLinksProps) {
   const clusters = getTopicAuthorityClusters();
-  const qa = activeCluster ? getClusterQaArticles(activeCluster) : [];
+  const qa = activeCluster
+    ? getClusterQaArticles(activeCluster).filter(
+        (article) => !redirectedTopicQaPaths.has(`/topics/${article.clusterSlug}/${article.slug}`)
+      )
+    : [];
   const activeMeta = topicClusters.find((cluster) => cluster.slug === activeCluster);
 
   return (

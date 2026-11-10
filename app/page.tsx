@@ -304,29 +304,44 @@ export default function HomePage() {
         <p className="mt-2 text-slate-600">Go directly to the most useful SpeedX tracking and support pages.</p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           <Link href="/carriers/speedx" className="group rounded-xl border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:shadow-md">
-            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">SpeedX Overview</h3>
+            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">SpeedX tracking hub</h3>
             <p className="mt-1 text-xs text-slate-600">Tracking basics, support links, and ETA guidance</p>
-            <span className="mt-2 inline-block text-xs font-medium text-brand-600">Open hub →</span>
+            <span className="mt-2 inline-block text-xs font-medium text-brand-600">SpeedX tracking hub</span>
           </Link>
           <Link href="/carriers/speedx/status" className="group rounded-xl border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:shadow-md">
-            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">Status Meanings</h3>
+            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">SpeedX status meanings</h3>
             <p className="mt-1 text-xs text-slate-600">Understand in transit, exception, and delivered scans</p>
-            <span className="mt-2 inline-block text-xs font-medium text-brand-600">Check statuses →</span>
+            <span className="mt-2 inline-block text-xs font-medium text-brand-600">SpeedX status meanings</span>
           </Link>
-          <Link href="/carriers/speedx/delivery-time" className="group rounded-xl border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:shadow-md">
-            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">Delivery Times</h3>
-            <p className="mt-1 text-xs text-slate-600">Review domestic and international SpeedX timelines</p>
-            <span className="mt-2 inline-block text-xs font-medium text-brand-600">View ETA guide →</span>
+          <Link href="/speedx-delivery" className="group rounded-xl border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:shadow-md">
+            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">SpeedX delivery times</h3>
+            <p className="mt-1 text-xs text-slate-600">Domestic and international SpeedX timelines</p>
+            <span className="mt-2 inline-block text-xs font-medium text-brand-600">SpeedX delivery times</span>
           </Link>
-          <Link href="/guides/speedx-delivery-hours" className="group rounded-xl border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:shadow-md">
-            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">Delivery Hours</h3>
-            <p className="mt-1 text-xs text-slate-600">How late SpeedX delivers and what out-for-delivery means</p>
-            <span className="mt-2 inline-block text-xs font-medium text-brand-600">Read delivery guide →</span>
+          <Link href="/speedx-shipping" className="group rounded-xl border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:shadow-md">
+            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">SpeedX shipping guide</h3>
+            <p className="mt-1 text-xs text-slate-600">How SpeedX shipping works end to end</p>
+            <span className="mt-2 inline-block text-xs font-medium text-brand-600">SpeedX shipping guide</span>
           </Link>
-          <Link href="/carriers/speedx/contact" className="group rounded-xl border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:shadow-md">
-            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">Support Contact</h3>
-            <p className="mt-1 text-xs text-slate-600">Find the right SpeedX support channel for delays and claims</p>
-            <span className="mt-2 inline-block text-xs font-medium text-brand-600">Get help →</span>
+          <Link href="/speedx-out-for-delivery" className="group rounded-xl border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:shadow-md">
+            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">Out for delivery meaning</h3>
+            <p className="mt-1 text-xs text-slate-600">Same-day odds and what to do next</p>
+            <span className="mt-2 inline-block text-xs font-medium text-brand-600">SpeedX out for delivery</span>
+          </Link>
+          <Link href="/speedx-package-not-delivered" className="group rounded-xl border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:shadow-md">
+            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">Package not delivered</h3>
+            <p className="mt-1 text-xs text-slate-600">Checklist when SpeedX does not arrive</p>
+            <span className="mt-2 inline-block text-xs font-medium text-brand-600">SpeedX package not delivered</span>
+          </Link>
+          <Link href="/is-speedx-legit" className="group rounded-xl border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:shadow-md">
+            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">Is SpeedX legit?</h3>
+            <p className="mt-1 text-xs text-slate-600">How to verify real SpeedX tracking</p>
+            <span className="mt-2 inline-block text-xs font-medium text-brand-600">Is SpeedX legit?</span>
+          </Link>
+          <Link href="/speedx-locations" className="group rounded-xl border-2 border-slate-200 p-4 transition-all hover:border-brand-500 hover:shadow-md">
+            <h3 className="font-semibold text-slate-900 group-hover:text-brand-700">SpeedX locations</h3>
+            <p className="mt-1 text-xs text-slate-600">Hubs vs delivery address explained</p>
+            <span className="mt-2 inline-block text-xs font-medium text-brand-600">SpeedX locations</span>
           </Link>
         </div>
       </section>
@@ -337,7 +352,7 @@ export default function HomePage() {
         <p className="mt-2 max-w-3xl text-slate-600">
           Built for SpeedX shoppers—not a bloated multi-carrier directory, and not a thin lookalike domain with only a search box.{" "}
           <Link href="/why-speedxtracking" className="font-semibold text-brand-700 hover:underline">
-            See how we differ from competitors →
+            Why SpeedXTracking vs aggregators
           </Link>
         </p>
         <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -473,14 +488,19 @@ export default function HomePage() {
         </div>
         <div className="mt-4 grid gap-3 text-sm font-semibold text-brand-700 sm:grid-cols-2 lg:grid-cols-4">
           <Link href="/speedx-delivery" className="hover:underline">SpeedX delivery times</Link>
+          <Link href="/speedx-shipping" className="hover:underline">SpeedX shipping guide</Link>
+          <Link href="/speedx-out-for-delivery" className="hover:underline">SpeedX out for delivery</Link>
+          <Link href="/speedx-package-not-delivered" className="hover:underline">SpeedX package not delivered</Link>
           <Link href="/what-is-speedx" className="hover:underline">What is SpeedX?</Link>
+          <Link href="/is-speedx-legit" className="hover:underline">Is SpeedX legit?</Link>
           <Link href="/does-speedx-deliver-on-sunday" className="hover:underline">Does SpeedX deliver on Sunday?</Link>
+          <Link href="/speedx-locations" className="hover:underline">SpeedX locations and hubs</Link>
           <Link href="/rastrear-paquete-speedx" className="hover:underline">Rastrear paquete SpeedX</Link>
           <Link href="/speedx-tracking-number" className="hover:underline">SpeedX tracking number</Link>
           <Link href="/speedx-package-tracking" className="hover:underline">SpeedX package tracking</Link>
           <Link href="/how-to-track-speedx" className="hover:underline">How to track SpeedX</Link>
           <Link href="/speedx-global-tracking" className="hover:underline">SpeedX global tracking</Link>
-          <Link href="/speedx-contact-support" className="hover:underline">SpeedX contact support</Link>
+          <Link href="/speedx-contact-support" className="hover:underline">SpeedX customer service</Link>
           <Link href="/why-speedxtracking" className="hover:underline">Why SpeedXTracking</Link>
         </div>
       </section>
@@ -524,7 +544,7 @@ export default function HomePage() {
               <h3 className="mt-2 text-base font-semibold text-slate-900">{post.title}</h3>
               <p className="mt-2 text-sm text-slate-700">{post.description}</p>
               <Link href={`/blog/${post.slug}`} className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">
-                Read more →
+                {post.title}
               </Link>
             </article>
           ))}

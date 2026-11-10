@@ -138,6 +138,9 @@ export default async function TrackPackagePage({
           <Link href="/speedx-out-for-delivery" className="hover:underline">
             SpeedX out for delivery meaning
           </Link>
+          <Link href="/speedx-package-not-delivered" className="hover:underline">
+            SpeedX package not delivered
+          </Link>
           <Link href="/blog/speedx-out-for-delivery-but-not-delivered" className="hover:underline">
             Out for delivery but not delivered
           </Link>
@@ -155,9 +158,17 @@ export default async function TrackPackagePage({
         <p className="mt-3 text-sm text-slate-700">
           SPXCN numbers are common on cross-border SpeedX shipments. Paste the full code without spaces. Batch updates during customs are normal; a quiet 24–48 hour window does not always mean the package is lost.
         </p>
-        <Link href="/guides/spxcn-tracking-number-meaning" className="mt-3 inline-block text-sm font-semibold text-brand-700 hover:underline">
-          SPXCN tracking number meaning →
-        </Link>
+        <div className="mt-3 flex flex-wrap gap-3 text-sm font-semibold text-brand-700">
+          <Link href="/guides/spxcn-tracking-number-meaning" className="hover:underline">
+            SPXCN tracking number meaning
+          </Link>
+          <Link href="/is-speedx-legit" className="hover:underline">
+            Is SpeedX legit?
+          </Link>
+          <Link href="/speedx-shipping" className="hover:underline">
+            SpeedX shipping guide
+          </Link>
+        </div>
       </section>
 
       <section className="mt-8 section-card">

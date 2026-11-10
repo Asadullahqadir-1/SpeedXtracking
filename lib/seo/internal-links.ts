@@ -123,9 +123,9 @@ export function getTopicAuthorityClusters(): LinkCluster[] {
       title: "Out for delivery cluster",
       links: [
         { href: "/speedx-out-for-delivery", label: "SpeedX out for delivery pillar" },
-        { href: "/topics/out-for-delivery", label: "SpeedX out for delivery hub" },
-        { href: "/topics/out-for-delivery/same-day-delivery-odds", label: "Does out for delivery mean same-day arrival?" },
-        { href: "/topics/out-for-delivery/next-steps-if-missing", label: "Out for delivery but missing next steps" },
+        { href: "/speedx-package-not-delivered", label: "SpeedX package not delivered checklist" },
+        { href: "/topics/out-for-delivery", label: "SpeedX out for delivery topic hub" },
+        { href: "/topics/out-for-delivery/scan-stuck-overnight", label: "Out for delivery stuck overnight" },
         { href: "/blog/speedx-out-for-delivery-but-not-delivered", label: "Out for delivery but not delivered" },
         { href: "/carriers/speedx/status", label: "SpeedX status meanings" }
       ]
@@ -133,30 +133,34 @@ export function getTopicAuthorityClusters(): LinkCluster[] {
     {
       title: "Delivery hours cluster",
       links: [
-        { href: "/topics/delivery-hours", label: "How late does SpeedX deliver?" },
+        { href: "/speedx-delivery", label: "SpeedX delivery times pillar" },
+        { href: "/speedx-shipping", label: "SpeedX shipping guide" },
+        { href: "/topics/delivery-hours", label: "SpeedX delivery hours hub" },
         { href: "/does-speedx-deliver-on-sunday", label: "Does SpeedX deliver on Sunday?" },
         { href: "/topics/delivery-hours/evening-delivery", label: "Does SpeedX deliver in the evening?" },
         { href: "/topics/delivery-hours/stop-time-myths", label: "What time does SpeedX stop delivering?" },
-        { href: "/guides/speedx-delivery-hours", label: "SpeedX delivery hours guide" },
+        { href: "/guides/speedx-delivery-hours", label: "How late does SpeedX deliver?" },
         { href: "/carriers/speedx/delivery-time", label: "SpeedX delivery time estimates" }
       ]
     },
     {
       title: "Tracking and SPXCN cluster",
       links: [
-        { href: "/topics/speedx-tracking", label: "SpeedX tracking hub" },
+        { href: "/track-package", label: "Free SpeedX tracking lookup" },
+        { href: "/topics/speedx-tracking", label: "SpeedX tracking topic hub" },
+        { href: "/what-is-speedx", label: "What is SpeedX?" },
+        { href: "/is-speedx-legit", label: "Is SpeedX legit?" },
+        { href: "/speedx-locations", label: "SpeedX locations and hubs" },
         { href: "/speedx-tracking-number", label: "SpeedX tracking number guide" },
         { href: "/speedx-package-tracking", label: "SpeedX package tracking" },
         { href: "/how-to-track-speedx", label: "How to track SpeedX" },
         { href: "/speedx-global-tracking", label: "SpeedX global tracking" },
-        { href: "/speedx-delivery", label: "SpeedX delivery guide" },
-        { href: "/what-is-speedx", label: "What is SpeedX?" },
-        { href: "/rastrear-paquete-speedx", label: "Rastrear paquete SpeedX" },
-        { href: "/speedx-contact-support", label: "SpeedX contact support" },
+        { href: "/speedx-contact-support", label: "SpeedX customer service" },
+        { href: "/carriers/speedx/shein", label: "Shein SpeedX tracking" },
         { href: "/topics/speedx-tracking/spxcn-first-scan", label: "How long until SPXCN shows first scan?" },
         { href: "/topics/speedx-tracking/tracking-not-updating-48-hours", label: "Tracking not updating for 48 hours" },
         { href: "/guides/spxcn-tracking-number-meaning", label: "SPXCN tracking number meaning" },
-        { href: "/track-package", label: "Free SpeedX tracker" }
+        { href: "/rastrear-paquete-speedx", label: "Rastrear paquete SpeedX" }
       ]
     }
   ];

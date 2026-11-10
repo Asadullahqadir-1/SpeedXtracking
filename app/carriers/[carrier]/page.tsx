@@ -198,8 +198,12 @@ export default async function CarrierPage({ params }: { params: Promise<{ carrie
           </p>
           <div className="mt-3 grid gap-2 text-sm text-brand-700 md:grid-cols-2">
             <Link href="/speedx-delivery">SpeedX delivery times hub</Link>
+            <Link href="/speedx-shipping">SpeedX shipping guide</Link>
             <Link href="/speedx-out-for-delivery">SpeedX out for delivery meaning</Link>
+            <Link href="/speedx-package-not-delivered">SpeedX package not delivered</Link>
             <Link href="/what-is-speedx">What is SpeedX?</Link>
+            <Link href="/is-speedx-legit">Is SpeedX legit?</Link>
+            <Link href="/speedx-locations">SpeedX locations and hubs</Link>
             <Link href="/does-speedx-deliver-on-sunday">Does SpeedX deliver on Sunday?</Link>
             <Link href="/rastrear-paquete-speedx">Rastrear paquete SpeedX</Link>
             <Link href="/carriers/speedx/status">SpeedX tracking status meanings</Link>

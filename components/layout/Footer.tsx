@@ -52,16 +52,21 @@ export function Footer() {
               <li><Link href="/speedx-package-tracking" className="text-slate-300 hover:text-white transition">Package Tracking</Link></li>
               <li><Link href="/how-to-track-speedx" className="text-slate-300 hover:text-white transition">How to Track SpeedX</Link></li>
               <li><Link href="/speedx-global-tracking" className="text-slate-300 hover:text-white transition">Global Tracking</Link></li>
-              <li><Link href="/speedx-delivery" className="text-slate-300 hover:text-white transition">SpeedX Delivery</Link></li>
+              <li><Link href="/speedx-delivery" className="text-slate-300 hover:text-white transition">SpeedX Delivery Times</Link></li>
+              <li><Link href="/speedx-shipping" className="text-slate-300 hover:text-white transition">SpeedX Shipping Guide</Link></li>
+              <li><Link href="/speedx-out-for-delivery" className="text-slate-300 hover:text-white transition">Out for Delivery Meaning</Link></li>
+              <li><Link href="/speedx-package-not-delivered" className="text-slate-300 hover:text-white transition">Package Not Delivered</Link></li>
               <li><Link href="/what-is-speedx" className="text-slate-300 hover:text-white transition">What is SpeedX?</Link></li>
-              <li><Link href="/does-speedx-deliver-on-sunday" className="text-slate-300 hover:text-white transition">Sunday Delivery</Link></li>
-              <li><Link href="/rastrear-paquete-speedx" className="text-slate-300 hover:text-white transition">Rastrear SpeedX</Link></li>
-              <li><Link href="/speedx-contact-support" className="text-slate-300 hover:text-white transition">Contact Support</Link></li>
-              <li><Link href="/topics/out-for-delivery" className="text-slate-300 hover:text-white transition">Out for Delivery</Link></li>
-              <li><Link href="/topics/delivery-hours" className="text-slate-300 hover:text-white transition">Delivery Hours</Link></li>
-              <li><Link href="/topics/speedx-tracking" className="text-slate-300 hover:text-white transition">Tracking & SPXCN</Link></li>
-              <li><Link href="/carriers/speedx/status" className="text-slate-300 hover:text-white transition">Status Meanings</Link></li>
-              <li><Link href="/carriers/speedx/contact" className="text-slate-300 hover:text-white transition">Contact Support</Link></li>
+              <li><Link href="/is-speedx-legit" className="text-slate-300 hover:text-white transition">Is SpeedX Legit?</Link></li>
+              <li><Link href="/speedx-locations" className="text-slate-300 hover:text-white transition">SpeedX Locations & Hubs</Link></li>
+              <li><Link href="/does-speedx-deliver-on-sunday" className="text-slate-300 hover:text-white transition">Does SpeedX Deliver on Sunday?</Link></li>
+              <li><Link href="/rastrear-paquete-speedx" className="text-slate-300 hover:text-white transition">Rastrear Paquete SpeedX</Link></li>
+              <li><Link href="/speedx-contact-support" className="text-slate-300 hover:text-white transition">SpeedX Customer Service</Link></li>
+              <li><Link href="/topics/out-for-delivery" className="text-slate-300 hover:text-white transition">Out for Delivery Hub</Link></li>
+              <li><Link href="/topics/delivery-hours" className="text-slate-300 hover:text-white transition">Delivery Hours Hub</Link></li>
+              <li><Link href="/topics/speedx-tracking" className="text-slate-300 hover:text-white transition">Tracking & SPXCN Hub</Link></li>
+              <li><Link href="/carriers/speedx/status" className="text-slate-300 hover:text-white transition">SpeedX Status Meanings</Link></li>
+              <li><Link href="/carriers/speedx/contact" className="text-slate-300 hover:text-white transition">SpeedX Support Contact</Link></li>
             </ul>
           </div>
 

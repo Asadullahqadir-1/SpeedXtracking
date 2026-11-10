@@ -8,6 +8,7 @@ import {
   speakableSchema,
   webPageSchema
 } from "@/lib/seo/schema";
+import { TopicAuthorityLinks } from "@/components/seo/TopicAuthorityLinks";
 import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 import { TrustedCitations } from "@/components/seo/TrustedCitations";
 import { TrackingForm } from "@/components/tracking/TrackingForm";
@@ -131,6 +132,7 @@ export default function IsSpeedXLegitPage() {
         </div>
       </section>
 
+      <TopicAuthorityLinks activeCluster="speedx-tracking" />
       <SiteLinkHub currentPath="/is-speedx-legit" />
       <TrustedCitations variant="all" />
     </div>

@@ -65,7 +65,7 @@ export default function TopicsIndexPage() {
             <p className="text-xs font-semibold uppercase tracking-wide text-brand-700">{cluster.primaryKeyword}</p>
             <h2 className="mt-2 text-lg font-semibold text-slate-900">{cluster.title}</h2>
             <p className="mt-2 text-sm text-slate-700">{cluster.summary}</p>
-            <span className="mt-4 inline-block text-sm font-semibold text-brand-700">Open cluster →</span>
+            <span className="mt-4 inline-block text-sm font-semibold text-brand-700">{cluster.title}</span>
           </Link>
         ))}
       </div>
@@ -77,7 +77,12 @@ export default function TopicsIndexPage() {
         </p>
         <ul className="mt-4 grid gap-2 text-sm font-semibold text-brand-700 sm:grid-cols-2">
           <li><Link href="/speedx-delivery" className="hover:underline">SpeedX delivery times &amp; hours</Link></li>
+          <li><Link href="/speedx-shipping" className="hover:underline">SpeedX shipping guide</Link></li>
+          <li><Link href="/speedx-out-for-delivery" className="hover:underline">SpeedX out for delivery</Link></li>
+          <li><Link href="/speedx-package-not-delivered" className="hover:underline">SpeedX package not delivered</Link></li>
           <li><Link href="/what-is-speedx" className="hover:underline">What is SpeedX?</Link></li>
+          <li><Link href="/is-speedx-legit" className="hover:underline">Is SpeedX legit?</Link></li>
+          <li><Link href="/speedx-locations" className="hover:underline">SpeedX locations and hubs</Link></li>
           <li><Link href="/does-speedx-deliver-on-sunday" className="hover:underline">Does SpeedX deliver on Sunday?</Link></li>
           <li><Link href="/rastrear-paquete-speedx" className="hover:underline">Rastrear paquete SpeedX</Link></li>
           <li><Link href="/speedx-tracking-number" className="hover:underline">SpeedX tracking number</Link></li>

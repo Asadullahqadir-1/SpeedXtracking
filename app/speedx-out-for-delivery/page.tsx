@@ -135,7 +135,7 @@ export default function SpeedXOutForDeliveryPage() {
             href="/blog/speedx-out-for-delivery-but-not-delivered"
             className="font-semibold text-brand-700 hover:underline"
           >
-            Full recovery checklist →
+            Out for delivery but not delivered checklist
           </Link>
         </p>
       </section>
@@ -146,6 +146,9 @@ export default function SpeedXOutForDeliveryPage() {
           <Link href="/topics/out-for-delivery" className="hover:underline">
             Out for delivery topic hub
           </Link>
+          <Link href="/speedx-package-not-delivered" className="hover:underline">
+            SpeedX package not delivered
+          </Link>
           <Link href="/blog/speedx-arrived-at-facility-meaning" className="hover:underline">
             Destination facility meaning
           </Link>
@@ -153,7 +156,7 @@ export default function SpeedXOutForDeliveryPage() {
             SpeedX delivery times
           </Link>
           <Link href="/does-speedx-deliver-on-sunday" className="hover:underline">
-            Sunday delivery
+            Does SpeedX deliver on Sunday?
           </Link>
         </div>
       </section>

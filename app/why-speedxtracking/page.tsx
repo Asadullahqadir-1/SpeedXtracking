@@ -98,19 +98,22 @@ export default function WhySpeedXTrackingPage() {
         </ul>
         <div className="mt-4 grid gap-2 text-sm font-semibold text-brand-700 sm:grid-cols-2">
           <Link href="/track-package" className="hover:underline">
-            Open free tracker →
+            Free SpeedX tracking lookup
           </Link>
           <Link href="/speedx-tracking-number" className="hover:underline">
-            SpeedX tracking number →
+            SpeedX tracking number guide
           </Link>
           <Link href="/speedx-package-tracking" className="hover:underline">
-            SpeedX package tracking →
+            SpeedX package tracking
           </Link>
           <Link href="/how-to-track-speedx" className="hover:underline">
-            How to track SpeedX →
+            How to track SpeedX
+          </Link>
+          <Link href="/is-speedx-legit" className="hover:underline">
+            Is SpeedX legit?
           </Link>
           <Link href="/speedx-global-tracking" className="hover:underline">
-            SpeedX global tracking →
+            SpeedX global tracking
           </Link>
           <Link href="/speedx-contact-support" className="hover:underline">
             Contact support guide →
