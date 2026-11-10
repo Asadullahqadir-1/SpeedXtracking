@@ -1,205 +1,226 @@
 /**
- * Keyword research map (SkillStack Domain Overview + public SERP demand signals).
- * Updated: 2026-11-01. Use as the canonical target URL plan — avoid cannibalization.
+ * Keyword research map — SkillStack CSVs (Nov 2026) + Domain Overview + GSC.
+ * Do NOT chase KD-100 head terms (tracking) or PK courier brands (TCS/Leopard).
+ * Updated: 2026-11-10
  */
 export type KeywordOpportunity = {
   keyword: string;
   volume: number;
-  currentRank: number | null;
-  currentUrl: string | null;
+  kd: number | null;
   targetUrl: string;
   priority: "P0" | "P1" | "P2";
   intent: "transactional" | "informational" | "navigational";
+  source: "gsc-domain" | "csv-speedx" | "csv-parcel" | "web";
   notes: string;
 };
 
-/** Striking-distance + high-volume opportunities from SkillStack (Nov 2026). */
+/** Ignore — wrong topical niche or impossible KD for a SpeedX-only site. */
+export const doNotTarget = [
+  "tracking",
+  "tracking tcs",
+  "tcs express tracking",
+  "leopard tracking",
+  "united parcel service tracking",
+  "tcs parcel",
+  "parcel track", // KD 100 aggregators
+  "packages tracking" // KD 100
+] as const;
+
 export const keywordOpportunities: KeywordOpportunity[] = [
+  // --- Proven GSC / Domain Overview demand (higher fidelity than CSV vols) ---
   {
     keyword: "speedx delivery",
     volume: 18100,
-    currentRank: 22,
-    currentUrl: "/blog/speedx-delivery-time-by-region",
+    kd: 22,
     targetUrl: "/speedx-delivery",
     priority: "P0",
     intent: "informational",
-    notes: "Highest volume. Blog is cannibalizing the pillar — push authority to /speedx-delivery."
+    source: "gsc-domain",
+    notes: "Primary delivery pillar."
+  },
+  {
+    keyword: "speedx tracking",
+    volume: 6200,
+    kd: 9,
+    targetUrl: "/",
+    priority: "P0",
+    intent: "transactional",
+    source: "csv-speedx",
+    notes: "CSV 1k understates; GSC showed 8k+ weekly impressions. Homepage + /track-package."
+  },
+  {
+    keyword: "speedx tracking shein",
+    volume: 6700,
+    kd: 9,
+    targetUrl: "/carriers/speedx/shein",
+    priority: "P0",
+    intent: "informational",
+    source: "web",
+    notes: "Protect #10 ranking; reinforce Shein hub + blog."
+  },
+  {
+    keyword: "speedx shipping",
+    volume: 8000,
+    kd: null,
+    targetUrl: "/speedx-shipping",
+    priority: "P0",
+    intent: "informational",
+    source: "web",
+    notes: "New pillar — CSV missed this head term."
   },
   {
     keyword: "what is speedx",
     volume: 5400,
-    currentRank: 72,
-    currentUrl: "/carriers/speedx",
+    kd: null,
     targetUrl: "/what-is-speedx",
     priority: "P0",
     intent: "informational",
-    notes: "Wrong URL ranking. Carrier hub must yield to /what-is-speedx."
-  },
-  {
-    keyword: "what is speedx delivery",
-    volume: 1900,
-    currentRank: 26,
-    currentUrl: "/blog/speedx-delivery-time-by-region",
-    targetUrl: "/what-is-speedx",
-    priority: "P0",
-    intent: "informational",
-    notes: "Bridge from definition → delivery hub with internal links."
+    source: "gsc-domain",
+    notes: "Definition page; link from carriers hub."
   },
   {
     keyword: "speedx track package",
     volume: 1900,
-    currentRank: 59,
-    currentUrl: "/",
+    kd: null,
     targetUrl: "/track-package",
     priority: "P0",
     intent: "transactional",
-    notes: "Homepage ranks weakly; reinforce /track-package as tool URL."
-  },
-  {
-    keyword: "tracking speed x",
-    volume: 1600,
-    currentRank: 47,
-    currentUrl: "/carriers/speedx",
-    targetUrl: "/",
-    priority: "P1",
-    intent: "transactional",
-    notes: "Brand typo variant — keep homepage + track-package coverage."
-  },
-  {
-    keyword: "speedx facility",
-    volume: 1300,
-    currentRank: 29,
-    currentUrl: "/blog/speedx-arrived-at-facility-meaning",
-    targetUrl: "/blog/speedx-arrived-at-facility-meaning",
-    priority: "P1",
-    intent: "informational",
-    notes: "Keep blog as canonical; reinforce Q&A cluster links."
-  },
-  {
-    keyword: "does speedx deliver on sunday",
-    volume: 1300,
-    currentRank: 15,
-    currentUrl: "/blog/speedx-delivery-time-by-region",
-    targetUrl: "/does-speedx-deliver-on-sunday",
-    priority: "P0",
-    intent: "informational",
-    notes: "Critical cannibalization — Sunday page must win over blog."
-  },
-  {
-    keyword: "speedx global tracking",
-    volume: 1300,
-    currentRank: 62,
-    currentUrl: "/",
-    targetUrl: "/speedx-global-tracking",
-    priority: "P1",
-    intent: "transactional",
-    notes: "Dedicated international pillar already exists — strengthen titles + FAQs."
-  },
-  {
-    keyword: "speedx tracking shein",
-    volume: 1000,
-    currentRank: 10,
-    currentUrl: "/blog/shein-speedx-tracking-guide",
-    targetUrl: "/blog/shein-speedx-tracking-guide",
-    priority: "P1",
-    intent: "informational",
-    notes: "Already page-1. Protect with internal links from Shein hub."
-  },
-  {
-    keyword: "how late does speedx deliver",
-    volume: 880,
-    currentRank: 15,
-    currentUrl: "/guides/does-speedx-deliver-late-at-night",
-    targetUrl: "/topics/delivery-hours",
-    priority: "P1",
-    intent: "informational",
-    notes: "Point guides to delivery-hours cluster hub."
+    source: "gsc-domain",
+    notes: "Tool URL."
   },
   {
     keyword: "speedx out for delivery",
     volume: 590,
-    currentRank: 17,
-    currentUrl: "/speedx-out-for-delivery-but-not-delivered",
+    kd: null,
     targetUrl: "/speedx-out-for-delivery",
     priority: "P0",
     intent: "informational",
-    notes: "High CPC ($2.70). New dedicated pillar; long-tail keeps existing page."
+    source: "gsc-domain",
+    notes: "High CPC status query."
   },
   {
-    keyword: "speedx delivery hours",
-    volume: 590,
-    currentRank: 19,
-    currentUrl: "/blog/speedx-delivery-time-by-region",
-    targetUrl: "/speedx-delivery",
+    keyword: "does speedx deliver on sunday",
+    volume: 1300,
+    kd: null,
+    targetUrl: "/does-speedx-deliver-on-sunday",
+    priority: "P0",
+    intent: "informational",
+    source: "gsc-domain",
+    notes: "Weekend/Sunday intent."
+  },
+  {
+    keyword: "speedx tracking number",
+    volume: 70,
+    kd: null,
+    targetUrl: "/speedx-tracking-number",
     priority: "P1",
     intent: "informational",
-    notes: "Consolidate under delivery pillar + topics/delivery-hours."
+    source: "csv-speedx",
+    notes: "CSV low; still high intent for tool conversion."
   },
   {
-    keyword: "speedx out for delivery but not delivered",
-    volume: 140,
-    currentRank: 6,
-    currentUrl: "/blog/speedx-out-for-delivery-but-not-delivered",
-    targetUrl: "/blog/speedx-out-for-delivery-but-not-delivered",
-    priority: "P2",
+    keyword: "is speedx legit",
+    volume: 10,
+    kd: null,
+    targetUrl: "/is-speedx-legit",
+    priority: "P1",
     intent: "informational",
-    notes: "Already top-10 — protect and link from OFD pillar."
+    source: "csv-speedx",
+    notes: "Trust SERP — new page."
   },
   {
-    keyword: "spx tracking shein",
-    volume: 110,
-    currentRank: 18,
-    currentUrl: "/blog/shein-speedx-tracking-guide",
-    targetUrl: "/blog/shein-speedx-tracking-guide",
-    priority: "P2",
+    keyword: "speedx package not delivered",
+    volume: 10,
+    kd: null,
+    targetUrl: "/speedx-package-not-delivered",
+    priority: "P1",
     intent: "informational",
-    notes: "Near page-1 — reinforce Shein hub links."
+    source: "csv-speedx",
+    notes: "Problem/solution page — new."
   },
   {
-    keyword: "speedx rastreo",
-    volume: 320,
-    currentRank: 35,
-    currentUrl: "/",
-    targetUrl: "/rastrear-paquete-speedx",
+    keyword: "speedx customer service",
+    volume: 10,
+    kd: null,
+    targetUrl: "/speedx-contact-support",
+    priority: "P1",
+    intent: "navigational",
+    source: "csv-speedx",
+    notes: "Plus phone/number variants on same URL."
+  },
+  {
+    keyword: "speedx locations",
+    volume: 10,
+    kd: null,
+    targetUrl: "/speedx-locations",
+    priority: "P1",
+    intent: "informational",
+    source: "csv-speedx",
+    notes: "Locations / drop-off / delivery location — new hub."
+  },
+  {
+    keyword: "speedx tracking app",
+    volume: 10,
+    kd: null,
+    targetUrl: "/speedx-package-tracking",
+    priority: "P2",
+    intent: "transactional",
+    source: "csv-speedx",
+    notes: "Position free web tracker as app alternative."
+  },
+  {
+    keyword: "speedx global tracking",
+    volume: 1300,
+    kd: null,
+    targetUrl: "/speedx-global-tracking",
     priority: "P1",
     intent: "transactional",
-    notes: "Spanish demand — keep ES pillar as canonical."
+    source: "gsc-domain",
+    notes: "CSV understates vs Domain Overview."
+  },
+  {
+    keyword: "international parcel tracking",
+    volume: 390,
+    kd: null,
+    targetUrl: "/speedx-global-tracking",
+    priority: "P2",
+    intent: "transactional",
+    source: "csv-parcel",
+    notes: "Only as SpeedX international angle — not multi-carrier aggregator."
+  },
+  {
+    keyword: "how late does speedx deliver",
+    volume: 880,
+    kd: null,
+    targetUrl: "/guides/speedx-delivery-hours",
+    priority: "P1",
+    intent: "informational",
+    source: "gsc-domain",
+    notes: "Striking distance."
   }
 ];
 
 export const pillarClusters = [
   {
-    name: "SpeedX Delivery",
-    pillar: "/speedx-delivery",
-    supporting: [
-      "/does-speedx-deliver-on-sunday",
-      "/topics/delivery-hours",
-      "/guides/speedx-delivery-hours",
-      "/blog/speedx-delivery-time-by-region",
-      "/carriers/speedx/delivery-time"
-    ]
-  },
-  {
     name: "SpeedX Tracking",
     pillar: "/track-package",
-    supporting: [
-      "/",
-      "/what-is-speedx",
-      "/speedx-tracking-number",
-      "/how-to-track-speedx",
-      "/speedx-global-tracking",
-      "/topics/speedx-tracking",
-      "/carriers/speedx"
-    ]
+    supporting: ["/", "/speedx-tracking-number", "/speedx-package-tracking", "/how-to-track-speedx", "/speedx-global-tracking"]
   },
   {
-    name: "Out for Delivery",
+    name: "SpeedX Delivery & Shipping",
+    pillar: "/speedx-delivery",
+    supporting: ["/speedx-shipping", "/does-speedx-deliver-on-sunday", "/topics/delivery-hours", "/guides/speedx-delivery-hours"]
+  },
+  {
+    name: "Status & Support",
     pillar: "/speedx-out-for-delivery",
     supporting: [
-      "/topics/out-for-delivery",
-      "/blog/speedx-out-for-delivery-but-not-delivered",
-      "/blog/speedx-arrived-at-facility-meaning",
-      "/topics/out-for-delivery/same-day-delivery-odds"
+      "/speedx-package-not-delivered",
+      "/speedx-contact-support",
+      "/is-speedx-legit",
+      "/speedx-locations",
+      "/what-is-speedx",
+      "/carriers/speedx/shein"
     ]
   }
 ] as const;

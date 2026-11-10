@@ -18,9 +18,13 @@ export default function sitemap() {
     "",
     "/track-package",
     "/speedx-delivery",
+    "/speedx-shipping",
     "/speedx-out-for-delivery",
+    "/speedx-package-not-delivered",
     "/what-is-speedx",
+    "/is-speedx-legit",
     "/does-speedx-deliver-on-sunday",
+    "/speedx-locations",
     "/rastrear-paquete-speedx",
     "/why-speedxtracking",
     "/speedx-tracking-number",
@@ -97,8 +101,12 @@ export default function sitemap() {
       path === "/how-to-track-speedx" ||
       path === "/speedx-global-tracking" ||
       path === "/speedx-delivery" ||
+      path === "/speedx-shipping" ||
       path === "/speedx-out-for-delivery" ||
-      path === "/what-is-speedx"
+      path === "/speedx-package-not-delivered" ||
+      path === "/what-is-speedx" ||
+      path === "/is-speedx-legit" ||
+      path === "/speedx-locations"
     ) {
       return 0.94;
     }

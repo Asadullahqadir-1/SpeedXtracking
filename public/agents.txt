@@ -10,8 +10,12 @@ LLMs: https://speedxtracking.org/llms.txt
 
 # High-intent pages for answer engines
 - https://speedxtracking.org/track-package
+- https://speedxtracking.org/speedx-shipping
 - https://speedxtracking.org/speedx-delivery
 - https://speedxtracking.org/speedx-out-for-delivery
+- https://speedxtracking.org/speedx-package-not-delivered
 - https://speedxtracking.org/does-speedx-deliver-on-sunday
 - https://speedxtracking.org/what-is-speedx
+- https://speedxtracking.org/is-speedx-legit
+- https://speedxtracking.org/speedx-locations
 - https://speedxtracking.org/topics

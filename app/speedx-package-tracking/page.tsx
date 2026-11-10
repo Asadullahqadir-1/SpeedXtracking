@@ -17,6 +17,11 @@ const faqs = [
       "Enter your SpeedX tracking number in the free tracker. You will see status, scan history, and delivery progress when the carrier has published events."
   },
   {
+    question: "Is there a SpeedX tracking app?",
+    answer:
+      "You can track free in the browser—no app install required. Paste your SPX/SPXCN number here for the same live status shoppers look for in tracking apps."
+  },
+  {
     question: "Does SpeedX package tracking work for Shein?",
     answer:
       "Yes. Many Shein orders hand off to SpeedX for part of the journey. Use the SpeedX / SPX / SPXCN number from the order, not only the Shein order ID."
@@ -25,13 +30,18 @@ const faqs = [
     question: "What if SpeedX package tracking is not updating?",
     answer:
       "Allow 24–48 hours during linehaul or customs. If the seller ETA has passed or an exception appears, save screenshots and contact the seller first."
+  },
+  {
+    question: "Can I track SpeedX packages internationally?",
+    answer:
+      "Yes. International SpeedX package tracking covers export, customs, and final-mile scans when the number is active."
   }
 ];
 
 export const metadata = buildMetadata({
-  title: "SpeedX Package Tracking — Free Status Lookup",
+  title: "SpeedX Package Tracking — Free (No App Needed)",
   description:
-    "Free SpeedX package tracking for SPX/SPXCN numbers. Check international delivery status, Shein shipments, and out for delivery updates.",
+    "Free SpeedX package tracking for SPX/SPXCN numbers—no app required. Live status for Shein shipments, out for delivery, and international updates.",
   path: "/speedx-package-tracking"
 });
 

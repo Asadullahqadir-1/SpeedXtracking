@@ -11,26 +11,36 @@ export const revalidate = 86400;
 
 const faqs = [
   {
-    question: "How can I contact SpeedX support?",
+    question: "How can I contact SpeedX customer service?",
     answer:
-      "Use the official SpeedX support center and tracking portal tools. For marketplace orders, contact the seller first with your tracking number and screenshots, then escalate if needed."
+      "Use the official SpeedX support center. For marketplace orders, contact the seller first with your tracking number and screenshots, then escalate if needed."
   },
   {
-    question: "Does SpeedX have a public phone number?",
+    question: "What is the SpeedX customer service number / phone number?",
     answer:
-      "SpeedX generally directs recipients to online support rather than a public call center. Check the official support center for the latest contact options."
+      "SpeedX generally directs recipients to online chat/support rather than a published public call center. Prefer official support.speedx.io tools over random numbers online."
+  },
+  {
+    question: "SpeedX tracking customer service — who helps first?",
+    answer:
+      "Seller/marketplace support usually owns refunds and replacements. Carrier support helps with scan exceptions after you provide the full SPX/SPXCN number."
   },
   {
     question: "What should I send SpeedX customer service?",
     answer:
       "Include the full tracking number, order ID, delivery address, latest scan screenshot, and a clear request (locate package, reattempt, or claim)."
+  },
+  {
+    question: "Is there SpeedX Shein customer service for tracking?",
+    answer:
+      "Start in the Shein order help flow with your SpeedX tracking number. Use official SpeedX support only when the marketplace directs you there."
   }
 ];
 
 export const metadata = buildMetadata({
-  title: "SpeedX Contact Support — Customer Service Help",
+  title: "SpeedX Customer Service — Contact & Phone Help",
   description:
-    "How to contact SpeedX support and customer service: what to send, when to ask the seller first, and official SpeedX help links.",
+    "SpeedX customer service help: how to contact support, phone/number reality, what to send, and when Shein sellers handle tracking issues first.",
   path: "/speedx-contact-support"
 });
 

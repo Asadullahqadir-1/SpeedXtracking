@@ -3,27 +3,27 @@
 > Independent free SpeedX package tracking and delivery help. Not affiliated with SpeedX.
 
 ## Primary pages
-- https://speedxtracking.org/ — SpeedX tracking number lookup / track package
+- https://speedxtracking.org/ — SpeedX tracking (free)
 - https://speedxtracking.org/track-package — Free tracker tool
-- https://speedxtracking.org/speedx-delivery — SpeedX delivery times, hours, ETAs
-- https://speedxtracking.org/speedx-out-for-delivery — Out for delivery meaning & timing
+- https://speedxtracking.org/speedx-shipping — SpeedX shipping times & help
+- https://speedxtracking.org/speedx-delivery — Delivery times & hours
+- https://speedxtracking.org/speedx-out-for-delivery — Out for delivery meaning
+- https://speedxtracking.org/speedx-package-not-delivered — Package not delivered checklist
 - https://speedxtracking.org/does-speedx-deliver-on-sunday — Sunday / weekend delivery
 - https://speedxtracking.org/what-is-speedx — What is SpeedX?
-- https://speedxtracking.org/speedx-global-tracking — International / global tracking
+- https://speedxtracking.org/is-speedx-legit — Is SpeedX legit?
+- https://speedxtracking.org/speedx-locations — Hubs & delivery locations
+- https://speedxtracking.org/speedx-global-tracking — International tracking
 - https://speedxtracking.org/speedx-tracking-number — Tracking number guide
-- https://speedxtracking.org/how-to-track-speedx — How to track SpeedX steps
+- https://speedxtracking.org/speedx-package-tracking — Package tracking (no app)
+- https://speedxtracking.org/speedx-contact-support — Customer service help
 - https://speedxtracking.org/carriers/speedx/shein — Shein + SpeedX tracking
-- https://speedxtracking.org/rastrear-paquete-speedx — Rastrear paquete SpeedX (ES)
 - https://speedxtracking.org/topics — Topic cluster hubs
-- https://speedxtracking.org/topics/out-for-delivery — Out for delivery cluster
-- https://speedxtracking.org/topics/delivery-hours — Delivery hours cluster
-- https://speedxtracking.org/topics/speedx-tracking — Tracking / SPXCN cluster
 
-## Direct answers (AEO)
-- Does SpeedX deliver on Sunday? Sometimes on select metro routes; Saturday is more common. Details: /does-speedx-deliver-on-sunday
-- What is SpeedX? A last-mile delivery carrier for e-commerce (incl. many Shein orders). Details: /what-is-speedx
-- Out for delivery meaning: package is on a local driver route, usually same-day. Details: /speedx-out-for-delivery
-- Typical delivery times: domestic ~2–7 business days; international ~7–20 days. Details: /speedx-delivery
+## Direct answers
+- Is SpeedX legit? Yes — real last-mile carrier; verify with SPX/SPXCN from your seller.
+- SpeedX shipping times: domestic ~2–7 days; international ~7–20 days.
+- Package not delivered: check scans → wait OFD day → search drop points → seller with screenshots.
 
 ## Official sources
 - https://speedx.io/
