@@ -25,10 +25,10 @@ import { blogPosts } from "@/content/blogs";
 export const revalidate = 86400;
 
 export const metadata = buildMetadata({
-  // Exact "SpeedX Tracking" match + free/no-login hook — GSC: 8.1K imp / 0.2% CTR last 7d
-  title: "SpeedX Tracking Free — Paste Number Now",
+  // Exact query + free hook — GSC CTR was ~0.2–0.5% on "speedx tracking"
+  title: "SpeedX Tracking (Free) — Instant SPX Status",
   description:
-    "Free SpeedX tracking: paste SPX/SPXCN for live status in seconds. No login. Shein updates, out for delivery meaning, and delivery ETA help.",
+    "Track SpeedX free in seconds: paste SPX/SPXCN. No login. Live status, Shein updates, out for delivery help, and delivery ETAs.",
   path: "/"
 });
 

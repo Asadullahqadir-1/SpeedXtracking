@@ -34,10 +34,9 @@ const faqs = [
 ];
 
 export const metadata = buildMetadata({
-  // Covers "weekends" (92 imp) + "sunday" — answer-first SERP title
-  title: "Does SpeedX Deliver on Weekends? Sat Yes",
+  title: "Does SpeedX Deliver Weekends? Sat Yes, Sun Maybe",
   description:
-    "Yes—SpeedX delivers on Saturdays everywhere it serves. Sunday delivery is select metros only (often 8am–8pm). Recheck Monday if scans stay quiet.",
+    "Yes—Saturday SpeedX delivery is standard. Sunday is select metros only (often 8am–8pm). Quiet weekend scans? Recheck Monday before escalating.",
   path: "/does-speedx-deliver-on-sunday"
 });
 

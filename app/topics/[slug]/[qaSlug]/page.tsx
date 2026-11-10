@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { getClusterQaArticle, getClusterQaArticles, clusterQaArticles } from "@/content/cluster-qa";
 import { getTopicCluster } from "@/content/topic-clusters";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
+import { redirectedTopicQaPaths } from "@/lib/seo/redirects";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { articleSchema, breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
 import { TopicAuthorityLinks } from "@/components/seo/TopicAuthorityLinks";
@@ -10,11 +11,21 @@ import { TrackingForm } from "@/components/tracking/TrackingForm";
 
 export const revalidate = 86400;
 
+const qaRedirectDestinations: Record<string, string> = {
+  "/topics/delivery-hours/sunday-delivery-odds": "/does-speedx-deliver-on-sunday",
+  "/topics/delivery-hours/weekend-delivery-hours": "/does-speedx-deliver-on-sunday",
+  "/topics/out-for-delivery/same-day-delivery-odds": "/speedx-out-for-delivery",
+  "/topics/out-for-delivery/next-steps-if-missing": "/speedx-out-for-delivery",
+  "/topics/speedx-tracking/destination-facility-meaning": "/blog/speedx-arrived-at-facility-meaning"
+};
+
 export function generateStaticParams() {
-  return clusterQaArticles.map((article) => ({
-    slug: article.clusterSlug,
-    qaSlug: article.slug
-  }));
+  return clusterQaArticles
+    .filter((article) => !redirectedTopicQaPaths.has(`/topics/${article.clusterSlug}/${article.slug}`))
+    .map((article) => ({
+      slug: article.clusterSlug,
+      qaSlug: article.slug
+    }));
 }
 
 export async function generateMetadata({
@@ -23,6 +34,10 @@ export async function generateMetadata({
   params: Promise<{ slug: string; qaSlug: string }>;
 }) {
   const { slug, qaSlug } = await params;
+  const path = `/topics/${slug}/${qaSlug}`;
+  if (qaRedirectDestinations[path]) {
+    return {};
+  }
   const article = getClusterQaArticle(slug, qaSlug);
   if (!article) return {};
 
@@ -39,6 +54,11 @@ export default async function ClusterQaPage({
   params: Promise<{ slug: string; qaSlug: string }>;
 }) {
   const { slug, qaSlug } = await params;
+  const path = `/topics/${slug}/${qaSlug}`;
+  if (qaRedirectDestinations[path]) {
+    permanentRedirect(qaRedirectDestinations[path]);
+  }
+
   const article = getClusterQaArticle(slug, qaSlug);
   const cluster = getTopicCluster(slug);
 

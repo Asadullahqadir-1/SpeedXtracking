@@ -6,6 +6,7 @@ import {
   getRedirectDestinationForProgrammaticSlug
 } from "@/content/programmatic-pages";
 import { clusterQaArticles } from "@/content/cluster-qa";
+import { redirectedTopicQaPaths } from "@/lib/seo/redirects";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 import { siteUrl } from "@/lib/seo/site-url";
 
@@ -38,7 +39,9 @@ export default function sitemap() {
     "/resources/shipping-delay-checklist"
   ];
 
-  const qaPages = clusterQaArticles.map((article) => `/topics/${article.clusterSlug}/${article.slug}`);
+  const qaPages = clusterQaArticles
+    .map((article) => `/topics/${article.clusterSlug}/${article.slug}`)
+    .filter((path) => !redirectedTopicQaPaths.has(path));
 
   const policyPages = [
     "/shipping-terms",

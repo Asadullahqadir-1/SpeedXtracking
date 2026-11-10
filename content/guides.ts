@@ -63,9 +63,9 @@ export const guides = [
   },
   {
     slug: "speedx-delivery-hours",
-    title: "How Late Does SpeedX Deliver? Often Evening",
+    title: "How Late Does SpeedX Deliver? Often Into Evening",
     intro:
-      "How late does SpeedX deliver? Often evening. SpeedX delivery times and SpeedX delivery hours follow your out-for-delivery scan—not a fixed cutoff.",
+      "How late does SpeedX deliver? Often into the evening on busy routes. SpeedX delivery times and SpeedX delivery hours follow your out-for-delivery scan—not a fixed cutoff.",
     sections: [
       "SpeedX delivery hours vary by route, local depot workload, traffic, season, and the number of stops assigned to a driver; there is no single guaranteed delivery cutoff for every address.",
       "If you are asking what time SpeedX delivers, check the latest out-for-delivery scan and the estimated window shown by the seller or tracking timeline rather than assuming a fixed hour.",

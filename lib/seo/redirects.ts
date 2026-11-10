@@ -91,8 +91,38 @@ export const permanentRedirects: PermanentRedirect[] = [
   {
     source: "/guides/does-speedx-deliver-late-at-night",
     destination: "/guides/speedx-delivery-hours"
+  },
+  // Thin/cannibalizing topic Q&As → pillars (cuts "crawled – not indexed" waste)
+  {
+    source: "/topics/delivery-hours/sunday-delivery-odds",
+    destination: "/does-speedx-deliver-on-sunday"
+  },
+  {
+    source: "/topics/delivery-hours/weekend-delivery-hours",
+    destination: "/does-speedx-deliver-on-sunday"
+  },
+  {
+    source: "/topics/out-for-delivery/same-day-delivery-odds",
+    destination: "/speedx-out-for-delivery"
+  },
+  {
+    source: "/topics/out-for-delivery/next-steps-if-missing",
+    destination: "/speedx-out-for-delivery"
+  },
+  {
+    source: "/topics/speedx-tracking/destination-facility-meaning",
+    destination: "/blog/speedx-arrived-at-facility-meaning"
   }
 ];
+
+/** Topic Q&A slugs removed from sitemap because they 301 to pillars. */
+export const redirectedTopicQaPaths = new Set([
+  "/topics/delivery-hours/sunday-delivery-odds",
+  "/topics/delivery-hours/weekend-delivery-hours",
+  "/topics/out-for-delivery/same-day-delivery-odds",
+  "/topics/out-for-delivery/next-steps-if-missing",
+  "/topics/speedx-tracking/destination-facility-meaning"
+]);
 
 export function getProgrammaticRedirectDestination(slug: string) {
   return programmaticRedirectMap[slug];

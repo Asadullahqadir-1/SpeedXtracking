@@ -47,11 +47,14 @@ if (!sitemap.includes("getIndexableProgrammaticPages")) {
 if (!robots.includes("Disallow: /api/")) {
   failures.push("robots.txt must continue to disallow the tracking API.");
 }
-if (!/User-agent:\s*GPTBot/i.test(robots) || !/User-agent:\s*Google-Extended/i.test(robots)) {
-  failures.push("robots.txt must list GPTBot and Google-Extended as unrestricted.");
+if (!/User-agent:\s*GPTBot\s*\nAllow:\s*\//i.test(robots)) {
+  failures.push("robots.txt must Allow: / for GPTBot (no Disallow in that group).");
 }
-if (/User-agent:\s*GPTBot\s*\nDisallow:\s*\//i.test(robots)) {
-  failures.push("robots.txt must not Disallow: / for GPTBot.");
+if (!/User-agent:\s*Google-Extended\s*\nAllow:\s*\//i.test(robots)) {
+  failures.push("robots.txt must Allow: / for Google-Extended (no Disallow in that group).");
+}
+if (/User-agent:\s*GPTBot[\s\S]*?Disallow:/i.test(robots.split("User-agent: *")[0])) {
+  failures.push("GPTBot group must not contain any Disallow line (SkillStack false-positive).");
 }
 
 const priorityQueryOwners = [
