@@ -1,11 +1,15 @@
 export type BlogPost = {
   slug: string;
   title: string;
+  /** Unique SERP meta description — target ~140–160 characters (Writing Guidelines). */
   description: string;
   category: string;
+  author?: string;
   readTime: string;
   publishedDate: string;
   updatedDate: string;
+  /** Optional overrides; `content/blog-seo.ts` supplies primary/secondary keywords + FAQs. */
+  keywords?: string[];
   sections: Array<{
     heading: string;
     paragraphs: string[];
@@ -13,22 +17,24 @@ export type BlogPost = {
   }>;
 };
 
+export const blogAuthor = "SpeedXTracking";
+
 export const blogPosts: BlogPost[] = [
   {
     slug: "speedx-tracking-not-updating",
     title: "SpeedX Tracking Not Updating? 9 Real Fixes That Work",
     description:
-      "A practical checklist to resolve SpeedX tracking delays, including scan gaps, weekend holds, customs pauses, and escalation steps.",
+      "SpeedX tracking not updating? Use this practical checklist for scan gaps, weekend holds, customs pauses, and when to escalate with screenshots.",
     category: "Troubleshooting",
-    readTime: "7 min read",
+    readTime: "8 min read",
     publishedDate: "2026-03-01",
-    updatedDate: "2026-03-10",
+    updatedDate: "2026-11-11",
     sections: [
       {
-        heading: "Why SpeedX scans sometimes pause",
+        heading: "Why SpeedX tracking not updating can still be normal",
         paragraphs: [
-          "SpeedX tracking can appear frozen when a parcel is traveling between major hubs where no public scan happens in transit. This is common on long-haul routes and overnight linehaul movements.",
-          "Another frequent reason is batch processing. Carriers often upload several events at once, so the timeline may jump from 'In Transit' to 'Out for Delivery' without intermediate checkpoints."
+          "SpeedX tracking not updating often looks alarming, but many freezes happen when a parcel travels between major hubs with no public transit scan. This is common on long-haul routes and overnight linehaul movements.",
+          "Another frequent reason is batch processing. Carriers often upload several events at once, so the timeline may jump from in transit to out for delivery without intermediate checkpoints."
         ]
       },
       {
@@ -137,16 +143,17 @@ export const blogPosts: BlogPost[] = [
     slug: "delivered-but-not-received-speedx",
     title: "SpeedX Tracking Says Delivered But Not Received: Step-by-Step Recovery",
     description:
-      "What to do in the first 24 hours if SpeedX marks your package delivered but you cannot find it.",
+      "SpeedX tracking says delivered but not received? Use this first-24-hour checklist, proof-of-delivery steps, and seller claim script to recover faster.",
     category: "Claims",
-    readTime: "6 min read",
+    readTime: "8 min read",
     publishedDate: "2026-02-15",
-    updatedDate: "2026-03-10",
+    updatedDate: "2026-11-11",
     sections: [
       {
         heading: "First checks when SpeedX tracking says delivered",
         paragraphs: [
-          "Many missing-delivery cases are nearby placement issues. Couriers may leave parcels at side doors, concierge desks, lockers, or alternate entrances listed in delivery instructions."
+          "When SpeedX tracking says delivered but not received, start with nearby placement checks. Couriers may leave parcels at side doors, concierge desks, lockers, or alternate entrances listed in delivery instructions.",
+          "Wait up to 24 hours for delayed final-scan sync before assuming theft or a false delivery event."
         ],
         bullets: [
           "Check porch, side gate, garage area, and mailbox cluster",
@@ -158,7 +165,15 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "How to file an effective SpeedX tracking claim",
         paragraphs: [
-          "Open a ticket with your seller and include screenshots, delivery window, and a short statement confirming non-receipt. This speeds reimbursement or re-shipment decisions."
+          "Open a ticket with your seller and include screenshots, delivery window, full destination address, and a short statement confirming non-receipt.",
+          "Ask for proof of delivery and a written case ID. Marketplace sellers usually open the first carrier case faster than a cold support email."
+        ]
+      },
+      {
+        heading: "Evidence that speeds reimbursement or re-shipment",
+        paragraphs: [
+          "Keep a one-line timeline: order date, last scan, delivered timestamp, and when you checked the property. Attach photos of the delivery area if useful.",
+          "If the drop location is wrong or the photo does not match your address, state that clearly in the first message so the case is not closed as “delivered as scanned.”"
         ]
       }
     ]
@@ -167,22 +182,45 @@ export const blogPosts: BlogPost[] = [
     slug: "tracking-status-meanings-explained",
     title: "SpeedX Tracking Status Meanings Explained: In Transit, Exception, Delivered",
     description:
-      "Decode common SpeedX tracking statuses so you know exactly what action to take at each shipment stage.",
+      "Decode SpeedX tracking status meanings—in transit, facility, exception, out for delivery, and delivered—so you know the next action at each stage.",
     category: "Tracking Basics",
     readTime: "9 min read",
     publishedDate: "2026-02-09",
-    updatedDate: "2026-03-10",
+    updatedDate: "2026-11-11",
     sections: [
       {
         heading: "Core SpeedX tracking statuses and their real meaning",
         paragraphs: [
-          "Not every status indicates progress at the same speed. Some represent movement while others are administrative scans. Knowing the difference helps you avoid premature escalation."
+          "SpeedX tracking status meanings help you separate normal movement from problems that need action. Not every status indicates progress at the same speed—some are physical scans and others are administrative events.",
+          "Read the full timeline, not only the latest label. Comparing the last two SpeedX tracking events shows whether the parcel is still in a normal stage or stuck after an exception."
         ],
         bullets: [
-          "In Transit: normal network movement",
-          "Arrived at Facility: reached a sorting hub",
+          "In Transit: normal network movement between hubs",
+          "Arrived at Facility: reached a sorting or destination hub",
           "Delivery Exception: temporary problem requiring review",
-          "Delivered: completion event, verify drop location"
+          "Out for Delivery: assigned to a local driver route",
+          "Delivered: completion event—verify the drop location"
+        ]
+      },
+      {
+        heading: "What SpeedX in transit means",
+        paragraphs: [
+          "In transit means the parcel is moving through the carrier network. Quiet gaps of 24–48 hours can still be normal on long-haul or cross-border legs when no public intermediate scan is posted.",
+          "Escalate only after the seller ETA context and a realistic scan window have both passed—not after a single quiet day."
+        ]
+      },
+      {
+        heading: "What a SpeedX delivery exception means",
+        paragraphs: [
+          "A delivery exception is a temporary obstacle such as address mismatch, access issues, customs review, or operational backlog. It does not automatically mean the package is lost.",
+          "Correct destination details first, then monitor for the next scan. If nothing changes, open a seller case with screenshots and a clear requested action."
+        ]
+      },
+      {
+        heading: "What to do when SpeedX shows delivered",
+        paragraphs: [
+          "Delivered confirms route completion for the carrier. Check porch, side doors, lockers, reception, and neighbors before assuming a loss.",
+          "If the parcel is still missing after 24 hours, gather proof and follow the delivered-but-not-received checklist with the seller."
         ]
       }
     ]
@@ -191,22 +229,37 @@ export const blogPosts: BlogPost[] = [
     slug: "best-time-to-contact-carrier-support",
     title: "Best Time to Contact SpeedX Tracking Support (and What to Say)",
     description:
-      "Use this SpeedX tracking contact script and timing strategy to get faster, more useful responses from carrier support teams.",
+      "Best time to contact SpeedX tracking support: wait windows, seller-first tips, and a short script that gets faster, clearer carrier replies.",
     category: "Support",
-    readTime: "5 min read",
+    readTime: "7 min read",
     publishedDate: "2026-02-01",
-    updatedDate: "2026-03-10",
+    updatedDate: "2026-11-11",
     sections: [
       {
         heading: "Timing your SpeedX tracking support request",
         paragraphs: [
-          "Support outcomes improve when you contact carriers with a clear case summary and after enough time has passed for normal scan delays to resolve."
+          "SpeedX customer service outcomes improve when you contact support after normal scan delays have had time to clear, and when your message includes a clear case summary.",
+          "For marketplace orders, start with the seller—they can confirm fulfillment and open the first case—then escalate to SpeedX support for carrier-level scan questions."
         ],
         bullets: [
           "Contact after 48 hours with no update (domestic)",
           "Contact after 72 hours with no update (international)",
           "Have tracking number, order ID, and full address ready",
-          "Ask for a case ID and escalation timestamp"
+          "Ask for a case ID and next-update commitment"
+        ]
+      },
+      {
+        heading: "What to say to SpeedX support",
+        paragraphs: [
+          "Keep the first message short. State the tracking number, last scan timestamp, destination ZIP, and one requested action such as locate package or confirm next delivery attempt.",
+          "Attach timeline screenshots instead of long narrative. Structured evidence shortens back-and-forth and speeds escalation."
+        ]
+      },
+      {
+        heading: "When to escalate sooner",
+        paragraphs: [
+          "Do not wait the full window if tracking shows a hard exception, a missed seller ETA with no movement, or delivered-but-not-received after local checks.",
+          "Use the SpeedX contact support guide for channel options and the package-not-delivered checklist when the final-mile scan does not match arrival."
         ]
       }
     ]

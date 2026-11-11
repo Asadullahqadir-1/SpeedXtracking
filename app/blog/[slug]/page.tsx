@@ -1,6 +1,7 @@
 import { notFound, permanentRedirect } from "next/navigation";
 import Link from "next/link";
-import { blogPosts } from "@/content/blogs";
+import { blogAuthor, blogPosts } from "@/content/blogs";
+import { getBlogSeo } from "@/content/blog-seo";
 import { AdSenseUnit } from "@/components/ads/AdSenseUnit";
 import { FreshnessNote } from "@/components/seo/FreshnessNote";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -42,10 +43,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     permanentRedirect("/guides/speedx-delivery-hours");
   }
 
+  const seo = getBlogSeo(post.slug);
+  const keywords = post.keywords?.length ? post.keywords : seo.keywords;
+
+  // Writing Guidelines: {Article Title} | SpeedXTracking Blog
   return buildMetadata({
-    title: post.title,
+    title: `${post.title} | SpeedXTracking Blog`,
     description: post.description,
     path: `/blog/${post.slug}`,
+    keywords,
     robots:
       slug === "track-speedx-packages-in-pakistan"
         ? { index: false, follow: true }
@@ -65,6 +71,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     permanentRedirect("/guides/speedx-delivery-hours");
   }
 
+  const seo = getBlogSeo(post.slug);
+  const keywords = post.keywords?.length ? post.keywords : seo.keywords;
+  const postFaqs = seo.faqs;
+
   const relatedPosts = blogPosts
     .filter((item) => item.slug !== post.slug && item.slug !== "does-speedx-deliver-late-at-night-guide")
     .filter((item) => item.category === post.category)
@@ -81,47 +91,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     return count + paragraphWords + bulletWords;
   }, 0);
 
-  const articleFaqs: Record<string, Array<{ question: string; answer: string }>> = {
-    "speedx-delivery-time-by-region": [
-      {
-        question: "What are typical SpeedX delivery times?",
-        answer:
-          "Domestic SpeedX shipments commonly take several business days after carrier handoff, while cross-border shipments can take longer because customs and partner handoffs add processing stages."
-      },
-      {
-        question: "Are SpeedX delivery times guaranteed?",
-        answer:
-          "No. Delivery times are estimates affected by route, customs, weather, destination density, and peak volume. Use the latest scan and seller estimate together."
-      }
-    ],
-    "speedx-out-for-delivery-but-not-delivered": [
-      {
-        question: "How long does SpeedX take to deliver when out for delivery?",
-        answer:
-          "Out for delivery usually means the parcel is intended for delivery that day, but route overflow, traffic, weather, access issues, or an unfinished route can move the attempt to the next day."
-      },
-      {
-        question: "What should I do if SpeedX is out for delivery but not delivered?",
-        answer:
-          "Check the delivery area and access instructions, wait through the local delivery window, then recheck the next morning. Contact the seller with the tracking number and screenshot if no new event appears."
-      }
-    ],
-    "shein-speedx-tracking-guide": [
-      {
-        question: "How do I use SpeedX tracking for a Shein order?",
-        answer:
-          "Copy the carrier tracking number from Shein shipment details or the shipping email, then compare seller, customs, destination handoff, and final-mile events in sequence."
-      },
-      {
-        question: "Who should I contact when a Shein SpeedX shipment is delayed?",
-        answer:
-          "Start with Shein for order, address, or refund issues. Use SpeedX support for carrier scan or delivery-event questions after the seller confirms the shipment details."
-      }
-    ]
-  };
-
-  const postFaqs = articleFaqs[post.slug] ?? [];
-
   return (
     <div className="container-page py-6 sm:py-8 lg:py-10">
       <JsonLd
@@ -133,7 +102,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           dateModified: post.updatedDate,
           articleSection: post.category,
           wordCount: estimatedWordCount,
-          keywords: [post.category, "SpeedX tracking", post.title]
+          keywords
         })}
       />
       <JsonLd
@@ -147,6 +116,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       <article className="mx-auto max-w-4xl">
         <div className="mb-4 flex flex-wrap items-center gap-2 text-xs">
           <span className="rounded-full bg-brand-50 px-2.5 py-1 font-semibold text-brand-700">{post.category}</span>
+          <span className="text-slate-500">{post.author ?? blogAuthor}</span>
           <span className="text-slate-500">{post.readTime}</span>
           <span className="text-slate-500">Published: {post.publishedDate}</span>
         </div>
@@ -177,59 +147,63 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           ))}
         </div>
 
-        <div className="mt-8 flex flex-wrap gap-3">
-          {activeCluster ? (
-            <Link href={`/topics/${activeCluster}`} className="btn-secondary">
-              Open topic cluster
-            </Link>
-          ) : null}
-          <Link href="/carriers/speedx" className="btn-secondary">
-            SpeedX Tracking Hub
-          </Link>
-          <Link href="/carriers/speedx/status" className="btn-secondary">
-            SpeedX Tracking Status
-          </Link>
-          {(post.category === "Delivery Times" || post.slug === "speedx-out-for-delivery-but-not-delivered") ? (
-            <Link href="/guides/speedx-delivery-hours" className="btn-secondary">
-              SpeedX Delivery Hours Guide
-            </Link>
-          ) : null}
-          <Link href="/blog" className="btn-secondary">
-            Back to Blog
-          </Link>
-          <Link href="/track-package" className="btn-primary">
-            Track a Package
-          </Link>
-        </div>
-
-        {postFaqs.length > 0 ? <section className="mt-8 section-card p-5 sm:p-6">
-          <h2 className="text-xl font-semibold text-slate-900">SpeedX Tracking FAQs</h2>
-          <div className="mt-4 space-y-4">
-            {postFaqs.map((faq) => (
-              <article key={faq.question}>
-                <h3 className="font-medium text-slate-900">{faq.question}</h3>
-                <p className="mt-1 text-sm text-slate-700">{faq.answer}</p>
-              </article>
+        <section className="mt-8 section-card p-5 sm:p-6">
+          <h2 className="text-xl font-semibold text-slate-900">Helpful SpeedXTracking pages</h2>
+          <p className="mt-2 text-sm text-slate-700">
+            Descriptive internal links to related SpeedX tracking and delivery guides on this site.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3 text-sm font-semibold text-brand-700">
+            {seo.relatedLinks.map((link) => (
+              <Link key={link.href} href={link.href} className="hover:underline">
+                {link.label}
+              </Link>
             ))}
+            {activeCluster ? (
+              <Link href={`/topics/${activeCluster}`} className="hover:underline">
+                {activeCluster === "out-for-delivery"
+                  ? "SpeedX out for delivery topic hub"
+                  : activeCluster === "delivery-hours"
+                    ? "SpeedX delivery hours topic hub"
+                    : "SpeedX tracking topic hub"}
+              </Link>
+            ) : null}
           </div>
-        </section> : null}
+          <p className="mt-4 text-sm text-slate-700">
+            Ready to check a live scan? Use the{" "}
+            <Link href="/track-package" className="font-semibold text-brand-700 hover:underline">
+              free SpeedX tracking lookup
+            </Link>
+            .
+          </p>
+        </section>
+
+        {postFaqs.length > 0 ? (
+          <section className="mt-8 section-card p-5 sm:p-6">
+            <h2 className="text-xl font-semibold text-slate-900">SpeedX Tracking FAQs</h2>
+            <div className="mt-4 space-y-4">
+              {postFaqs.map((faq) => (
+                <article key={faq.question}>
+                  <h3 className="font-medium text-slate-900">{faq.question}</h3>
+                  <p className="mt-1 text-sm text-slate-700">{faq.answer}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         <section className="mt-8 section-card p-5 sm:p-6">
-          <h2 className="text-xl font-semibold text-slate-900">Related SpeedX Articles</h2>
+          <h2 className="text-xl font-semibold text-slate-900">Related SpeedX articles</h2>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {relatedToShow.map((entry) => (
-              <Link key={entry.slug} href={`/blog/${entry.slug}`} className="rounded-lg border border-slate-200 p-3 text-sm text-brand-700 hover:border-brand-500 hover:underline">
+              <Link
+                key={entry.slug}
+                href={`/blog/${entry.slug}`}
+                className="rounded-lg border border-slate-200 p-3 text-sm font-semibold text-brand-700 hover:border-brand-500 hover:underline"
+              >
                 {entry.title}
               </Link>
             ))}
           </div>
-        </section>
-
-        <section className="mt-8 section-card p-5 sm:p-6">
-          <h2 className="text-xl font-semibold text-slate-900">Next steps</h2>
-          <p className="mt-3 text-sm text-slate-700">
-            Use the practical checks above to determine when a SpeedX issue is normal versus when it is time to contact support. Keeping a clear timeline and the latest scan screenshots will help speed up the resolution.
-          </p>
         </section>
 
         <TopicAuthorityLinks activeCluster={activeCluster} title="Descriptive SpeedX cluster links" />
@@ -237,7 +211,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
         <EditorialTrustBlock
           reviewedDate={post.updatedDate}
-          notes="This article is reviewed against official carrier resources and updated when support flows or status definitions change. Spam backlink farms are never used as citations."
+          notes="This article follows SpeedXTracking blog SEO writing guidelines (meta, keywords, FAQs, descriptive internal links) and is reviewed against official carrier resources. Spam backlink farms are never used as citations."
           sources={getTrustedCitationSources()}
         />
       </article>

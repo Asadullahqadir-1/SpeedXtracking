@@ -99,7 +99,7 @@ export default function BlogPage() {
             <p className="mt-3 text-xs text-slate-500">Updated: {post.updatedDate}</p>
 
             <Link href={`/blog/${post.slug}`} className="mt-4 inline-block text-sm font-semibold text-brand-700 hover:underline">
-              Read article →
+              {post.title}
             </Link>
           </article>
         ))}

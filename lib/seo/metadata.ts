@@ -27,6 +27,7 @@ export function buildMetadata({
   title,
   description,
   path,
+  keywords,
   robots,
   image
 }: {
@@ -58,6 +59,7 @@ export function buildMetadata({
     // absolute prevents root layout template from doubling the brand
     title: { absolute: metaTitle },
     description,
+    ...(keywords?.length ? { keywords: [...keywords] } : {}),
     category: "Shipping and Logistics",
     alternates: {
       canonical
