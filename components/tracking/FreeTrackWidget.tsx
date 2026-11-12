@@ -55,9 +55,10 @@ export function FreeTrackWidget({
   }, [carrierCode, containerId, height, trackingNumber]);
 
   useEffect(() => {
-    if (scriptReady) {
-      runTrack();
-    }
+    if (!scriptReady) return;
+
+    const frameId = window.requestAnimationFrame(runTrack);
+    return () => window.cancelAnimationFrame(frameId);
   }, [scriptReady, runTrack]);
 
   if (!trackingNumber.trim()) {

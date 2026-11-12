@@ -72,6 +72,15 @@ export const permanentRedirects: PermanentRedirect[] = [
     source: `/${slug}`,
     destination
   })),
+  // Only SpeedX carrier pages are part of this site's indexable focus.
+  // Consolidate generic carrier variants instead of serving thin noindex pages.
+  ...["dhl", "ups", "fedex", "dpd", "gls", "hermes"].flatMap((carrier) => [
+    { source: `/carriers/${carrier}`, destination: "/carriers" },
+    { source: `/carriers/${carrier}/status`, destination: "/carriers" },
+    { source: `/carriers/${carrier}/delivery-time`, destination: "/carriers" },
+    { source: `/carriers/${carrier}/contact`, destination: "/carriers" },
+    { source: `/carriers/${carrier}/shein`, destination: "/carriers" }
+  ]),
   {
     source: "/carriers/usps",
     destination: "/carriers"

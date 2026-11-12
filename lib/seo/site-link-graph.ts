@@ -23,6 +23,7 @@ export function getMoneyPageLinks(): LinkItem[] {
     { href: "/blog/speedx-delivery-time-by-region", label: "SpeedX delivery times by region" },
     { href: "/blog/shein-speedx-tracking-guide", label: "Shein SpeedX tracking guide" },
     { href: "/blog/speedx-out-for-delivery-but-not-delivered", label: "Out for delivery but not delivered" },
+    { href: "/blog/speedx-departed-facility-no-update", label: "SpeedX departed facility no update" },
     { href: "/guides/speedx-delivery-hours", label: "How late does SpeedX deliver?" },
     { href: "/carriers/speedx/contact", label: "SpeedX customer service" },
     { href: "/why-speedxtracking", label: "Why SpeedXTracking (vs aggregators)" }

@@ -760,6 +760,19 @@ export const blogPosts: BlogPost[] = [
         ]
       },
       {
+        heading: "What the next scan usually means",
+        paragraphs: [
+          "The next event may show arrival at a destination facility, a linehaul handoff, customs processing, or an out-for-delivery assignment. A missing intermediate scan does not by itself mean the parcel stopped moving.",
+          "Compare the event timestamp with the delivery estimate and destination route. Cross-border shipments and weekend transfers commonly take longer than local hub-to-hub legs."
+        ],
+        bullets: [
+          "Arrival at facility: the next hub has received the parcel",
+          "In transit: the parcel is moving between facilities",
+          "Out for delivery: a local route has been assigned",
+          "Exception: an address, weather, customs, or operational issue needs review"
+        ]
+      },
+      {
         heading: "Reasonable wait thresholds",
         paragraphs: [
           "A 24-48 hour gap is frequently normal. Longer pauses require context from route type, weather, customs, and weekend timing."
@@ -775,7 +788,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Escalation details that get faster replies",
         paragraphs: [
           "Share last known location, exact timestamp, destination post code, and expected delivery date in one concise message.",
-          "Structured evidence avoids back-and-forth and shortens support resolution time."
+          "Structured evidence avoids back-and-forth and shortens support resolution time. Check the latest scan with the free SpeedX tracking lookup before contacting the seller or carrier."
         ]
       }
     ]

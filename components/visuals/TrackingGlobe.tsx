@@ -25,18 +25,12 @@ function createArcCurve(start: THREE.Vector3, end: THREE.Vector3, lift = 0.35) {
 
 export default function TrackingGlobe({ className = "" }: TrackingGlobeProps) {
   const mountRef = useRef<HTMLDivElement>(null);
-  const [enabled, setEnabled] = useState(false);
-
-  useEffect(() => {
+  const [enabled] = useState(() => {
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const coarsePointer = window.matchMedia("(pointer: coarse)").matches;
     const smallScreen = window.innerWidth < 768;
-    if (reduceMotion || (coarsePointer && smallScreen)) {
-      setEnabled(false);
-      return;
-    }
-    setEnabled(true);
-  }, []);
+    return !reduceMotion && !(coarsePointer && smallScreen);
+  });
 
   useEffect(() => {
     if (!enabled) return;
