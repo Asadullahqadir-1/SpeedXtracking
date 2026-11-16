@@ -20,7 +20,7 @@ export function middleware(request: NextRequest) {
   redirectUrl.protocol = "https";
   redirectUrl.host = APEX_HOST;
 
-  return NextResponse.redirect(redirectUrl, 308);
+  return NextResponse.redirect(redirectUrl, 301);
 }
 
 export const config = {

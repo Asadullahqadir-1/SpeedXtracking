@@ -65,7 +65,7 @@ const nextConfig: NextConfig = {
     return permanentRedirects.map((entry) => ({
       source: entry.source,
       destination: entry.destination,
-      permanent: true
+      statusCode: 301
     }));
   }
 };

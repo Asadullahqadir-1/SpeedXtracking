@@ -28,8 +28,8 @@ if (!nextConfig.includes("permanentRedirects")) {
   failures.push("next.config.ts must use the shared permanentRedirects list.");
 }
 
-if (!nextConfig.includes("permanent: true")) {
-  failures.push("next.config.ts redirects must be permanent (301) for GSC redirect validation.");
+if (!nextConfig.includes("statusCode: 301")) {
+  failures.push("next.config.ts redirects must use statusCode 301 for GSC redirect validation.");
 }
 
 const imageSources = [...programmatic.matchAll(/imageSrc:\s*"([^"]+)"/g)].map((match) => match[1]);
