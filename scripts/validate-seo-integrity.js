@@ -10,6 +10,7 @@ const guides = fs.readFileSync(path.join(root, "content", "guides.ts"), "utf8");
 const homepage = fs.readFileSync(path.join(root, "app", "page.tsx"), "utf8");
 const internalLinks = fs.readFileSync(path.join(root, "lib", "seo", "internal-links.ts"), "utf8");
 const nextConfig = fs.readFileSync(path.join(root, "next.config.ts"), "utf8");
+const layout = fs.readFileSync(path.join(root, "app", "layout.tsx"), "utf8");
 
 const failures = [];
 
@@ -55,6 +56,15 @@ if (!/User-agent:\s*Google-Extended\s*\nAllow:\s*\//i.test(robots)) {
 }
 if (/User-agent:\s*GPTBot[\s\S]*?Disallow:/i.test(robots.split("User-agent: *")[0])) {
   failures.push("GPTBot group must not contain any Disallow line (SkillStack false-positive).");
+}
+if (layout.includes('href="/llms.txt"') || layout.includes('href="/agents.txt"')) {
+  failures.push("Machine-readable text files must not be advertised as HTML alternates.");
+}
+if (!/source:\s*"\/agents\.txt"[\s\S]*?X-Robots-Tag[\s\S]*?noindex/i.test(nextConfig)) {
+  failures.push("agents.txt must send an X-Robots-Tag noindex header.");
+}
+if (!/source:\s*"\/llms\.txt"[\s\S]*?X-Robots-Tag[\s\S]*?noindex/i.test(nextConfig)) {
+  failures.push("llms.txt must send an X-Robots-Tag noindex header.");
 }
 
 const priorityQueryOwners = [

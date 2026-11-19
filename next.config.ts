@@ -58,6 +58,14 @@ const nextConfig: NextConfig = {
       {
         source: "/:path*",
         headers: securityHeaders
+      },
+      {
+        source: "/agents.txt",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }]
+      },
+      {
+        source: "/llms.txt",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }]
       }
     ];
   },
