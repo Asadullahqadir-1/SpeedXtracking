@@ -32,6 +32,9 @@ if (!nextConfig.includes("permanentRedirects")) {
 if (!nextConfig.includes("statusCode: 301")) {
   failures.push("next.config.ts redirects must use statusCode 301 for GSC redirect validation.");
 }
+if (!nextConfig.includes('value: "www.speedxtracking.org"') || !nextConfig.includes('destination: "https://speedxtracking.org/:path*"')) {
+  failures.push("www.speedxtracking.org must permanently redirect to the apex HTTPS host.");
+}
 
 const imageSources = [...programmatic.matchAll(/imageSrc:\s*"([^"]+)"/g)].map((match) => match[1]);
 for (const source of new Set(imageSources)) {
