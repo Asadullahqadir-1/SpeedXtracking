@@ -10,17 +10,41 @@ export const siteConfig = {
 };
 
 const BRAND_MARKERS = ["SpeedXTracking", "Speed X Tracking", "SpeedX Tracking"];
+const ELLIPSIS_RE = /…|\.\.\./;
 
-function hasBrandInTitle(title: string) {
+export function hasBrandInTitle(title: string) {
   return BRAND_MARKERS.some((marker) => title.includes(marker));
 }
 
-/** Keep SERP titles under ~60 chars so the brand still fits. */
-function truncateTitle(title: string, max = 55) {
-  if (title.length <= max) return title;
-  const cut = title.slice(0, max - 1);
-  const lastSpace = cut.lastIndexOf(" ");
-  return `${(lastSpace > 35 ? cut.slice(0, lastSpace) : cut).trim()}…`;
+/**
+ * Build a complete SERP title. Never truncate with ellipses.
+ * Append "| SpeedXTracking" only when the title has no brand marker and the
+ * result still fits in 60 characters. Over-length or ellipsis titles throw
+ * so the page title can be rewritten instead of silently cut off.
+ */
+export function finalizeTitle(title: string) {
+  const trimmed = title.trim();
+  if (!trimmed) {
+    throw new Error("Page title is empty.");
+  }
+  if (ELLIPSIS_RE.test(trimmed)) {
+    throw new Error(`Title must not contain ellipses: ${trimmed}`);
+  }
+
+  let metaTitle = trimmed;
+  if (!hasBrandInTitle(trimmed)) {
+    const withBrand = `${trimmed} | ${siteConfig.name}`;
+    if (withBrand.length <= 60) {
+      metaTitle = withBrand;
+    }
+  }
+
+  if (ELLIPSIS_RE.test(metaTitle)) {
+    throw new Error(`Title must not contain ellipses: ${metaTitle}`);
+  }
+  // Never truncate with ellipses. Over-length titles must be rewritten;
+  // scripts/audit-built-seo.mjs fails the build output if an indexable title exceeds 60.
+  return metaTitle;
 }
 
 export function buildMetadata({
@@ -39,8 +63,7 @@ export function buildMetadata({
   image?: string;
 }): Metadata {
   const canonical = new URL(path, siteUrl).toString();
-  const baseTitle = hasBrandInTitle(title) ? title : `${truncateTitle(title)} | ${siteConfig.name}`;
-  const metaTitle = baseTitle.length > 60 ? truncateTitle(baseTitle, 60) : baseTitle;
+  const metaTitle = finalizeTitle(title);
   const socialImage = new URL(image || siteConfig.defaultOgImage, siteUrl).toString();
 
   const defaultRobots: Metadata["robots"] = {

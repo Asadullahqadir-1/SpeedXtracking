@@ -85,11 +85,11 @@ const priorityQueryOwners = [
   { query: "what time does speedx deliver", route: "/guides/speedx-delivery-hours", source: guides, marker: "What time does SpeedX deliver" },
   { query: "what time does speedx stop delivering", route: "/guides/speedx-delivery-hours", source: guides, marker: "What time does SpeedX stop delivering" },
   { query: "how long does speedx take to deliver when out for delivery", route: "/guides/speedx-delivery-hours", source: guides, marker: "How long does SpeedX take to deliver when out for delivery" },
-  { query: "speedx delivery times", route: "/guides/speedx-delivery-hours", source: guides, marker: "SpeedX delivery times" },
+  { query: "speedx delivery times", route: "/speedx-delivery", source: fs.readFileSync(path.join(root, "app", "speedx-delivery", "page.tsx"), "utf8"), marker: "SpeedX delivery times" },
   { query: "speedx delivery hours", route: "/guides/speedx-delivery-hours", source: guides, marker: "SpeedX delivery hours" },
   { query: "when does speedx stop delivering", route: "/guides/speedx-delivery-hours", source: guides, marker: "when does SpeedX stop delivering" },
   { query: "speedx tracking shein", route: "/carriers/speedx/shein", source: homepage, marker: "SpeedX Shein" },
-  { query: "speedx tracking glossary", route: "/shipping-terms", source: fs.readFileSync(path.join(root, "app", "shipping-terms", "page.tsx"), "utf8"), marker: "SpeedX Tracking Glossary" },
+  { query: "speedx tracking glossary", route: "/carriers/speedx/status", source: fs.readFileSync(path.join(root, "app", "carriers", "[carrier]", "status", "page.tsx"), "utf8"), marker: "SpeedX Tracking Status Meanings" },
   { query: "spxcn", route: "/guides/spxcn-tracking-number-meaning", source: guides, marker: "spxcn" },
   { query: "speed x tracker", route: "/", source: homepage, marker: "Speed X tracker" }
 ];

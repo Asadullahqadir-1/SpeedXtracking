@@ -14,7 +14,7 @@ const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "pub-5798356780
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "SpeedX Tracking — Free Package Status Lookup | SpeedXTracking",
+    default: "SpeedX Tracking — Check SPX Status & Delivery Updates",
     template: "%s | SpeedXTracking"
   },
   description: siteConfig.description,
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     apple: [{ url: "/icon.svg", type: "image/svg+xml" }]
   },
   openGraph: {
-    title: "SpeedX Tracking — Free Package Status Lookup",
+    title: "SpeedX Tracking — Check SPX Status & Delivery Updates",
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SpeedX Tracking — Free Package Status Lookup",
+    title: "SpeedX Tracking — Check SPX Status & Delivery Updates",
     description: siteConfig.description,
     images: [siteConfig.defaultOgImage]
   },

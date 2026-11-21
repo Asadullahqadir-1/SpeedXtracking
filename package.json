@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "seo:validate": "node scripts/validate-seo-integrity.js",
+    "seo:audit": "node scripts/audit-built-seo.mjs",
     "seo:generate-longtail": "node scripts/generate-longtail-csv.js",
     "seo:gsc-analyze": "node scripts/analyze-gsc-pages.js"
   },
