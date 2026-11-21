@@ -31,6 +31,11 @@ const notDelivered = { href: "/speedx-package-not-delivered", label: "SpeedX pac
 const shipping = { href: "/speedx-shipping", label: "SpeedX shipping guide" };
 const trackingNumber = { href: "/speedx-tracking-number", label: "SpeedX tracking number guide" };
 const spxcn = { href: "/guides/spxcn-tracking-number-meaning", label: "SPXCN tracking number meaning" };
+const temu = { href: "/blog/temu-speedx-tracking", label: "Temu SpeedX tracking" };
+const tiktok = { href: "/blog/tiktok-shop-speedx-tracking", label: "TikTok Shop SpeedX tracking" };
+const podPhoto = { href: "/blog/speedx-proof-of-delivery-photo", label: "SpeedX proof-of-delivery photo" };
+const spxVs = { href: "/blog/spx-vs-spx-express-philippines", label: "SPX vs SPX Express in the Philippines" };
+const notWorking = { href: "/blog/speedx-tracking-number-not-found", label: "SpeedX tracking number not working" };
 
 export const blogSeoBySlug: Record<string, BlogSeoEnrichment> = {
   "speedx-tracking-not-updating": {
@@ -112,7 +117,7 @@ export const blogSeoBySlug: Record<string, BlogSeoEnrichment> = {
           "SPXCN is a common SpeedX-linked cross-border format. Scans can update in batches during export and customs, so short quiet windows are common."
       }
     ],
-    relatedLinks: [shein, track, spxcn, delivery, contact]
+    relatedLinks: [shein, track, temu, tiktok, spxcn, delivery, contact]
   },
   "delivered-but-not-received-speedx": {
     keywords: [
@@ -402,30 +407,36 @@ export const blogSeoBySlug: Record<string, BlogSeoEnrichment> = {
   },
   "speedx-tracking-number-not-found": {
     keywords: [
+      "SpeedX tracking number not working",
+      "SpeedX tracking number invalid",
       "SpeedX tracking number not found",
-      "Invalid SpeedX tracking number",
-      "SpeedX tracking error",
-      "SPXCN not found",
-      "SpeedX tracking lookup failed"
+      "SpeedX tracking not found",
+      "Invalid SpeedX tracking number"
     ],
     faqs: [
       {
-        question: "Why does SpeedX say tracking number not found?",
+        question: "Why is my SpeedX tracking number not working or not found?",
         answer:
-          "Lookup failures are usually typos, incomplete codes, recent labels still syncing, or using an order ID instead of the carrier tracking number."
+          "Most failures are typos, incomplete codes, marketplace order IDs, a label created before pickup, or a number that belongs to another SPX-branded service. Recheck the full carrier number first."
       },
       {
-        question: "How do I fix a SpeedX tracking number not found error?",
+        question: "What should I do if SpeedX tracking says the number is invalid?",
         answer:
-          "Paste the full SPX/SPXCN code without spaces, wait 24–48 hours after label creation if needed, and confirm the seller shared the carrier number."
+          "Copy the full SpeedX, SPX, or SPXCN code from the original notice, avoid the store order ID, then retry this site's tracker and the official SpeedX tracker at tracking.speedx.io."
       },
       {
-        question: "When should I open a case for number not found?",
+        question: "How long should I wait after a new label before a number works?",
         answer:
-          "Open a case after 72 hours with no valid carrier recognition and include screenshots from both seller and tracking pages."
+          "Wait 24-48 hours after Shipping Label Created for the first pickup or intake scan. If the official tracker still does not recognize the number after that window, ask the seller to confirm the code."
       }
     ],
-    relatedLinks: [track, trackingNumber, spxcn, contact, hub]
+    relatedLinks: [
+      { href: "/track-package", label: "Free SpeedX tracking lookup" },
+      { href: "/speedx-tracking-number", label: "SpeedX tracking number guide" },
+      { href: "/blog/spx-vs-spx-express-philippines", label: "SPX vs SPX Express in the Philippines" },
+      { href: "/blog/speedx-label-created-no-movement", label: "Shipping Label Created with no movement" },
+      { href: "/carriers/speedx/status", label: "SpeedX status meanings" }
+    ]
   },
   "speedx-arrived-at-facility-meaning": {
     keywords: [
@@ -534,7 +545,138 @@ export const blogSeoBySlug: Record<string, BlogSeoEnrichment> = {
       }
     ],
     relatedLinks: [status, track, contact, delivery, hub]
-  }
+  },
+  "temu-speedx-tracking": {
+    keywords: [
+      "Temu SpeedX tracking",
+      "Temu SpeedX tracking number",
+      "Track Temu SpeedX package",
+      "Temu SPX tracking",
+      "Temu SPXCN tracking"
+    ],
+    faqs: [
+      {
+        question: "How do I track a Temu order shipped with SpeedX?",
+        answer:
+          "Open the Temu order, copy the full SpeedX, SPX, or SPXCN logistics number—not the Temu order ID—then paste it into this site's free tracker or the official SpeedX tracker at tracking.speedx.io."
+      },
+      {
+        question: "Why does my Temu SpeedX tracking number say not found?",
+        answer:
+          "The label may have been created before SpeedX received the parcel, the code may be incomplete, or an order ID was used by mistake. Wait 24-48 hours after label creation, then retry the official tracker."
+      },
+      {
+        question: "Is this Temu SpeedX page the same as the Shein guide?",
+        answer:
+          "No. This page is only for Temu orders that use SpeedX. Shein orders have a separate Shein SpeedX tracking guide so the two marketplaces are not mixed."
+      }
+    ],
+    relatedLinks: [
+      { href: "/track-package", label: "Free SpeedX tracking lookup" },
+      { href: "/blog/shein-speedx-tracking-guide", label: "Shein SpeedX tracking guide" },
+      { href: "/blog/tiktok-shop-speedx-tracking", label: "TikTok Shop SpeedX tracking" },
+      { href: "/blog/speedx-tracking-number-not-found", label: "Tracking number not working" },
+      { href: "/carriers/speedx/status", label: "SpeedX status meanings" }
+    ]
+  },
+  "tiktok-shop-speedx-tracking": {
+    keywords: [
+      "TikTok Shop SpeedX tracking",
+      "TikTok Shop SpeedX tracking number",
+      "Track TikTok Shop SpeedX",
+      "TikTok Shop SPX tracking"
+    ],
+    faqs: [
+      {
+        question: "How do I find a SpeedX tracking number on TikTok Shop?",
+        answer:
+          "Open the TikTok Shop order and copy the logistics or carrier tracking number. Do not paste the Shop order ID into a SpeedX tracker."
+      },
+      {
+        question: "What should I do if TikTok Shop SpeedX tracking fails?",
+        answer:
+          "Confirm the full carrier number, try the official SpeedX tracker at tracking.speedx.io, and wait 24-48 hours if the label was just created. Then contact TikTok Shop or the seller through in-app help."
+      },
+      {
+        question: "Does a TikTok Shop SPX number always mean SpeedX?",
+        answer:
+          "Not always. Some notices use similar SPX letters for other services, including SPX Express in the Philippines. Check the carrier name on the order before choosing a tracker."
+      }
+    ],
+    relatedLinks: [
+      { href: "/track-package", label: "Free SpeedX tracking lookup" },
+      { href: "/blog/temu-speedx-tracking", label: "Temu SpeedX tracking" },
+      { href: "/blog/shein-speedx-tracking-guide", label: "Shein SpeedX tracking guide" },
+      { href: "/blog/spx-vs-spx-express-philippines", label: "SPX vs SPX Express in the Philippines" },
+      { href: "/carriers/speedx/status", label: "SpeedX status meanings" }
+    ]
+  },
+  "speedx-proof-of-delivery-photo": {
+    keywords: [
+      "SpeedX proof of delivery photo",
+      "SpeedX POD photo",
+      "SpeedX delivery photo",
+      "SpeedX delivered picture",
+      "How to see SpeedX proof of delivery"
+    ],
+    faqs: [
+      {
+        question: "Where can I see a SpeedX proof-of-delivery photo?",
+        answer:
+          "Check the official SpeedX tracker at tracking.speedx.io after the shipment is marked delivered. Open the delivered event and look for a photo. This independent site may not display the image."
+      },
+      {
+        question: "Does every SpeedX delivery include a photo?",
+        answer:
+          "No. Not every delivery publishes a photo. A locker drop, a handover without a camera capture, or a missing image on the public tracker can all mean no picture is available."
+      },
+      {
+        question: "What if SpeedX says delivered but I cannot find the package or a photo?",
+        answer:
+          "Search the drop area, save screenshots of the official delivered scan, and follow the delivered-but-not-received checklist. Contact the seller or shop help with that evidence."
+      }
+    ],
+    relatedLinks: [
+      { href: "/track-package", label: "Free SpeedX tracking lookup" },
+      { href: "/guides/delivered-not-received", label: "Delivered but not received checklist" },
+      { href: "/blog/speedx-attempted-delivery-what-next", label: "Attempted delivery next steps" },
+      { href: "/carriers/speedx/status", label: "SpeedX status meanings" },
+      { href: "/shipping-terms", label: "Shipping terms glossary" }
+    ]
+  },
+  "spx-vs-spx-express-philippines": {
+    keywords: [
+      "SPX vs SPX Express",
+      "SPX Express Philippines",
+      "SPX Express vs SpeedX",
+      "SPX Philippines tracking",
+      "Is SPX the same as SpeedX"
+    ],
+    faqs: [
+      {
+        question: "Is SPX Express in the Philippines the same as SpeedX?",
+        answer:
+          "They are easy to confuse because both can use SPX letters, but a Shopee Philippines shipment labeled SPX Express should be tracked with official SPX Express or Shopee tools. A SpeedX shipment should be checked at tracking.speedx.io. This site does not claim a corporate relationship."
+      },
+      {
+        question: "How do I know which tracker to use?",
+        answer:
+          "Read the carrier name on the order or shipping notice. If it says SPX Express and the purchase is on Shopee Philippines, use the official tools from that order. If it points to SpeedX or speedx.io, use the official SpeedX tracker and this site's lookup."
+      },
+      {
+        question: "Why does a Philippines SPX number fail in a SpeedX tracker?",
+        answer:
+          "The number may belong to SPX Express rather than SpeedX, or the label may not have been received yet. Confirm the carrier name, then use the matching official tracker."
+      }
+    ],
+    relatedLinks: [
+      { href: "/track-package", label: "Free SpeedX tracking lookup" },
+      { href: "/speedx-tracking-number", label: "SpeedX tracking number guide" },
+      { href: "/guides/spxcn-tracking-number-meaning", label: "SPXCN tracking number meaning" },
+      { href: "/blog/speedx-tracking-number-not-found", label: "Tracking number not working" },
+      { href: "/carriers/speedx/status", label: "SpeedX status meanings" }
+    ]
+  },
 };
 
 export function getBlogSeo(slug: string): BlogSeoEnrichment {

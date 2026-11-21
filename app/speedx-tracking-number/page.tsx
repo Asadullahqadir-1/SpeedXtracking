@@ -36,7 +36,7 @@ const faqs = [
 export const metadata = buildMetadata({
   title: "SpeedX Tracking Number — Find & Track Free",
   description:
-    "Find your SpeedX tracking number, understand SPX/SPXCN formats, and track packages free worldwide—including Shein SpeedX shipments.",
+    "Find your SpeedX tracking number, understand SPX and SPXCN formats, and track packages free. If a lookup fails, use the not-working checklist.",
   path: "/speedx-tracking-number"
 });
 
@@ -99,17 +99,26 @@ export default function SpeedXTrackingNumberPage() {
       <section className="mt-8 section-card">
         <h2 className="text-xl font-semibold">SPX vs SPXCN tracking numbers</h2>
         <p className="mt-3 text-sm text-slate-700">
-          SPXCN codes are common on cross-border and marketplace orders. Updates may post in batches during export and customs. A quiet 24–48 hours can be normal before destination scans appear.
+          SPXCN codes are common on cross-border and marketplace orders. Updates may post in batches during export and customs. A quiet 24-48 hours can be normal before destination scans appear. If a lookup fails, use the not-working checklist. If you are in the Philippines and the notice says SPX Express, start with the SPX vs SPX Express guide rather than this format page.
         </p>
         <div className="mt-4 flex flex-wrap gap-3 text-sm font-semibold text-brand-700">
           <Link href="/guides/spxcn-tracking-number-meaning" className="hover:underline">
-            SPXCN meaning guide →
+            SPXCN meaning guide
           </Link>
           <Link href="/blog/speedx-tracking-number-not-found" className="hover:underline">
-            Tracking number not found →
+            Tracking number not working
+          </Link>
+          <Link href="/blog/spx-vs-spx-express-philippines" className="hover:underline">
+            SPX vs SPX Express in the Philippines
+          </Link>
+          <Link href="/blog/temu-speedx-tracking" className="hover:underline">
+            Temu SpeedX tracking
+          </Link>
+          <Link href="/blog/tiktok-shop-speedx-tracking" className="hover:underline">
+            TikTok Shop SpeedX tracking
           </Link>
           <Link href="/how-to-track-speedx" className="hover:underline">
-            How to track SpeedX →
+            How to track SpeedX
           </Link>
         </div>
       </section>
