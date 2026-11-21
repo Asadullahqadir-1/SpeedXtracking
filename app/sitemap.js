@@ -77,6 +77,7 @@ export default function sitemap() {
     .filter(
       (post) =>
         post.slug !== "does-speedx-deliver-late-at-night-guide" &&
+        post.slug !== "tracking-status-meanings-explained" &&
         post.slug !== "track-speedx-packages-in-pakistan"
     )
     .map((post) => `/blog/${post.slug}`);

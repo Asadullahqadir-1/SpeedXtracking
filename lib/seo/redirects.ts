@@ -94,6 +94,10 @@ export const permanentRedirects: PermanentRedirect[] = [
     destination: "/guides/speedx-delivery-hours"
   },
   {
+    source: "/blog/tracking-status-meanings-explained",
+    destination: "/carriers/speedx/status"
+  },
+  {
     source: "/blog/spxcn-tracking-number-meaning",
     destination: "/blog/spxcn-tracking-number-format-explained"
   },

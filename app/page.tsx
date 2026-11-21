@@ -25,15 +25,19 @@ import { blogPosts } from "@/content/blogs";
 export const revalidate = 86400;
 
 export const metadata = buildMetadata({
-  // Exact query + free hook — GSC CTR was ~0.2–0.5% on "speedx tracking"
-  title: "SpeedX Tracking (Free) — Instant SPX Status",
+  title: "SpeedX Tracking — Check SPX Status & Delivery Updates",
   description:
-    "Track SpeedX free in seconds: paste SPX/SPXCN. No login. Live status, Shein updates, out for delivery help, and delivery ETAs.",
+    "Paste your SpeedX tracking number (SPX or SPXCN) to check status, Out for Delivery, facility scans, and delays. Independent guide, not the SpeedX carrier.",
   path: "/"
 });
 
 export default function HomePage() {
+  const redirectedBlogSlugs = new Set([
+    "does-speedx-deliver-late-at-night-guide",
+    "tracking-status-meanings-explained"
+  ]);
   const latestBlogPosts = [...blogPosts]
+    .filter((post) => !redirectedBlogSlugs.has(post.slug))
     .sort((a, b) => new Date(b.updatedDate).getTime() - new Date(a.updatedDate).getTime())
     .slice(0, 3);
 
@@ -151,6 +155,7 @@ export default function HomePage() {
               className="h-full w-full object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
               quality={75}
+              priority
             />
             <figcaption className="px-4 py-3 text-xs text-slate-600">
               Coverage context for typical SpeedX delivery footprints. For official maps, visit speedx.io.
@@ -166,6 +171,7 @@ export default function HomePage() {
               className="h-full w-full object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
               quality={75}
+              loading="lazy"
             />
             <figcaption className="px-4 py-3 text-xs text-slate-600">
               Delivery timing varies by route and service level; always check your tracking timeline.
@@ -184,6 +190,22 @@ export default function HomePage() {
             </p>
             <p className="mt-3 text-slate-700 leading-relaxed">
               Track SpeedX Shein orders with clearer expectations: many domestic deliveries arrive within roughly 3-5 business days, while international SpeedX shipments often take about 7-15 days depending on customs clearance. Actual times vary by route and seller. If your SpeedX tracking isn&apos;t updating, check our troubleshooting guides below for common solutions including weekend delays, customs holds, and address issues.
+            </p>
+            <p className="mt-3 text-slate-700 leading-relaxed">
+              Wondering{" "}
+              <Link href="/guides/speedx-delivery-hours" className="font-semibold text-brand-700 hover:underline">
+                how late SpeedX delivers
+              </Link>
+              ? See <Link href="/guides/speedx-delivery-hours" className="font-semibold text-brand-700 hover:underline">How Late Does SpeedX Deliver? Hours &amp; Evening Window</Link>
+              . For weekend service, read{" "}
+              <Link href="/does-speedx-deliver-on-sunday" className="font-semibold text-brand-700 hover:underline">
+                Does SpeedX Deliver on Sunday?
+              </Link>
+              . If your scan says Arrival at Destination Facility, this{" "}
+              <Link href="/blog/speedx-arrived-at-facility-meaning" className="font-semibold text-brand-700 hover:underline">
+                Arrival at Destination Facility
+              </Link>{" "}
+              guide explains the usual next step.
             </p>
           </div>
         </div>
@@ -515,13 +537,21 @@ export default function HomePage() {
           <Link href="/guides/delivered-not-received" className="hover:underline">Delivered but not received checklist</Link>
           <Link href="/guides/how-to-track-packages" className="hover:underline">How to track any package</Link>
           <Link href="/blog/speedx-tracking-not-updating" className="hover:underline">SpeedX tracking not updating fixes</Link>
-          <Link href="/blog/tracking-status-meanings-explained" className="hover:underline">Tracking status meanings explained</Link>
+          <Link href="/carriers/speedx/status" className="hover:underline">SpeedX tracking status meanings</Link>
           <Link href="/blog/shein-speedx-tracking-guide" className="hover:underline">Shein SpeedX tracking guide</Link>
+          <Link href="/guides/speedx-delivery-hours" className="hover:underline">How late does SpeedX deliver?</Link>
+          <Link href="/does-speedx-deliver-on-sunday" className="hover:underline">Does SpeedX deliver on Sunday?</Link>
+          <Link href="/blog/speedx-arrived-at-facility-meaning" className="hover:underline">Arrival at Destination Facility</Link>
           <Link href="/track-package" className="hover:underline">Track SpeedX package now</Link>
           <Link href="/carriers/speedx" className="hover:underline">SpeedX tracking hub</Link>
           <Link href="/carriers/speedx/status" className="hover:underline">Status meanings explained</Link>
           <Link href="/carriers/speedx/delivery-time" className="hover:underline">Delivery time estimates</Link>
           <Link href="/blog/speedx-delivery-exception-codes" className="hover:underline">Delivery exception fixes</Link>
+          <Link href="/blog/temu-speedx-tracking" className="hover:underline">Temu SpeedX tracking</Link>
+          <Link href="/blog/tiktok-shop-speedx-tracking" className="hover:underline">TikTok Shop SpeedX tracking</Link>
+          <Link href="/blog/speedx-proof-of-delivery-photo" className="hover:underline">SpeedX proof-of-delivery photo</Link>
+          <Link href="/blog/speedx-tracking-number-not-found" className="hover:underline">Tracking number not working</Link>
+          <Link href="/blog/spx-vs-spx-express-philippines" className="hover:underline">SPX vs SPX Express in the Philippines</Link>
           <Link href="/blog" className="hover:underline">Full SpeedX tracking blog</Link>
         </div>
       </section>

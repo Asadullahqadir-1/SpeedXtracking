@@ -10,13 +10,17 @@ export const revalidate = 86400;
 export const metadata = buildMetadata({
   title: "SpeedX Tracking Blog — Delays & Fixes",
   description:
-    "Step-by-step SpeedX guides for delayed scans, status errors, customs holds, and delivered-but-missing packages.",
+    "Step-by-step SpeedX articles for delayed scans, status meanings, customs holds, and delivered-but-missing packages, written as an independent tracking guide.",
   path: "/blog"
 });
 
 export default function BlogPage() {
   const sortedPosts = blogPosts
-    .filter((post) => post.slug !== "does-speedx-deliver-late-at-night-guide")
+    .filter(
+      (post) =>
+        post.slug !== "does-speedx-deliver-late-at-night-guide" &&
+        post.slug !== "tracking-status-meanings-explained"
+    )
     .sort((a, b) => new Date(b.updatedDate).getTime() - new Date(a.updatedDate).getTime());
 
   return (
@@ -70,7 +74,7 @@ export default function BlogPage() {
         <h2 className="text-base font-semibold text-slate-900">Popular Search Intent Topics</h2>
         <div className="mt-3 grid gap-2 text-sm text-brand-700 sm:grid-cols-2">
           <Link href="/blog/speedx-tracking-not-updating" className="hover:underline">SpeedX tracking not updating</Link>
-          <Link href="/blog/tracking-status-meanings-explained" className="hover:underline">SpeedX tracking status meanings</Link>
+          <Link href="/carriers/speedx/status" className="hover:underline">SpeedX tracking status meanings</Link>
           <Link href="/blog/speedx-delivery-time-by-region" className="hover:underline">SpeedX delivery time by region</Link>
           <Link href="/guides/speedx-delivery-hours" className="hover:underline">SpeedX delivery hours and stop times</Link>
           <Link href="/blog/delivered-but-not-received-speedx" className="hover:underline">Delivered but not received</Link>

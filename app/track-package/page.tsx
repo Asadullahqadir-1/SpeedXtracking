@@ -8,6 +8,7 @@ import { faqSchema, webPageSchema, breadcrumbSchema, trackingAppSchema } from "@
 import { buildAdaptiveClusters, getGlobalTroubleshootingCluster } from "@/lib/seo/internal-links";
 import { siteConfig } from "@/lib/seo/metadata";
 import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
+import { PageTrail } from "@/components/nav/PageTrail";
 import { TrustedCitations } from "@/components/seo/TrustedCitations";
 import Link from "next/link";
 
@@ -41,13 +42,18 @@ const trackFaqs = [
     question: "Why is my SpeedX tracking not updating?",
     answer:
       "Scan gaps of 24 to 48 hours are common during linehaul and customs. Recheck after that window, confirm the number is complete, then contact the seller if the ETA has passed."
+  },
+  {
+    question: "What should I do if this SpeedX lookup is slow or fails?",
+    answer:
+      "Confirm the full tracking number, wait a moment, then try the official SpeedX tracker at tracking.speedx.io. A newly created label may not be recognized for 24-48 hours. This site is independent and is not the SpeedX carrier."
   }
 ];
 
 export const metadata = buildMetadata({
   title: "Free SpeedX Tracking — Paste Number Instantly",
   description:
-    "Free SpeedX tracking tool: paste SPX/SPXCN for live package status now. No signup. Shein + international updates included.",
+    "Free SpeedX tracking: paste an SPX or SPXCN number for package status. If the lookup is slow or fails, use the official tracker at tracking.speedx.io.",
   path: "/track-package"
 });
 
@@ -85,17 +91,57 @@ export default async function TrackPackagePage({
           })
         }
       />
+      <PageTrail
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Track Package", path: "/track-package" }
+        ]}
+        includeSchema={false}
+      />
       <h1 className="text-3xl font-bold text-slate-900">SpeedX Tracking Number — Track Package Free</h1>
       <p className="mt-2 text-slate-700">
         International SpeedX package tracking for SPX and SPXCN numbers. Check delivery status, scan timeline, and ETA for Shein and other store orders worldwide.
       </p>
       <p className="mt-4 text-sm text-slate-700">
-        If nothing appears yet, confirm the full tracking code and wait 24 to 48 hours after the label is created for the first carrier scan.
+        If nothing appears yet, confirm the full tracking code and wait 24 to 48 hours after the label is created for the first carrier scan. If this lookup is slow or fails, use the{" "}
+        <a href="https://tracking.speedx.io/" className="font-semibold text-brand-700 hover:underline" target="_blank" rel="noopener noreferrer">
+          official SpeedX tracker at tracking.speedx.io
+        </a>
+        . This site is an independent guide, not the SpeedX carrier.
       </p>
 
       <section className="mt-6 section-card">
         <TrackingForm defaultCarrier={carrier} initialTrackingNumber={trackingNumber} />
         {trackingNumber ? <TrackingLookup trackingNumber={trackingNumber} carrier={carrier} /> : null}
+      </section>
+
+      <section className="mt-8 section-card">
+        <h2 className="text-xl font-semibold">What to do next</h2>
+        <ol className="mt-3 list-decimal space-y-2 pl-5 text-sm text-slate-700">
+          <li>Paste the full SpeedX, SPX, or SPXCN number in the form above—no spaces, and not the marketplace order ID.</li>
+          <li>
+            If the lookup stays slow or returns no result, open the{" "}
+            <a href="https://tracking.speedx.io/" className="font-semibold text-brand-700 hover:underline" target="_blank" rel="noopener noreferrer">
+              official SpeedX tracker
+            </a>{" "}
+            and paste the same number there. The official tracker may also show a proof-of-delivery photo after delivery.
+          </li>
+          <li>
+            If the number is invalid or not found, follow the{" "}
+            <Link href="/blog/speedx-tracking-number-not-found" className="font-semibold text-brand-700 hover:underline">
+              tracking number not working checklist
+            </Link>
+            .
+          </li>
+          <li>
+            Once a status appears, read the{" "}
+            <Link href="/carriers/speedx/status" className="font-semibold text-brand-700 hover:underline">
+              SpeedX status meanings
+            </Link>{" "}
+            and the matching next-step guide.
+          </li>
+          <li>Wait 24 to 48 hours after a new label or a long-haul scan gap before opening a support ticket, unless tracking already shows an exception.</li>
+        </ol>
       </section>
 
       <AdSenseUnit />

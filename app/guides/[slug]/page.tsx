@@ -6,11 +6,12 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { guides } from "@/content/guides";
 import { getFreshnessDate } from "@/lib/seo/freshness";
 import { buildAdaptiveClusters, getGlobalTroubleshootingCluster } from "@/lib/seo/internal-links";
-import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
+import { buildMetadata } from "@/lib/seo/metadata";
 import { TopicAuthorityLinks } from "@/components/seo/TopicAuthorityLinks";
+import { PageTrail } from "@/components/nav/PageTrail";
 import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 import { getTrustedCitationSources } from "@/lib/seo/trusted-citations";
-import { breadcrumbSchema, faqSchema, webPageSchema, articleSchema } from "@/lib/seo/schema";
+import { faqSchema, webPageSchema, articleSchema } from "@/lib/seo/schema";
 
 export const revalidate = 86400;
 
@@ -37,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
   return buildMetadata({
     title: guide.title,
-    description: guide.intro,
+    description: guide.description ?? guide.intro,
     path: `/guides/${guide.slug}`
   });
 }
@@ -68,23 +69,21 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
           webPageSchema({
             path: `/guides/${guide.slug}`,
             title: guide.title,
-            description: guide.intro
+            description: guide.description ?? guide.intro
           })
         }
       />
-      <JsonLd
-        data={
-          breadcrumbSchema([
-            { name: "Home", url: siteConfig.url },
-            { name: "Guides", url: `${siteConfig.url}/guides` },
-            { name: guide.title, url: `${siteConfig.url}/guides/${guide.slug}` }
-          ])
-        }
+      <PageTrail
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Guides", path: "/guides" },
+          { name: guide.title, path: `/guides/${guide.slug}` }
+        ]}
       />
       <JsonLd
         data={articleSchema({
           title: guide.title,
-          description: guide.intro,
+          description: guide.description ?? guide.intro,
           path: `/guides/${guide.slug}`,
           datePublished: getFreshnessDate("guidesHub"),
           dateModified: getFreshnessDate("guidesHub"),

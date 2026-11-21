@@ -2,6 +2,8 @@ export const guides = [
   {
     slug: "how-to-track-packages",
     title: "How to Track Any Package",
+    description:
+      "Learn the fastest way to track a package: find the tracking number, identify the carrier, read the timeline in order, and know when to contact the seller.",
     intro:
       "Learn the fastest way to track any shipment using your tracking number, carrier identification, and timeline interpretation.",
     sections: [
@@ -15,6 +17,8 @@ export const guides = [
   {
     slug: "package-not-updating",
     title: "Why Tracking Is Not Updating",
+    description:
+      "Understand normal SpeedX scan delays, when a quiet window is still expected, and the steps to take if your shipment appears stuck after that wait.",
     intro: "Understand normal scan delays and when to take action if your shipment appears stuck.",
     sections: [
       "Long-haul transit may have no intermediate scans.",
@@ -27,6 +31,8 @@ export const guides = [
   {
     slug: "delivered-not-received",
     title: "Delivered but Not Received",
+    description:
+      "Follow this delivered-but-not-received checklist before filing a claim: search the drop area, check proof of delivery, and contact the seller with screenshots.",
     intro: "Follow this checklist before filing a claim for a missing delivered package.",
     sections: [
       "Check porch, parcel lockers, mailbox, and side doors.",
@@ -39,6 +45,8 @@ export const guides = [
   {
     slug: "last-mile-delivery-explained",
     title: "What Is Last-Mile Delivery",
+    description:
+      "A clear explanation of last-mile delivery: the final stage from a local facility to your door, why scans change, and what Out for Delivery usually means.",
     intro: "A clear explanation of the final stage from local hub to your doorstep.",
     sections: [
       "Last-mile begins when shipment reaches local depot.",
@@ -63,22 +71,25 @@ export const guides = [
   },
   {
     slug: "speedx-delivery-hours",
-    title: "How Late Does SpeedX Deliver? Often Into Evening",
+    title: "How Late Does SpeedX Deliver? Hours & Evening Window",
+    description:
+      "How late does SpeedX deliver? Evening stops happen on some routes. SpeedX cites a 6am-10pm first-attempt window, not a guarantee. Independent hours guide.",
     intro:
-      "How late does SpeedX deliver? Often into the evening on busy routes. SpeedX delivery times and SpeedX delivery hours follow your out-for-delivery scan—not a fixed cutoff.",
+      "How late does SpeedX deliver? Evening deliveries happen on some routes. SpeedX delivery hours follow your out-for-delivery scan, local conditions, and official windows—not a single cutoff for every address.",
     sections: [
       "SpeedX delivery hours vary by route, local depot workload, traffic, season, and the number of stops assigned to a driver; there is no single guaranteed delivery cutoff for every address.",
+      "SpeedX's parcel services agreement describes a first delivery-attempt window of 6am-10pm local time on the next business day after SpeedX receives the package. That is a contractual window, not a promise that every parcel will arrive at a specific hour.",
       "If you are asking what time SpeedX delivers, check the latest out-for-delivery scan and the estimated window shown by the seller or tracking timeline rather than assuming a fixed hour.",
       "SpeedX may deliver in the evening, especially during high-volume periods or on dense urban routes, so an out-for-delivery package can still arrive later in the day.",
       "When SpeedX is out for delivery, delivery often happens the same day, but route overflow, weather, access problems, or an unfinished route can move the attempt to the next day.",
-      "Weekend and Sunday SpeedX delivery can happen on some routes, but Saturday is usually more common than Sunday; if scans pause over the weekend, recheck Monday before escalating.",
+      "For weekend timing, SpeedX support states Saturday delivery is 8am-8pm local time in all locations and Sunday delivery is 8am-8pm in select areas. Use the Sunday delivery page for the full weekend answer; if scans pause over the weekend, recheck Monday before escalating.",
       "If the status is still unchanged after the local delivery day, save the tracking timeline, confirm your address and access instructions, and contact the seller before requesting carrier escalation."
     ],
     faqs: [
       {
         question: "How late does SpeedX deliver?",
         answer:
-          "SpeedX can deliver into the evening on some routes, but the latest delivery time depends on local route planning, volume, traffic, weather, and depot operations. SpeedX does not publish one universal cutoff that applies to every address."
+          "SpeedX can deliver into the evening on some routes. The parcel services agreement describes a 6am-10pm local first-attempt window after SpeedX receives the package, but that is not a guaranteed arrival time. Use your out-for-delivery scan as the best same-day guide."
       },
       {
         question: "What time does SpeedX deliver?",
@@ -103,18 +114,20 @@ export const guides = [
       {
         question: "What are normal SpeedX delivery hours?",
         answer:
-          "Normal SpeedX delivery hours vary by location and route. Evening delivery can happen, particularly during busy periods, so tracking activity and the seller's delivery estimate are more reliable than a fixed national schedule."
+          "Hours vary by route. SpeedX's agreement cites a 6am-10pm local first-attempt window, and SpeedX support lists Saturday service as 8am-8pm in all locations and Sunday as 8am-8pm in select areas. Those published windows are not a guarantee for every address."
       },
       {
         question: "Does SpeedX deliver on Sunday?",
         answer:
-          "Sunday SpeedX delivery is possible on some routes but less consistent than weekday or Saturday service. If scans stay quiet on Sunday, recheck Monday before escalating."
+          "According to SpeedX support, Sunday delivery is 8am-8pm local time in select areas only. For the full weekend answer, use the Sunday delivery guide. If scans stay quiet on Sunday, recheck Monday before escalating."
       }
     ]
   },
   {
     slug: "spxcn-tracking-number-meaning",
     title: "SPXCN Tracking Number Meaning — SpeedX Format Guide",
+    description:
+      "What SPXCN means on a SpeedX shipment, how to verify the full tracking number, and why SPXCN updates can pause during export, customs, and handover.",
     intro:
       "What SPXCN means on SpeedX tracking, how to verify the number, and why SPXCN updates can pause during customs.",
     sections: [

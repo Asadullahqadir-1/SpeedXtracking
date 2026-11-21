@@ -71,9 +71,29 @@ export function TrackingLookup({ trackingNumber, carrier }: TrackingLookupProps)
     return "bg-amber-100 text-amber-700";
   }, [data]);
 
+  const officialTracker = (
+    <p className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-800">
+      {loading
+        ? "This lookup can take a few seconds. If it stays slow or fails, use the official SpeedX tracker."
+        : apiError || !data
+          ? "This lookup did not return a structured result. Try the official SpeedX tracker, or confirm the number and wait if the label was just created."
+          : "You can also check the same number on the official SpeedX tracker, which may show a proof-of-delivery photo after delivery."}{" "}
+      <a
+        href="https://tracking.speedx.io/"
+        className="font-semibold text-brand-700 hover:underline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Open tracking.speedx.io
+      </a>
+      . This site is an independent guide, not the SpeedX carrier.
+    </p>
+  );
+
   return (
     <div className="mt-4 space-y-4">
       {loading ? <p className="text-sm text-slate-600">Checking tracking providers…</p> : null}
+      {officialTracker}
 
       {data ? (
         <section className="space-y-4">

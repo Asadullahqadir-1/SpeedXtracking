@@ -6,11 +6,43 @@ import { AdSenseUnit } from "@/components/ads/AdSenseUnit";
 import { FreshnessNote } from "@/components/seo/FreshnessNote";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { TopicAuthorityLinks } from "@/components/seo/TopicAuthorityLinks";
+import { PageTrail } from "@/components/nav/PageTrail";
 import { EditorialTrustBlock } from "@/components/seo/EditorialTrustBlock";
 import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
-import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
+import { buildMetadata } from "@/lib/seo/metadata";
 import { getTrustedCitationSources } from "@/lib/seo/trusted-citations";
-import { articleSchema, breadcrumbSchema, faqSchema } from "@/lib/seo/schema";
+import { articleSchema, faqSchema } from "@/lib/seo/schema";
+
+
+function renderRichText(text: string) {
+  const parts = text.split(/(\[[^\]]+\]\([^)]+\))/g);
+  return parts.map((part, index) => {
+    const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+    if (!match) {
+      return <span key={`${part}-${index}`}>{part}</span>;
+    }
+    const [, label, href] = match;
+    const external = href.startsWith("http://") || href.startsWith("https://");
+    if (external) {
+      return (
+        <a
+          key={`${href}-${index}`}
+          href={href}
+          className="font-semibold text-brand-700 hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {label}
+        </a>
+      );
+    }
+    return (
+      <Link key={`${href}-${index}`} href={href} className="font-semibold text-brand-700 hover:underline">
+        {label}
+      </Link>
+    );
+  });
+}
 
 function resolveBlogCluster(slug: string): "out-for-delivery" | "delivery-hours" | "speedx-tracking" | undefined {
   if (slug.includes("out-for-delivery") || slug.includes("exception") || slug.includes("attempted-delivery")) {
@@ -29,7 +61,11 @@ export const revalidate = 86400;
 
 export async function generateStaticParams() {
   return blogPosts
-    .filter((post) => post.slug !== "does-speedx-deliver-late-at-night-guide")
+    .filter(
+      (post) =>
+        post.slug !== "does-speedx-deliver-late-at-night-guide" &&
+        post.slug !== "tracking-status-meanings-explained"
+    )
     .map((post) => ({ slug: post.slug }));
 }
 
@@ -42,13 +78,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (slug === "does-speedx-deliver-late-at-night-guide") {
     permanentRedirect("/guides/speedx-delivery-hours");
   }
+  if (slug === "tracking-status-meanings-explained") {
+    permanentRedirect("/carriers/speedx/status");
+  }
 
   const seo = getBlogSeo(post.slug);
   const keywords = post.keywords?.length ? post.keywords : seo.keywords;
 
-  // Writing Guidelines: {Article Title} | SpeedXTracking Blog
   return buildMetadata({
-    title: `${post.title} | SpeedXTracking Blog`,
+    title: post.title,
     description: post.description,
     path: `/blog/${post.slug}`,
     keywords,
@@ -70,18 +108,21 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   if (slug === "does-speedx-deliver-late-at-night-guide") {
     permanentRedirect("/guides/speedx-delivery-hours");
   }
+  if (slug === "tracking-status-meanings-explained") {
+    permanentRedirect("/carriers/speedx/status");
+  }
 
   const seo = getBlogSeo(post.slug);
   const keywords = post.keywords?.length ? post.keywords : seo.keywords;
   const postFaqs = seo.faqs;
 
   const relatedPosts = blogPosts
-    .filter((item) => item.slug !== post.slug && item.slug !== "does-speedx-deliver-late-at-night-guide")
+    .filter((item) => item.slug !== post.slug && item.slug !== "does-speedx-deliver-late-at-night-guide" && item.slug !== "tracking-status-meanings-explained")
     .filter((item) => item.category === post.category)
     .slice(0, 3);
 
   const fallbackRelatedPosts = blogPosts
-    .filter((item) => item.slug !== post.slug && item.slug !== "does-speedx-deliver-late-at-night-guide")
+    .filter((item) => item.slug !== post.slug && item.slug !== "does-speedx-deliver-late-at-night-guide" && item.slug !== "tracking-status-meanings-explained")
     .slice(0, 3);
   const relatedToShow = relatedPosts.length > 0 ? relatedPosts : fallbackRelatedPosts;
   const activeCluster = resolveBlogCluster(post.slug);
@@ -105,12 +146,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           keywords
         })}
       />
-      <JsonLd
-        data={breadcrumbSchema([
-          { name: "Home", url: `${siteConfig.url}/` },
-          { name: "Blog", url: `${siteConfig.url}/blog` },
-          { name: post.title, url: `${siteConfig.url}/blog/${post.slug}` }
-        ])}
+      <PageTrail
+        items={[
+          { name: "Home", path: "/" },
+          { name: "Blog", path: "/blog" },
+          { name: post.title, path: `/blog/${post.slug}` }
+        ]}
       />
       {postFaqs.length > 0 ? <JsonLd data={faqSchema(postFaqs)} /> : null}
       <article className="mx-auto max-w-4xl">
@@ -132,14 +173,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               <h2 className="text-xl font-semibold text-slate-900">{section.heading}</h2>
               <div className="mt-3 space-y-3 text-sm leading-7 text-slate-700 sm:text-base">
                 {section.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+                  <p key={paragraph}>{renderRichText(paragraph)}</p>
                 ))}
               </div>
 
               {section.bullets && section.bullets.length > 0 ? (
                 <ul className="mt-4 list-disc space-y-2 pl-5 text-sm text-slate-700 sm:text-base">
                   {section.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
+                    <li key={bullet}>{renderRichText(bullet)}</li>
                   ))}
                 </ul>
               ) : null}
