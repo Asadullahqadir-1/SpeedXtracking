@@ -70,13 +70,19 @@ const nextConfig: NextConfig = {
     ];
   },
   async redirects() {
+    const aliasHostRedirects = [
+      "www.speedxtracking.org",
+      "speedxtracking.io",
+      "www.speedxtracking.io"
+    ].map((host) => ({
+      source: "/:path*",
+      has: [{ type: "host" as const, value: host }],
+      destination: "https://speedxtracking.org/:path*",
+      statusCode: 301
+    }));
+
     return [
-      {
-        source: "/:path*",
-        has: [{ type: "host", value: "www.speedxtracking.org" }],
-        destination: "https://speedxtracking.org/:path*",
-        statusCode: 301
-      },
+      ...aliasHostRedirects,
       ...permanentRedirects.map((entry) => ({
         source: entry.source,
         destination: entry.destination,

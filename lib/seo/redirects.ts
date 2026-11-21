@@ -121,6 +121,10 @@ export const permanentRedirects: PermanentRedirect[] = [
   {
     source: "/topics/speedx-tracking/destination-facility-meaning",
     destination: "/blog/speedx-arrived-at-facility-meaning"
+  },
+  {
+    source: "/track-speedx-packages-in-pakistan",
+    destination: "/how-to-track-speedx"
   }
 ];
 

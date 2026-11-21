@@ -32,8 +32,15 @@ if (!nextConfig.includes("permanentRedirects")) {
 if (!nextConfig.includes("statusCode: 301")) {
   failures.push("next.config.ts redirects must use statusCode 301 for GSC redirect validation.");
 }
-if (!nextConfig.includes('value: "www.speedxtracking.org"') || !nextConfig.includes('destination: "https://speedxtracking.org/:path*"')) {
+if (!nextConfig.includes('"www.speedxtracking.org"') || !nextConfig.includes('destination: "https://speedxtracking.org/:path*"')) {
   failures.push("www.speedxtracking.org must permanently redirect to the apex HTTPS host.");
+}
+if (!nextConfig.includes('"speedxtracking.io"') || !nextConfig.includes('"www.speedxtracking.io"')) {
+  failures.push("speedxtracking.io and www.speedxtracking.io must permanently redirect to the apex HTTPS host.");
+}
+const middlewareSource = fs.readFileSync(path.join(root, "middleware.ts"), "utf8");
+if (!middlewareSource.includes('CANONICAL_HOST = "speedxtracking.org"') || !middlewareSource.includes("speedxtracking.io")) {
+  failures.push("middleware must 301 alias hosts, including speedxtracking.io, to speedxtracking.org.");
 }
 
 const imageSources = [...programmatic.matchAll(/imageSrc:\s*"([^"]+)"/g)].map((match) => match[1]);
