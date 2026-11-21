@@ -1,4 +1,6 @@
 import { buildMetadata } from "@/lib/seo/metadata";
+import { PageTrail } from "@/components/nav/PageTrail";
+import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 
 export const metadata = buildMetadata({
   title: "Terms and Conditions",
@@ -9,7 +11,9 @@ export const metadata = buildMetadata({
 export default function TermsPage() {
   return (
     <div className="container-page py-10">
-      <h1 className="text-3xl font-bold">Terms and Conditions</h1>
+      
+      <PageTrail items={[{ name: "Home", path: "/" }, { name: "Terms", path: "/terms" }]} />
+<h1 className="text-3xl font-bold">Terms and Conditions</h1>
 
       <section className="mt-4 section-card p-5 sm:p-6">
         <p className="text-sm leading-relaxed text-slate-700 sm:text-base">
@@ -59,6 +63,7 @@ export default function TermsPage() {
           .
         </p>
       </section>
-    </div>
+          <SiteLinkHub currentPath="/terms" />
+</div>
   );
 }

@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { PageTrail } from "@/components/nav/PageTrail";
 import Link from "next/link";
 import { TopicAuthorityLinks } from "@/components/seo/TopicAuthorityLinks";
 import { carriers } from "@/lib/seo/carriers";
@@ -39,7 +40,16 @@ export default async function CarrierDeliveryTimePage({ params }: { params: Prom
 
   return (
     <div className="container-page py-10">
-      <h1 className="text-3xl font-bold">
+      
+      <PageTrail
+        items={[
+          { name: "Home", path: "/" },
+          { name: "SpeedX Hub", path: "/carriers" },
+          { name: `${current.carrierName}`, path: `/carriers/${current.slug}` },
+          { name: "Delivery time", path: `/carriers/${current.slug}/delivery-time` }
+        ]}
+      />
+<h1 className="text-3xl font-bold">
         {current.slug === "speedx" ? "How Long Does SpeedX Take to Deliver?" : `${current.carrierName} Delivery Time Estimates`}
       </h1>
       <p className="mt-2 text-slate-700">

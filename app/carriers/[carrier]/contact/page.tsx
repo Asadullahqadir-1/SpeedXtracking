@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { PageTrail } from "@/components/nav/PageTrail";
 import { carriers } from "@/lib/seo/carriers";
 import { getCarrierBySlug } from "@/lib/seo/data";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -40,7 +41,16 @@ export default async function CarrierContactPage({ params }: { params: Promise<{
 
   return (
     <div className="container-page py-10">
-      <h1 className="text-3xl font-bold">
+      
+      <PageTrail
+        items={[
+          { name: "Home", path: "/" },
+          { name: "SpeedX Hub", path: "/carriers" },
+          { name: `${current.carrierName}`, path: `/carriers/${current.slug}` },
+          { name: "Contact", path: `/carriers/${current.slug}/contact` }
+        ]}
+      />
+<h1 className="text-3xl font-bold">
         {isSpeedX ? "SpeedX Customer Service & Contact Support" : `${current.carrierName} Customer Support`}
       </h1>
       <p className="mt-2 text-slate-700">

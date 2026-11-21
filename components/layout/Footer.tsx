@@ -36,8 +36,10 @@ export function Footer() {
               <li><Link href="/blog/shein-speedx-tracking-guide" className="text-slate-300 hover:text-white transition">Shein Tracking Guide</Link></li>
               <li><Link href="/topics" className="text-slate-300 hover:text-white transition">Topic Clusters</Link></li>
               <li><Link href="/carriers/speedx" className="text-slate-300 hover:text-white transition">SpeedX Hub</Link></li>
+              <li><Link href="/blog" className="text-slate-300 hover:text-white transition">Blog</Link></li>
               <li><Link href="/guides" className="text-slate-300 hover:text-white transition">Guides</Link></li>
               <li><Link href="/faq" className="text-slate-300 hover:text-white transition">FAQ</Link></li>
+              <li><Link href="/shipping-terms" className="text-slate-300 hover:text-white transition">Shipping Status Glossary</Link></li>
               <li><Link href="/why-speedxtracking" className="text-slate-300 hover:text-white transition">Why SpeedXTracking</Link></li>
               <li><Link href="/about" className="text-slate-300 hover:text-white transition">About</Link></li>
             </ul>

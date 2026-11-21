@@ -1,4 +1,6 @@
 import { buildMetadata } from "@/lib/seo/metadata";
+import { PageTrail } from "@/components/nav/PageTrail";
+import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 
 export const metadata = buildMetadata({
   title: "Disclaimer",
@@ -10,7 +12,9 @@ export const metadata = buildMetadata({
 export default function DisclaimerPage() {
   return (
     <div className="container-page py-10">
-      <h1 className="text-3xl font-bold">Disclaimer</h1>
+      
+      <PageTrail items={[{ name: "Home", path: "/" }, { name: "Disclaimer", path: "/disclaimer" }]} />
+<h1 className="text-3xl font-bold">Disclaimer</h1>
 
       <section className="mt-4 section-card p-5 sm:p-6">
         <p className="text-sm leading-relaxed text-slate-700 sm:text-base">
@@ -41,6 +45,7 @@ export default function DisclaimerPage() {
           While we aim for accuracy and frequent updates, all content is provided for general informational purposes and may not reflect every route-level or case-specific condition.
         </p>
       </section>
-    </div>
+          <SiteLinkHub currentPath="/disclaimer" />
+</div>
   );
 }

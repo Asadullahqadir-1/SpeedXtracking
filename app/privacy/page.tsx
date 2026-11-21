@@ -1,4 +1,6 @@
 import { buildMetadata } from "@/lib/seo/metadata";
+import { PageTrail } from "@/components/nav/PageTrail";
+import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 
 export const metadata = buildMetadata({
   title: "Privacy Policy",
@@ -9,7 +11,9 @@ export const metadata = buildMetadata({
 export default function PrivacyPage() {
   return (
     <div className="container-page py-10">
-      <h1 className="text-3xl font-bold">Privacy Policy</h1>
+      
+      <PageTrail items={[{ name: "Home", path: "/" }, { name: "Privacy Policy", path: "/privacy" }]} />
+<h1 className="text-3xl font-bold">Privacy Policy</h1>
 
       <section className="mt-4 section-card p-5 sm:p-6">
         <p className="text-sm leading-relaxed text-slate-700 sm:text-base">
@@ -77,6 +81,7 @@ export default function PrivacyPage() {
           .
         </p>
       </section>
-    </div>
+          <SiteLinkHub currentPath="/privacy" />
+</div>
   );
 }

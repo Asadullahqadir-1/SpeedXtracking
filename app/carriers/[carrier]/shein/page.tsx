@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import { PageTrail } from "@/components/nav/PageTrail";
 import { carriers } from "@/lib/seo/carriers";
 import { getCarrierBySlug } from "@/lib/seo/data";
 import { buildMetadata } from "@/lib/seo/metadata";
@@ -31,7 +32,16 @@ export default async function CarrierSheinPage({ params }: { params: Promise<{ c
 
   return (
     <div className="container-page py-10">
-      <h1 className="text-3xl font-bold">{current.carrierName} Shein Tracking — Track Package Free</h1>
+      
+      <PageTrail
+        items={[
+          { name: "Home", path: "/" },
+          { name: "SpeedX Hub", path: "/carriers" },
+          { name: `${current.carrierName}`, path: `/carriers/${current.slug}` },
+          { name: "Shein tracking", path: `/carriers/${current.slug}/shein` }
+        ]}
+      />
+<h1 className="text-3xl font-bold">{current.carrierName} Shein Tracking — Track Package Free</h1>
       <p className="mt-2 text-slate-700">
         Free international {current.carrierName} Shein tracking. Paste your SpeedX tracking number to monitor global transit, customs, and final-mile delivery for marketplace orders.
       </p>

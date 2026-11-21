@@ -1,4 +1,6 @@
 import { buildMetadata } from "@/lib/seo/metadata";
+import { PageTrail } from "@/components/nav/PageTrail";
+import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 
 export const metadata = buildMetadata({
   title: "SpeedX Tracking Glossary — Status Meanings",
@@ -25,7 +27,9 @@ const terms = [
 export default function ShippingTermsPage() {
   return (
     <div className="container-page py-10">
-      <h1 className="text-3xl font-bold">SpeedX Tracking Glossary</h1>
+      
+      <PageTrail items={[{ name: "Home", path: "/" }, { name: "Shipping Terms", path: "/shipping-terms" }]} />
+<h1 className="text-3xl font-bold">SpeedX Tracking Glossary</h1>
       <p className="mt-2 text-slate-700">
         Clear definitions for common SpeedX tracking statuses and delivery terms.
       </p>
@@ -37,6 +41,7 @@ export default function ShippingTermsPage() {
           </article>
         ))}
       </div>
-    </div>
+          <SiteLinkHub currentPath="/shipping-terms" />
+</div>
   );
 }

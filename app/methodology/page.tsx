@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo/metadata";
+import { PageTrail } from "@/components/nav/PageTrail";
+import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 
 export const metadata = buildMetadata({
   title: "Methodology | Tracking Data and Content Framework",
@@ -11,7 +13,9 @@ export const metadata = buildMetadata({
 export default function MethodologyPage() {
   return (
     <div className="container-page py-10">
-      <h1 className="text-3xl font-bold">Methodology</h1>
+      
+      <PageTrail items={[{ name: "Home", path: "/" }, { name: "Methodology", path: "/methodology" }]} />
+<h1 className="text-3xl font-bold">Methodology</h1>
 
       <section className="mt-4 section-card p-5 sm:p-6">
         <p className="text-sm leading-relaxed text-slate-700 sm:text-base">
@@ -86,6 +90,7 @@ export default function MethodologyPage() {
           Core pages are reviewed on a recurring cadence and after major operational or support changes. Corrections are applied as quickly as possible when credible evidence is provided.
         </p>
       </section>
-    </div>
+          <SiteLinkHub currentPath="/methodology" />
+</div>
   );
 }

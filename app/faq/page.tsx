@@ -1,4 +1,5 @@
 import { globalFaqs } from "@/content/faqs";
+import { PageTrail } from "@/components/nav/PageTrail";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
@@ -32,6 +33,7 @@ export default function FaqPage() {
         }
       />
       <JsonLd data={faqSchema(globalFaqs)} />
+      <PageTrail includeSchema={false} items={[{ name: "Home", path: "/" }, { name: "FAQ", path: "/faq" }]} />
       <h1 className="text-3xl font-bold">SpeedX Tracking FAQ</h1>
       <p className="mt-3 max-w-3xl text-slate-700">
         Direct answers to the most searched SpeedX tracking questions: delivery hours, out for delivery meaning, SPXCN format, customs delays, and missing packages.

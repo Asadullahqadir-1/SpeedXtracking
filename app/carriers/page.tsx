@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { carriers } from "@/lib/seo/carriers";
 import { buildMetadata } from "@/lib/seo/metadata";
+import { PageTrail } from "@/components/nav/PageTrail";
+import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 
 export const metadata = buildMetadata({
   title: "SpeedX Tracking Hub — Status & ETA",
@@ -12,7 +14,9 @@ export const metadata = buildMetadata({
 export default function CarriersPage() {
   return (
     <div className="container-page py-10">
-      <h1 className="text-3xl font-bold">SpeedX Tracking Hub</h1>
+      
+      <PageTrail items={[{ name: "Home", path: "/" }, { name: "SpeedX Hub", path: "/carriers" }]} />
+<h1 className="text-3xl font-bold">SpeedX Tracking Hub</h1>
       <p className="mt-2 text-slate-700">Use these SpeedX-specific pages to track shipments and understand delivery status updates.</p>
 
       <section className="mt-6 rounded-lg border border-slate-200 bg-slate-50 p-5">
@@ -40,6 +44,7 @@ export default function CarriersPage() {
           </Link>
         ))}
       </div>
-    </div>
+          <SiteLinkHub currentPath="/carriers" />
+</div>
   );
 }

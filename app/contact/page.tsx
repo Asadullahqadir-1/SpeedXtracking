@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { buildMetadata } from "@/lib/seo/metadata";
+import { PageTrail } from "@/components/nav/PageTrail";
+import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 
 export const metadata = buildMetadata({
   title: "Contact Us",
@@ -10,7 +12,9 @@ export const metadata = buildMetadata({
 export default function ContactPage() {
   return (
     <div className="container-page py-10">
-      <h1 className="text-3xl font-bold">Contact</h1>
+      
+      <PageTrail items={[{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }]} />
+<h1 className="text-3xl font-bold">Contact</h1>
 
       <section className="mt-4 section-card p-5 sm:p-6">
         <p className="text-sm leading-relaxed text-slate-700 sm:text-base">
@@ -58,6 +62,7 @@ export default function ContactPage() {
           For official shipment records, proof-of-delivery, and claim processing, use carrier-owned channels.
         </p>
       </section>
-    </div>
+          <SiteLinkHub currentPath="/contact" />
+</div>
   );
 }
