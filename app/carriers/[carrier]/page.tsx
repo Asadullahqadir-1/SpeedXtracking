@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
 
   const intentDescription =
     current.slug === "speedx"
-      ? "SpeedX package hub: status meanings, delivery times, SPXCN help, and Shein orders. For instant free lookup use the homepage tracker."
+      ? "SpeedX package hub: status meanings, delivery times, SPXCN help, and Shein orders. Use the free tracker for a live lookup. Independent guide, not the carrier."
       : current.metaDescription;
 
   return buildMetadata({

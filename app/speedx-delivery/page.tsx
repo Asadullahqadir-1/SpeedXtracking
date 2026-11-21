@@ -54,7 +54,7 @@ const reviewed = "2026-11-01";
 export const metadata = buildMetadata({
   title: "SpeedX Delivery Times — Hours & Free Track",
   description:
-    "SpeedX delivery times: ~2–7 days domestic, ~7–20 international. Hours, Sunday rules, and free SPX/SPXCN tracking in one place.",
+    "SpeedX delivery times at a glance for typical domestic and international ranges, with links to hours, Sunday service, and free SPX or SPXCN tracking.",
   path: "/speedx-delivery"
 });
 

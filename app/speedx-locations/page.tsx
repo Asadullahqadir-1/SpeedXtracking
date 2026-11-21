@@ -49,7 +49,7 @@ const reviewed = "2026-11-10";
 export const metadata = buildMetadata({
   title: "SpeedX Locations — Hubs, Delivery & Drop-Off",
   description:
-    "SpeedX locations explained: delivery address vs facility hubs, drop-off limits, and what “arrived at facility” means for your SPX tracking.",
+    "SpeedX locations explained: delivery address versus facility hubs, drop-off limits, and what Arrival at Destination Facility means for your SPX tracking.",
   path: "/speedx-locations"
 });
 

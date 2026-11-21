@@ -98,7 +98,7 @@ export const clusterQaArticles: ClusterQaArticle[] = [
     title: "SpeedX Out for Delivery Overnight — Is It Normal?",
     h1: "SpeedX Out for Delivery Overnight: Is It Normal?",
     metaDescription:
-      "Is it normal when SpeedX stays out for delivery overnight? Learn when to wait and when to contact support.",
+      "Is it normal when SpeedX stays out for delivery overnight? Learn when an unfinished route is expected and when to contact the seller or support.",
     summary:
       "An overnight out-for-delivery status is common on unfinished routes. Recheck in the morning before treating it as a lost package.",
     question: "Is it normal if SpeedX stays out for delivery overnight?",
@@ -133,7 +133,7 @@ export const clusterQaArticles: ClusterQaArticle[] = [
     title: "Does SpeedX Deliver in the Evening?",
     h1: "Does SpeedX Deliver in the Evening?",
     metaDescription:
-      "Does SpeedX deliver in the evening? See when late deliveries happen and what out for delivery timing usually means.",
+      "Does SpeedX deliver in the evening? See when late deliveries happen, what an Out for Delivery scan usually means, and when to wait until morning.",
     summary:
       "Yes — SpeedX can deliver in the evening on busy urban routes. There is no fixed national cutoff, so use your scan timeline as the guide.",
     question: "Does SpeedX deliver in the evening?",
@@ -267,7 +267,7 @@ export const clusterQaArticles: ClusterQaArticle[] = [
     title: "What Time Does SpeedX Stop Delivering?",
     h1: "What Time Does SpeedX Stop Delivering?",
     metaDescription:
-      "What time does SpeedX stop delivering? There is no single cutoff — use route context and your out-for-delivery scan instead.",
+      "What time does SpeedX stop delivering? There is no single cutoff for every address, so use route context and your Out for Delivery scan instead.",
     summary:
       "SpeedX does not publish one stop-delivering time for every address. Drivers finish when the route ends, which can be evening.",
     question: "What time does SpeedX stop delivering?",
@@ -296,7 +296,7 @@ export const clusterQaArticles: ClusterQaArticle[] = [
     title: "How Long Until SPXCN Shows First Scan?",
     h1: "How Long Until an SPXCN Number Shows the First Scan?",
     metaDescription:
-      "How long before SPXCN tracking updates? Learn normal first-scan windows and when a SpeedX label is stuck.",
+      "How long before SPXCN tracking updates? Learn normal first-scan windows after label creation and when a SpeedX label may actually be stuck in place.",
     summary:
       "SPXCN numbers can sit on label created for 24-48 hours before the first movement scan, especially on cross-border marketplace orders.",
     question: "How long does SPXCN take to show the first tracking scan?",
@@ -328,7 +328,7 @@ export const clusterQaArticles: ClusterQaArticle[] = [
     title: "SpeedX Tracking Not Updating for 48 Hours",
     h1: "SpeedX Tracking Not Updating for 48 Hours: What It Means",
     metaDescription:
-      "SpeedX tracking not updating for 48 hours? Learn when scan gaps are normal and when to contact the seller.",
+      "SpeedX tracking not updating for 48 hours? Learn when scan gaps are still normal during linehaul or customs and when it is time to contact the seller.",
     summary:
       "A 24-48 hour SpeedX scan gap is often normal during linehaul or customs. Use ETA context before escalating.",
     question: "Is it normal if SpeedX tracking does not update for 48 hours?",
@@ -361,7 +361,7 @@ export const clusterQaArticles: ClusterQaArticle[] = [
     title: "Where to Find Shein SpeedX Tracking Number",
     h1: "Where to Find Your Shein SpeedX Tracking Number",
     metaDescription:
-      "Find your Shein SpeedX tracking number in the app or email, then track SPX/SPXCN status for free.",
+      "Find your Shein SpeedX tracking number in the app or shipping email, then paste the full SPX or SPXCN code into the free tracker on this site.",
     summary:
       "Shein usually shows the SpeedX tracking number on the order details page and shipping email once the parcel is handed to the carrier.",
     question: "Where do I find the SpeedX tracking number for a Shein order?",

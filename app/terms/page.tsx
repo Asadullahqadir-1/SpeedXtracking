@@ -4,7 +4,7 @@ import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 
 export const metadata = buildMetadata({
   title: "Terms and Conditions",
-  description: "Terms for using SpeedXTracking package tracking pages and shipping information guides.",
+  description: "Terms for using SpeedXTracking pages, including the free package tracker and unofficial shipping guides. This site is independent and is not the SpeedX carrier.",
   path: "/terms"
 });
 

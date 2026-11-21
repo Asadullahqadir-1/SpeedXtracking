@@ -23,7 +23,7 @@ export const topicClusters: TopicCluster[] = [
     title: "SpeedX Out for Delivery — Meaning & Fixes",
     h1: "SpeedX Out for Delivery: Meaning, Timing, and What To Do Next",
     metaDescription:
-      "What SpeedX out for delivery means, how long it takes, and what to do if out for delivery but not delivered the same day.",
+      "What SpeedX Out for Delivery means, how long a same-day attempt usually takes, and what to do if the package is not delivered that day or overnight.",
     summary:
       "SpeedX out for delivery means your parcel is on a local driver route. Most packages arrive the same day, but route order, traffic, and access issues can delay the drop or push it to the next attempt.",
     primaryKeyword: "speedx out for delivery",
@@ -121,7 +121,7 @@ export const topicClusters: TopicCluster[] = [
     title: "SpeedX Delivery Hours Hub — Stop Times & ETAs",
     h1: "SpeedX Delivery Hours: Stop Times, Evening Routes & ETAs",
     metaDescription:
-      "SpeedX delivery hours hub: evening routes, stop-time myths, Sunday links, and when out for delivery usually arrives.",
+      "SpeedX delivery hours hub: evening routes, stop-time myths, Sunday service links, and when an out-for-delivery package usually arrives the same day.",
     summary:
       "SpeedX delivery hours vary by route. Evening delivery is common in busy areas, and there is no single national cutoff. Use your tracking scan and seller ETA instead of assuming a fixed stop time.",
     primaryKeyword: "how late does speedx deliver",
@@ -225,7 +225,7 @@ export const topicClusters: TopicCluster[] = [
     title: "SpeedX Tracking & SPXCN Number Guide",
     h1: "SpeedX Tracking: Free Lookup, SPXCN Format, and Status Help",
     metaDescription:
-      "Free SpeedX tracking for SPX and SPXCN numbers. Understand status updates, scan gaps, and how to track Shein SpeedX orders.",
+      "Free SpeedX tracking for SPX and SPXCN numbers: understand status updates, scan gaps, and how to track Shein or other marketplace SpeedX orders.",
     summary:
       "SpeedX tracking shows label, transit, facility, out for delivery, and delivered events for SPX and SPXCN numbers. Use the free tracker, then open the matching guide if scans pause or an exception appears.",
     primaryKeyword: "speedx tracking",

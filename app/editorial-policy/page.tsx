@@ -4,7 +4,7 @@ import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 
 export const metadata = buildMetadata({
   title: "Editorial Policy",
-  description: "Read how SpeedXTracking creates, reviews, and updates tracking guides and carrier pages for accuracy.",
+  description: "Read how SpeedXTracking creates, reviews, and updates tracking guides, including how official facts are attributed and when we say we do not know.",
   path: "/editorial-policy"
 });
 

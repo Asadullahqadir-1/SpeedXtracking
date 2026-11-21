@@ -54,7 +54,7 @@ const reviewed = "2026-11-10";
 export const metadata = buildMetadata({
   title: "SpeedX Shipping — Times, Tracking & Help",
   description:
-    "SpeedX shipping explained: how long it takes, how to track SPX/SPXCN packages free, Shein handoffs, and what to do when shipping stalls.",
+    "SpeedX shipping explained: how long deliveries often take, how to track SPX or SPXCN packages free, marketplace handoffs, and what to do when shipping stalls.",
   path: "/speedx-shipping"
 });
 

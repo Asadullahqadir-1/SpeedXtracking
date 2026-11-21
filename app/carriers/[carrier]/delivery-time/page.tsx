@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
         : `${current.carrierName} Delivery Time Guide`,
     description:
       current.slug === "speedx"
-        ? "How long SpeedX takes to deliver domestically and internationally, plus what out for delivery timing usually means."
+        ? "How long SpeedX takes to deliver domestically and internationally, plus what Out for Delivery timing usually means and when evening arrivals can happen."
         : `Typical ${current.carrierName} delivery times by route type, plus why customs, weather, and handoffs can delay arrival.`,
     path: `/carriers/${carrier}/delivery-time`,
     robots: current.slug === "speedx" ? undefined : { index: false, follow: true }

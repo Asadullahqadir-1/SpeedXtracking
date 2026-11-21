@@ -4,7 +4,7 @@ import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 
 export const metadata = buildMetadata({
   title: "Privacy Policy",
-  description: "Understand what data SpeedXTracking stores and how tracking search inputs are handled.",
+  description: "Understand what data SpeedXTracking stores, how tracking search inputs are handled, and the privacy limits of this independent SpeedX information website.",
   path: "/privacy"
 });
 

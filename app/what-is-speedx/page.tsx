@@ -46,7 +46,7 @@ const faqs = [
 export const metadata = buildMetadata({
   title: "What Is SpeedX? Delivery Carrier Explained",
   description:
-    "What is SpeedX? A last-mile delivery carrier for e-commerce (including Shein). See who delivers packages and how to track SPX/SPXCN free.",
+    "What is SpeedX? A last-mile carrier used on some e-commerce orders, including Shein and Temu. Learn how to track SPX or SPXCN numbers on official tools.",
   path: "/what-is-speedx"
 });
 

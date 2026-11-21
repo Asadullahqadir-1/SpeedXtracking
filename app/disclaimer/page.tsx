@@ -5,7 +5,7 @@ import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 export const metadata = buildMetadata({
   title: "Disclaimer",
   description:
-    "SpeedXTracking is an independent SpeedX tracking information platform and is not affiliated with SpeedX.",
+    "SpeedXTracking is an independent SpeedX tracking information site and is not affiliated with SpeedX. Read this disclaimer before using unofficial help.",
   path: "/disclaimer"
 });
 

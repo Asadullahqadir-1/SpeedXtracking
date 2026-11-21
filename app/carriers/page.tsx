@@ -7,7 +7,7 @@ import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 export const metadata = buildMetadata({
   title: "SpeedX Tracking Hub — Status & ETA",
   description:
-    "Browse SpeedX tracking resources: package status guides, delivery-time pages, Shein help, and support contacts.",
+    "Browse the SpeedX tracking hub: official status meanings, delivery-time pages, Shein help, and support guidance. Independent resource, not the SpeedX carrier.",
   path: "/carriers"
 });
 

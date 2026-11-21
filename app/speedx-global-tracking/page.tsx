@@ -46,7 +46,7 @@ const faqs = [
 export const metadata = buildMetadata({
   title: "SpeedX Global Tracking — International Status",
   description:
-    "SpeedX global tracking for international SPX/SPXCN packages. Check cross-border status, customs pauses, and delivery ETAs worldwide.",
+    "SpeedX global tracking for international SPX and SPXCN packages: check cross-border status, understand customs pauses, and estimate delivery windows worldwide.",
   path: "/speedx-global-tracking"
 });
 

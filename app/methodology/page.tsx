@@ -6,7 +6,7 @@ import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 export const metadata = buildMetadata({
   title: "Methodology | Tracking Data and Content Framework",
   description:
-    "See how SpeedXTracking organizes carrier pages, status definitions, and delivery estimates to help users resolve tracking issues quickly.",
+    "See how SpeedXTracking organizes carrier pages, official status names, and delivery-hour explanations so readers can resolve issues without invented facts.",
   path: "/methodology"
 });
 

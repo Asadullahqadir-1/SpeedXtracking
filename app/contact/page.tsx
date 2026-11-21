@@ -5,7 +5,7 @@ import { SiteLinkHub } from "@/components/seo/SiteLinkHub";
 
 export const metadata = buildMetadata({
   title: "Contact Us",
-  description: "Contact the SpeedXTracking editorial team for corrections, feedback, and support-related questions.",
+  description: "Contact the SpeedXTracking editorial team for corrections, feedback, or questions about our independent SpeedX tracking guides. We are not the SpeedX carrier.",
   path: "/contact"
 });
 

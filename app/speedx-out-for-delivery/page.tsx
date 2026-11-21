@@ -54,7 +54,7 @@ const reviewed = "2026-11-01";
 export const metadata = buildMetadata({
   title: "SpeedX Out for Delivery — Same Day? What To Do",
   description:
-    "SpeedX out for delivery usually means same-day drop. Still out for delivery all day or not delivered? Checklist + free SPX tracking below.",
+    "SpeedX Out for Delivery usually means a same-day attempt. If it stays out for delivery or is not delivered, use this checklist and the free SPX tracking tool.",
   path: "/speedx-out-for-delivery"
 });
 

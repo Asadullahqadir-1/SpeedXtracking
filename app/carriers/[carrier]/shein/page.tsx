@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
 
   return buildMetadata({
     title: `${current.carrierName} Shein Tracking — Track Package Free`,
-    description: `Free ${current.carrierName} Shein tracking. Check Shein order status, SpeedX tracking number updates, and cross-border delivery ETAs worldwide.`,
+    description: `Free ${current.carrierName} Shein tracking: check Shein order status, SpeedX tracking number updates, cross-border ETAs, and what to do when scans pause worldwide.`,
     path: `/carriers/${carrier}/shein`,
     robots: current.slug === "speedx" ? undefined : { index: false, follow: true }
   });

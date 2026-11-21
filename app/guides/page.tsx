@@ -8,7 +8,7 @@ import { breadcrumbSchema, collectionPageSchema, itemListSchema } from "@/lib/se
 export const metadata = buildMetadata({
   title: "SpeedX Tracking Guides — Fix Delays Fast",
   description:
-    "Actionable SpeedX guides for delayed updates, missing deliveries, SPXCN formats, and delivery-hour questions.",
+    "Actionable SpeedX guides for delayed updates, missing deliveries, SPXCN formats, and how late SpeedX delivers, plus links to related status and tracking help.",
   path: "/guides"
 });
 

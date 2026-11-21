@@ -9,7 +9,7 @@ export const revalidate = 86400;
 export const metadata = buildMetadata({
   title: "Shipping Delay Checklist — Fix Stuck Packages",
   description:
-    "Free checklist to diagnose scan gaps, missing deliveries, customs holds, and the right support escalation path.",
+    "Use this free shipping-delay checklist to diagnose SpeedX scan gaps, missing deliveries, customs holds, and the right moment to escalate with screenshots.",
   path: "/resources/shipping-delay-checklist",
   image: "/images/official/speedx-coverage-map.webp"
 });

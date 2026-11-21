@@ -26,7 +26,7 @@ const faqs = [
 export const metadata = buildMetadata({
   title: "How to Track SpeedX Package — Free Steps",
   description:
-    "How to track a SpeedX package in minutes: find your tracking number, check SPX/SPXCN status free, and know when to contact support.",
+    "How to track a SpeedX package: find the tracking number, check SPX or SPXCN status free, use the official tracker if needed, and know when to contact support.",
   path: "/how-to-track-speedx"
 });
 
