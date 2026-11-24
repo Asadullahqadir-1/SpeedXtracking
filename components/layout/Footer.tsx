@@ -147,6 +147,23 @@ export function Footer() {
           <p className="text-sm text-slate-400">
             © {currentYear} SpeedXTracking. All rights reserved.
           </p>
+          <nav aria-label="Legal" className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm">
+            <Link href="/privacy" className="text-slate-300 hover:text-white transition">
+              Privacy Policy
+            </Link>
+            <Link href="/disclaimer" className="text-slate-300 hover:text-white transition">
+              Disclaimer
+            </Link>
+            <Link href="/terms" className="text-slate-300 hover:text-white transition">
+              Terms of Service
+            </Link>
+            <Link href="/contact" className="text-slate-300 hover:text-white transition">
+              Contact
+            </Link>
+            <Link href="/editorial-policy" className="text-slate-300 hover:text-white transition">
+              Editorial Policy
+            </Link>
+          </nav>
           <p className="text-sm text-slate-400">
             Independent SpeedX tracking resource | Not affiliated with SpeedX
           </p>

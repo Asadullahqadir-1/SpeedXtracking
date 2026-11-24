@@ -7,7 +7,10 @@ const navItems = [
   { href: "/carriers/speedx", label: "SpeedX Hub" },
   { href: "/guides", label: "Guides" },
   { href: "/blog", label: "Blog" },
-  { href: "/faq", label: "FAQ" }
+  { href: "/faq", label: "FAQ" },
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/disclaimer", label: "Disclaimer" },
+  { href: "/contact", label: "Contact" }
 ];
 
 export function Header() {
