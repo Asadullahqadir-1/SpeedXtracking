@@ -9,7 +9,10 @@ import { AnalyticsProvider } from "@/components/analytics/AnalyticsProvider";
 import { GlobalJsonLd } from "@/components/seo/GlobalJsonLd";
 import { siteConfig } from "@/lib/seo/metadata";
 
-const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "pub-5798356780873571";
+const ADSENSE_CLIENT_RAW = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "pub-7201356041713473";
+const ADSENSE_CLIENT = ADSENSE_CLIENT_RAW.startsWith("ca-")
+  ? ADSENSE_CLIENT_RAW
+  : `ca-${ADSENSE_CLIENT_RAW}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),

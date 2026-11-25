@@ -24,7 +24,8 @@ export function AdSenseUnit({
   className = ""
 }: AdSenseUnitProps) {
   const pushed = useRef(false);
-  const client = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "pub-5798356780873571";
+  const clientRaw = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || "pub-7201356041713473";
+  const client = clientRaw.startsWith("ca-") ? clientRaw : `ca-${clientRaw}`;
 
   useEffect(() => {
     if (!slot || pushed.current) return;
