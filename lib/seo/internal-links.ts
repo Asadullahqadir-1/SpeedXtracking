@@ -137,8 +137,6 @@ export function getTopicAuthorityClusters(): LinkCluster[] {
         { href: "/speedx-shipping", label: "SpeedX shipping guide" },
         { href: "/topics/delivery-hours", label: "SpeedX delivery hours hub" },
         { href: "/does-speedx-deliver-on-sunday", label: "Does SpeedX deliver on Sunday?" },
-        { href: "/topics/delivery-hours/evening-delivery", label: "Does SpeedX deliver in the evening?" },
-        { href: "/topics/delivery-hours/stop-time-myths", label: "What time does SpeedX stop delivering?" },
         { href: "/guides/speedx-delivery-hours", label: "How late does SpeedX deliver?" },
         { href: "/carriers/speedx/delivery-time", label: "SpeedX delivery time estimates" }
       ]
@@ -158,7 +156,8 @@ export function getTopicAuthorityClusters(): LinkCluster[] {
         { href: "/speedx-contact-support", label: "SpeedX customer service" },
         { href: "/carriers/speedx/shein", label: "Shein SpeedX tracking" },
         { href: "/topics/speedx-tracking/spxcn-first-scan", label: "How long until SPXCN shows first scan?" },
-        { href: "/topics/speedx-tracking/tracking-not-updating-48-hours", label: "Tracking not updating for 48 hours" },
+        { href: "/topics/speedx-tracking/shein-speedx-number", label: "Where to find Shein SpeedX tracking number" },
+        { href: "/blog/speedx-tracking-not-updating", label: "SpeedX tracking not updating fixes" },
         { href: "/guides/spxcn-tracking-number-meaning", label: "SPXCN tracking number meaning" },
         { href: "/rastrear-paquete-speedx", label: "Rastrear paquete SpeedX" }
       ]

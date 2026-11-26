@@ -59,28 +59,28 @@ function resolveBlogCluster(slug: string): "out-for-delivery" | "delivery-hours"
 
 export const revalidate = 86400;
 
+const redirectedBlogSlugs: Record<string, string> = {
+  "does-speedx-deliver-late-at-night-guide": "/guides/speedx-delivery-hours",
+  "tracking-status-meanings-explained": "/carriers/speedx/status",
+  "track-speedx-packages-in-pakistan": "/how-to-track-speedx"
+};
+
 export async function generateStaticParams() {
   return blogPosts
-    .filter(
-      (post) =>
-        post.slug !== "does-speedx-deliver-late-at-night-guide" &&
-        post.slug !== "tracking-status-meanings-explained"
-    )
+    .filter((post) => !redirectedBlogSlugs[post.slug])
     .map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const redirectTarget = redirectedBlogSlugs[slug];
+  if (redirectTarget) {
+    permanentRedirect(redirectTarget);
+  }
+
   const post = blogPosts.find((item) => item.slug === slug);
 
   if (!post) return {};
-
-  if (slug === "does-speedx-deliver-late-at-night-guide") {
-    permanentRedirect("/guides/speedx-delivery-hours");
-  }
-  if (slug === "tracking-status-meanings-explained") {
-    permanentRedirect("/carriers/speedx/status");
-  }
 
   const seo = getBlogSeo(post.slug);
   const keywords = post.keywords?.length ? post.keywords : seo.keywords;
@@ -89,27 +89,21 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: post.title,
     description: post.description,
     path: `/blog/${post.slug}`,
-    keywords,
-    robots:
-      slug === "track-speedx-packages-in-pakistan"
-        ? { index: false, follow: true }
-        : undefined
+    keywords
   });
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const redirectTarget = redirectedBlogSlugs[slug];
+  if (redirectTarget) {
+    permanentRedirect(redirectTarget);
+  }
+
   const post = blogPosts.find((item) => item.slug === slug);
 
   if (!post) {
     notFound();
-  }
-
-  if (slug === "does-speedx-deliver-late-at-night-guide") {
-    permanentRedirect("/guides/speedx-delivery-hours");
-  }
-  if (slug === "tracking-status-meanings-explained") {
-    permanentRedirect("/carriers/speedx/status");
   }
 
   const seo = getBlogSeo(post.slug);
@@ -117,12 +111,12 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const postFaqs = seo.faqs;
 
   const relatedPosts = blogPosts
-    .filter((item) => item.slug !== post.slug && item.slug !== "does-speedx-deliver-late-at-night-guide" && item.slug !== "tracking-status-meanings-explained")
+    .filter((item) => item.slug !== post.slug && !redirectedBlogSlugs[item.slug])
     .filter((item) => item.category === post.category)
     .slice(0, 3);
 
   const fallbackRelatedPosts = blogPosts
-    .filter((item) => item.slug !== post.slug && item.slug !== "does-speedx-deliver-late-at-night-guide" && item.slug !== "tracking-status-meanings-explained")
+    .filter((item) => item.slug !== post.slug && !redirectedBlogSlugs[item.slug])
     .slice(0, 3);
   const relatedToShow = relatedPosts.length > 0 ? relatedPosts : fallbackRelatedPosts;
   const activeCluster = resolveBlogCluster(post.slug);

@@ -34,7 +34,8 @@ export const metadata = buildMetadata({
 export default function HomePage() {
   const redirectedBlogSlugs = new Set([
     "does-speedx-deliver-late-at-night-guide",
-    "tracking-status-meanings-explained"
+    "tracking-status-meanings-explained",
+    "track-speedx-packages-in-pakistan"
   ]);
   const latestBlogPosts = [...blogPosts]
     .filter((post) => !redirectedBlogSlugs.has(post.slug))

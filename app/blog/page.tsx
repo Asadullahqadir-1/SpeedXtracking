@@ -15,12 +15,13 @@ export const metadata = buildMetadata({
 });
 
 export default function BlogPage() {
+  const hiddenBlogSlugs = new Set([
+    "does-speedx-deliver-late-at-night-guide",
+    "tracking-status-meanings-explained",
+    "track-speedx-packages-in-pakistan"
+  ]);
   const sortedPosts = blogPosts
-    .filter(
-      (post) =>
-        post.slug !== "does-speedx-deliver-late-at-night-guide" &&
-        post.slug !== "tracking-status-meanings-explained"
-    )
+    .filter((post) => !hiddenBlogSlugs.has(post.slug))
     .sort((a, b) => new Date(b.updatedDate).getTime() - new Date(a.updatedDate).getTime());
 
   return (

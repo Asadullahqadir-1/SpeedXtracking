@@ -115,14 +115,30 @@ export const clusterQaArticles: ClusterQaArticle[] = [
       {
         heading: "What to do in the morning",
         paragraphs: [
-          "Refresh tracking, check drop points again, and only then open seller support if nothing changed and no delivery notice exists."
+          "Refresh tracking on a free SpeedX tracker, check porch, lockers, and reception again, then open seller support only if nothing changed and no delivery notice exists.",
+          "Save a screenshot of the overnight out-for-delivery timestamp before you escalate so support can see the exact window."
+        ],
+        bullets: [
+          "Recheck tracking after local morning depot hours",
+          "Confirm gate codes and phone number in the seller app",
+          "Compare the seller ETA with the last scan time",
+          "Escalate with screenshots if still unchanged after the next business morning"
+        ]
+      },
+      {
+        heading: "When overnight out for delivery is not normal",
+        paragraphs: [
+          "If status stays out for delivery with no new scan for more than one full local delivery day after the seller ETA, treat it as a failed final-mile attempt and follow the package-not-delivered checklist.",
+          "Repeated overnight holds after two attempts raise return-to-sender risk, so update access notes quickly."
         ]
       }
     ],
     relatedAnchors: [
-      { href: "/topics/out-for-delivery", label: "Out for delivery meaning and fixes" },
+      { href: "/speedx-out-for-delivery", label: "SpeedX out for delivery meaning" },
+      { href: "/speedx-package-not-delivered", label: "SpeedX package not delivered checklist" },
+      { href: "/topics/out-for-delivery", label: "Out for delivery topic hub" },
       { href: "/carriers/speedx/status", label: "SpeedX tracking status meanings" },
-      { href: "/track-package", label: "Track SpeedX package free" }
+      { href: "/track-package", label: "Free SpeedX tracking lookup" }
     ]
   },
 
@@ -306,20 +322,37 @@ export const clusterQaArticles: ClusterQaArticle[] = [
       {
         heading: "Normal SPXCN first-scan behavior",
         paragraphs: [
-          "Sellers frequently create labels before the carrier picks up the parcel. The number is valid, but public scans start after intake."
+          "Sellers frequently create labels before the carrier picks up the parcel. The number is valid, but public scans start after intake.",
+          "Cross-border SPXCN shipments can also sit quiet during export departure before the first movement event appears."
+        ],
+        bullets: [
+          "0-24 hours: common seller processing window",
+          "24-48 hours: normal first-scan delay on many marketplace orders",
+          "48-72 hours: confirm seller handoff proof",
+          "72+ hours with a ship confirmation: escalate for corrected tracking"
+        ]
+      },
+      {
+        heading: "How to verify the SPXCN code",
+        paragraphs: [
+          "Copy the full SPXCN string without spaces. Do not paste the Shein or marketplace order ID into the tracker.",
+          "If lookup fails immediately, wait for seller sync, then retry on the free SpeedX tracking page."
         ]
       },
       {
         heading: "When to escalate",
         paragraphs: [
-          "If the seller says the item shipped and tracking remains blank beyond 48-72 hours, request handoff proof and a corrected tracking number."
+          "If the seller says the item shipped and tracking remains blank beyond 48-72 hours, request handoff proof and a corrected tracking number.",
+          "Include screenshots from the seller app and the tracker so support can compare both timelines."
         ]
       }
     ],
     relatedAnchors: [
       { href: "/topics/speedx-tracking", label: "SpeedX tracking and SPXCN hub" },
       { href: "/guides/spxcn-tracking-number-meaning", label: "SPXCN tracking number meaning" },
-      { href: "/blog/speedx-label-created-no-movement", label: "Label created but no movement" }
+      { href: "/blog/speedx-label-created-no-movement", label: "Label created but no movement" },
+      { href: "/track-package", label: "Free SpeedX tracking lookup" },
+      { href: "/speedx-tracking-number", label: "SpeedX tracking number guide" }
     ]
   },
   {
@@ -371,20 +404,35 @@ export const clusterQaArticles: ClusterQaArticle[] = [
       {
         heading: "Where Shein shows the number",
         paragraphs: [
-          "Look under Order Details → Shipping / Logistics, or in the shipped confirmation email. Avoid using the order ID as a tracking number."
+          "Look under Order Details → Shipping / Logistics, or in the shipped confirmation email. Avoid using the order ID as a tracking number.",
+          "Shein may show a partial code first. Wait for the full SPX or SPXCN string before escalating a “number not found” error."
+        ],
+        bullets: [
+          "Order details shipping / logistics section",
+          "Shipped confirmation email",
+          "Carrier tracking field (not the Shein order ID)"
         ]
       },
       {
         heading: "After you copy the code",
         paragraphs: [
-          "Paste it into SpeedXTracking without spaces. If the number is invalid, wait for carrier activation or ask Shein support for the corrected code."
+          "Paste it into the free SpeedX tracker without spaces. If the number is invalid, wait for carrier activation or ask Shein support for the corrected code.",
+          "Once scans appear, read the full timeline—export, customs, destination facility, out for delivery, then delivered—instead of judging only the latest label."
+        ]
+      },
+      {
+        heading: "Who to contact if the number never appears",
+        paragraphs: [
+          "Contact Shein first for missing or wrong tracking numbers. Use SpeedX support only after the seller confirms the parcel was handed to the carrier."
         ]
       }
     ],
     relatedAnchors: [
       { href: "/topics/speedx-tracking", label: "SpeedX tracking and SPXCN hub" },
       { href: "/carriers/speedx/shein", label: "Shein SpeedX tracking guide" },
-      { href: "/track-package", label: "Free SpeedX package tracker" }
+      { href: "/blog/shein-speedx-tracking-guide", label: "Shein SpeedX tracking article" },
+      { href: "/track-package", label: "Free SpeedX package tracker" },
+      { href: "/speedx-tracking-number", label: "SpeedX tracking number guide" }
     ]
   }
 ];

@@ -40,9 +40,14 @@ Allow: /
 
 User-agent: *
 Allow: /
-Allow: /llms.txt
-Allow: /agents.txt
 Disallow: /api/
+
+# Keep AI prompt files readable by AI bots above, but skip Google crawl noise (noindex headers remain).
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /agents.txt
+Disallow: /llms.txt
 
 Host: speedxtracking.org
 Sitemap: https://speedxtracking.org/sitemap.xml

@@ -654,7 +654,7 @@ export const blogPosts: BlogPost[] = [
     ]
   },
   {
-        slug: "speedx-arrived-at-facility-meaning",
+    slug: "speedx-arrived-at-facility-meaning",
     title: "Arrival at Destination Facility SpeedX — Next Step",
     description:
       "Arrival at Destination Facility means your SpeedX parcel reached the local hub. See what usually happens next and when Out for Delivery should appear.",
