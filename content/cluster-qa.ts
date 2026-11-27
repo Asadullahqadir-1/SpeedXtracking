@@ -146,34 +146,55 @@ export const clusterQaArticles: ClusterQaArticle[] = [
   {
     slug: "evening-delivery",
     clusterSlug: "delivery-hours",
-    title: "Does SpeedX Deliver in the Evening?",
+    title: "Does SpeedX Deliver in the Evening? Late Delivery Guide",
     h1: "Does SpeedX Deliver in the Evening?",
     metaDescription:
-      "Does SpeedX deliver in the evening? See when late deliveries happen, what an Out for Delivery scan usually means, and when to wait until morning.",
+      "Does SpeedX deliver in the evening? Yes on many routes. See the 6am–10pm first-attempt window, out-for-delivery timing, and when to wait until morning.",
     summary:
-      "Yes — SpeedX can deliver in the evening on busy urban routes. There is no fixed national cutoff, so use your scan timeline as the guide.",
+      "Yes — SpeedX can deliver in the evening. SpeedX’s parcel services agreement describes a first delivery-attempt window of 6am–10pm local time, and busy urban routes often finish late.",
     question: "Does SpeedX deliver in the evening?",
     answer:
-      "Yes. Evening delivery is common during high-volume periods and on dense city routes. Suburban routes may finish earlier.",
+      "Yes. Evening SpeedX delivery is common on dense city routes and peak days. SpeedX describes a first-attempt window of 6am–10pm local time after it receives the package — that is a contractual window, not a guaranteed clock time for every address.",
     sections: [
       {
-        heading: "When evening delivery is likely",
+        heading: "Official evening delivery window context",
         paragraphs: [
-          "Peak retail seasons, dense apartment routes, and delayed depot departures all push stop times later.",
-          "If your package shows out for delivery after mid-afternoon, an evening arrival is still normal."
+          "SpeedX’s parcel services agreement says couriers aim for a first delivery attempt between 6:00 a.m. and 10:00 p.m. local time on the next business day after SpeedX receives the parcel.",
+          "That published window explains why an out-for-delivery scan after mid-afternoon can still end in a late evening drop."
+        ],
+        bullets: [
+          "First-attempt window cited by SpeedX: 6am–10pm local",
+          "Not a guarantee that every stop happens early",
+          "Route order decides morning vs evening arrival"
         ]
       },
       {
-        heading: "How to prepare",
+        heading: "When evening delivery is most likely",
         paragraphs: [
-          "Add clear delivery instructions and a reachable phone number so late attempts succeed on the first try."
+          "Peak retail seasons, dense apartment routes, delayed depot departures, and unfinished morning stops all push SpeedX deliveries later.",
+          "If tracking shows out for delivery after mid-afternoon, stay available through evening before treating the attempt as failed."
+        ]
+      },
+      {
+        heading: "What to do if evening comes and nothing arrives",
+        paragraphs: [
+          "Check porch, side doors, lockers, and reception. Recheck tracking the next morning. Many unfinished routes retry the next local delivery day.",
+          "Escalate with screenshots only after the local evening window plus a next-morning check, or sooner if the seller ETA already passed."
+        ],
+        bullets: [
+          "Verify delivery notes and gate access",
+          "Screenshot the out-for-delivery timestamp",
+          "Use the free SpeedX tracker before contacting support",
+          "Contact the seller first for marketplace orders"
         ]
       }
     ],
     relatedAnchors: [
-      { href: "/topics/delivery-hours", label: "How late does SpeedX deliver hub" },
-      { href: "/guides/speedx-delivery-hours", label: "SpeedX delivery hours checklist" },
-      { href: "/topics/out-for-delivery", label: "SpeedX out for delivery meaning" }
+      { href: "/guides/speedx-delivery-hours", label: "How late does SpeedX deliver?" },
+      { href: "/topics/delivery-hours", label: "SpeedX delivery hours hub" },
+      { href: "/speedx-out-for-delivery", label: "SpeedX out for delivery meaning" },
+      { href: "/topics/delivery-hours/stop-time-myths", label: "What time does SpeedX stop delivering?" },
+      { href: "/track-package", label: "Free SpeedX tracking lookup" }
     ]
   },
   {
@@ -280,28 +301,49 @@ export const clusterQaArticles: ClusterQaArticle[] = [
   {
     slug: "stop-time-myths",
     clusterSlug: "delivery-hours",
-    title: "What Time Does SpeedX Stop Delivering?",
+    title: "What Time Does SpeedX Stop Delivering? Cutoff Explained",
     h1: "What Time Does SpeedX Stop Delivering?",
     metaDescription:
-      "What time does SpeedX stop delivering? There is no single cutoff for every address, so use route context and your Out for Delivery scan instead.",
+      "What time does SpeedX stop delivering? There is no single cutoff. Use the 6am–10pm first-attempt window, your out-for-delivery scan, and seller ETA.",
     summary:
-      "SpeedX does not publish one stop-delivering time for every address. Drivers finish when the route ends, which can be evening.",
+      "SpeedX does not publish one stop-delivering time for every address. Drivers finish when the route ends — often within a 6am–10pm first-attempt window SpeedX cites for next-business-day attempts.",
     question: "What time does SpeedX stop delivering?",
     answer:
-      "There is no universal public stop time. Local route load, traffic, and depot planning decide when the last stop happens.",
+      "There is no universal public stop time for every SpeedX route. SpeedX cites a first delivery-attempt window of 6am–10pm local time after it receives a package, but actual last stops depend on route load, traffic, and local operations.",
     sections: [
       {
-        heading: "Why fixed cutoffs mislead shoppers",
+        heading: "The published window vs a hard cutoff",
         paragraphs: [
-          "People search for a single national stop time, but last-mile networks do not operate that way.",
-          "Treat the seller ETA and latest scan as the practical window, then escalate only after that window plus a next-morning check."
+          "Shoppers search for “what time does SpeedX stop delivering” hoping for one national clock. Last-mile networks do not work that way.",
+          "SpeedX’s parcel services agreement describes a 6:00 a.m. to 10:00 p.m. local first-attempt window for the next business day after SpeedX receives the parcel. Treat that as a planning window, not a promise your stop happens at a fixed hour."
+        ],
+        bullets: [
+          "No single stop-delivering time for every ZIP code",
+          "Published first-attempt window: 6am–10pm local",
+          "Weekend windows from SpeedX support: Saturday 8am–8pm; Sunday 8am–8pm in select areas"
+        ]
+      },
+      {
+        heading: "How to read your own stop window",
+        paragraphs: [
+          "Use three signals together: the latest out-for-delivery scan, the seller ETA, and whether your area typically gets evening routes.",
+          "If status is still out for delivery after local evening hours, wait for a morning update before escalating unless the seller ETA already passed."
+        ]
+      },
+      {
+        heading: "When to escalate a late stop",
+        paragraphs: [
+          "Escalate after the local delivery day ends and the next morning still shows no attempt, exception, or delivered scan.",
+          "Include tracking screenshots, destination ZIP, and a one-line timeline when you contact the seller or SpeedX support paths."
         ]
       }
     ],
     relatedAnchors: [
-      { href: "/topics/delivery-hours", label: "How late does SpeedX deliver?" },
-      { href: "/guides/speedx-delivery-hours", label: "SpeedX delivery hours and stop times" },
-      { href: "/faq", label: "SpeedX tracking FAQ answers" }
+      { href: "/guides/speedx-delivery-hours", label: "How late does SpeedX deliver?" },
+      { href: "/topics/delivery-hours/evening-delivery", label: "Does SpeedX deliver in the evening?" },
+      { href: "/does-speedx-deliver-on-sunday", label: "Does SpeedX deliver on Sunday?" },
+      { href: "/speedx-out-for-delivery", label: "SpeedX out for delivery meaning" },
+      { href: "/faq", label: "SpeedX tracking FAQ" }
     ]
   },
 
@@ -358,34 +400,51 @@ export const clusterQaArticles: ClusterQaArticle[] = [
   {
     slug: "tracking-not-updating-48-hours",
     clusterSlug: "speedx-tracking",
-    title: "SpeedX Tracking Not Updating for 48 Hours",
+    title: "SpeedX Tracking Not Updating for 48 Hours — What To Do",
     h1: "SpeedX Tracking Not Updating for 48 Hours: What It Means",
     metaDescription:
-      "SpeedX tracking not updating for 48 hours? Learn when scan gaps are still normal during linehaul or customs and when it is time to contact the seller.",
+      "SpeedX tracking not updating for 48 hours? See when a 24–48 hour scan gap is normal, when to escalate, and how to track SPX/SPXCN free.",
     summary:
-      "A 24-48 hour SpeedX scan gap is often normal during linehaul or customs. Use ETA context before escalating.",
+      "A 24–48 hour SpeedX scan gap is often normal during linehaul, customs, or weekend posting. Use seller ETA context before opening a support case.",
     question: "Is it normal if SpeedX tracking does not update for 48 hours?",
     answer:
-      "Yes, especially on cross-border SPXCN routes. Escalate sooner if the delivery promise already passed or the status shows an exception.",
+      "Yes, especially on cross-border SPXCN routes. A quiet 24–48 hour window during linehaul or customs is common. Escalate sooner if the delivery promise already passed or the status shows an exception.",
     sections: [
       {
         heading: "Normal reasons for a 48-hour gap",
         paragraphs: [
-          "Long-haul transfers, weekend posting delays, and customs review can suppress public events without stopping the parcel."
+          "Long-haul transfers, weekend posting delays, and customs review can suppress public events without stopping the parcel.",
+          "SpeedX support guidance also notes that label-created shipments may not show movement until SpeedX has physically received the package."
         ],
-        bullets: ["Linehaul between hubs", "Customs documentation review", "Weekend or holiday scan lag"]
+        bullets: [
+          "Linehaul between hubs",
+          "Customs documentation review",
+          "Weekend or holiday scan lag",
+          "Seller label created before carrier intake"
+        ]
       },
       {
-        heading: "Action timeline",
+        heading: "48-hour action timeline",
         paragraphs: [
-          "Recheck after 48 hours, compare against the seller ETA, then open a merchant case with screenshots if the window is missed."
+          "Hour 0–24: confirm the full SPX/SPXCN code and recheck the free tracker.",
+          "Hour 24–48: compare the last scan with the seller ETA. If still inside the promise window, wait for the next business scan.",
+          "After 48 hours with a missed ETA: open a seller case with screenshots, order ID, and destination ZIP."
+        ]
+      },
+      {
+        heading: "What to send when you escalate",
+        paragraphs: [
+          "Include the tracking number, last scan timestamp, seller ETA, and one clear request such as locate package or confirm next scan.",
+          "Marketplace shoppers should contact the seller first; use carrier support after handoff is confirmed."
         ]
       }
     ],
     relatedAnchors: [
+      { href: "/blog/speedx-tracking-not-updating", label: "SpeedX tracking not updating — 9 fixes" },
+      { href: "/track-package", label: "Free SpeedX tracking lookup" },
+      { href: "/guides/package-not-updating", label: "Package not updating checklist" },
       { href: "/topics/speedx-tracking", label: "SpeedX tracking hub" },
-      { href: "/blog/speedx-tracking-not-updating", label: "SpeedX tracking not updating fixes" },
-      { href: "/guides/package-not-updating", label: "Why tracking is not updating" }
+      { href: "/speedx-contact-support", label: "SpeedX customer service" }
     ]
   },
   {

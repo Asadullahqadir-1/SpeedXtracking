@@ -71,7 +71,7 @@ export default async function ClusterQaPage({
       item.slug !== article.slug &&
       !redirectedTopicQaPaths.has(`/topics/${item.clusterSlug}/${item.slug}`)
   );
-  const reviewed = "2026-10-05";
+  const reviewed = "2026-11-27";
   const wordCount =
     article.summary.split(/\s+/).length +
     article.sections.reduce(
