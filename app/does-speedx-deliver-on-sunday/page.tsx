@@ -137,8 +137,11 @@ export default function SundayDeliveryPage() {
           <Link href="/guides/speedx-delivery-hours" className="hover:underline">
             How late does SpeedX deliver?
           </Link>
+          <Link href="/topics/delivery-hours/evening-delivery" className="hover:underline">
+            Does SpeedX deliver in the evening?
+          </Link>
           <Link href="/guides/speedx-delivery-hours" className="hover:underline">
-            SpeedX weekend and evening delivery hours
+            SpeedX delivery hours guide
           </Link>
         </div>
       </section>

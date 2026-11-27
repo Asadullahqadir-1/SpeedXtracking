@@ -14,12 +14,9 @@ export const revalidate = 86400;
 const qaRedirectDestinations: Record<string, string> = {
   "/topics/delivery-hours/sunday-delivery-odds": "/does-speedx-deliver-on-sunday",
   "/topics/delivery-hours/weekend-delivery-hours": "/does-speedx-deliver-on-sunday",
-  "/topics/delivery-hours/evening-delivery": "/guides/speedx-delivery-hours",
-  "/topics/delivery-hours/stop-time-myths": "/guides/speedx-delivery-hours",
   "/topics/out-for-delivery/same-day-delivery-odds": "/speedx-out-for-delivery",
   "/topics/out-for-delivery/next-steps-if-missing": "/speedx-out-for-delivery",
-  "/topics/speedx-tracking/destination-facility-meaning": "/blog/speedx-arrived-at-facility-meaning",
-  "/topics/speedx-tracking/tracking-not-updating-48-hours": "/blog/speedx-tracking-not-updating"
+  "/topics/speedx-tracking/destination-facility-meaning": "/blog/speedx-arrived-at-facility-meaning"
 };
 
 export function generateStaticParams() {

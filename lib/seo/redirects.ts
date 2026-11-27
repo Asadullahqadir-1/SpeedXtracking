@@ -126,19 +126,6 @@ export const permanentRedirects: PermanentRedirect[] = [
     source: "/topics/speedx-tracking/destination-facility-meaning",
     destination: "/blog/speedx-arrived-at-facility-meaning"
   },
-  // Thin Q&As Google crawled but would not index — consolidate to pillars (no traffic loss)
-  {
-    source: "/topics/delivery-hours/evening-delivery",
-    destination: "/guides/speedx-delivery-hours"
-  },
-  {
-    source: "/topics/delivery-hours/stop-time-myths",
-    destination: "/guides/speedx-delivery-hours"
-  },
-  {
-    source: "/topics/speedx-tracking/tracking-not-updating-48-hours",
-    destination: "/blog/speedx-tracking-not-updating"
-  },
   {
     source: "/track-speedx-packages-in-pakistan",
     destination: "/how-to-track-speedx"
@@ -153,12 +140,9 @@ export const permanentRedirects: PermanentRedirect[] = [
 export const redirectedTopicQaPaths = new Set([
   "/topics/delivery-hours/sunday-delivery-odds",
   "/topics/delivery-hours/weekend-delivery-hours",
-  "/topics/delivery-hours/evening-delivery",
-  "/topics/delivery-hours/stop-time-myths",
   "/topics/out-for-delivery/same-day-delivery-odds",
   "/topics/out-for-delivery/next-steps-if-missing",
-  "/topics/speedx-tracking/destination-facility-meaning",
-  "/topics/speedx-tracking/tracking-not-updating-48-hours"
+  "/topics/speedx-tracking/destination-facility-meaning"
 ]);
 
 export function getProgrammaticRedirectDestination(slug: string) {
