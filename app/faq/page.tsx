@@ -5,9 +5,9 @@ import { breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/seo/schema";
 import { buildMetadata, siteConfig } from "@/lib/seo/metadata";
 
 export const metadata = buildMetadata({
-  title: "SpeedX Tracking FAQ — Status, ETA & SPXCN",
+  title: "SpeedX FAQ: Delivery Time, Status & SPXCN",
   description:
-    "Answers for SpeedX delivery time, official status meanings, SPXCN numbers, customs delays, Sunday service, and missing packages, with links to the full guides.",
+    "Short answers for SpeedX delivery time, status meanings, SPXCN, Sunday delivery, and missing packages—with links to the full guides for each topic.",
   path: "/faq"
 });
 

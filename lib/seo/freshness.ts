@@ -1,6 +1,6 @@
 export const DAILY_REVALIDATE_SECONDS = 86400;
 
-const defaultFreshnessDate = process.env.NEXT_PUBLIC_CONTENT_LAST_REVIEWED_AT || "2026-11-22";
+const defaultFreshnessDate = process.env.NEXT_PUBLIC_CONTENT_LAST_REVIEWED_AT || "2026-11-27";
 
 const pageFreshnessMap: Record<string, string> = {
   homepage: defaultFreshnessDate,

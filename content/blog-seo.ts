@@ -68,12 +68,17 @@ export const blogSeoBySlug: Record<string, BlogSeoEnrichment> = {
   "speedx-delivery-time-by-region": {
     keywords: [
       "SpeedX delivery time",
+      "how long does SpeedX take",
       "SpeedX delivery times by region",
-      "How long does SpeedX take",
       "SpeedX international delivery time",
       "SpeedX domestic ETA"
     ],
     faqs: [
+      {
+        question: "How long does SpeedX take to deliver?",
+        answer:
+          "Most domestic SpeedX parcels arrive in about 2–7 business days after handoff. Cross-border SpeedX delivery often takes about 7–20 days including customs."
+      },
       {
         question: "What are typical SpeedX delivery times?",
         answer:

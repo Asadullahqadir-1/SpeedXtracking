@@ -59,19 +59,19 @@ export const blogPosts: BlogPost[] = [
   },
   {
     slug: "speedx-delivery-time-by-region",
-    title: "SpeedX Delivery Times by Region — Domestic vs International",
+    title: "SpeedX Delivery Time: 2–7 Days Domestic Guide",
     description:
-      "Regional SpeedX delivery time ranges for domestic and international ETAs, customs lag, and peak delays. This is not the Sunday or hours guide.",
+      "How long does SpeedX take? About 2–7 business days domestic and 7–20 days cross-border after handoff. Regional ETAs, customs lag, and peak delays—not hours or Sunday.",
     category: "Delivery Times",
     readTime: "8 min read",
     publishedDate: "2026-02-26",
-    updatedDate: "2026-11-01",
+    updatedDate: "2026-11-27",
     sections: [
       {
         heading: "Regional SpeedX delivery times at a glance",
         paragraphs: [
-          "Most domestic SpeedX parcels arrive in about 2-7 business days after handoff to the local network. Cross-border SpeedX delivery commonly takes about 7-20 days depending on customs and partner carriers. These are regional delivery-time estimates, not guaranteed delivery hours.",
-          "Marketplace promos and peak seasons can add 2-4 days due to higher sort volume. For the main SpeedX delivery hub (hours, tracking, and ETAs), use /speedx-delivery. For Sunday/weekend service only, use /does-speedx-deliver-on-sunday."
+          "How long does SpeedX take to deliver? Most domestic SpeedX parcels arrive in about 2-7 business days after handoff to the local network. Cross-border SpeedX delivery commonly takes about 7-20 days depending on customs and partner carriers. These are regional delivery-time estimates, not clock hours.",
+          "Marketplace promos and peak seasons can add 2-4 days due to higher sort volume. For clock hours and evening windows, use the SpeedX delivery hours guide. For Saturday/Sunday service only, use the Sunday delivery page. For next-business-day service language after SpeedX receives a parcel, see the carrier transit-time page."
         ]
       },
       {

@@ -220,6 +220,30 @@ export default async function CarrierStatusPage({ params }: { params: Promise<{ 
                   SpeedX out for delivery
                 </Link>
               </li>
+              <li>
+                Delay in transit:{" "}
+                <Link href="/guides/speedx-delay-in-transit-meaning" className="font-semibold text-brand-700 hover:underline">
+                  SpeedX delay in transit meaning
+                </Link>
+              </li>
+              <li>
+                Issue reported:{" "}
+                <Link href="/guides/speedx-issue-reported-meaning" className="font-semibold text-brand-700 hover:underline">
+                  SpeedX issue reported meaning
+                </Link>
+              </li>
+              <li>
+                Last mile enroute:{" "}
+                <Link href="/guides/speedx-last-mile-enroute-meaning" className="font-semibold text-brand-700 hover:underline">
+                  SpeedX last mile enroute meaning
+                </Link>
+              </li>
+              <li>
+                Hubs and facilities:{" "}
+                <Link href="/guides/speedx-hubs-and-facilities" className="font-semibold text-brand-700 hover:underline">
+                  SpeedX hubs and facilities explained
+                </Link>
+              </li>
             </ul>
           </section>
 

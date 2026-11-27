@@ -44,14 +44,14 @@ const faqs = [
 ];
 
 export const metadata = buildMetadata({
-  title: "What Is SpeedX? Delivery Carrier Explained",
+  title: "What Is SpeedX? Who Delivers Your Package",
   description:
-    "What is SpeedX? A last-mile carrier used on some e-commerce orders, including Shein and Temu. Learn how to track SPX or SPXCN numbers on official tools.",
+    "What is SpeedX? A last-mile carrier that delivers many Shein, Temu, and marketplace parcels. Track SPX/SPXCN free here—independent guide, not the carrier.",
   path: "/what-is-speedx"
 });
 
 export default function WhatIsSpeedXPage() {
-  const reviewed = "2026-11-01";
+  const reviewed = "2026-11-27";
 
   return (
     <div className="container-page py-10">
@@ -89,9 +89,9 @@ export default function WhatIsSpeedXPage() {
         })}
       />
 
-      <h1 className="text-3xl font-bold text-slate-900">What Is SpeedX?</h1>
+      <h1 className="text-3xl font-bold text-slate-900">What Is SpeedX? Who Delivers Your Package</h1>
       <p className="answer-lead mt-3 max-w-3xl text-lg font-medium text-slate-900">
-        SpeedX is a last-mile delivery carrier used by online retailers—including many Shein and marketplace orders—to move parcels from hubs to your door with SPX or SPXCN tracking.
+        SpeedX is the last-mile carrier that delivers many Shein, Temu, and marketplace packages—usually under an SPX or SPXCN tracking number. SpeedX (and its local partners) move the parcel from hubs to your door; this site is an independent tracker, not the carrier.
       </p>
       <p className="mt-2 max-w-3xl text-slate-700">
         If your order shows a SpeedX, SPX, or SPXCN tracking number, SpeedX (or a partner in its network) is moving the parcel toward your address. Track it free below.

@@ -107,6 +107,7 @@ export default function sitemap() {
       path === "/speedx-package-not-delivered" ||
       path === "/what-is-speedx" ||
       path === "/is-speedx-legit" ||
+      path === "/does-speedx-deliver-on-sunday" ||
       path === "/speedx-locations"
     ) {
       return 0.94;

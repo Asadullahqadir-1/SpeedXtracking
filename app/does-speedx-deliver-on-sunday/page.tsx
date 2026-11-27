@@ -28,6 +28,11 @@ const faqs = [
       "Yes. SpeedX support says Saturday delivery runs 8am-8pm local time in all locations, and Sunday delivery runs 8am-8pm in select areas. Weekend scans can still post later than weekday events."
   },
   {
+    question: "Does SpeedX deliver on Saturday?",
+    answer:
+      "Yes. SpeedX support states Saturday delivery is available from 8am to 8pm local time in all locations. This is wider than Sunday service, which is select areas only."
+  },
+  {
     question: "What should I do if there is no Sunday update?",
     answer:
       "Quiet Sunday scans are common when your area has no Sunday service, or when events post on Monday. Recheck Monday morning before contacting support, unless the seller ETA already passed or tracking shows an exception."
@@ -35,14 +40,14 @@ const faqs = [
 ];
 
 export const metadata = buildMetadata({
-  title: "Does SpeedX Deliver on Sunday? Weekend Hours Explained",
+  title: "Does SpeedX Deliver Sunday? Yes in Select Areas",
   description:
-    "SpeedX support says Saturday delivery is 8am-8pm in all locations; Sunday is 8am-8pm in select areas. Quiet weekend scans? Recheck Monday before escalating.",
+    "Yes—Sunday delivery is 8am–8pm in select areas. Saturday is 8am–8pm in all locations (SpeedX support). Quiet weekend scans? Recheck Monday before escalating.",
   path: "/does-speedx-deliver-on-sunday"
 });
 
 export default function SundayDeliveryPage() {
-  const reviewed = "2026-11-01";
+  const reviewed = "2026-11-27";
 
   return (
     <div className="container-page py-10">
@@ -93,9 +98,9 @@ export default function SundayDeliveryPage() {
         ]}
         includeSchema={false}
       />
-      <h1 className="text-3xl font-bold text-slate-900">Does SpeedX Deliver on Sunday? Weekend Hours Explained</h1>
+      <h1 className="text-3xl font-bold text-slate-900">Does SpeedX Deliver on Sunday?</h1>
       <p className="answer-lead mt-3 max-w-3xl text-lg font-medium text-slate-900">
-        According to SpeedX support, Saturday delivery runs 8am-8pm local time in all locations, and Sunday delivery runs 8am-8pm local time in select areas. If weekend scans stay quiet, recheck Monday morning before escalating.
+        Yes in select service areas only—SpeedX support lists Sunday delivery as 8am–8pm local time where available. Saturday delivery is 8am–8pm in all locations. If weekend scans stay quiet, recheck Monday morning before escalating.
       </p>
       <p className="mt-2 max-w-3xl text-slate-700">
         Sunday service is not available everywhere. Use your tracking status—not a fixed calendar rule—to decide when to wait or escalate. This page is an independent guide and is not the SpeedX carrier. Confirm current service in your area on the official tracker or with SpeedX support if you need a definitive local answer.
@@ -142,6 +147,9 @@ export default function SundayDeliveryPage() {
           </Link>
           <Link href="/guides/speedx-delivery-hours" className="hover:underline">
             SpeedX delivery hours guide
+          </Link>
+          <Link href="/guides/does-speedx-deliver-on-holidays" className="hover:underline">
+            Holiday delivery (separate from weekends)
           </Link>
         </div>
       </section>

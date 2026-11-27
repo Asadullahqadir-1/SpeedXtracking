@@ -32,12 +32,12 @@ export async function generateMetadata({ params }: { params: Promise<{ carrier: 
 
   const intentTitle =
     current.slug === "speedx"
-      ? "SpeedX Package Hub — Status, ETA & Shein"
+      ? "SpeedX Hub — Status, Shein & Tracker Links"
       : `${current.carrierName} Tracking Guide`;
 
   const intentDescription =
     current.slug === "speedx"
-      ? "SpeedX package hub: status meanings, delivery times, SPXCN help, and Shein orders. Use the free tracker for a live lookup. Independent guide, not the carrier."
+      ? "SpeedX hub: jump to status meanings, Shein tracking, hours, and the free SPX/SPXCN tracker. Independent guide—not the carrier homepage."
       : current.metaDescription;
 
   return buildMetadata({

@@ -25,9 +25,9 @@ import { blogPosts } from "@/content/blogs";
 export const revalidate = 86400;
 
 export const metadata = buildMetadata({
-  title: "Track SpeedX Package Free — Live SPX & SPXCN Status",
+  title: "Free SpeedX Tracking — Live SPX & SPXCN Status",
   description:
-    "Track SpeedX package free: paste SPX or SPXCN for live status, out for delivery, ETA context, and delay fixes. Independent SpeedX tracker — not the carrier.",
+    "Free SpeedX tracking: paste SPX or SPXCN for live status, out for delivery, ETA, and delay fixes. Independent SpeedX tracker—not affiliated with the carrier.",
   path: "/"
 });
 

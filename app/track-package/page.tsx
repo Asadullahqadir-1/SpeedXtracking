@@ -51,9 +51,9 @@ const trackFaqs = [
 ];
 
 export const metadata = buildMetadata({
-  title: "Track SpeedX Package Free — SPX & SPXCN Lookup",
+  title: "Free SpeedX Tracker — Paste SPX/SPXCN Now",
   description:
-    "Track SpeedX package free: paste SPX or SPXCN for live status and scan history. Independent lookup — if it fails, also try tracking.speedx.io.",
+    "Paste your SpeedX SPX or SPXCN number for live status and scan history. Free independent lookup—if it fails, also try tracking.speedx.io.",
   path: "/track-package"
 });
 

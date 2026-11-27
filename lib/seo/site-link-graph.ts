@@ -15,6 +15,8 @@ export function getMoneyPageLinks(): LinkItem[] {
     { href: "/what-is-speedx", label: "What is SpeedX?" },
     { href: "/is-speedx-legit", label: "Is SpeedX legit?" },
     { href: "/does-speedx-deliver-on-sunday", label: "Does SpeedX deliver on Sunday?" },
+    { href: "/guides/does-speedx-deliver-on-holidays", label: "Does SpeedX deliver on holidays?" },
+    { href: "/guides/speedx-cbt-spx-tracking", label: "SpeedX CBT & SPX tracking" },
     { href: "/speedx-locations", label: "SpeedX locations & hubs" },
     { href: "/rastrear-paquete-speedx", label: "Rastrear paquete SpeedX" },
     { href: "/speedx-contact-support", label: "SpeedX customer service" },
@@ -38,6 +40,9 @@ export function getHelpPageLinks(): LinkItem[] {
     { href: "/guides/package-not-updating", label: "Tracking not updating" },
     { href: "/guides/delivered-not-received", label: "Delivered but not received" },
     { href: "/guides/spxcn-tracking-number-meaning", label: "SPXCN tracking number meaning" },
+    { href: "/guides/speedx-delay-in-transit-meaning", label: "Delay in transit meaning" },
+    { href: "/guides/speedx-issue-reported-meaning", label: "Issue reported meaning" },
+    { href: "/guides/how-accurate-is-speedx-estimated-delivery-date", label: "Estimated delivery date accuracy" },
     { href: "/resources/shipping-delay-checklist", label: "Shipping delay checklist" },
     { href: "/faq", label: "SpeedX tracking FAQ" },
     { href: "/shipping-terms", label: "Shipping status glossary" }

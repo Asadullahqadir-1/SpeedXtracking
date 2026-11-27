@@ -74,7 +74,9 @@ export function getCarrierIntentClusters(carrierSlug: string, carrierName: strin
         { href: `/carriers/${carrierSlug}`, label: `${carrierName} package tracking` },
         { href: `/track-package`, label: `Track ${carrierName} shipment` },
         { href: `/carriers/${carrierSlug}/status`, label: `${carrierName} tracking status` },
-        { href: `/carriers/${carrierSlug}/delivery-time`, label: `${carrierName} delivery time` },
+        ...(carrierSlug === "speedx"
+          ? [{ href: "/blog/speedx-delivery-time-by-region", label: "SpeedX delivery time by region" }]
+          : [{ href: `/carriers/${carrierSlug}/delivery-time`, label: `${carrierName} delivery time` }]),
         { href: `/carriers/${carrierSlug}/contact`, label: `${carrierName} contact support` },
         ...speedxMoneyLinks
       ]
@@ -83,14 +85,15 @@ export function getCarrierIntentClusters(carrierSlug: string, carrierName: strin
       title: `${carrierName} help resources`,
       links: [
         { href: `/carriers/${carrierSlug}/status`, label: `${carrierName} status meanings` },
-        { href: `/carriers/${carrierSlug}/delivery-time`, label: `${carrierName} ETA guide` },
         ...(carrierSlug === "speedx"
           ? [
+              { href: "/blog/speedx-delivery-time-by-region", label: "SpeedX regional delivery times" },
+              { href: "/carriers/speedx/delivery-time", label: "SpeedX post-handoff transit window" },
               { href: "/guides/speedx-delivery-hours", label: "SpeedX delivery hours and stop times" },
               { href: "/speedx-out-for-delivery", label: "SpeedX out for delivery meaning" },
               { href: "/blog/speedx-out-for-delivery-but-not-delivered", label: "Out for delivery but not delivered" }
             ]
-          : []),
+          : [{ href: `/carriers/${carrierSlug}/delivery-time`, label: `${carrierName} ETA guide` }]),
         { href: `/carriers/${carrierSlug}/contact`, label: `${carrierName} customer support` },
         { href: `/carriers/${carrierSlug}/shein`, label: `${carrierName} Shein tracking` }
       ]
@@ -108,10 +111,13 @@ export function getGlobalTroubleshootingCluster(): LinkCluster {
       { href: "/speedx-delivery", label: "SpeedX delivery times" },
       { href: "/what-is-speedx", label: "What is SpeedX?" },
       { href: "/does-speedx-deliver-on-sunday", label: "Does SpeedX deliver on Sunday?" },
+      { href: "/guides/does-speedx-deliver-on-holidays", label: "Does SpeedX deliver on holidays?" },
+      { href: "/guides/speedx-cbt-spx-tracking", label: "SpeedX CBT & SPX tracking" },
       { href: "/rastrear-paquete-speedx", label: "Rastrear paquete SpeedX" },
       { href: "/guides/package-not-updating", label: "Tracking not updating" },
       { href: "/guides/delivered-not-received", label: "Delivered but not received" },
       { href: "/guides/speedx-delivery-hours", label: "SpeedX delivery hours" },
+      { href: "/guides/speedx-delay-in-transit-meaning", label: "Delay in transit meaning" },
       { href: "/shipping-terms", label: "Shipping status glossary" }
     ]
   };

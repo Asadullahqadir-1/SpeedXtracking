@@ -133,7 +133,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
       {guide.faqs && guide.faqs.length > 0 ? (
         <section className="mt-8 section-card">
-          <h2 className="text-xl font-semibold">SpeedX delivery hours questions</h2>
+          <h2 className="text-xl font-semibold">Common questions</h2>
           <div className="mt-4 space-y-5">
             {guide.faqs.map((faq) => (
               <div key={faq.question}>
@@ -151,13 +151,14 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
 
       <TopicAuthorityLinks
         activeCluster={
-          guide.slug.includes("delivery-hours") || guide.slug.includes("late-at-night")
+          guide.slug.includes("delivery-hours") ||
+          guide.slug.includes("late-at-night") ||
+          guide.slug.includes("holidays") ||
+          guide.slug.includes("estimated-delivery")
             ? "delivery-hours"
-            : guide.slug.includes("spxcn") || guide.slug.includes("track")
-              ? "speedx-tracking"
-              : guide.slug.includes("delivered")
-                ? "out-for-delivery"
-                : "speedx-tracking"
+            : guide.slug.includes("delivered") || guide.slug.includes("last-mile")
+              ? "out-for-delivery"
+              : "speedx-tracking"
         }
       />
 
