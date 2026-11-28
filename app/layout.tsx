@@ -78,6 +78,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
       <head>
         <link rel="preconnect" href="https://www.17track.net" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+        {/* Google AdSense Auto ads — required in <head> after site approval */}
+        <Script
+          id="adsense-init"
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
+          crossOrigin="anonymous"
+          strategy="beforeInteractive"
+        />
       </head>
       <body>
         <GlobalJsonLd />
@@ -87,14 +95,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Header />
         <main>{children}</main>
         <Footer />
-        {ADSENSE_CLIENT ? (
-          <Script
-            id="adsense-js"
-            src={`https://pagead2.googlesyndication.com/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
-            strategy="lazyOnload"
-            crossOrigin="anonymous"
-          />
-        ) : null}
       </body>
     </html>
   );
